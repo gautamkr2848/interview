@@ -20,6 +20,6 @@ public class LongestCommonSubSequence {
             }
         }
 
-        System.out.println("Longest Common Substring Length : " + max);
+        System.out.println("Longest Common Sub Sequence Length : " + max);
     }
 }
