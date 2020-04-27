@@ -19,10 +19,10 @@ public class CountDistinctSubSequence {
 
         for (int i = 1; i <= a; i++) {
             for (int j = 1; j <= b; j++) {
-                if (s1.charAt(i - 1) != s2.charAt(j - 1))
-                    T[i][j] = T[i][j - 1];
-                else
+                if (s1.charAt(i - 1) == s2.charAt(j - 1))
                     T[i][j] = T[i][j - 1] + T[i - 1][j - 1];
+                else
+                    T[i][j] = T[i][j - 1];
             }
         }
 
