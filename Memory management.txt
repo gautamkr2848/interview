@@ -5,10 +5,10 @@ according to the requirement and optimizes the overall performance of the system
 
 2. It allows you to check how much memory needs to be allocated to processes and which processor should get memory at what time.
 
-3. In Single Contiguous Allocation, all types of computer's memory except a small portion which is reserved for the OS is available for one application
+3. In Single Contiguous Allocation, all types of computer's memory except a small portion which is reserved for the OS is available
+for one application
 
-4. It divides primary memory into various memory partitions. Every partition stores all the information for a specific task or job. 
-This method consists of allotting a partition to a job when it starts & unallocate when it ends.
+4. Partitioned Allocation divides primary memory into various memory partitions. Every partition stores all the information for a specific task or job. This method consists of allotting a partition to a job when it starts & unallocate when it ends.
 
 5. Paged Memory Management method divides the computer's main memory into fixed-size units known as page frames
 
