@@ -1,4 +1,4 @@
-package com.interview.recursion;
+package com.interview.string;
 
 public class StringCombination {
 
