@@ -30,3 +30,10 @@ whereas, in the paging method, pages are always of fixed size.
 12. In dynamic loading, references will be provided and the loading will be done at the time of execution.
 
 12.Linking is a method that helps OS to collect and merge various modules of code and data into a single executable file.
+
+13. We all know that Java itself manages the memory and needs no explicit intervention of the programmer. Garbage collector itself ensures that the unused space gets cleaned and memory can be freed when not needed. However the automatic garbage collection doesn’t guarantee everything.
+      a. Heap Area
+      b. Method Area
+      c. JVM Stack
+      d. Native Method Stack
+      e. PC Registers
