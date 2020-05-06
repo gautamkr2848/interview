@@ -13,14 +13,18 @@ specific task or job. This method consists of allotting a partition to a job whe
 
 5. Paged Memory Management method divides the computer's main memory into fixed-size units known as page frames
 
-6. Segmented memory is the only memory management method that does not provide the user's program with a linear and contiguous address space.
+6. Segmented memory is the only memory management method that does not provide the user's program with a linear and contiguous address
+space.
 
 7. Swapping is a method in which the process should be swapped temporarily from the main memory to the backing store.
  It will be later brought back into the memory for continue execution.
 
-8. Paging is a storage mechanism that allows OS to retrieve processes from the secondary storage into the main memory in the form of pages.
+8. Paging is a storage mechanism that allows OS to retrieve processes from the secondary storage into the main memory in the form of
+pages.
 
-9. Fragmentation refers to the condition of a disk in which files are divided into pieces scattered around the disk.
+9. In a computer storage system, as processes are loaded and removed from memory, the free memory space is broken into small pieces. In
+this way memory space used inefficiently, so the capacity or performance of the system may degrade. Sometimes it happens that memory
+blocks cannot be allocated to processes due to their small size and memory blocks remain unused. This problem is known as Fragmentation.
 
 10. Segmentation method works almost similarly to paging. The only difference between the two is that segments are of variable-length, 
 whereas, in the paging method, pages are always of fixed size.
