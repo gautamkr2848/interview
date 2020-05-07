@@ -1,7 +1,6 @@
 package com.interview.string;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class RomanToInt {
 
@@ -13,7 +12,7 @@ public class RomanToInt {
             System.out.println("-1");
 
         System.out.println("Roman Number: " + s);
-        Map<Character, Integer> map = new HashMap<>();
+        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
         map.put('I', 1);
         map.put('V', 5);
         map.put('X', 10);
@@ -24,12 +23,11 @@ public class RomanToInt {
 
         int len = s.length();
         int result = map.get(s.charAt(len - 1));
-
         for (int i = len - 2; i >= 0; i--) {
             if (map.get(s.charAt(i)) >= map.get(s.charAt(i + 1)))
-                result += map.get(s.charAt(i));
+                result = result + map.get(s.charAt(i));
             else
-                result -= map.get(s.charAt(i));
+                result = result - map.get(s.charAt(i));
         }
 
         System.out.println("Integer: " + result);
