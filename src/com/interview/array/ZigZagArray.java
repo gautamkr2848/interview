@@ -7,7 +7,6 @@ public class ZigZagArray {
     public void zigZag(){
         int arr[] = new int[]{4, 3, 7, 8, 6, 2, 1};
         boolean flag = false;
-        int temp =0;
 
         for (int i=0; i<=arr.length-2; i++) {
             if (flag) {
