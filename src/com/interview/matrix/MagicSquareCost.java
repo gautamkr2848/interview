@@ -1,6 +1,7 @@
 package com.interview.matrix;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class MagicSquareCost {
     public int magicSquareCost(int[][] s){
@@ -23,6 +24,9 @@ public class MagicSquareCost {
             cost[i] = cost[i] + Math.abs(t[i][3]-s[1][0]) + Math.abs(t[i][4]-s[1][1]) + Math.abs(t[i][5]-s[1][2]);
             cost[i] = cost[i] + Math.abs(t[i][6]-s[2][0]) + Math.abs(t[i][7]-s[2][1]) + Math.abs(t[i][8]-s[2][2]);
         }
+
+        Set<Integer> set = new HashSet<>();
+        List<Integer> list = set.stream().collect(Collectors.toList());
 
         Arrays.sort(cost);
         return cost[0];
