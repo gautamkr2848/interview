@@ -26,4 +26,9 @@ public class MatrixRotationClock_90 {
         System.out.print("\n");
     }
 
+    public void matrixRotation_2(int mat[][]){
+        //reverse elements of all the rows
+        //find the transpose of the matrix
+    }
+
 }
