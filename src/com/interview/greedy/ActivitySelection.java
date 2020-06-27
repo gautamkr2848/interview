@@ -9,10 +9,7 @@ public class ActivitySelection {
         int i=0;
         System.out.print(i+" ");
 
-        // Consider rest of the activities
         for (int j = 1; j < s.length; j++){
-            // If this activity has start time greater than or equal to the finish time
-            // of previously selected activity, then select it
             if (s[j] >= f[i]){
                 System.out.print(j+" ");
                 i = j;
