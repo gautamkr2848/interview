@@ -8,7 +8,7 @@ public class ZigZagArray {
         int arr[] = new int[]{4, 3, 7, 8, 6, 2, 1};
         boolean flag = false;
 
-        for (int i=0; i<=arr.length-2; i++) {
+        for (int i=0; i<arr.length-1; i++) {
             if (flag) {
                 if (arr[i] < arr[i+1]) {
                     arr = swap(arr, i);
