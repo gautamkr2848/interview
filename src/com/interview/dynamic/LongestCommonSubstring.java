@@ -1,5 +1,16 @@
 package com.interview.dynamic;
 
+/*          a   b   c   d   a   f
+        0   0   0   0   0   0   0
+   z    0   0   0   0   0   0   0
+   b    0   0   1   0   0   0   0
+   c    0   0   0   2   0   0   0
+   d    0   0   0   0   3   0   0
+   f    0   0   0   0   0   0   1
+
+   length of longest common sub string = 3
+ */
+
 public class LongestCommonSubstring {
 
     public void lcs(String a, String b){

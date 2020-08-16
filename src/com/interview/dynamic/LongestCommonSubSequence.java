@@ -1,5 +1,16 @@
 package com.interview.dynamic;
 
+/*          a   b   c   d   a   f
+        0   0   0   0   0   0   0
+   a    0   1   1   1   1   1   1
+   c    0   1   1   2   2   2   2
+   b    0   1   2   2   2   2   2
+   c    0   1   2   3   3   3   3
+   f    0   1   2   3   3   3   4
+
+   length of longest common sub sequence = 4
+ */
+
 public class LongestCommonSubSequence {
 
     public void lcs(String a, String b){
