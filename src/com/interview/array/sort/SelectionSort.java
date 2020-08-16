@@ -1,5 +1,12 @@
 package com.interview.array.sort;
 
+/*10, 7, 8, 9, 1, 5
+  1, 7, 8, 9, 10, 5
+  1, 5, 8, 9, 10, 7
+  1, 5, 7, 9, 10, 8
+  1, 5, 7, 8, 10, 9
+  1, 5, 7, 8, 9, 10*/
+
 public class SelectionSort {
 
     public void selectionSort(){

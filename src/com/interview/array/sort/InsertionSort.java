@@ -1,5 +1,12 @@
 package com.interview.array.sort;
 
+/*10, 7, 8, 9, 1, 5
+  7, 10, 8, 9, 1, 5
+  7, 8, 10, 9, 1, 5
+  7, 8, 9, 10, 1, 5
+  1, 7, 8, 9, 10, 5
+  1, 5, 7, 8, 9, 10*/
+
 public class InsertionSort {
 
     public void insertionSort(){
