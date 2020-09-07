@@ -8,19 +8,17 @@ import java.net.URL;
 public class FileRestController {
 
     @RequestMapping(
-            value = "/download/{identifier}",
+            value = "/download",
             method = RequestMethod.GET,
             produces = "application/json"
     )
-    public ResponseEntity fileDownload(@RequestParam(value = "identifier") String identifier,
-                                       HttpServletResponse response) throws Exception {
+    public ResponseEntity fileDownload(HttpServletResponse response) throws Exception {
         File destinationFile = null;
         if (!destinationFile.exists()) {
             destinationFile.createNewFile();
         }
 
         try {
-            //URL based on identifier
             URL url = new URL(url_identifier);
             FileUtils.copyURLToFile(url, destinationFile);
         } catch (Exception e) {
@@ -31,14 +29,13 @@ public class FileRestController {
     }
 
     @RequestMapping(
-            value = "/delete/{identifier}",
+            value = "/delete",
             method = RequestMethod.DELETE
     )
-    public ResponseEntity deleteFile(@RequestParam(value = "identifier") String identifier,
-                                     HttpServletResponse response) throws Exception {
+    public ResponseEntity deleteFile(HttpServletResponse response) throws Exception {
         try
         {
-            File file = new File("abc.txt"); //find file based on identifier
+            File file = new File("abc.txt");
             file.deleteOnExit();
         } catch(Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -48,11 +45,10 @@ public class FileRestController {
     }
 
     @RequestMapping(
-            value = "/copy/{identifier}",
+            value = "/copy",
             method = RequestMethod.POST
     )
-    public ResponseEntity copyFile(@RequestParam(value = "identifier") String identifier,
-                                   HttpServletResponse response) throws Exception {
+    public ResponseEntity copyFile(HttpServletResponse response) throws Exception {
         File destinationFile = null;
         if (!destinationFile.exists()) {
             destinationFile.createNewFile();
