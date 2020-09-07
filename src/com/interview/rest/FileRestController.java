@@ -36,7 +36,7 @@ public class FileRestController {
         try
         {
             File file = new File("abc.txt");
-            file.deleteOnExit();
+            file.delete();
         } catch(Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
