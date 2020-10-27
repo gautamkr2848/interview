@@ -18,7 +18,7 @@ public class PythagoreanTriplet {
                 }
             }
             if(list.size() == 3 &&
-                    ((Math.pow(list.get(0), 2) == (Math.pow(list.get(1),2)) + Math.pow(list.get(1),2)) ||
+                    ((Math.pow(list.get(0), 2) == (Math.pow(list.get(1),2)) + Math.pow(list.get(2),2)) ||
                     (Math.pow(list.get(1), 2) == (Math.pow(list.get(0),2)) + Math.pow(list.get(2),2)) ||
                     (Math.pow(list.get(2), 2) == (Math.pow(list.get(0),2)) + Math.pow(list.get(1),2)))) {
                 System.out.println(list.toString());

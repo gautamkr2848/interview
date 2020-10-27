@@ -8,8 +8,7 @@ public class MaxElement {
         if(node != null){
             int leftMax = maxElement(node.left);
             int rightMax = maxElement(node.right);
-            max = leftMax > rightMax ? leftMax : rightMax;
-            max = node.key > max ? node.key : max;
+            max = leftMax > rightMax ? (node.key > leftMax ? node.key : leftMax) : (node.key > rightMax ? node.key : rightMax);
         }
         return max;
     }
