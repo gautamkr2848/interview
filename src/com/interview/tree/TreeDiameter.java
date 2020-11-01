@@ -1,6 +1,6 @@
 package com.interview.tree;
 
-public class DiameterOfTree {
+public class TreeDiameter {
 
     public int diameter(Node root){
         if (root == null)

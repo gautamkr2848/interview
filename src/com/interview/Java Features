@@ -1,0 +1,30 @@
+Java 7
+    1. switch with String
+    2. Multiple Cache Blocks
+    3. try with resources
+        try(A a = new A()){
+
+        }
+    4. underscore with variable
+        int a = 6_453;
+    5. Generic Type
+
+Java 8
+    1. Functional Interface and lambda expression
+    2. Stream API
+    3. Default and static methods in Interface
+    4. forEach() method in Iterable interface
+
+Java 9
+    1. Private method in interface
+    2. List.of(1, 2, 3);
+       Set.of();
+       map.of();
+
+Java 10
+    1. GC interface
+    2. Local-Variable Type Inference
+        a. new keyword var is added
+            for (var number : numbers) {
+
+            }

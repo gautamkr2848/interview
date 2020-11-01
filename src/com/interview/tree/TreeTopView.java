@@ -14,7 +14,7 @@ class TopView {
     }
 }
 
-public class TopViewTree {
+public class TreeTopView {
     
     public void topView(){
 

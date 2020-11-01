@@ -14,7 +14,7 @@ class NodeBottomView {
     }
 }
 
-public class BottomViewTree {
+public class TreeBottemView {
 
     public void bottomView() {
 

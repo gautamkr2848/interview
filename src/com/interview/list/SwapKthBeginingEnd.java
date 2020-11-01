@@ -1,5 +1,10 @@
 package com.interview.list;
 
+        /*Input: 1 -> 2 -> 3 -> 4 -> 5, K = 2
+        Output: 1 -> 4 -> 3 -> 2 -> 5
+        Explanation: The 2nd node from 1st is 2 and
+        2nd node from last is 4, so swap them.*/
+
 public class SwapKthBeginingEnd {
 
     public void swapKthBeginingEnd(Node head, int k){
