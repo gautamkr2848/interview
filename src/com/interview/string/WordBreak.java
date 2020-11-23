@@ -1,5 +1,6 @@
 package com.interview.string;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,9 +13,7 @@ public class WordBreak {
                 "man","mango","icecream","and",
                 "go","i","like","ice","cream"};
 
-        for (String temp :temp_dictionary)
-            dictionary.add(temp);
-
+        dictionary.addAll(Arrays.asList(temp_dictionary));
         if (size == 0) return true;
 
         for (int i = 1; i <= size; i++) {

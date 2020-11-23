@@ -26,13 +26,12 @@ public class TreeHeight {
             else
                 height++;
 
-            while (count > 0){
+            while (count-- > 0){
                 Node temp = queue.poll();
                 if(temp.left != null)
                     queue.add(temp.left);
                 if (temp.right != null)
                     queue.add(temp.right);
-                count--;
             }
         }
     }

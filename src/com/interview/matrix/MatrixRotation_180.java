@@ -2,7 +2,8 @@ package com.interview.matrix;
 
 public class MatrixRotation_180 {
 
-    public void matrixRotation(int[][] mat){
+    public void matrixRotation(){
+        int mat[][] = { { 10, 20, 30}, { 15, 25, 35 }, { 27, 29, 37}};
         for(int i=mat.length-1; i>=0; i--) {
             for (int j = mat.length - 1; j >= 0; j--) {
                 System.out.print(mat[i][j] + " ");

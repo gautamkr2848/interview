@@ -31,9 +31,9 @@ public class TreeBottemView {
         if (root == null)
             return;
 
-        int hd = 0;     // Initialize a variable 'hd' with 0 for the root element.
-        Map<Integer, Integer> map = new TreeMap<>();        // TreeMap which stores key value pair sorted on key value
-        Queue<NodeBottomView> queue = new LinkedList<>();       // Queue to store tree nodes in level order traversal
+        int hd = 0;
+        Map<Integer, Integer> map = new TreeMap<>();
+        Queue<NodeBottomView> queue = new LinkedList<>();
 
         // Assign initialized horizontal distance value to root node and add it to the queue.
         root.hd = hd;
@@ -41,13 +41,7 @@ public class TreeBottemView {
 
         while (!queue.isEmpty()){
             NodeBottomView temp = queue.remove();
-
-            // Extract the horizontal distance value from the
-            // dequeued tree node.
             hd = temp.hd;
-
-            // Put the dequeued tree node to TreeMap having key as horizontal distance. Every time we find
-            // a node having same horizontal distance we need to replace the data in the map.
             map.put(hd, temp.data);
 
             // If the dequeued node has a left child add it to the queue with a horizontal distance hd-1.

@@ -4,63 +4,47 @@ import java.util.Stack;
 
 public class EvaluateExpression {
 
-    public void evaluateExpression(String s){
-        char[] tokens = s.toCharArray();
-        Stack<Integer> values = new Stack<>();
-        Stack<Character> ops = new Stack<>();
+    public void evaluateExpression(){
+        String s = "[5+{2*(9/3)}]";
+        Stack<Integer> operand = new Stack<>();
+        Stack<Character> operator = new Stack<>();
 
-        for (int i = 0; i < tokens.length; i++) {
-            if (tokens[i] == ' ')
-                continue;
-            if (tokens[i] >= '0' && tokens[i] <= '9') {
-                StringBuffer sbuf = new StringBuffer();
-                while (i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9')
-                    sbuf.append(tokens[i++]);
-                values.push(Integer.parseInt(sbuf.toString()));
-                i--;
-            } else if (tokens[i] == '(')
-                ops.push(tokens[i]);
-            else if (tokens[i] == ')') {
-                while (ops.peek() != '(')
-                    values.push(evaluate(ops.pop(), values.pop(), values.pop()));
-                ops.pop();
-            } else if (tokens[i] == '+' || tokens[i] == '-' || tokens[i] == '*' || tokens[i] == '/') {
-                while (!ops.empty() && hasPrecedence(tokens[i], ops.peek()))
-                    values.push(evaluate(ops.pop(), values.pop(), values.pop()));
-                ops.push(tokens[i]);
-            }
-
-            while (!ops.empty())
-                values.push(evaluate(ops.pop(), values.pop(), values.pop()));
-
-            System.out.println(values.pop());
+        for(int i=0; i<s.length(); i++){
+            if(isANumber(s.charAt(i)))
+                operand.push(Character.getNumericValue(s.charAt(i)));
+            else if(isAOperator(s.charAt(i)))
+                operator.push(s.charAt(i));
         }
+
+        int result = 0;
+        while(operator.size() > 0){
+            result = evaluate(operator.pop(), operand.pop(), operand.pop());
+            operand.push(result);
+        }
+        System.out.println(result);
     }
 
-    boolean hasPrecedence(char op1, char op2){
-        if (op2 == '(' || op2 == ')')
-            return false;
-        if ((op1 == '*' || op1 == '/') &&
-                (op2 == '+' || op2 == '-'))
-            return false;
-        else
+    public static Boolean isANumber(Character c){
+        if(0 <= Character.getNumericValue(c) && 9 >= Character.getNumericValue(c))
             return true;
+        else
+            return false;
     }
 
-        int evaluate(char op, int b, int a) {
-        switch (op) {
-            case '+':
-                return a + b;
-            case '-':
-                return a - b;
-            case '*':
-                return a * b;
-            case '/':
-                if (b == 0)
-                    throw new UnsupportedOperationException("Cannot divide by zero");
-                return a / b;
+    public static Boolean isAOperator(Character c){
+        if(c =='+' || c == '-' || c == '*' || c == '/')
+            return true;
+        else
+            return false;
+    }
+
+    public int evaluate(Character c, int b, int a) {
+        switch (c) {
+            case '+': return a + b;
+            case '-' :return a - b;
+            case '*': return a * b;
+            case '/': return a / b;
         }
         return 0;
     }
-
 }

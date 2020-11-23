@@ -4,6 +4,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
+/*
+                1
+        2               3           => 4 5 6 2 3 1
+    4       5       6
+*/
+
 public class LevelOrderReverse {
 
     public void levelOrderReverse(Node node){
@@ -12,7 +18,7 @@ public class LevelOrderReverse {
 
         queue.offer(node);
         while(queue.size() > 0){
-            Node temp = stk.pop();
+            Node temp = queue.poll();
             stk.push(temp);
 
             if(temp.right != null)

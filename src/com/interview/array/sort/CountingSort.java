@@ -21,7 +21,7 @@ public class CountingSort {
             count[arr[i] - min]++;
 
         for (int i = 1; i < count.length; i++)
-            count[i] += count[i - 1];
+            count[i] = count[i] + count[i - 1];
 
         for (int i = arr.length - 1; i >= 0; i--){
             output[count[arr[i] - min] - 1] = arr[i];
