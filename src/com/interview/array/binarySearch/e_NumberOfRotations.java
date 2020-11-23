@@ -1,6 +1,6 @@
-package com.interview.array.search;
+package com.interview.array.binarySearch;
 
-public class NumberOfRotations {
+public class e_NumberOfRotations {
 
     int numberCount(int arr[], int low, int high){
         if (high < low) return 0;

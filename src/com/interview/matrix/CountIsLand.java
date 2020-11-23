@@ -3,7 +3,10 @@ package com.interview.matrix;
 public class CountIsLand {
 
     public void countIsLand(){
-        int[][] mat = {{0, 0, 0}, {1, 1, 0}, {1, 1, 0}, {0, 0, 1}};
+        int[][] mat =  {{0, 0, 0},
+                        {1, 1, 0},
+                        {1, 1, 0},
+                        {0, 0, 1}};
         int count = 0, m = 4, n = 3;
 
         for(int i=0; i < m; i++){

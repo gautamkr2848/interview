@@ -19,7 +19,7 @@ public class MinCostPath {
         /* Construct rest of the tc array */
         for (int i = 1; i <= 3; i++)
             for (int j = 1; j <= 3; j++)
-                tc[i][j] = min(tc[i-1][j-1], tc[i-1][j], tc[i][j-1]) + cost[i][j];
+                tc[i][j] = cost[i][j] + min(tc[i-1][j-1], tc[i-1][j], tc[i][j-1]);
 
         System.out.println(tc[3][3]);
     }
@@ -29,5 +29,11 @@ public class MinCostPath {
             return (x < z)? x : z;
         else
             return (y < z)? y : z;
+    }
+
+    public int minCost_2(int[][] cost, int m, int n){
+        if(m < 0 || n < 0) return Integer.MAX_VALUE;
+        if(m == 0 && n == 0) return cost[m][n];
+        return cost[m][n] + min(minCost_2(cost, m-1, n), minCost_2(cost, m, n-1), minCost_2(cost, m-1, n-1));
     }
 }

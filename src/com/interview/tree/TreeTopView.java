@@ -32,7 +32,7 @@ public class TreeTopView {
             return;
 
         int hd = 0;
-        Map<Integer, Integer> map = new TreeMap<>();
+        Map<Integer, Integer> map = new TreeMap<>();        //<horizontalDistance, node.data>
         Queue<TopView> queue = new LinkedList<>();
 
         root.hd = hd;

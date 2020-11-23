@@ -1,4 +1,4 @@
-package com.interview.array.search;
+package com.interview.array.binarySearch;
 
 import java.util.Arrays;
 import java.util.HashMap;

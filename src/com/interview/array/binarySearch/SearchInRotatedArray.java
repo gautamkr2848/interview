@@ -1,4 +1,4 @@
-package com.interview.array.search;
+package com.interview.array.binarySearch;
 
 public class SearchInRotatedArray {
 
@@ -8,7 +8,7 @@ public class SearchInRotatedArray {
         int mid = (l + h) / 2;
         if (arr[mid] == key) return mid;
 
-        if (arr[l] <= arr[mid]) {   /* If arr[l...mid] first subarray is sorted */
+        if (arr[l] <= arr[mid]) {
 
             if (key >= arr[l] && key <= arr[mid])
                 return search(arr, l, mid - 1, key);

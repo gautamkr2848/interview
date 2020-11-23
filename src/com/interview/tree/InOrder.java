@@ -2,6 +2,12 @@ package com.interview.tree;
 
 import java.util.Stack;
 
+/*
+                1
+        2               3           => 4 2 5 1 6 3
+    4       5       6
+*/
+
 public class InOrder {
 
     public void inOrder(Node node){

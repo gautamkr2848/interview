@@ -1,4 +1,10 @@
 package com.interview.tree;
+/*
+
+                    10                                      20
+            -2              6           =>          4               12
+        8       -4      7       5               0       0       0       0
+*/
 
 public class TransformSumTree {
 

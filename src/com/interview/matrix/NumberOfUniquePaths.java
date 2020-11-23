@@ -1,5 +1,7 @@
 package com.interview.matrix;
 
+//Count all possible paths from top left to bottom right of a mXn matrix
+
 public class NumberOfUniquePaths {
 
     public int uniquePaths(int m, int n){

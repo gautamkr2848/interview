@@ -15,9 +15,9 @@ class Cell{
 public class BooleanMatrix {
 
     public void booleanMatrix(){
-        int mat[ ][ ] = { {1, 0, 0, 1},
-                {0, 0, 1, 0},
-                {0, 0, 0, 0}};
+        int mat[][] = { {1, 0, 0, 1},
+                        {0, 0, 1, 0},
+                        {0, 0, 0, 0}};
 
         List<Cell> cellList = new ArrayList<>();
 

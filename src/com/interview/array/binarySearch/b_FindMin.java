@@ -1,10 +1,14 @@
-package com.interview.array.search;
+package com.interview.array.binarySearch;
 
-public class FindMin {
+public class b_FindMin {
 
-    int minFromSortedRotated(int arr[], int low, int high){
+    public int minFromSortedRotated(){
+        int[] arr = {11, 3, 5, 7, 9};
+        int low = 0;
+        int high = arr.length - 1;
+
         while(low < high) {
-            int mid = (low + high) / 2;
+            int mid = low + (high - low)/2;
             if (arr[mid] == arr[high])
                 high--;
             else if(arr[mid] > arr[high])

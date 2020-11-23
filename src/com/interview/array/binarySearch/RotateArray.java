@@ -1,6 +1,6 @@
-package com.interview.array.search;
+package com.interview.array.binarySearch;
 
-public class ArrayRotation {
+public class RotateArray {
 
     //arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
     public void arrayRotation(){

@@ -19,7 +19,11 @@ public class RemoveAdjacentPairs {
         System.exit(1);
     }
 
-    public void removeAdjacentPairs_2(String s){
+    //ABCCBCBA -> ABBCBA -> ACBA
+    //ABCCBCBA -> ACCCBCBA -> ACBCBCBA -> ACBABCBA
+
+    public void removeAdjacentPairs_2(){
+        String s = "ABCCBCBA";
         char[] array = s.toCharArray();
         int j=0;
         for(int i=1; i<array.length; i++){

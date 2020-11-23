@@ -1,15 +1,15 @@
-package com.interview.string;
+package com.interview.stack;
 
 import java.util.Stack;
 
-public class PostfixExpression {
+public class PrefixEvaluation {
 
-    public void postfixExpression(){
-        String s = "2536+**5/2-";
+    public void prefixEvaluation(){
+        String s = "-/*2*5+3652";
         int result = 0;
         Stack<Integer> stk = new Stack<>();
 
-        for(int i=0; i<s.length(); i++){
+        for(int i=s.length() - 1; i>=0; i--){
             if(isANumber(s.charAt(i))){
                 stk.push(Character.getNumericValue(s.charAt(i)));
             } else {
@@ -28,7 +28,7 @@ public class PostfixExpression {
             return false;
     }
 
-    public int evaluate(Character c, int b, int a) {
+    public int evaluate(Character c, int a, int b) {
         switch (c) {
             case '+': return a + b;
             case '-' :return a - b;

@@ -33,7 +33,7 @@ public class VerticalTreeTraversal {
             return;
 
         int hd = 0;
-        Map<Integer, List<Integer>> map = new HashMap<>();
+        Map<Integer, List<Integer>> map = new TreeMap<>();
         Queue<VerticalTree> queue = new LinkedList<>();
 
         root.hd = hd;
@@ -65,12 +65,13 @@ public class VerticalTreeTraversal {
             }
         }
 
-        Map<Integer, List<Integer>> sortedMap = new LinkedHashMap<>();
+        /*Map<Integer, List<Integer>> sortedMap = new LinkedHashMap<>();
         map.entrySet().stream().sorted(Map.Entry.comparingByKey())
-                .forEachOrdered(x -> sortedMap.put(x.getKey(), x.getValue()));
+                .forEachOrdered(x -> sortedMap.put(x.getKey(), x.getValue()));*/
 
-        for(Integer i : sortedMap.keySet()){
-            List<Integer> list = sortedMap.get(i);
+        for(Integer i : map.keySet()){
+            List<Integer> list = map.get(i);
+            System.out.print(i+" => ");
             for(int j=0; j<list.size(); j++)
                 System.out.print(list.get(j)+" ");
             System.out.println();
