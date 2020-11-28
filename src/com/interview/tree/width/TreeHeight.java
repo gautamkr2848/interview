@@ -1,4 +1,6 @@
-package com.interview.tree;
+package com.interview.tree.width;
+
+import com.interview.tree.width.Node;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -17,10 +19,9 @@ public class TreeHeight {
         Queue<Node> queue = new LinkedList<>();
         queue.offer(node);
         int height = 0;
-        int count;
 
         while(1 == 1){
-            count = queue.size();
+            int count = queue.size();
             if(count == 0)
                 System.out.println("Height of Tree "+ height);
             else

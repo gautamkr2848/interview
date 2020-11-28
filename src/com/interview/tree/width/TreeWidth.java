@@ -1,25 +1,34 @@
-package com.interview.tree;
+package com.interview.tree.width;
 
 import java.util.LinkedList;
 import java.util.Queue;
+
+class Node{
+    int key;
+    Node left, right;
+
+    public Node(int key){
+        this.key = key;
+    }
+}
 
 public class TreeWidth {
 
     public void treeWidth(Node node){       //same as max sum at level
         int width = 0;
-        Queue<Node> queue = new LinkedList<>();
-        queue.add(node);
+        Queue<Node> q = new LinkedList<>();
+        q.add(node);
 
-        while (!queue.isEmpty()){
-            int count = queue.size();
+        while (!q.isEmpty()){
+            int count = q.size();
             width = Math.max(width, count);
 
             while (count-- > 0){
-                Node temp = queue.poll();
+                Node temp = q.poll();
                 if(temp.left != null)
-                    queue.add(temp.left);
+                    q.add(temp.left);
                 if(temp.right != null)
-                    queue.add(temp.right);
+                    q.add(temp.right);
             }
         }
         System.out.println(width);

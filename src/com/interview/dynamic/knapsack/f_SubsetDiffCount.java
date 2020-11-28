@@ -2,6 +2,14 @@ package com.interview.dynamic.knapsack;
 
 //Target sum is same as this
 
+/*
+s1 + s2 = sum
+s1 - s2 = diff
+----------------
+2s1 = sum + diff
+s1 = (sum + diff) / 2;
+*/
+
 public class f_SubsetDiffCount {
 
     public void subsetDiffCount(int[] arr, int diff){
@@ -12,6 +20,6 @@ public class f_SubsetDiffCount {
 
         sum = (sum + diff) / 2;
         d_SubsetSumCount s = new d_SubsetSumCount();
-        s.subsetSumCount_4(arr, sum);
+        s.subsetSumCount(arr, sum);
     }
 }

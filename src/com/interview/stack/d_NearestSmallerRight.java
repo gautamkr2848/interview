@@ -18,7 +18,7 @@ public class d_NearestSmallerRight {
                 v.add(-1);
             else if(s.peek() < arr[i])
                 v.add(s.peek());
-            else if(s.peek() <= arr[i]){
+            else if(s.peek() >= arr[i]){
                 while (!s.empty() && s.peek() >= arr[i])
                     s.pop();
                 if(s.empty())

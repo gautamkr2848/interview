@@ -8,7 +8,7 @@ import java.util.Random;
 public class ConstantTimeO_1 {
 
     ArrayList<Integer> list;
-    HashMap<Integer, Integer> map;
+    HashMap<Integer, Integer> map;  //key as list index and value as data
 
     public ConstantTimeO_1() {
         list = new ArrayList<Integer>();
@@ -21,7 +21,7 @@ public class ConstantTimeO_1 {
 
         int s = list.size();
         list.add(x);
-        map.put(x, s);
+        map.put(s, x);
     }
 
     void remove(int x) {

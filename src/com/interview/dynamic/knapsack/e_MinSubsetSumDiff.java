@@ -1,6 +1,7 @@
 package com.interview.dynamic.knapsack;
 
 /*
+    sum = set1 + set2
     sum = s1 + s2
     s2 = sum - s1
 

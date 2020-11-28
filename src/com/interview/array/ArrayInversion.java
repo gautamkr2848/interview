@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class ArrayInversion {
 
-    public void arrayInversion(){
+    public void arrayInversion_1(){
         int[] a = {2, 4, 1, 5};
         int count = 0;
         for (int i = 0; i < a.length - 1; i++)
@@ -16,12 +16,12 @@ public class ArrayInversion {
         System.out.println("Inversion count "+ count);
     }
 
-    public int mergeSortAndCount(int[] arr, int l, int r){
+    public int arrayInversion_2(int[] arr, int l, int r){
         int count = 0;
         if (l < r) {
             int m = (l + r) / 2;
-            count += mergeSortAndCount(arr, l, m);
-            count += mergeSortAndCount(arr, m + 1, r);
+            count += arrayInversion_2(arr, l, m);
+            count += arrayInversion_2(arr, m + 1, r);
 
             count += mergeAndCount(arr, l, m, r);
         }

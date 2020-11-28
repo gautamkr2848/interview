@@ -1,4 +1,6 @@
-package com.interview.tree;
+package com.interview.tree.width;
+
+import com.interview.tree.width.Node;
 
 import java.util.LinkedList;
 import java.util.Queue;

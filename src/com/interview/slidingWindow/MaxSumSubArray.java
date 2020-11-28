@@ -4,7 +4,7 @@ public class MaxSumSubArray {
 
     public void maxSumSubArray(){
         int[] arr = {1, 4, 2, 10, 23, 3, 1, 0, 20};
-        int size = 4;
+        int size = 3;
         int max = 0;
         int sum = 0;
         for(int i=0; i<size; i++)
@@ -12,8 +12,7 @@ public class MaxSumSubArray {
 
         for(int i=1, j=size; j<arr.length; i++, j++){
             sum = sum + arr[j] - arr[i-1];
-            if(sum > max)
-                max = sum;
+            max = Math.max(sum, max);
         }
         System.out.println(max);
     }

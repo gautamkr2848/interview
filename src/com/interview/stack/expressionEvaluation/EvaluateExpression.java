@@ -1,4 +1,4 @@
-package com.interview.stack;
+package com.interview.stack.expressionEvaluation;
 
 import java.util.Stack;
 
