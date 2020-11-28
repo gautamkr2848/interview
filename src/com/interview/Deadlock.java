@@ -1,5 +1,25 @@
 package com.interview;
 
+/*
+If a thread is holding a resource A and waiting for resource B. And Another
+thread is holding a resource B and waiting for resource A.
+
+We can prevent Deadlock by eliminating any of the four conditions.
+    1. Mutual Excecution
+    2. Hold and Wait
+    3. No preemption
+    4. Circular wait
+
+Deadlock Avoidance  => Banker's Algorithm
+    Bankers’s Algorithm is resource allocation and deadlock avoidance algorithm
+    which test all the request made by processes for resources, it checks for the safe state
+    Inputs to Banker’s Algorithm:
+        1. Max need of resources by each process.
+        2. Currently allocated resources by each process.
+        3. Max free available resources in the system.
+*/
+
+
 public class Deadlock {
     public static Object Lock1 = new Object();
     public static Object Lock2 = new Object();

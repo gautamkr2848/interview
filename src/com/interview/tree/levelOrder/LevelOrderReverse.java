@@ -1,4 +1,4 @@
-package com.interview.tree;
+package com.interview.tree.levelOrder;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -9,6 +9,17 @@ import java.util.Stack;
         2               3           => 4 5 6 2 3 1
     4       5       6
 */
+
+class Node{
+    int key;
+    Node left, right;
+
+    public Node(int key){
+        this.key = key;
+        this.left = null;
+        this.right = null;
+    }
+}
 
 public class LevelOrderReverse {
 

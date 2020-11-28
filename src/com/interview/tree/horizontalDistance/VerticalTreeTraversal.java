@@ -1,5 +1,12 @@
-package com.interview.tree;
-
+package com.interview.tree.horizontalDistance;
+/*
+                1                               4
+       2                3               ==>     2
+   4       5        6       7                   1 5 6
+                        8       9               3 8
+                                                7
+                                                9
+*/
 
 import java.util.*;
 
@@ -53,12 +60,12 @@ public class VerticalTreeTraversal {
                 map.put(hd, list);
             }
 
-            // If the dequeued node has a left child add it to the queue with a horizontal distance hd-1.
+            // If the dequeued node has a left child, add it to the queue with a horizontal distance hd-1.
             if (temp.left != null){
                 temp.left.hd = hd-1;
                 queue.add(temp.left);
             }
-            // If the dequeued node has a right child add it to the queue with a horizontal distance hd+1.
+            // If the dequeued node has a right child, add it to the queue with a horizontal distance hd+1.
             if (temp.right != null){
                 temp.right.hd = hd+1;
                 queue.add(temp.right);

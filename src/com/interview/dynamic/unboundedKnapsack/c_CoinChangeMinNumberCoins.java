@@ -1,5 +1,7 @@
 package com.interview.dynamic.unboundedKnapsack;
 
+//Find minimum number of coins that make a given value
+
 public class c_CoinChangeMinNumberCoins {
 
     public void coinChangeMinNumberCoins(int[] coinArray, int sum){
@@ -18,7 +20,7 @@ public class c_CoinChangeMinNumberCoins {
         }
 
         for(int i=2; i<=n; i++){
-            for(int j=0; j<=sum; j++){
+            for(int j=1; j<=sum; j++){
                 if(coinArray[i-1] > j)
                     t[i][j] = t[i-1][j];
                 else

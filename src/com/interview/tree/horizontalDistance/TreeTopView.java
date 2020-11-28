@@ -1,4 +1,4 @@
-package com.interview.tree;
+package com.interview.tree.horizontalDistance;
 
 import java.util.*;
 
@@ -45,12 +45,12 @@ public class TreeTopView {
             if(!map.containsKey(hd))
                 map.put(hd, temp.data);
 
-            // If the dequeued node has a left child add it to the queue with a horizontal distance hd-1.
+            // If the dequeued node has a left child, add it to the queue with a horizontal distance hd-1.
             if (temp.left != null){
                 temp.left.hd = hd-1;
                 queue.add(temp.left);
             }
-            // If the dequeued node has a right child add it to the queue with a horizontal distance hd+1.
+            // If the dequeued node has a right child, add it to the queue with a horizontal distance hd+1.
             if (temp.right != null){
                 temp.right.hd = hd+1;
                 queue.add(temp.right);

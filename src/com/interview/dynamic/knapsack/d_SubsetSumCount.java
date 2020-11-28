@@ -2,7 +2,7 @@ package com.interview.dynamic.knapsack;
 
 public class d_SubsetSumCount {
 
-    public void subsetSumCount_4(int[] arr, int sum){
+    public void subsetSumCount(int[] arr, int sum){
         int n = arr.length;
         int[][] t = new int[n+1][sum+1];
 

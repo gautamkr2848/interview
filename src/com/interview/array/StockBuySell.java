@@ -7,7 +7,6 @@ public class StockBuySell {
         int[] price = {900, 180, 260, 310, 40, 535, 695};
         int profit = 0;
 
-
         for(int i=1; i<price.length; i++){
             int diff = price[i] - price[i-1];
             if(diff > 0){

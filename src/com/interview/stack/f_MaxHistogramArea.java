@@ -11,7 +11,7 @@ import java.util.Stack;
          ‘right index’ is ‘i’ (current index).
   3) If the stack is not empty, then one by one remove all bars from stack and do step 2.b for every removed bar.*/
 
-public class MaxHistogramArea {
+public class f_MaxHistogramArea {
 
     public void maxArea(){
         int[] histogram = { 6, 2, 5, 4, 5, 1, 6 };
