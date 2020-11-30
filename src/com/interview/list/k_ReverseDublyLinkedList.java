@@ -9,7 +9,7 @@ class DoublyNode{
     }
 }
 
-public class ReverseDublyLinkedList {
+public class k_ReverseDublyLinkedList {
 
     public void reverseDublyLinkedList(DoublyNode head){
         DoublyNode temp = null;

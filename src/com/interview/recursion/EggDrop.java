@@ -41,9 +41,7 @@ public class EggDrop {
         int min = Integer.MAX_VALUE;
         for(int i=1; i <= floors; i++){
             int val = 1 + Math.max(eggDrop(eggs-1, i-1),eggDrop(eggs, floors-i));
-            if(val < min){
-                min = val;
-            }
+            min = Math.min(val, min);
         }
         t[eggs][floors] = min;
         return min;

@@ -1,6 +1,6 @@
 package com.interview.list;
 
-public class RemoveLoop {
+public class c_RemoveLoop {
 
     public int detectAndRemoveLoop(Node node) {
         Node slow = node, fast = node;

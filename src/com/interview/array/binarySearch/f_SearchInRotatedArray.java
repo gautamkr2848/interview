@@ -1,6 +1,6 @@
 package com.interview.array.binarySearch;
 
-public class g_SearchInRotatedArray {
+public class f_SearchInRotatedArray {
 
     int search(int arr[], int l, int h, int key) {
         if (l > h) return -1;

@@ -1,6 +1,6 @@
 package com.interview.slidingWindow;
 
-public class MaxSumSubArray {
+public class b_MaxSumSubArray {
 
     public void maxSumSubArray(){
         int[] arr = {1, 4, 2, 10, 23, 3, 1, 0, 20};

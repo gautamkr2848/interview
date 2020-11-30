@@ -2,7 +2,7 @@ package com.interview.list;
 
 import java.util.LinkedList;
 
-public class SumOfLists {
+public class j_SumOfLists {
 
     public void sumOfLists(Node a, Node b){
         Node result = null, prev = null, temp;

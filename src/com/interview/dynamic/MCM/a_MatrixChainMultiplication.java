@@ -10,8 +10,7 @@ public class a_MatrixChainMultiplication {
         int min = Integer.MAX_VALUE;
         for(int k=i; k<j; k++){
             int temp = MCM(arr, i, k) + MCM(arr, k+1, j) + arr[i-1] * arr[k] * arr[j];
-            if(temp < min)
-                min = temp;
+            min = Math.min(temp, min);
         }
         return min;
     }
@@ -32,8 +31,7 @@ public class a_MatrixChainMultiplication {
         int min = Integer.MAX_VALUE;
         for(int k=i; k<j; k++){
             int temp = MCM_memorization(arr, i, k) + MCM_memorization(arr, k+1, j) + arr[i-1] * arr[k] * arr[j];
-            if(temp < min)
-                min = temp;
+            min = Math.min(temp, min);
         }
         t[i][j] = min;
         return min;

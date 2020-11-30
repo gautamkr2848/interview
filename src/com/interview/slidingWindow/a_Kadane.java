@@ -1,6 +1,6 @@
 package com.interview.slidingWindow;
 
-public class Kadane {
+public class a_Kadane {
 
     public void Kadane(){
         int[] a = {-1,-2,-3,-4};

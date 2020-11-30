@@ -1,6 +1,6 @@
 package com.interview.list;
 
-public class ReverseLLSize {
+public class b_ReverseLLSize {
 
     public Node reverseLL(Node head, int k){
         Node current = head;

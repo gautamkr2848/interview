@@ -1,6 +1,6 @@
 package com.interview.list;
 
-public class ReverseLinkedList {
+public class a_ReverseLinkedList {
 
     public Node reverseList(Node head){
 

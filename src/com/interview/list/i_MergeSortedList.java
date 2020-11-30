@@ -3,7 +3,7 @@ package com.interview.list;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MergeSortedList {
+public class i_MergeSortedList {
 
     public void mergeSortedList(){
         List<Integer> list1 = new ArrayList<>();

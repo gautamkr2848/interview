@@ -2,7 +2,7 @@ package com.interview.list;
 
 import java.util.HashSet;
 
-public class InsertionPoint {
+public class d_InsertionPoint {
 
     public void insertionPoint(Node n1, Node n2){
         HashSet<Node> set = new HashSet<>();
