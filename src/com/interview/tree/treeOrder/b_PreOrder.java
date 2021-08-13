@@ -1,8 +1,10 @@
 package com.interview.tree.treeOrder;
 
+import com.interview.tree.Node;
+
 import java.util.Stack;
 
-public class PreOrder {
+public class b_PreOrder {
 
     public void preorder(Node node){
         if (node == null)

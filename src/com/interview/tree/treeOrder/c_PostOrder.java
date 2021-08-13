@@ -1,8 +1,10 @@
 package com.interview.tree.treeOrder;
 
+import com.interview.tree.Node;
+
 import java.util.Stack;
 
-public class PostOrder {
+public class c_PostOrder {
 
     public void postorder(Node node){
         if (node == null)

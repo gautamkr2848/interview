@@ -1,11 +1,11 @@
 package com.interview.tree.width;
 
-import com.interview.tree.width.Node;
+import com.interview.tree.Node;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class MaxSumAtLevel {
+public class c_MaxSumAtLevel {
 
     public void maxSum(){
 

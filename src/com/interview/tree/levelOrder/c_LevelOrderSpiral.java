@@ -1,8 +1,10 @@
 package com.interview.tree.levelOrder;
 
+import com.interview.tree.Node;
+
 import java.util.Stack;
 
-public class LevelOrderSpiral {
+public class c_LevelOrderSpiral {
 
     public void levelOrderSpiral(Node node){
 
@@ -45,7 +47,10 @@ public class LevelOrderSpiral {
     }
 
     void printLevel(Node node, int height, Boolean flag){
-        if(height == 0)
+        if(node == null)
+            return;
+
+        if(height == 1)
             System.out.println(node.key);
         else if(height > 0){
             if(flag){

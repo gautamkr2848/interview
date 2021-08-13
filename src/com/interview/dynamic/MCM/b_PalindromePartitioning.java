@@ -3,6 +3,11 @@ package com.interview.dynamic.MCM;
 import java.util.Arrays;
 import java.util.Stack;
 
+//Break a string in such size, so that all substrings wil be a pelindrome
+//nitin     => n    i   t   i   n   here all 5 strings are pelindrome
+//nitin     => n    iti     n       here all 3 strings are pelindrome
+//  o/p - 3
+
 public class b_PalindromePartitioning {
 
     public int b_PalindromePartitioning(String s, int i, int j){

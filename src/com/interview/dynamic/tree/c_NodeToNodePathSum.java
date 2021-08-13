@@ -1,6 +1,8 @@
 package com.interview.dynamic.tree;
 
-public class NodeToNodePathSum {
+import com.interview.tree.Node;
+
+public class c_NodeToNodePathSum {
 
     public void maxPathSum(Node node) {
         int result = Integer.MIN_VALUE;
@@ -15,8 +17,8 @@ public class NodeToNodePathSum {
         int left = maxPathSumUtil(node.left, result);
         int right = maxPathSumUtil(node.right, result);
 
-        int temp = Math.max(Math.max(left, right) + node.data, node.data);
-        int ans = Math.max(temp, left + right + node.data);
+        int temp = Math.max(Math.max(left, right) + node.key, node.key);
+        int ans = Math.max(temp, left + right + node.key);
         result = Math.max(result, ans);
 
         return temp;

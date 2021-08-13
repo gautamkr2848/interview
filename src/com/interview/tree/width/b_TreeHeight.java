@@ -1,11 +1,11 @@
 package com.interview.tree.width;
 
-import com.interview.tree.width.Node;
+import com.interview.tree.Node;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class TreeHeight {
+public class b_TreeHeight {
 
     public int treeHeight(Node node){
         if(node == null)
