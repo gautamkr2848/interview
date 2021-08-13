@@ -1,5 +1,7 @@
 package com.interview.tree.treeOrder;
 
+import com.interview.tree.Node;
+
 import java.util.Stack;
 
 /*
@@ -8,18 +10,7 @@ import java.util.Stack;
     4       5       6
 */
 
-class Node{
-    int key;
-    Node left, right;
-
-    public Node(int key){
-        this.key = key;
-        this.left = null;
-        this.right = null;
-    }
-}
-
-public class InOrder {
+public class a_InOrder {
 
     public void inOrder(Node node){
         if (node == null)

@@ -2,15 +2,24 @@ package com.interview.dynamic.MCM;
 
 import java.util.Arrays;
 
+/*
+m1 2 * 3, m2 3 * 6  cost => 2 * 3 * 6
+m1 2 * 3, m2 3 * 6, m3 6 * 9
+    1. (m1 * m2) * m3
+    2. m1 * (m2 * m3)
+    cost to be min
+*/
+
 public class a_MatrixChainMultiplication {
 
     public int MCM(int[] arr, int i, int j){
+        //value of i always should be = 1 & j = n - 1
         if(i >= j)
             return 0;
         int min = Integer.MAX_VALUE;
         for(int k=i; k<j; k++){
             int temp = MCM(arr, i, k) + MCM(arr, k+1, j) + arr[i-1] * arr[k] * arr[j];
-            if(temp < min)
+            if(temp <   min)
                 min = temp;
         }
         return min;

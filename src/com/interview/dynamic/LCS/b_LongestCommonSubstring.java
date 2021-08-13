@@ -16,7 +16,7 @@ public class b_LongestCommonSubstring {
     public void lcs(String a, String b){
         int m = a.length(), n = b.length();
         int t[][] = new int[m+1][n+1];
-        int length = 0, row = 0, column = 0;
+        int length = 0, end = m;
 
         for (int i = 0; i <= n; i++)
             t[0][i] = 0;
@@ -25,31 +25,16 @@ public class b_LongestCommonSubstring {
 
         for(int i=1; i <= m; i++){
             for(int j=1; j <= n; j++){
-                if(a.charAt(i-1) == b.charAt(j-1))
-                    t[i][j] = t[i-1][j-1] +1;
-                else
+                if(a.charAt(i-1) == b.charAt(j-1)) {
+                    t[i][j] = 1 + t[i - 1][j - 1];
+                    if(t[i][j] > length) {
+                        length = t[i][j];
+                        end = i;
+                    }
+                } else
                     t[i][j] = 0;
-
-                if(t[i][j] > length) {
-                    length = t[i][j];
-                    row = i;
-                    column = j;
-                }
             }
         }
-
-        if (length == 0) {
-            System.out.println("No Common Substring");
-            return;
-        }
-
-        String resultStr = "";
-
-        while (t[row][column] != 0) {
-            resultStr = a.charAt(row - 1) + resultStr;
-            row--;
-            column--;
-        }
-        System.out.println(resultStr);
+        System.out.println(a.substring(end - length, end));
     }
 }

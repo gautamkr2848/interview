@@ -1,10 +1,10 @@
-package com.interview.array;
+package com.interview.array.sort;
 
 // no. of swaps to sort the array
 
 import java.util.Arrays;
 
-public class ArrayInversion {
+public class ArrayInversion_merge {
 
     public void arrayInversion_1(){
         int[] a = {2, 4, 1, 5};
@@ -42,6 +42,13 @@ public class ArrayInversion {
                 swaps += (m + 1) - (l + i);
             }
         }
+
+        while (i < left.length)
+            arr[k++] = left[i++];
+
+        while (j < right.length)
+            arr[k++] = right[j++];
+
         return swaps;
     }
 }

@@ -1,18 +1,11 @@
 package com.interview.tree.width;
 
+import com.interview.tree.Node;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Node{
-    int key;
-    Node left, right;
-
-    public Node(int key){
-        this.key = key;
-    }
-}
-
-public class TreeWidth {
+public class a_TreeWidth {
 
     public void treeWidth(Node node){       //same as max sum at level
         int width = 0;
