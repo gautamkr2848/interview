@@ -10,7 +10,7 @@ s1 - s2 = diff
 s1 = (sum + diff) / 2;
 */
 
-public class f_SubsetDiffCount {
+public class e_SubsetDiffCount {
 
     public void subsetDiffCount(int[] arr, int diff){
         int sum = 0;

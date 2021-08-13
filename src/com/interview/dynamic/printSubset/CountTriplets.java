@@ -1,4 +1,4 @@
-package com.interview.array;
+package com.interview.dynamic.printSubset;
 
 import java.util.ArrayList;
 import java.util.List;

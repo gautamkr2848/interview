@@ -10,7 +10,7 @@ package com.interview.dynamic.knapsack;
     Math.abs(sum - 2s1)
 */
 
-public class e_MinSubsetSumDiff {
+public class f_MinSubsetSumDiff {
 
     public void minSubsetSumDiff(){
         int[] arr = {3, 1, 4, 2, 2, 1};

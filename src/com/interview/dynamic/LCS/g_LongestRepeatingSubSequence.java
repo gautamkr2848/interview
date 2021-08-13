@@ -4,6 +4,9 @@ package com.interview.dynamic.LCS;
     if(a.charAt(i-1) == b.charAt(j-1) && i != j)
     Extra field - i != j */
 
+/*Input: str = "axxxy"
+        Output: 2*/
+
 public class g_LongestRepeatingSubSequence {
 
     public void h_LongestRepeatingSubSequence(String a, String b){
