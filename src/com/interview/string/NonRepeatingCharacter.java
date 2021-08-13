@@ -9,13 +9,8 @@ public class NonRepeatingCharacter {
         String s = "geeksforgeeks";
         Map<Character, Integer> map = new LinkedHashMap<>();
 
-        for(int i=0; i<s.length(); i++){
-            if(map.containsKey(s.charAt(i))){
-                map.put(s.charAt(i), map.get(s.charAt(i)) + 1);
-            } else {
-                map.put(s.charAt(i), 1);
-            }
-        }
+        for(int i=0; i<s.length(); i++)
+            map.put(s.charAt(i), map.getOrDefault(s.charAt(i),0) + 1);
 
         for(Map.Entry<Character, Integer> i : map.entrySet()){
             if(i.getValue() == 1) {

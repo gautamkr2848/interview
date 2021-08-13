@@ -1,6 +1,5 @@
 package com.interview.array;
 
-import com.sun.deploy.security.SelectableSecurityManager;
 
 import java.util.HashMap;
 import java.util.Map;

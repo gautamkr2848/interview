@@ -5,7 +5,7 @@ package com.interview.dynamic.unboundedKnapsack;
 
 public class b_CoinChangeMaxWays {
 
-    public void coinChangeMaxWays(){
+    public void coinChangeMaxNumberOfWays(){
         int coinArray[] = { 1, 5, 10 };
         int sum = 12;
         int n = coinArray.length;
