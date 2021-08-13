@@ -4,7 +4,7 @@ public class StringPermutation {
 
     public void permutation(String str, int l, int r){
         if (l == r)
-            System.out.println(str);
+            System.out.print(str + " ");
         else {
             for (int i = l; i <= r; i++) {
                 str = swap(str, l, i);

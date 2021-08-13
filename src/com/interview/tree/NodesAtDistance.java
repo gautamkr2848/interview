@@ -1,71 +1,10 @@
 package com.interview.tree;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class NodesAtDistance {
 
     static HashMap<Node, Node> parentChildMap = new HashMap<>();    //<child, parent>
-
-    public void nodesAtDistance(Node target, int k){
-        HashSet<Node> s = new HashSet<>();
-        int dist = 0;
-
-        Queue<Node> q = new LinkedList<>();
-        q.add(target);
-        s.add(target);
-
-        while (!q.isEmpty()) {
-            if (dist == k) {
-                while (!q.isEmpty()){
-                    System.out.print(q.peek().key + " ");
-                    q.poll();
-                }
-            }
-
-            int size = q.size();
-            for(int i = 0; i < size; i++) {
-                Node p = q.poll();
-
-                if (p.left != null && !s.contains(p.left)) {
-                    q.add(p.left);
-                    s.add(p.left);
-                }
-
-                if (p.right != null && !s.contains(p.right)) {
-                    q.add(p.right);
-                    s.add(p.right);
-                }
-
-                if (parentChildMap.get(p) != null && !s.contains(parentChildMap.get(p))) {
-                    q.add(parentChildMap.get(p));
-                    s.add(parentChildMap.get(p));
-                }
-            }
-            dist++;
-        }
-    }
-
-    void storeParent(Node root){
-        Queue<Node> q = new LinkedList<>();
-        q.add(root);
-        while (!q.isEmpty()) {
-            Node p = q.poll();
-            if (p == root)
-                parentChildMap.put(p, null);
-
-            if (p.left != null) {
-                parentChildMap.put(p.left, p);
-                q.add(p.left);
-            }
-            if (p.right != null) {
-                parentChildMap.put(p.right, p);
-                q.add(p.right);
-            }
-        }
-    }
 
     public void nodes(){
         Node root = new Node(20);
@@ -83,7 +22,40 @@ public class NodesAtDistance {
         root.left.right.right = new Node(14);
         Node target = root.left.right;
 
-        storeParent(root);
-        nodesAtDistance(target, 3);
+        kDistanceNodes(root, target, 3);
+    }
+
+    List<Node> path = null;
+    private void kDistanceNodes(Node node, Node target, int k){
+        path = new ArrayList<>();
+        findPath(node, target);
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < path.size(); i++) {
+            findKDistanceFromNode(path.get(i), k - i, result, i == 0 ? null : path.get(i - 1));
+        }
+
+        result.stream().forEach(x -> System.out.print(x+ " "));
+    }
+
+    private void findKDistanceFromNode(Node node, int dist, List<Integer> result, Node blocker) {
+        if (dist < 0 || node == null || (blocker != null && node == blocker))
+            return;
+
+        if (dist == 0)
+            result.add(node.key);
+
+        findKDistanceFromNode(node.left, dist - 1, result, blocker);
+        findKDistanceFromNode(node.right, dist - 1, result, blocker);
+    }
+
+    private boolean findPath(Node node, Node target) {
+        if (node == null)
+            return false;
+
+        if (node == target || findPath(node.left, target) || findPath(node.right, target)) {
+            path.add(node);
+            return true;
+        }
+        return false;
     }
 }

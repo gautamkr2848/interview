@@ -1,6 +1,6 @@
-package com.interview.dynamic;
+package com.interview.dynamic.LCS;
 
-public class CountDistinctSubSequence {
+public class j_CountDistinctSubSequence {
 
     public void countDistinctSubSequence(String s1, String s2){
         int a = s1.length();
@@ -11,7 +11,7 @@ public class CountDistinctSubSequence {
 
         int[][] T = new int[a+1][b+1];
 
-        for (int i = 1; i <= a; i++)
+        for (int i = 0; i <= a; i++)
             T[i][0] = 0;
 
         for (int j = 0; j <= b; j++)

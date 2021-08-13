@@ -1,9 +1,9 @@
-package com.interview.array;
+package com.interview.dynamic.printSubset;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PythagoreanTriplet {
+public class    PythagoreanTriplet {
 
     public void pythagoreanTriplet(){
 
@@ -27,5 +27,4 @@ public class PythagoreanTriplet {
         }
         System.out.println("Total subset with pythagoreanTriplet: "+ count);
     }
-
 }

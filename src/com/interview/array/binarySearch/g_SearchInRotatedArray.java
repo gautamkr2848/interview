@@ -9,17 +9,15 @@ public class g_SearchInRotatedArray {
         if (arr[mid] == key) return mid;
 
         if (arr[l] <= arr[mid]) {
-
             if (key >= arr[l] && key <= arr[mid])
                 return search(arr, l, mid - 1, key);
-            else
-                return search(arr, mid + 1, h, key);
-        } else {
-            if (key >= arr[mid] && key <= arr[h])
-                return search(arr, mid + 1, h, key);
-            else
-                return search(arr, l, mid - 1, key);
+            return search(arr, mid + 1, h, key);
         }
+
+        if (key >= arr[mid] && key <= arr[h])
+            return search(arr, mid + 1, h, key);
+
+        return search(arr, l, mid - 1, key);
     }
 
 }
