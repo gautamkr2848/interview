@@ -1,5 +1,7 @@
 package com.interview.string;
 
+//String s = Integer.toBinaryString(i);   where i = number
+
 public class NumberToBinary {
 
     public void numberToBinary() {
