@@ -10,7 +10,7 @@ public class LargestNumberFromArray {
         arr.add("0");
         arr.add("0");
         arr.add("1");
-        Collections.sort(arr, (x, y) -> (y+x).compareTo(x+y));
+        Collections.sort(arr, (o1, o2) -> (o2+o1).compareTo(o1+o2));
 
         Iterator it = arr.iterator();
 

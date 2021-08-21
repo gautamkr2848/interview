@@ -1,5 +1,9 @@
 package com.interview.slidingWindow;
 
+/*Input  : arr[] = {100, 200, 300, 400}
+        k = 2
+        Output : 700*/
+
 public class MaxSumSubArray {
 
     public void maxSumSubArray(){
