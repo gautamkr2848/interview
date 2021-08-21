@@ -70,7 +70,7 @@ class Singleton_4 {
     }
 }
 
-class BraekSingleton{
+class BreakSingleton{
     public void breakSingleton(){
         Singleton instance1 = Singleton.singleton;
         Singleton instance2 = null;

@@ -1,6 +1,10 @@
 package com.interview.stack;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 /*1) Create an empty stack.
   2) Start from first bar, and do following for every bar ‘hist[i]’ where ‘i’ varies from 0 to n-1.
@@ -11,36 +15,33 @@ import java.util.Stack;
          ‘right index’ is ‘i’ (current index).
   3) If the stack is not empty, then one by one remove all bars from stack and do step 2.b for every removed bar.*/
 
+
+//maxArea = height * (Nearest Smaller to Right index - Nearest Samller to Left index - 1)
+
+/*
+        { 6, 2, 5, 4, 5, 1, 6 }
+NSR       1, 5, 3, 5, 5, 7, 7
+NSL     -1, -1, 1, 1, 3, -1, 5
+Area    6, 10, 5, 12, 5, 7, 6
+ */
+
 public class f_MaxHistogramArea {
 
     public void maxArea(){
         int[] histogram = { 6, 2, 5, 4, 5, 1, 6 };
-        Stack<Integer> stk = new Stack<>(); //used for index only
-        int max_area = 0;
-        int top;
-        int area;
 
-        int i = 0;
-        while (i < histogram.length){
-            if (stk.empty() || histogram[stk.peek()] <= histogram[i]) {
-                stk.push(i++);
-            } else {
-                top = stk.pop();
-                //area calculation formula
-                area = histogram[top] * (stk.empty() ? i : i - stk.peek() - 1);
+        //int[] nsr = nearestSmallerToRight(histogram);
+        //int[] nsl = nearestSmallerToLeft(histogram);
 
-                if (max_area < area)
-                    max_area = area;
-            }
+        int[] nsr = new int[100];
+        int[] nsl = new int[100];
+
+        int area = Integer.MIN_VALUE;
+        for(int i=0; i<histogram.length; i++){
+            int val = histogram[i] * (nsr[i] - nsl[i]);
+            if(val > area)
+                area = val;
         }
-
-        while (!stk.empty()){
-            top = stk.pop();
-            area = histogram[top] * (stk.empty() ? i : i - stk.peek() - 1);
-
-            if (max_area < area)
-                max_area = area;
-        }
-        System.out.println("Max Area : "+max_area);
+        System.out.print("Max area is " + area);
     }
 }

@@ -24,7 +24,7 @@ public class a_InOrder {
         if (node == null)
             return;
 
-        Stack<Node> s = new Stack<Node>();
+        Stack<Node> s = new Stack<>();
         Node curr = node;
 
         while (curr != null || s.size() > 0){

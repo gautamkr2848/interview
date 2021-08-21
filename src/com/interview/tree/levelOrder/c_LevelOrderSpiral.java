@@ -46,19 +46,19 @@ public class c_LevelOrderSpiral {
         }
     }
 
-    void printLevel(Node node, int height, Boolean flag){
+    void printLevel(Node node, int level, Boolean flag){
         if(node == null)
             return;
 
-        if(height == 1)
+        if(level == 1)
             System.out.println(node.key);
-        else if(height > 0){
+        else if(level > 0){
             if(flag){
-                printLevel(node.left, height - 1, flag);
-                printLevel(node.right, height - 1, flag);
+                printLevel(node.left, level - 1, flag);
+                printLevel(node.right, level - 1, flag);
             } else {
-                printLevel(node.right, height - 1, flag);
-                printLevel(node.left, height - 1, flag);
+                printLevel(node.right, level - 1, flag);
+                printLevel(node.left, level - 1, flag);
             }
         }
 

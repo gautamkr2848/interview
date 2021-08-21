@@ -1,5 +1,8 @@
 package com.interview.slidingWindow;
 
+/*Input: arr[] = {1, 2, 3, 1, 4, 5, 2, 3, 6}, K = 3
+        Output: 3 3 4 5 5 5 6*/
+
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -27,20 +30,20 @@ public class MaxOfAllSubarray {
         Deque<Integer> q = new LinkedList<>();
         int i;
         for (i = 0; i < k; i++) {
-            while (!q.isEmpty() && arr[i] >= arr[q.peekLast()])     //the previous smaller elements are useless so remove them from Queue
-                q.removeLast();     // Remove from rear
-            q.addLast(i);       // Add new element at rear of queue
+            while (!q.isEmpty() && arr[q.peekLast()] <= arr[i])     // remove useless elements
+                q.removeLast();
+            q.addLast(i);
         }
 
         for (; i < arr.length; i++) {
-            System.out.print(arr[q.peek()] + " ");   // The element at the front of the queue is the largest element of previous window
-            while (!q.isEmpty() && q.peek() <= i - k)         // Remove the elements which are out of this window
+            System.out.print(arr[q.peek()] + " ");   // largest element is at the front of the queue
+            while (!q.isEmpty() && q.peek() <= i - k)    // Remove the elements which are out of this window
                 q.removeFirst();
 
-            while (!q.isEmpty() && arr[i] >= arr[q.peekLast()])       // remove useless elements
+            while (!q.isEmpty() && arr[q.peekLast()] <= arr[i])       // remove useless elements
                 q.removeLast();
 
-            q.addLast(i);       // Add current element at the rear of Qi
+            q.addLast(i);
         }
         System.out.print(arr[q.peek()]);
     }

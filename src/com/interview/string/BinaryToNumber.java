@@ -1,5 +1,7 @@
 package com.interview.string;
 
+//int decimal=Integer.parseInt(binaryString,2);
+
 public class BinaryToNumber {
 
     public void binaryToNumber(){

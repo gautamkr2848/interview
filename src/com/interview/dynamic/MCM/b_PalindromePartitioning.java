@@ -31,10 +31,8 @@ public class b_PalindromePartitioning {
             return true;
 
         while (i < j){
-            if(s.charAt(i) != s.charAt(j))
+            if(s.charAt(i++) != s.charAt(j--))
                 return false;
-            i++;
-            j--;
         }
         return true;
     }

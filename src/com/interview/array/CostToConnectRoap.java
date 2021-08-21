@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 public class CostToConnectRoap {
 
     public void costToConnectRoap(){
-        int arr[] = { 4, 3, 2, 6 };
+        int arr[] = { 4, 8, 3, 2, 6, 1, 5, 9, 7};
         int res = 0;
         PriorityQueue<Integer> pq = new PriorityQueue<>();
 

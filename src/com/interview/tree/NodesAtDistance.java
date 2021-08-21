@@ -4,8 +4,6 @@ import java.util.*;
 
 public class NodesAtDistance {
 
-    static HashMap<Node, Node> parentChildMap = new HashMap<>();    //<child, parent>
-
     public void nodes(){
         Node root = new Node(20);
         root.left = new Node(8);
