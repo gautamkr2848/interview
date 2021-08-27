@@ -1,18 +1,18 @@
-Paytm
+Paytm - 2
 1. Tree Reverse Order Traversal
 2. Mutex
 3. Semaphore
 4. google.com ==>> exact location
 
-DirectI
+DirectI - 3
 1. Implement LRU Cache
 
-Cleartrip
+Cleartrip - 3
 1. SpringBoot Web Application
 2. No.of min platforms
 3. Nearest Smaller elements on left
 
-TCS
+TCS - 1
 1. @Controller vs @RestController
 2. use of @SpringBootApplication
 3. List vs Set
@@ -26,22 +26,43 @@ TCS
 11. OOPS
 12. Overloading vs overriding vs methodhiding
 
-DPWorld
+DPWorld - 1
 1. Beautiful Segment
 2. Game Segment
 
-Bandhoo
+Bandhoo - 2
 1. String reverse using recurssion
 2. Find min and max with min number of comparisions
 3. OOPS vs procedureal language
 4. Visitor pattern
 
-UpGrad
+UpGrad - 2
 1. OOPS vs procedureal language
 2. Collection
-3. Java Stream Sorted()
+3. Java Stream Sorted() => Tim Sort
 4. Mysql
 5. Design Exam Portal Website
 
-Myntra
+Myntra - 1
 1. Postorder using Preorder and Inorder
+
+Goldman Sachs - 1
+1. Form minimum number from given sequence
+2. Find number of positional elements
+
+UpLoan - 2
+1. Mifos & Finrect
+2. Count vowels in string
+3. Abstraction & Encapulation
+4. Polymorphism
+5. Delete vs Truncate in mysql
+6. Mysql vs Nosql
+7. Normalization
+8. Oops features
+9. Abstract Class vs Interface
+
+Enfusion - 1
+1. Predicate
+2. Default methods in Interface
+3. Abstraction
+4. Abstract class vs Interface

@@ -9,6 +9,7 @@ package com.interview.array.sort;
 
 public class SelectionSort {
 
+    QuickSort q = new QuickSort();
     public void selectionSort(){
         int arr[] = {10, 7, 8, 9, 1, 5};
         int n = arr.length;
@@ -19,9 +20,7 @@ public class SelectionSort {
                 if (arr[j] < arr[min])
                     min = j;
 
-            int temp = arr[min];    // Swap the found minimum element with the first element
-            arr[min] = arr[i];
-            arr[i] = temp;
+            q.swap(arr, min, i);
         }
     }
 }

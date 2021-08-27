@@ -32,8 +32,10 @@ public class MinCostPath {
     }
 
     public int minCost_2(int[][] cost, int m, int n){
-        if(m < 0 || n < 0) return Integer.MAX_VALUE;
-        if(m == 0 && n == 0) return cost[m][n];
+        if(m < 0 || n < 0)
+            return Integer.MAX_VALUE;
+        if(m == 0 && n == 0)
+            return cost[m][n];
         return cost[m][n] + min(minCost_2(cost, m-1, n), minCost_2(cost, m, n-1), minCost_2(cost, m-1, n-1));
     }
 }
