@@ -1,0 +1,33 @@
+Instagram is a social networking service that enables its users to upload and
+share their photos and videos with other users.
+
+Functional Requirements:
+1. Users should be able to upload/download/view photos.
+2. Users can perform searches based on user_name
+3. Users can follow other users.
+4. The system should generate and display a user’s home page consisting of top photos
+    from all the people the user follows.
+
+Note - The system would be read-heavy.
+
+Database Design:
+1. User Table
+2. User Followers
+3. Photo Table
+
+Rest API's
+1. /generateHomePage
+2. /crud photo
+3. /searchUser
+4. /followUser
+
+Home Page Creation
+1. Pull
+    Clients can pull the News-Feed contents from the server at a regular interval
+    or manually whenever they need it
+2. Push
+    Servers can push new data to the users as soon as it is available.
+3. Hybrid
+    We can move all the users who have a high number of followers to a pull-based
+    model and only push data to those who have a few hundred (or thousand) follows.
+

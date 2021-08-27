@@ -1,0 +1,95 @@
+Apache Cassandra is an open source distributed NoSQL database.
+
+Features
+    Stores structured, semi-structured, unstructured data
+    Simple Design
+    Highly available
+    Horizontal scaling
+    Faster than SQL
+
+Cassandra work
+1. Cassandra is capable of handling petabytes of information and thousands of concurrent
+    users/operations per second
+
+2. Cassandra is a partitioned row store database
+3. Cassandra's architecture allows any authorized user to connect to any node in any datacenter
+    and access data using the CQL language. CQL uses a similar syntax to SQL. The most basic way
+    to interact with Cassandra is using the CQL shell, cqlsh. Using cqlsh, you can create keyspaces
+    and tables, insert and query tables, plus much more.
+
+4. Cassandra provides automatic data distribution across all nodes in a database cluster.
+5. Cassandra also provides customizable replication strategy, which stores redundant copies of
+    data across nodes. If incase any node in a cluster goes down, one or more copies of that node’s
+    data is available on other machines in the cluster.
+
+6. Cassandra supplies linear scalability. For example, if 2 nodes can handle 100,000 transactions per second,
+    4 nodes will support 200,000 transactions/sec and 8 nodes will tackle 400,000 transactions/sec.
+
+What is CQL?
+ CQL is the recommended way to interact with Cassandra. CQL and SQL share the same abstract idea
+    of a table constructed of columns and rows. The main difference from SQL is that Cassandra
+    does not support joins or subqueries.
+
+Architecture in brief
+    1. Cassandra is designed to handle big data workloads across multiple nodes with no single point of failure.
+    2. It's architecture is based on the understanding that system and hardware failures can and do occur.
+    3. In cassandra each node exchanges using peer-to-peer gossip communication protocol.
+    4. A sequentially written commit log on each node captures write activity to ensure data durability.
+    5. Data is then indexed and written to an in-memory structure, called a memtable.
+    6. All writes are automatically distributed throughout the cluster.
+    7. Cassandra is a partitioned row store database, where rows are organized into tables with a
+        primary key.
+
+Key structures
+1. Node - Where you store your data.
+2. DataCentre - Collection of nodes
+3. Cluster - Collection of data centres
+4. Commit log - All data is written first to the commit log for durability
+5. Memtable - Temporary table commit log => memtable
+
+Data distribution hadled by using consistenthashing
+Data replication
+
+Storage Engine
+1. Cassandra uses a storage structure similar to a Log-Structured Merge Tree
+2. Cassandra avoids reading before writing. Read-before-write, especially in a large distributed
+    system, can result in performance issue
+3. A log-structured engine that avoids overwrites and uses sequential I/O to update data is
+    essential for writing
+
+Data Write
+    Logging data in the commit log
+    Writing data to the memtable  -  in a memory data structure
+    Flushing data from the memtable
+    Storing data on disk in SSTables
+
+How is data maintained?
+    The Cassandra write process stores data in files called SSTables. SSTables are immutable.
+    Instead of overwriting existing rows with inserts or updates, Cassandra writes new timestamped
+    versions of the inserted or updated data in new SSTables. Cassandra does not perform deletes by
+    removing the deleted data: instead, Cassandra marks it with tombstones.
+
+    Over time, Cassandra may write many versions of a row in different SSTables. Each version may
+    have a unique set of columns stored with a different timestamp. As SSTables accumulate,
+    the distribution of data can require accessing more and more SSTables to retrieve a complete row.
+
+Compaction
+    To keep the database healthy, Cassandra periodically merges SSTables and discards old data.
+    This process is called compaction.
+
+Data Read
+    1. Check the memtable
+    2. Check row cache, if enabled
+    3. Fetches the data from the SSTable on disk
+
+Consistent read and write
+    Cassandra is a AP(availability and partition tolerance) system according to the CAP theorem.
+    Cassandra does have flexibility in its configuration, though, and can perform more
+    like a CP (consistent and partition tolerant) system according to the CAP theorem, depending
+    on the application requirements.
+
+Cassandra transactions
+    1. Cassandra does not use RDBMS ACID transactions with rollback or locking mechanisms, but
+        instead offers atomic, isolated, and durable transactions.
+    2. As a non-relational database, Cassandra does not support joins or foreign keys, and
+        does not offer consistency in the ACID sense.

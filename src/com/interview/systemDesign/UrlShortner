@@ -1,0 +1,29 @@
+Long URL => Short URL
+
+API's
+1. create_tiny(long_url)
+2. get_long(tiny_url)
+
+Long URL - upto 100 chars
+Tiny URL - upto 7-8 chrs
+    contains
+        a to z = 26
+        A to Z = 26
+        0 to 9 = 10
+      ----------------
+      total   =  62
+
+      tiny url combinations = Math.pow(62, 7) = 3.5 trillion combinations
+                                                If 1000 url/sec then 110 years to exaust
+
+1. Generate random tiny url and check into database
+    For same long url's there may be 2 diff. tiny url.
+
+2. MD5
+    a. Calculate MD5 of long url which will generate 128 bit long hash
+    b. 0 to 3.5 trillion can be represented by 43 bits
+    c. Take 43 bits to generate tiny url
+    d. For same long url's there can't be 2 diff. tiny url
+
+
+

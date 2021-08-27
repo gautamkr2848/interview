@@ -1,0 +1,65 @@
+1. Content Delivery Network
+    A content delivery network (CDN) refers to a geographically distributed group of servers
+    which work together to provide fast delivery of Internet content.
+    Benefits of CDN :
+        a. Improving website load times
+        b. Reducing bandwidth costs
+        c. Increasing content availability and redundancy
+        d. Improving website security
+
+    In order to improve speed and connectivity, a CDN will place servers at the exchange
+    points between different networks.
+
+2. Distributed Cache    =>  Redis
+3. Pub/Sub Model
+    The Publish/Subscribe pattern, also known as pub/sub, is an architectural design pattern
+    that provides a framework for exchanging messages between publishers and subscribers. This
+    pattern involves the publisher and the subscriber relying on a message broker that relays
+    messages from the publisher to the subscribers. The host (publisher) publishes messages (events)
+    to a channel that subscribers can then sign up to.
+
+4. Event Driven Architecture
+    Two microservices communicate with each other based on event bus.
+    An e-commerce application that uses this approach would work as follows:
+        a. The Order Service creates an Order in a pending state and publishes an OrderCreated event.
+        b. The Customer Service receives the event and attempts to reserve credit for that Order.
+            It then publishes either a Credit Reserved event or a CreditLimitExceeded event.
+        c. The Order Service receives the event from the Customer Service and changes the state of
+            the order to either approved or cancelled
+
+5. Service Discovery
+
+
+6. Database Sharding
+    Example of horizontal scaling
+        User table - Storing all the users
+        After Sharding -
+            Stores  A-I in user1 table
+                    J-S in user2 table
+                    T-Z in user3 table
+
+7. Load Balancing
+    Load balancing refers to the process of distributing a set of tasks over a set of resources,
+    with the aim of making their overall processing more efficient.
+    Algorithms :
+        a. Round Robin
+        b. Hash
+        c. Consistent Hash
+        d. Least Connection
+
+    Benefits:
+        a. Reduce Downtime
+        b. Increase Performance
+        c. Saclability
+        d. Flexibility
+
+8. Consistent Hahsing
+    https://medium.com/@sandeep4.verma/consistent-hashing-8eea3fb4a598
+
+9. Scaling
+    Vertical => Buying a bigger system
+    Horizontal => Increasing number of instances
+
+10. Eureka
+11. Zuul
+12. Apache Kafka
