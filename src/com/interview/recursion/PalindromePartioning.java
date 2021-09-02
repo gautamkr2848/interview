@@ -3,15 +3,16 @@ package com.interview.recursion;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.List;
 
 public class PalindromePartioning {
 
     public void palindromeParioning(){
-        String s = "geeks";
+        String s = "nitin";
         int n = s.length();
-        ArrayList<ArrayList<String>> result = new ArrayList<>();
+        List<List<String>> result = new ArrayList<>();
 
-        Deque<String> currPart = new LinkedList<>();    // To store current palindromic partition
+        Deque<String> currPart = new LinkedList<>();
         partitonsUtil(result, currPart, 0, n, s);
 
         for (int i = 0; i < result.size(); i++) {
@@ -21,17 +22,17 @@ public class PalindromePartioning {
         }
     }
 
-    private void partitonsUtil(ArrayList<ArrayList<String>> allPart, Deque<String> currPart, int start, int n, String s) {
+    private void partitonsUtil(List<List<String>> allPart, Deque<String> currPart, int start, int n, String s) {
         if (start >= n) {
             allPart.add(new ArrayList<>(currPart));
             return;
         }
 
-        for (int i = start; i < n; i++) {   // Pick all possible ending points for substrings
+        for (int i = start; i < n; i++) {
             if (isPalindrome(s, start, i)) {
-                currPart.addLast(s.substring(start, i + 1));    // Add the substring to result
-                partitonsUtil(allPart, currPart, i + 1, n, s);      // Recur for remaining remaining substring
-                currPart.removeLast();      // Remove substring str[start..i] from current partition
+                currPart.addLast(s.substring(start, i + 1));
+                partitonsUtil(allPart, currPart, i + 1, n, s);
+                currPart.removeLast();
             }
         }
     }

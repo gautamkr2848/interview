@@ -6,6 +6,7 @@ package com.interview.array.sort;
 
 public class HeapSort {
 
+    QuickSort q = new QuickSort();
     public void heapSort(){
         int arr[] = {12, 11, 13, 5, 6, 7};
         int n = arr.length;
@@ -14,9 +15,7 @@ public class HeapSort {
             heapify(arr, n, i);
 
         for (int i=n-1; i>0; i--) {
-            int temp = arr[0];
-            arr[0] = arr[i];
-            arr[i] = temp;
+            q.swap(arr, 0, i);
             heapify(arr, i, 0);
         }
 
@@ -36,9 +35,7 @@ public class HeapSort {
             largest = r;
 
         if (largest != i) {
-            int swap = arr[i];
-            arr[i] = arr[largest];
-            arr[largest] = swap;
+            q.swap(arr, i, largest);
             heapify(arr, n, largest);
         }
     }

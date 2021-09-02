@@ -1,7 +1,9 @@
 package com.interview.list;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.PriorityQueue;
 
 public class MergeSortedList {
 
@@ -34,6 +36,38 @@ public class MergeSortedList {
             list3.add(list2.get(j++));
 
         System.out.println(list3.toString());
+    }
+
+    public Node mergeKLists_2(Node arr[], int last) {    //last = k-1;
+        while (last != 0) {
+            int i = 0, j = last;
+
+            while (i < j) {
+                arr[i] = SortedMerge(arr[i++], arr[j--]);
+                if (i >= j)
+                    last = j;
+            }
+        }
+        return arr[0];
+    }
+
+    private Node SortedMerge(Node a, Node b) {
+        Node result = null;
+
+        if (a == null)
+            return b;
+        else if (b == null)
+            return a;
+
+        if (a.data <= b.data) {
+            result = a;
+            result.next = SortedMerge(a.next, b);
+        } else {
+            result = b;
+            result.next = SortedMerge(a, b.next);
+        }
+
+        return result;
     }
 }
 

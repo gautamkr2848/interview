@@ -1,4 +1,4 @@
-package com.interview.miscellaneous;
+package com.interview.systemDesign;
 /*
 There are several data structures that can be used to represent LRU cache. A linked list
 (either singly linked or doubly linked), or an array are the most obvious choices. This algorithm
