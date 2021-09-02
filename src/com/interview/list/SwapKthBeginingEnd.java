@@ -2,56 +2,58 @@ package com.interview.list;
 
         /*Input: 1 -> 2 -> 3 -> 4 -> 5, K = 2
         Output: 1 -> 4 -> 3 -> 2 -> 5
-        Explanation: The 2nd node from 1st is 2 and
+        Explanation: The 2nd node from start is 2 and
         2nd node from last is 4, so swap them.*/
 
 public class SwapKthBeginingEnd {
 
-    public void swapKthBeginingEnd(Node head, int k){
+    public void swapKthBeginingEnd_2(){
+        Node head = new Node(11);
+        head.next = new Node(10);
+        head.next.next = new Node(13);
+        head.next.next.next = new Node(17);
+        head.next.next.next.next = new Node(9);
+
+        int k = 3;
         int n = countNodes(head);
         if (n < k) return;
+
+        int endNode = n - k + 1;
 
         // If x (kth node from start) and y(kth node from end) are same
         if (2*k - 1 == n)
             return;
 
-        Node x = head;
-        Node x_prev = null;
-        for (int i = 1; i < k; i++) {
-            x_prev = x;
-            x = x.next;
+        Node slow = head, fast = head;
+        Node slowP = null, fastP = null;
+
+        int i=0;
+        while (i<k-1){
+            slowP = slow;
+            slow = slow.next;
+            i++;
         }
 
-        Node y = head;
-        Node y_prev = null;
-        for (int i = 1; i < n - k + 1; i++) {
-            y_prev = y;
-            y = y.next;
+        i = 0;
+        while(i<endNode-1){
+            fastP = fast;
+            fast = fast.next;
+            i++;
         }
 
-        if (x_prev != null)
-            x_prev.next = y;
+        Node tmp = slow.next;
+        slow.next= fast.next;
+        fast.next = tmp;
 
-        // Same thing applies to y_prev
-        if (y_prev != null)
-            y_prev.next = x;
+        slowP.next = fast;
+        fastP.next = slow;
 
-        Node temp = x.next;
-        x.next = y.next;
-        y.next = temp;
-
-        if (k == 1)
-            head = y;
-
-        if (k == n)
-            head = x;
     }
 
     int countNodes(Node head){
         int count = 0;
         Node s = head;
-        while (s != null)
-        {
+        while (s != null) {
             count++;
             s = s.next;
         }

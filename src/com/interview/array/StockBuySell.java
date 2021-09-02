@@ -15,6 +15,5 @@ public class StockBuySell {
             }
         }
         System.out.println("Maximum profit : " + profit);
-
     }
 }
