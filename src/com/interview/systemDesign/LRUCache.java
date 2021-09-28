@@ -11,9 +11,7 @@ doubly linked list was probably the easiest efficient solution that meets all th
 */
 
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 class Node {
     int key;
@@ -107,6 +105,13 @@ class LRUCache2 {
                 return size() > CAPACITY;
             }
         };
+
+        /*Used for Array Cache
+        Set<Integer> set = Collections.newSetFromMap(new LinkedHashMap<Integer, Boolean>(capacity, 0.75f, true) {
+            protected boolean removeEldestEntry(Map.Entry eldest) {
+                return size() > CAPACITY;
+            }
+        });*/
     }
 
     public int get(int key) {

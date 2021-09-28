@@ -1,6 +1,8 @@
 package com.interview.array.sort;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.PriorityQueue;
 
 public class KSmallerElements {
@@ -10,24 +12,21 @@ public class KSmallerElements {
         int size = arr.length;
         int k = 2;
 
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
         for(int i = 0; i < k; i++)
-            minHeap.add(arr[i]);
+            queue.add(arr[i]);
 
         for(int i = k; i < size; i++) {
 
-            if (minHeap.peek() > arr[i])
+            if (queue.peek() > arr[i])
                 continue;
             else {
-                minHeap.poll();
-                minHeap.add(arr[i]);
+                queue.poll();
+                queue.add(arr[i]);
             }
         }
 
-        // Now min heap contains k maximum
-        // elements, Iterate and print
-        Iterator iterator = minHeap.iterator();
-
+        Iterator iterator = queue.iterator();
         while (iterator.hasNext()) {
             System.out.print(iterator.next() + " ");
         }

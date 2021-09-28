@@ -8,12 +8,16 @@ Functional Requirements:
 4. The system should generate and display a user’s home page consisting of top photos
     from all the people the user follows.
 
+Non Functional Requirements:
+Performance, availability, consistency, scalability, reliability, etc
+
 Note - The system would be read-heavy.
 
 Database Design:
-1. User Table
-2. User Followers
-3. Photo Table
+    Photo: PhotoID (pk), UserID, PhotoLocation, CreationDate
+    User: UserID(pk), Name, Email, DOB, LastLoginTime
+    Follow: UserID1, UserID2 (paired pk)
+    FeedItem: FeedID(pk), UserID,Contents, PhotoID,CreationDate
 
 Rest API's
 1. /generateHomePage
@@ -31,3 +35,16 @@ Home Page Creation
     We can move all the users who have a high number of followers to a pull-based
     model and only push data to those who have a few hundred (or thousand) follows.
 
+Performance Estimation :
+Total users = 100 million.
+Daily active users = 10% = 10 million per day.
+Assuming that 1/5 user uploads 1 photos on average, so total photos upload in day = 2 million
+
+Throughput  Estimations:
+Total write transactions in day  = 2 million photos
+Since the read: write ratio is 80: 20, total read transactions = 10 million
+Thus total TPS (transactions per second) : 2 million + 10 million = 12 million per day ~ 150 per second
+
+Storage Estimations:
+Assume each photo is 200kb, so total storage for photos per day is 2 million x 200k ~ 400 GB per day.
+Total photo storage for 10 years =  10 years x 365 days a year x  400 GB per day ~ 1600 TB

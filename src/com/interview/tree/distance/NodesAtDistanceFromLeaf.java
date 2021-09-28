@@ -1,4 +1,6 @@
-package com.interview.tree;
+package com.interview.tree.distance;
+
+import com.interview.tree.Node;
 
 public class NodesAtDistanceFromLeaf {
 

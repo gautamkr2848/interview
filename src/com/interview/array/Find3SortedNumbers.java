@@ -6,7 +6,7 @@ public class Find3SortedNumbers {
         int arr[] = {5, 7, 4, 8};
         int n = arr.length;
 
-        int small = Integer.MAX_VALUE, large = Integer.MAX_VALUE;
+        int small = Integer.MAX_VALUE, large = Integer.MIN_VALUE;
         int i;
         for (i = 0; i < n; i++) {
             if (arr[i] <= small)

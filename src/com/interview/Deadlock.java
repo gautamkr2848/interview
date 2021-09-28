@@ -6,8 +6,7 @@ thread is holding a resource B and waiting for resource A.
 
 We can prevent Deadlock by eliminating any of the four conditions.
     1. Mutual Excecution
-        There must exist at least one resource in the system which can be used by only
-        one process at a time.
+        One resource should be used by only one process at a time.
     2. Hold and Wait
         Ensure that none of the processes are holding a resource and waiting for another
     3. No preemption
@@ -53,13 +52,6 @@ public class Deadlock {
     public static Object lock1 = new Object();
     public static Object lock2 = new Object();
 
-    public void deadlock() {
-        ThreadDemo1 T1 = new ThreadDemo1();
-        ThreadDemo2 T2 = new ThreadDemo2();
-        T1.start();
-        T2.start();
-    }
-
     private static class ThreadDemo1 extends Thread {
         public void run() {
             synchronized (lock1) {
@@ -75,6 +67,7 @@ public class Deadlock {
             }
         }
     }
+
     private static class ThreadDemo2 extends Thread {
         public void run() {
             synchronized (lock2) {      //change to Lock1
@@ -90,5 +83,12 @@ public class Deadlock {
                 }
             }
         }
+    }
+
+    public void deadlock() {
+        ThreadDemo1 T1 = new ThreadDemo1();
+        ThreadDemo2 T2 = new ThreadDemo2();
+        T1.start();
+        T2.start();
     }
 }

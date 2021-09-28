@@ -1,4 +1,6 @@
-package com.interview.tree;
+package com.interview.tree.distance;
+
+import com.interview.tree.Node;
 
 import java.util.*;
 
@@ -8,19 +10,13 @@ public class NodesAtDistance {
         Node root = new Node(20);
         root.left = new Node(8);
         root.right = new Node(22);
-        root.right.left = new Node(5);
-        root.right.right = new Node(8);
         root.left.left = new Node(4);
-        root.left.left.left = new Node(25);
         root.left.right = new Node(12);
         root.left.right.left = new Node(10);
-        root.left.right.left.left = new Node(15);
-        root.left.right.left.right = new Node(18);
-        root.left.right.left.right.right = new Node(23);
         root.left.right.right = new Node(14);
         Node target = root.left.right;
 
-        kDistanceNodes(root, target, 3);
+        kDistanceNodes(root, target, 2);
     }
 
     List<Node> path = null;

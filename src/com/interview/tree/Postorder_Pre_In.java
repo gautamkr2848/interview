@@ -1,5 +1,12 @@
 package com.interview.tree;
 
+/*Input:
+        Inorder traversal in[] = {4, 2, 5, 1, 3, 6}
+        Preorder traversal pre[] = {1, 2, 4, 5, 3, 6}
+
+        Output:
+        Postorder traversal is {4, 5, 2, 6, 3, 1}*/
+
 public class Postorder_Pre_In {
 
     int preIndex = 0;

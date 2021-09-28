@@ -46,7 +46,7 @@ public class Power {
     }
 
     public void power_2(){
-        int a = 3, b = 4;
+        int a = 81, b = 4;
         int result = 1;
         if(b == 0)
             System.out.println("1");

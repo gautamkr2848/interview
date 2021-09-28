@@ -9,12 +9,6 @@ import java.util.Arrays;
 
 public class a_KnapSack_0_1 {
 
-    static int[][] t = new int[5][51];
-    public a_KnapSack_0_1(){
-        for(int[] arr : t)
-            Arrays.fill(arr, -1);
-    }
-
     public int knapSack_1(int[] wt, int[] val, int w, int n){
         if(n == 0 || w == 0)
             return 0;
@@ -23,6 +17,12 @@ public class a_KnapSack_0_1 {
             return knapSack_1(wt, val, w, n-1);
         else
             return Math.max(val[n-1] + knapSack_1(wt, val, w-wt[n-1], n-1), knapSack_1(wt, val, w, n-1));
+    }
+
+    static int[][] t = new int[5][51];
+    public a_KnapSack_0_1(){
+        for(int[] arr : t)
+            Arrays.fill(arr, -1);
     }
 
     public int knapSack_2(int[] wt, int[] val, int w, int n){

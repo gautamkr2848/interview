@@ -23,9 +23,16 @@ class Node_Flatten{
 
 public class ListFlatten {
 
+    Node_Flatten flatten(Node_Flatten root) {
+        if (root == null || root.next == null)
+            return root;
+
+        return merge(root, flatten(root.next));
+    }
+
     // An utility function to merge two sorted linked lists
     Node_Flatten merge(Node_Flatten a, Node_Flatten b) {
-        if (a == null)     return b;
+        if (a == null)      return b;
         if (b == null)      return a;
 
         Node_Flatten result;
@@ -39,12 +46,5 @@ public class ListFlatten {
 
         result.next = null;
         return result;
-    }
-
-    Node_Flatten flatten(Node_Flatten root) {
-        if (root == null || root.next == null)
-            return root;
-
-        return merge(root, flatten(root.next));
     }
 }

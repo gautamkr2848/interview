@@ -15,13 +15,13 @@ public class StackClone {
         int i=0;
         while(!st.isEmpty()){
 
-            while(!st.isEmpty()){
+            while(!st.isEmpty())
                 cloned.push(st.pop());
-            }
+
             int val = cloned.pop();
-            while(cloned.size() > i){
+            while(cloned.size() > i)
                 st.push(cloned.pop());
-            }
+
             cloned.push(val);
             i++;
         }

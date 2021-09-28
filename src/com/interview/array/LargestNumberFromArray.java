@@ -12,9 +12,7 @@ public class LargestNumberFromArray {
         arr.add("1");
         Collections.sort(arr, (o1, o2) -> (o2+o1).compareTo(o1+o2));
 
-        Iterator it = arr.iterator();
-
-        while (it.hasNext())
-            System.out.print(it.next());
+        for(int i=0; i<arr.size(); i++)
+            System.out.print(arr.get(i));
     }
 }

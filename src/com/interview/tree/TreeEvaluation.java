@@ -2,22 +2,12 @@ package com.interview.tree;
 
 public class TreeEvaluation {
 
-    class Node{
-        private String key;
-        private com.interview.tree.Node left, right;
-
-        public Node(String item){
-            key = item;
-            left = right = null;
-        }
-    }
-
-    public int evalTree(com.interview.tree.Node root) {
+    public int evalTree(Node root) {
         if (root == null)
             return 0;
 
         if (isLeaf(root))
-            return Integer.valueOf(root.key);
+            return root.key;
 
         int x = evalTree(root.left);
         int y = evalTree(root.right);
@@ -34,7 +24,7 @@ public class TreeEvaluation {
         return 0;
     }
 
-    public static boolean isLeaf(com.interview.tree.Node node) {
+    public static boolean isLeaf(Node node) {
         return node.left == null && node.right == null;
     }
 }

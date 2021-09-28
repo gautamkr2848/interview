@@ -1,5 +1,5 @@
 1. Content Delivery Network
-    A content delivery network (CDN) refers to a geographically distributed group of servers
+    A content delivery network (CDN) refers to a distributed group of servers
     which work together to provide fast delivery of Internet content.
     Benefits of CDN :
         a. Improving website load times
@@ -27,7 +27,7 @@
         c. The Order Service receives the event from the Customer Service and changes the state of
             the order to either approved or cancelled
 
-5. Service Discovery
+5. Service Discovery    =>  Eureka
 
 
 6. Database Sharding
@@ -38,7 +38,7 @@
                     J-S in user2 table
                     T-Z in user3 table
 
-7. Load Balancing
+7. Load Balancing   =>  Ribbon
     Load balancing refers to the process of distributing a set of tasks over a set of resources,
     with the aim of making their overall processing more efficient.
     Algorithms :
@@ -50,16 +50,70 @@
     Benefits:
         a. Reduce Downtime
         b. Increase Performance
-        c. Saclability
+        c. Scalability
         d. Flexibility
 
-8. Consistent Hahsing
+8. Consistent Hashing
     https://medium.com/@sandeep4.verma/consistent-hashing-8eea3fb4a598
 
 9. Scaling
     Vertical => Buying a bigger system
     Horizontal => Increasing number of instances
 
-10. Eureka
-11. Zuul
 12. Apache Kafka
+
+13. Zuul    =>  API Gateway
+    Separate Out
+        Authentication
+        Authorization
+        SSL Certification
+        Cache
+        Static Content
+        Also decides where to route a request based on url(ms1 or ms2)
+
+14. Executor Service
+     Java provides its own multi-threading framework called the Java Executor Framework.
+            1. SingleThreadExecutor
+            2. FixedThreadPool(n)   =>  LinkedBlockingQueue
+            3. CachedThreadPool     =>  SynchronousQueue
+            4. ScheduledExecutor
+
+15. Ideal Thread Pool Size
+    CPU Oriented - no. of threads = no. of cores
+    I/O Oriented - no. of threads = no. of cores * (1 + waitTime/CPUTime)
+
+16. Functional Interface
+    a. Functional interfaces are interfaces which represent some functionality. Can have only one abstract method.
+    b. Lambda's are used to represent the instance of a functional interfaces
+    c. @FunctionalInterface Annotation
+        a. Runnable
+        b. Callable
+        c. Comparator
+        d. public interface Predicate<T>{
+                boolean test(T t);
+        }
+        e. public interface Consumer<T>{
+                void accept(T t);
+        }
+        f. public interface Function<T>{
+                T get();
+        }
+        g. public interface Supplier<T, R>{
+                R apply(T t);
+        }
+
+16. Lambdas
+    a. Functional Programming
+    b. More redable and maintainable code
+    c. Gives Parallel procesing
+
+17. Resilience4J    =>  Fault Tolerance
+    a. Retry
+    b. Circuit Breaker
+    c. Bulkhead
+    d. Timer
+    e. Rate Limiter
+
+18. Map Struct  =>  Mapper
+
+19.

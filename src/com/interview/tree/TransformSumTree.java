@@ -15,5 +15,4 @@ public class TransformSumTree {
         node.key = transformSumTree(node.left) + transformSumTree(node.right);
         return node.key + old_val;
     }
-
 }

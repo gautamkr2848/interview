@@ -11,15 +11,12 @@ import java.util.Stack;
 public class b_PalindromePartitioning {
 
     public int b_PalindromePartitioning(String s, int i, int j){
-        if(i >= j)
-            return 0;
-        if(isPalindrome(s, i, j))
+        if(i >= j || isPalindrome(s, i, j))
             return 0;
 
         int min = Integer.MAX_VALUE;
         for(int k=i; k<j; k++){
-            int temp = b_PalindromePartitioning(s, i, k) +
-                        b_PalindromePartitioning(s, k+1, j) + 1;
+            int temp = b_PalindromePartitioning(s, i, k) + b_PalindromePartitioning(s, k+1, j) + 1;
             if(temp < min)
                 min = temp;
         }

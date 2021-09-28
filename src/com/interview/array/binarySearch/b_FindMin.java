@@ -23,7 +23,6 @@ public class b_FindMin {
         int[] arr = {11, 3, 5, 7, 9};
         int low = 0;
         int high = arr.length - 1;
-        int min = Integer.MAX_VALUE;
 
         while(low < high) {
             int mid = low + (high - low)/2;

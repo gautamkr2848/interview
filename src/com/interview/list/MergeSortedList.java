@@ -38,36 +38,19 @@ public class MergeSortedList {
         System.out.println(list3.toString());
     }
 
-    public Node mergeKLists_2(Node arr[], int last) {    //last = k-1;
-        while (last != 0) {
-            int i = 0, j = last;
+    public Node mergeList_3(Node h1, Node h2){
+        if (h1 == null)
+            return h2;
+        if (h2 == null)
+            return h1;
 
-            while (i < j) {
-                arr[i] = SortedMerge(arr[i++], arr[j--]);
-                if (i >= j)
-                    last = j;
-            }
-        }
-        return arr[0];
-    }
-
-    private Node SortedMerge(Node a, Node b) {
-        Node result = null;
-
-        if (a == null)
-            return b;
-        else if (b == null)
-            return a;
-
-        if (a.data <= b.data) {
-            result = a;
-            result.next = SortedMerge(a.next, b);
+        if (h1.data < h2.data) {
+            h1.next = mergeList_3(h1.next, h2);
+            return h1;
         } else {
-            result = b;
-            result.next = SortedMerge(a, b.next);
+            h2.next = mergeList_3(h1, h2.next);
+            return h2;
         }
-
-        return result;
     }
 }
 

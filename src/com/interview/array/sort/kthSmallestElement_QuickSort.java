@@ -19,8 +19,7 @@ public class kthSmallestElement_QuickSort {
 
     private int kthSmallest(int[] arr, int l, int r, int k) {
         if (k > 0 && k <= r - l + 1) {      // If k is smaller than number of elements in array
-            QuickSort q = new QuickSort();
-            int pos = q.partition(arr, l, r);
+            int pos = partition(arr, l, r);
 
             // If position is same as k
             if (pos - l == k - 1)
@@ -35,5 +34,23 @@ public class kthSmallestElement_QuickSort {
 
         // If k is more than number of elements in array
         return Integer.MAX_VALUE;
+    }
+
+    public int partition(int arr[], int low, int high) {
+        int pivot = arr[high], i = low;
+        for (int j = low; j < high; j++) {
+            if (arr[j] <= pivot) {
+                swap(arr, i, j);
+                i++;
+            }
+        }
+        swap(arr, i, high);
+        return i;
+    }
+
+    public void swap(int[] arr, int a, int b){
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
     }
 }

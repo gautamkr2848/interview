@@ -3,35 +3,36 @@ package com.interview.list;
 import java.util.HashMap;
 import java.util.Map;
 
-class NodeNextWithRandom {
+class NodeRandom {
     int data;
-    NodeNextWithRandom next,random;
-    NodeNextWithRandom(int x){
+    NodeRandom next,random;
+    NodeRandom(int x){
         data = x;
         next = random = null;
     }
 }
 
+
 public class LinkedListCloneWithNextAndRandomPointer {
 
-    public NodeNextWithRandom linkedListCloneWithNextAndRandomPointer(NodeNextWithRandom head){
+    public NodeRandom linkedListCloneWithNextAndRandomPointer(NodeRandom head){
 
-        NodeNextWithRandom origCurr = head;
-        NodeNextWithRandom cloneCurr = null;
-        Map<NodeNextWithRandom, NodeNextWithRandom> map = new HashMap<>();
+        NodeRandom curr1 = head;
+        NodeRandom curr2 = null;
+        Map<NodeRandom, NodeRandom> map = new HashMap<>();
 
-        while (origCurr != null) {
-            cloneCurr = new NodeNextWithRandom(origCurr.data);
-            map.put(origCurr, cloneCurr);
-            origCurr = origCurr.next;
+        while (curr1 != null) {
+            curr2 = new NodeRandom(curr1.data);
+            map.put(curr1, curr2);
+            curr1 = curr1.next;
         }
 
-        origCurr = head;
-        while (origCurr != null){
-            cloneCurr = map.get(origCurr);
-            cloneCurr.next = map.get(origCurr.next);
-            cloneCurr.random = map.get(origCurr.random);
-            origCurr = origCurr.next;
+        curr1 = head;
+        while (curr1 != null){
+            curr2 = map.get(curr1);
+            curr2.next = map.get(curr1.next);
+            curr2.random = map.get(curr1.random);
+            curr1 = curr1.next;
         }
         return map.get(head);
     }

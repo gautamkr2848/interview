@@ -20,9 +20,7 @@ public class DuplicateElements {
         Map<Integer, Integer> map = new HashMap<>();
         for(int i=0; i<a.length; i++){
             if(map.containsKey(a[i]))
-                map.put(a[i], map.get(a[i]) + 1);
-            else
-                map.put(a[i], 1);
+                map.put(a[i], map.getOrDefault(a[i], 0) + 1);
         }
 
         for(Integer i : map.keySet()){

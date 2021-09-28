@@ -1,9 +1,8 @@
 package com.interview.trie;
 
 public class TrieNode {
-    TrieNode[] children = new TrieNode[26];
-
     boolean isEndOfWord;
+    TrieNode[] children = new TrieNode[26];
 
     public TrieNode(){
         isEndOfWord = false;

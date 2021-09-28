@@ -22,16 +22,16 @@ public class PalindromePartioning {
         }
     }
 
-    private void partitonsUtil(List<List<String>> allPart, Deque<String> currPart, int start, int n, String s) {
+    private void partitonsUtil(List<List<String>> result, Deque<String> currPart, int start, int n, String s) {
         if (start >= n) {
-            allPart.add(new ArrayList<>(currPart));
+            result.add(new ArrayList<>(currPart));
             return;
         }
 
         for (int i = start; i < n; i++) {
             if (isPalindrome(s, start, i)) {
                 currPart.addLast(s.substring(start, i + 1));
-                partitonsUtil(allPart, currPart, i + 1, n, s);
+                partitonsUtil(result, currPart, i + 1, n, s);
                 currPart.removeLast();
             }
         }

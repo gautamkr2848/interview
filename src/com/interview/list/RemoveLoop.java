@@ -19,8 +19,7 @@ public class RemoveLoop {
     }
 
     // Function to print the linked list
-    public void printList(Node node)
-    {
+    public void printList(Node node) {
         while (node != null) {
             System.out.print(node.data + " ");
             node = node.next;

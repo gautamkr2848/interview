@@ -2,6 +2,9 @@ package com.interview.dynamic.unboundedKnapsack;
 
 //Find minimum number of coins that make a given value
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class c_CoinChangeMinNumberCoins {
 
     public void coinChangeMinNumberCoins(int[] coinArray, int sum){
@@ -28,5 +31,39 @@ public class c_CoinChangeMinNumberCoins {
             }
         }
         System.out.println(t[n][sum]);
+    }
+
+    public void coinChangeMinNumberCoins_2(){
+        int coin[] = {25, 10, 5, 20 };
+        int sum = 35;
+        int n = coin.length;
+        List<List<Integer>> ans = new ArrayList<>();
+
+        for (int i = 0; i < Math.pow(2,n); i++){
+            int val = 0;
+            List<Integer> list = new ArrayList<>();
+            for (int j = 0; j < n; j++){
+                if ((i & (int)Math.pow(2,j)) > 0) {
+                    val = val + coin[j];
+                    list.add(coin[j]);
+                }
+            }
+            if(sum == val)
+                ans.add(list);
+        }
+
+        int min = Integer.MAX_VALUE;
+        for(int i=0; i<ans.size(); i++){
+            if(ans.get(i).size() < min)
+                min = ans.get(i).size();
+        }
+        System.out.print(min);
+    }
+
+    public void test(){
+        System.out.println(0 & 0);
+        System.out.println(1 & 0);
+        System.out.println(0 & 1);
+        System.out.println(1 & 1);
     }
 }

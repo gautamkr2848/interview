@@ -7,8 +7,11 @@ import java.util.Stack;
 
 public class MaxProfit {
 
-    public int maxProfit(int[] a, int k, int n) {
-        int[][] t = new int[k + 1][n + 1];
+    public int maxProfit() {
+        int a[] = { 2, 30, 15, 10, 8, 25, 80, 72 };
+        int k=3;    //no. of transactions
+        int n = 8;
+        int t[][] = new int[k + 1][ n + 1];
 
         for (int i = 0; i <= k; i++)
             t[i][0] = 0;
@@ -16,13 +19,11 @@ public class MaxProfit {
         for (int j = 0; j <= n; j++)
             t[0][j] = 0;
 
-        for (int i = 1; i <= k; i++){
-            for (int j = 1; j < n; j++){
-                int max_so_far = 0;
-                for (int m = 0; m < j; m++)
-                    max_so_far = Math.max(max_so_far, a[j] - a[m] + t[i - 1][m]);
-
-                t[i][j] = Math.max(t[i] [j - 1], max_so_far);
+        for (int i = 1; i <= k; i++) {
+            int profit = Integer.MIN_VALUE;
+            for (int j = 1; j < n; j++) {
+                profit = Math.max(profit, t[i - 1][j - 1] - a[j - 1]);
+                t[i][j] = Math.max(t[i][j - 1], a[j] + profit);
             }
         }
         return t[k][n - 1];

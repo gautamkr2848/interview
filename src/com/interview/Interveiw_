@@ -46,11 +46,13 @@ UpGrad - 2
 Myntra - 1
 1. Postorder using Preorder and Inorder
 
-Goldman Sachs - 1
+Goldman Sachs - 2
 1. Form minimum number from given sequence
 2. Find number of positional elements
+3. First Non repeating character
+4. Smallest subArray with sum greater than a given value
 
-UpLoan - 2
+UpLoan - 3
 1. Mifos & Finrect
 2. Count vowels in string
 3. Abstraction & Encapulation
@@ -60,9 +62,60 @@ UpLoan - 2
 7. Normalization
 8. Oops features
 9. Abstract Class vs Interface
+10. ConstantTimeO_1
+11. MatrixSearch
+12. Restraunt App Design
+13. Binary Search Time complexity
 
 Enfusion - 1
 1. Predicate
 2. Default methods in Interface
 3. Abstraction
 4. Abstract class vs Interface
+
+Zeta - 1
+1. Minimun number of antena
+2. Unbaised coin head probablity
+
+Skillovia - 1
+1. Array based cache
+2. Look and say program
+
+ServiceNow - 2
+1. 5 min time window
+2. One time buy and sell max profit
+3. String Subset
+
+BlackBuck - 1
+1. CarPooling [People, Start, End]
+2. Nearest greater right side
+
+GamesCraft - 2
+1. From two arrays Min absolute diff
+2. BookMyShow
+3. SQS
+4. Design Parking Lot
+
+Mphasis - 2
+1. SpringBoot
+2. Microservices
+3. Mysql
+4. Projects
+
+Infra.Market - 1
+1. Create Social Media
+
+Piramal- 1
+1. Maximum subsequence sum such that no three are consecutive
+
+OLA - 1
+1. Min no. of colors to color a graph
+2. Binary Tree min & max of X
+3. Subset Problem
+
+Recko - 1
+1. ACID
+2. OOPS
+3. Collections
+4. Project
+5. String Arrangement Problem

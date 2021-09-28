@@ -16,12 +16,10 @@ public class LongestValidSubString {
             if (str.charAt(i) == '(')
                 stk.push(i);
             else {
-                if(!stk.empty())
-                    stk.pop();
-
-                if (!stk.empty())
-                    result = Math.max(result, i - stk.peek());
-                else
+               if (!stk.empty()) {
+                   stk.pop();
+                   result = Math.max(result, i - stk.peek());
+               } else
                     stk.push(i);
             }
         }

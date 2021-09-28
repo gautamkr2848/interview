@@ -3,7 +3,7 @@ package com.interview.string;
 public class MinFlipsToAlternateString {
 
     public void minFlipsToAlternateString(){
-        String s = "1100";
+        String s = "110101";
         int number = 0;
         for (int i = 0; i < s.length(); i++) {
 

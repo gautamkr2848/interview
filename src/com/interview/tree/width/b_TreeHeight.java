@@ -18,20 +18,19 @@ public class b_TreeHeight {
     public void treeHeight_2(Node node){
         Queue<Node> queue = new LinkedList<>();
         queue.offer(node);
-        int height = Integer.MIN_VALUE;
+        int height = 0;
 
         while(!queue.isEmpty()){
+            height++;
             int count = queue.size();
 
-            for(int i=0; i<count; i++){
+            while (count-- > 0){
                 Node temp = queue.poll();
                 if(temp.left != null)
                     queue.add(temp.left);
                 if (temp.right != null)
                     queue.add(temp.right);
             }
-            if(count > height)
-                height = count+1;
         }
         System.out.print("Height of tree is "+ height);
     }

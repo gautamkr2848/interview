@@ -15,10 +15,8 @@ public class MaxOfAllSubarray {
 
         for (int i = 0; i <= a.length - k; i++) {
             max = a[i];
-            for (int j = 1; j < k; j++) {
-                if (a[i + j] > max)
-                    max = a[i + j];
-            }
+            for (int j = 1; j < k; j++)
+                max = a[i+j] > max ? a[i+j] : max;
             System.out.print(max + " ");
         }
     }

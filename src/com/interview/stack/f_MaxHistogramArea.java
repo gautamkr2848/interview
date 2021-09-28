@@ -33,15 +33,42 @@ public class f_MaxHistogramArea {
         //int[] nsr = nearestSmallerToRight(histogram);
         //int[] nsl = nearestSmallerToLeft(histogram);
 
-        int[] nsr = new int[100];
-        int[] nsl = new int[100];
+        int[] nsr = {1, 5, 3, 5, 5, 7, 7};
+        int[] nsl = {-1, -1, 1, 1, 3, -1, 5};
 
         int area = Integer.MIN_VALUE;
         for(int i=0; i<histogram.length; i++){
-            int val = histogram[i] * (nsr[i] - nsl[i]);
+            int val = histogram[i] * (nsr[i] - nsl[i] - 1);
             if(val > area)
                 area = val;
         }
         System.out.print("Max area is " + area);
+    }
+
+    public void maxHistogram_2(){
+        int hist[] = { 6, 2, 5, 4, 5, 1, 6 };
+        Stack<Integer> s = new Stack<>();
+
+        int max_area = 0;
+
+        int i = 0;
+        while (i < hist.length) {
+            if (s.empty() || hist[s.peek()] <= hist[i])
+                s.push(i++);
+            else {
+                max_area = calculateArea(s, hist, i, max_area);
+            }
+        }
+
+        while (!s.empty())
+            max_area = calculateArea(s, hist, i, max_area);
+
+        System.out.println(max_area);
+    }
+
+    private int calculateArea(Stack<Integer> s, int[] hist, int pos, int max_area){
+        int top = s.pop();
+        int area = hist[top] * (s.empty() ? pos : pos - s.peek() - 1);
+        return max_area < area ? area : max_area;
     }
 }
