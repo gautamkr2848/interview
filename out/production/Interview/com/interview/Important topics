@@ -1,0 +1,185 @@
+1. Content Delivery Network
+    A content delivery network (CDN) refers to a distributed group of servers
+    which work together to provide fast delivery of Internet content.
+    Benefits of CDN :
+        a. Improving website load times
+        b. Reducing bandwidth costs
+        c. Increasing content availability and redundancy
+        d. Improving website security
+
+    In order to improve speed and connectivity, a CDN will place servers at the exchange
+    points between different networks.
+
+2. Distributed Cache    =>  Redis
+3. Pub/Sub Model
+    The Publish/Subscribe pattern, also known as pub/sub, is an architectural design pattern
+    that provides a framework for exchanging messages between publishers and subscribers. This
+    pattern involves the publisher and the subscriber relying on a message broker that relays
+    messages from the publisher to the subscribers. The host (publisher) publishes messages (events)
+    to a channel that subscribers can then sign up to.
+
+4. Event Driven Architecture
+    Two microservices communicate with each other based on event bus.
+    An e-commerce application that uses this approach would work as follows:
+        a. The Order Service creates an Order in a pending state and publishes an OrderCreated event.
+        b. The Customer Service receives the event and attempts to reserve credit for that Order.
+            It then publishes either a Credit Reserved event or a CreditLimitExceeded event.
+        c. The Order Service receives the event from the Customer Service and changes the state of
+            the order to either approved or cancelled
+
+5. Service Discovery    =>  Eureka
+
+
+6. Database Sharding
+    Example of horizontal scaling
+        User table - Storing all the users
+        After Sharding -
+            Stores  A-I in user1 table
+                    J-S in user2 table
+                    T-Z in user3 table
+
+7. Load Balancing   =>  Ribbon
+    Load balancing refers to the process of distributing a set of tasks over a set of resources,
+    with the aim of making their overall processing more efficient.
+    Algorithms :
+        a. Round Robin
+        b. Hash
+        c. Consistent Hash
+        d. Least Connection
+
+    Benefits:
+        a. Reduce Downtime
+        b. Increase Performance
+        c. Scalability
+        d. Flexibility
+
+8. Consistent Hashing
+    https://medium.com/@sandeep4.verma/consistent-hashing-8eea3fb4a598
+
+9. Scaling
+    Vertical => Buying a bigger system
+    Horizontal => Increasing number of instances
+
+12. Apache Kafka
+
+13. Zuul    =>  API Gateway
+    Separate Out
+        Authentication
+        Authorization
+        SSL Certification
+        Cache
+        Static Content
+        Also decides where to route a request based on url(ms1 or ms2)
+
+14. Executor Service
+     Java provides its own multi-threading framework called the Java Executor Framework.
+            1. SingleThreadExecutor
+            2. FixedThreadPool(n)   =>  LinkedBlockingQueue
+            3. CachedThreadPool     =>  SynchronousQueue
+            4. ScheduledExecutor
+
+15. Ideal Thread Pool Size
+    CPU Oriented - no. of threads = no. of cores
+    I/O Oriented - no. of threads = no. of cores * (1 + waitTime/CPUTime)
+
+16. Functional Interface
+    a. Functional interfaces are interfaces which represent some functionality. Can have only one abstract method.
+    b. Lambda's are used to represent the instance of a functional interfaces
+    c. @FunctionalInterface Annotation
+        a. Runnable
+        b. Callable
+        c. Comparator
+            * compare()
+            * equals()  =>   The equals is an abstract method overriding one of the public
+                             methods of java.lang.Object, this doesn’t count as an abstract method.
+        d. public interface Predicate<T>{
+                boolean test(T t);
+        }
+        e. public interface Consumer<T>{
+                void accept(T t);
+        }
+        f. public interface Function<T, R>{
+                R apply(T t);
+        }
+        g. public interface Supplier<T>{
+                T get();
+        }
+
+        https://www.youtube.com/watch?v=gpIUfj3KaOc&list=PLqq-6Pq4lTTa9YGfyhyW2CqdtW9RtY-I3
+
+16. Lambdas
+    a. Functional Programming
+    b. More redable and maintainable code
+    c. Gives Parallel procesing
+
+17. Resilience4J    =>  Fault Tolerance
+    a. Retry
+    b. Circuit Breaker
+    c. Bulkhead
+    d. Timer
+    e. Rate Limiter
+
+    https://javatechonline.com/how-to-implement-fault-tolerance-in-microservices-using-resilience4j/#What_is_Bulkhead
+
+18. Map Struct  =>  Mapper
+
+19. SOLID
+    S   =>  Single Responsibility   =>  Single Responsibility Class
+    O   =>  Open Close Principle    =>  Open for extension & close for modification
+    L   =>  Liskov Substitution     =>  A = parent & B = child, then we should be able to replace objects of A with objects of B
+    I   =>  Interface Segregation   =>  Single Responsibility Interface
+    D   =>  Dependency Inversion    =>  High-level modules should not depend upon low-level modules. They should depend on abstractions
+
+20. CAP Theorem
+
+21. Indexing - https://chartio.com/learn/databases/how-does-indexing-work/
+
+22. Pagination is the task of dividing the potential result into pages and retrieving the
+    required pages, one by one on demand.  Using OFFSET and LIMIT is the easy way to write
+    pagination into database queries
+
+        client requests parameters with a specific limit (the number of results) and
+        offset (the number of records that need to be skipped)
+
+23. CI/CD Pipeline - https://dzone.com/articles/learn-how-to-setup-a-cicd-pipeline-from-scratch
+
+24. What happens if hashCode & equals is not overriden?
+
+    *** You must override hashCode() in every class that overrides equals().
+
+    If you don't override hashcode() then the default implementation in Object class will be
+    used by collections. This implementation gives different values for different objects, even
+    if they are equal according to the equals() method.
+
+    Some collections, like HashSet, HashMap or HashTable use the hash code to store its data and
+    to retrieve it. If you don't implement hashcode() and equals() in a consistent manner, then
+    they will not function properly.
+
+    https://www.techiedelight.com/why-override-equals-and-hashcode-methods-java/
+
+25. Marker Interface
+    It is an empty interface (no field or methods). Examples of marker interface are Serializable,
+    Cloneable and Remote interface.
+
+    public interface Serializable {}
+
+26. Concurrency Model
+    1. Parallel Workers
+    2. Assembly Line
+    3. Functional Parallelism   =>  Fork/Join Pool
+
+27. Bean Scope
+    1. Singleton - single instance per Spring IoC container
+    2. Prototype - single bean definition to have any number of object instances
+    3. Request - a bean definition to an HTTP request
+    4. Session - a bean definition to an HTTP session
+    5. Global - a bean definition to a global HTTP session
+
+NP Complete
+Traveling salesman
+Discrete Math
+Probability
+nChooseK
+Resource Allocation
+Context Switching
+Networking

@@ -1,0 +1,11 @@
+A Car Rental System is a software built for renting of automobiles for a short period of time,
+generally ranging from a few hours to a few weeks.
+
+System Requirements
+1. Vehicle Type - Motorcycle, Car, Truck, Bus
+2. Vehicle CRUD
+3. User CRUD
+4. The system should be able to retrieve information like which member took a particular vehicle.
+5. The system should collect a total charge for vehicles.
+6. Booking CRUD
+7. Pickup and Drop notification
