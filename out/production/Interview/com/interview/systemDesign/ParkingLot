@@ -1,0 +1,80 @@
+For our purposes right now, we’ll make the following assumptions.
+1) The parking lot has multiple levels. Each level has multiple rows of spots.
+2) The parking lot can park bike, cars, and buses.
+4) A bike can park in any spot.
+5) A car can park in either a single compact spot or a single large spot.
+6) A bus can park in five large spots that are consecutive and within the same row. It cannot park
+    in small spots.
+
+public enum VehicleType {
+    BIKE, CAR, BUS
+}
+
+public class Vehicle {
+    private Long id;
+    private String vehicleNumber;
+    private VehicleType vehicleType;
+    private int count;
+}
+
+public enum Level{
+    ONE, TWO, THREE
+}
+
+public class Slot {
+    private Long id;
+    private Level level;
+    private boolean isEmpty;
+    private Long vehicleId;
+}
+
+public class VehicleParkingDetails{
+    private Long id;
+    private Long vehicleId;
+    private Long slotId;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
+    private Boolean isPaymentSuccess;
+}
+
+public interface ParkingCostStrategy {
+    int getCost(int parkHours);
+}
+
+public class BikeParkingService implements ParkingCostStrategy {
+    @Override
+    public int getCost(int parkHours) {
+        if (parkHours < 2) {
+            return 30;
+        }
+        return (parkHours - 2) * 10 + 30;
+    }
+}
+
+public class CarParkingService implements ParkingCostStrategy {
+    @Override
+    public int getCost(int parkHours) {
+        //
+    }
+}
+
+public class BusParkingService implements ParkingCostStrategy {
+    @Override
+    public int getCost(int parkHours) {
+        //
+    }
+}
+
+public class ParkingService{
+    public Boolean isSlotAvailable(VehicleType type){
+
+    }
+
+    public void bookSlot(Vehicle vehicle){
+
+    }
+
+    public void releaseSlot(Vehicle vehicle){
+
+    }
+}
