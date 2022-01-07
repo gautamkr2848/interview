@@ -1,0 +1,22 @@
+Typeahead - also known as autocomplete or autosuggest
+It's a tool that many search engines use to provide suggestions
+
+Functional Requirements:
+1. Give a list of query suggestions based on user input (as a prefix)
+2. List should be in sorted order
+3. Response time < 100ms
+4. Suggestions should be relevant
+
+Data Structure - Trie
+
+                                D
+      DA                        DO                       DI
+      DAR                DON    DOL     DOG              DIP
+      DART                      DOLL                    DIPLOMA
+
+If the prefix is not available in tree then we will not show any suggestions
+
+class Trie{
+    String prefix;
+    List<String> top3Suggestions; //for fast access
+}
