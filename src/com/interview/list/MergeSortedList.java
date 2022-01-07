@@ -38,6 +38,14 @@ public class MergeSortedList {
         System.out.println(list3.toString());
     }
 
+    public Node mergeKLists(Node arr[]) {
+        Node dummy = new Node(-1);
+        for(int i=0; i<arr.length; i++){
+            dummy = mergeList_3(dummy, arr[i]);
+        }
+        return dummy.next;
+    }
+
     public Node mergeList_3(Node h1, Node h2){
         if (h1 == null)
             return h2;

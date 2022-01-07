@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class WordBreak {
     public Boolean wordBreak(String word){
-        int size = word.length();
+        int n = word.length();
         Set<String> dictionary = new HashSet<>();
 
         String temp_dictionary[] = {"mobile","samsung","sam","sung",
@@ -14,11 +14,11 @@ public class WordBreak {
                 "go","i","like","ice","cream"};
 
         dictionary.addAll(Arrays.asList(temp_dictionary));
-        if (size == 0) return true;
+        if (n == 0) return true;
 
-        for (int i = 1; i <= size; i++) {
+        for (int i = 1; i <= n; i++) {
             if (dictionary.contains(word.substring(0,i)) &&
-                    wordBreak(word.substring(i,size)))
+                    wordBreak(word.substring(i,n)))
                 return true;
         }
         return false;

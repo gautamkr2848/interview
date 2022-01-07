@@ -3,9 +3,6 @@ package com.interview.dynamic.unboundedKnapsack;
 /* coin change problem deals with finding the total number of ways that
          an amount of money can be made using specific coins only.*/
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class b_CoinChangeMaxWays {
 
     public void coinChangeMaxNumberOfWays(){

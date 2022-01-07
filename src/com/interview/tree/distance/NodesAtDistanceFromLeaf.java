@@ -2,6 +2,11 @@ package com.interview.tree.distance;
 
 import com.interview.tree.Node;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+
 public class NodesAtDistanceFromLeaf {
 
     public void printNodes(){
@@ -19,29 +24,53 @@ public class NodesAtDistanceFromLeaf {
         root.left.right.left.right.right = new Node(23);
         root.left.right.right = new Node(14);
 
-        printKDistantfromLeaf(root, 2);
+        Map<Node, Node> map = new HashMap<>();
+        storeParent(root, map);
+        nodesFromLeaf(root, 2, map);
     }
 
-    private int printKDistantfromLeaf(Node node, int k) {
-        if (node == null)
-            return -1;
-        
-        int left = printKDistantfromLeaf(node.left, k);
-        int right = printKDistantfromLeaf(node.right, k);
+    public void storeParent(Node root, Map<Node, Node> map) {
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        map.put(root, null);
 
-        boolean isLeaf = false;
-        if(left == -1 && left == right)
-            isLeaf = true;
+        while (!q.isEmpty()) {
+            Node tmp = q.poll();
 
-        if (left == 0 || right == 0 || (isLeaf && k == 0))
-            System.out.print(" " + node.key);
-        if (isLeaf && k > 0)
-            return k - 1; // leaf node
-        if (left > 0 && left < k)
-            return left - 1; // parent of left leaf
-        if (right > 0 && right < k)
-            return right - 1; // parent of right leaf
+            if (tmp.left != null) {
+                map.put(tmp.left, tmp);
+                q.add(tmp.left);
+            }
 
-        return -2;
+            if (tmp.right != null) {
+                map.put(tmp.right, tmp);
+                q.add(tmp.right);
+            }
+        }
+    }
+
+    private void nodesFromLeaf(Node root, int k, Map<Node, Node> parentMap){
+        Queue<Node> q = new LinkedList<>();
+        q.offer(root);
+
+        while (!q.isEmpty()){
+            Node tmp = q.poll();
+
+            if(tmp.left == null && tmp.right == null){
+                Node tmp2 = tmp;
+                while(tmp2 != null && k > 0){
+                    tmp2 = parentMap.get(tmp2);
+                    k--;
+                }
+                System.out.println(tmp.key + " => "+ tmp2.key);
+                k = 2;
+            }
+
+            if(tmp.left != null)
+                q.add(tmp.left);
+
+            if(tmp.right != null)
+                q.add(tmp.right);
+        }
     }
 }

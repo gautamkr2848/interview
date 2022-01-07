@@ -1,5 +1,21 @@
 package com.interview.tree.distance;
 
+/*
+                    20
+         8                      22
+    4         12
+            10   14
+
+    Parent Map
+        20  =>  null
+        8   =>  20
+        22  =>  20
+        4   =>  8
+        12  =>  8
+        10  =>  12
+        14  =>  12
+ */
+
 import com.interview.tree.Node;
 
 import java.util.*;
@@ -16,40 +32,67 @@ public class NodesAtDistance {
         root.left.right.right = new Node(14);
         Node target = root.left.right;
 
-        kDistanceNodes(root, target, 2);
+        Map<Node, Node> map = new HashMap<>();
+        storeParent(root, map);
+        nodeAtDistK(target, 2, map);
     }
 
-    List<Node> path = null;
-    private void kDistanceNodes(Node node, Node target, int k){
-        path = new ArrayList<>();
-        findPath(node, target);
-        List<Integer> result = new ArrayList<>();
-        for (int i = 0; i < path.size(); i++) {
-            findKDistanceFromNode(path.get(i), k - i, result, i == 0 ? null : path.get(i - 1));
+    public void storeParent(Node root, Map<Node, Node> map) {
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        map.put(root, null);
+
+        while (!q.isEmpty()) {
+            Node tmp = q.poll();
+
+            if (tmp.left != null) {
+                map.put(tmp.left, tmp);
+                q.add(tmp.left);
+            }
+
+            if (tmp.right != null) {
+                map.put(tmp.right, tmp);
+                q.add(tmp.right);
+            }
         }
-
-        result.stream().forEach(x -> System.out.print(x+ " "));
     }
 
-    private void findKDistanceFromNode(Node node, int dist, List<Integer> result, Node blocker) {
-        if (dist < 0 || node == null || (blocker != null && node == blocker))
-            return;
 
-        if (dist == 0)
-            result.add(node.key);
+    private void nodeAtDistK(Node target, int k, Map<Node, Node> map){
+        Set<Node> s = new HashSet<>();
+        int dist = 0;
 
-        findKDistanceFromNode(node.left, dist - 1, result, blocker);
-        findKDistanceFromNode(node.right, dist - 1, result, blocker);
-    }
-
-    private boolean findPath(Node node, Node target) {
-        if (node == null)
-            return false;
-
-        if (node == target || findPath(node.left, target) || findPath(node.right, target)) {
-            path.add(node);
-            return true;
+        Queue<Node> q = new LinkedList<>();
+        q.add(target);
+        s.add(target);
+        
+        while (!q.isEmpty()) {
+            if (dist == k) {
+                while (!q.isEmpty()) {
+                    System.out.print(q.poll().key + " ");
+                }
+            }
+            
+            int size = q.size();
+            for(int i = 0; i < size; i++) {
+                Node tmp = q.poll();
+                
+                if (tmp.left != null && !s.contains(tmp.left)) {
+                    q.add(tmp.left);
+                    s.add(tmp.left);
+                }
+                
+                if (tmp.right != null && !s.contains(tmp.right)) {
+                    q.add(tmp.right);
+                    s.add(tmp.right);
+                }
+                
+                if (map.get(tmp) != null && !s.contains(map.get(tmp))) {
+                    q.add(map.get(tmp));
+                    s.add(map.get(tmp));
+                }
+            }
+            dist++;
         }
-        return false;
     }
 }

@@ -14,8 +14,6 @@ public class DecodeNoOfWays {
             return 0;
 
         for (int i = 2; i <= n; i++){
-            count[i] = 0;
-
             if (str.charAt(i-1) > '0')
                 count[i] = count[i - 1];
 

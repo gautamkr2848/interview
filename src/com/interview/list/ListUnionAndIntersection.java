@@ -17,7 +17,6 @@ public class ListUnionAndIntersection {
             t2 = t2.next;
         }
         return head;
-
     }
 
     private boolean isPresent(Node head, int data) {
@@ -30,7 +29,7 @@ public class ListUnionAndIntersection {
         return false;
     }
 
-    public void push(int new_data) {
+    private void push(int new_data) {
         Node new_node = new Node(new_data);
         new_node.next = head;
         head = new_node;

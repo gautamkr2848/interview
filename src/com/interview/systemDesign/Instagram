@@ -17,7 +17,7 @@ Database Design:
     Photo: PhotoID (pk), UserID, PhotoLocation, CreationDate
     User: UserID(pk), Name, Email, DOB, LastLoginTime
     Follow: UserID1, UserID2 (paired pk)
-    FeedItem: FeedID(pk), UserID,Contents, PhotoID,CreationDate
+    FeedItem: FeedID(pk), UserID, Contents, PhotoID, CreationDate
 
 Rest API's
 1. /generateHomePage

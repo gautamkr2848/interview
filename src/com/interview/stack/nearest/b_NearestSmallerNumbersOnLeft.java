@@ -1,4 +1,4 @@
-package com.interview.stack;
+package com.interview.stack.nearest;
 
 /*Given an array a of integers of length n, find the nearest smaller number for every element such that the smaller element is on the left side.If no small element present on the left print -1.
 
@@ -48,9 +48,8 @@ public class b_NearestSmallerNumbersOnLeft {
 
         for (int i = 0; i < n; i++) {
             // Keep removing top element from S while the top element is greater than or equal to arr[i]
-            while (!S.empty() && S.peek() >= arr[i]) {
+            while (!S.empty() && S.peek() >= arr[i])
                 S.pop();
-            }
 
             // If all elements in S were greater than arr[i]
             if (S.empty()) {

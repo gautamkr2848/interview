@@ -11,8 +11,8 @@ public class ConstantTimeO_1 {
     HashMap<Integer, Integer> map;  //key as data and value as list index
 
     public ConstantTimeO_1() {
-        list = new ArrayList<Integer>();
-        map = new HashMap<Integer, Integer>();
+        list = new ArrayList<>();
+        map = new HashMap<>();
     }
 
     void add(int x) {

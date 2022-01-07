@@ -10,11 +10,6 @@ public class h_LongestRepeatingSubstring {
         String res = "";
         int length = 0, end = n;
 
-        for (int i = 0; i <= n; i++)
-            T[0][i] = 0;
-        for (int i = 0; i <= n; i++)
-            T[i][0] = 0;
-
         int i, index = 0;
         for (i = 1; i <= n; i++) {
             for (int j = i + 1; j <= n; j++) {

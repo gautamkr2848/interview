@@ -1,4 +1,4 @@
-package com.interview.array.sort;
+package com.interview.array.priorityQueue;
 
 import java.util.ArrayList;
 import java.util.Iterator;

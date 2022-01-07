@@ -1,4 +1,4 @@
-package com.interview.slidingWindow;
+package com.interview.array.subArray.slidingWindow;
 
 import java.util.Deque;
 import java.util.LinkedList;

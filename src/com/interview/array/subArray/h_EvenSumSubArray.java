@@ -1,6 +1,6 @@
 package com.interview.array.subArray;
 
-public class EvenSumSubArray {
+public class h_EvenSumSubArray {
 
     public long countEvenSum(int[] arr, int n) {
         long res = 0;

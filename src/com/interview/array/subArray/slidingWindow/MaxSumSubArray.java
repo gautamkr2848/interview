@@ -1,4 +1,4 @@
-package com.interview.slidingWindow;
+package com.interview.array.subArray.slidingWindow;
 
 /*Input  : arr[] = {100, 200, 300, 400}
         k = 2

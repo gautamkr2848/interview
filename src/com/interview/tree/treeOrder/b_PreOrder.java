@@ -15,9 +15,8 @@ public class b_PreOrder {
     }
 
     public void preOrder2(Node root){
-        if (root == null) {
+        if (root == null)
             return;
-        }
 
         Stack<Node> stk = new Stack<>();
         stk.push(root);
@@ -26,12 +25,11 @@ public class b_PreOrder {
             Node node = stk.pop();
             System.out.print(node.key + " ");
 
-            if (node.right != null) {
+            if (node.right != null)
                 stk.push(node.right);
-            }
-            if (node.left != null) {
+
+            if (node.left != null)
                 stk.push(node.left);
-            }
         }
     }
 

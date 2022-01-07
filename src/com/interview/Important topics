@@ -89,18 +89,23 @@
         a. Runnable
         b. Callable
         c. Comparator
+            * compare()
+            * equals()  =>   The equals is an abstract method overriding one of the public
+                             methods of java.lang.Object, this doesn’t count as an abstract method.
         d. public interface Predicate<T>{
                 boolean test(T t);
         }
         e. public interface Consumer<T>{
                 void accept(T t);
         }
-        f. public interface Function<T>{
-                T get();
-        }
-        g. public interface Supplier<T, R>{
+        f. public interface Function<T, R>{
                 R apply(T t);
         }
+        g. public interface Supplier<T>{
+                T get();
+        }
+
+        https://www.youtube.com/watch?v=gpIUfj3KaOc&list=PLqq-6Pq4lTTa9YGfyhyW2CqdtW9RtY-I3
 
 16. Lambdas
     a. Functional Programming
@@ -114,6 +119,67 @@
     d. Timer
     e. Rate Limiter
 
+    https://javatechonline.com/how-to-implement-fault-tolerance-in-microservices-using-resilience4j/#What_is_Bulkhead
+
 18. Map Struct  =>  Mapper
 
-19.
+19. SOLID
+    S   =>  Single Responsibility   =>  Single Responsibility Class
+    O   =>  Open Close Principle    =>  Open for extension & close for modification
+    L   =>  Liskov Substitution     =>  A = parent & B = child, then we should be able to replace objects of A with objects of B
+    I   =>  Interface Segregation   =>  Single Responsibility Interface
+    D   =>  Dependency Inversion    =>  High-level modules should not depend upon low-level modules. They should depend on abstractions
+
+20. CAP Theorem
+
+21. Indexing - https://chartio.com/learn/databases/how-does-indexing-work/
+
+22. Pagination is the task of dividing the potential result into pages and retrieving the
+    required pages, one by one on demand.  Using OFFSET and LIMIT is the easy way to write
+    pagination into database queries
+
+        client requests parameters with a specific limit (the number of results) and
+        offset (the number of records that need to be skipped)
+
+23. CI/CD Pipeline - https://dzone.com/articles/learn-how-to-setup-a-cicd-pipeline-from-scratch
+
+24. What happens if hashCode & equals is not overriden?
+
+    *** You must override hashCode() in every class that overrides equals().
+
+    If you don't override hashcode() then the default implementation in Object class will be
+    used by collections. This implementation gives different values for different objects, even
+    if they are equal according to the equals() method.
+
+    Some collections, like HashSet, HashMap or HashTable use the hash code to store its data and
+    to retrieve it. If you don't implement hashcode() and equals() in a consistent manner, then
+    they will not function properly.
+
+    https://www.techiedelight.com/why-override-equals-and-hashcode-methods-java/
+
+25. Marker Interface
+    It is an empty interface (no field or methods). Examples of marker interface are Serializable,
+    Cloneable and Remote interface.
+
+    public interface Serializable {}
+
+26. Concurrency Model
+    1. Parallel Workers
+    2. Assembly Line
+    3. Functional Parallelism   =>  Fork/Join Pool
+
+27. Bean Scope
+    1. Singleton - single instance per Spring IoC container
+    2. Prototype - single bean definition to have any number of object instances
+    3. Request - a bean definition to an HTTP request
+    4. Session - a bean definition to an HTTP session
+    5. Global - a bean definition to a global HTTP session
+
+NP Complete
+Traveling salesman
+Discrete Math
+Probability
+nChooseK
+Resource Allocation
+Context Switching
+Networking

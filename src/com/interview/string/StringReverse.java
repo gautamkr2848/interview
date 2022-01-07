@@ -4,7 +4,7 @@ public class StringReverse {
 
     public void stringReverse(){
         String s = "abcdefg";
-        StringBuilder s2 = new StringBuilder("abcdefg");
+        StringBuilder s2 = new StringBuilder(s);
         int n = s.length();
         int i=0;
         while(i<n){

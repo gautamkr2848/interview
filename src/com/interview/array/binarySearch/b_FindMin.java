@@ -18,22 +18,4 @@ public class b_FindMin {
         }
         return arr[high];
     }
-
-    public void minFromSortedRotated_2(){
-        int[] arr = {11, 3, 5, 7, 9};
-        int low = 0;
-        int high = arr.length - 1;
-
-        while(low < high) {
-            int mid = low + (high - low)/2;
-            if(arr[mid] < arr[mid-1] && arr[mid] < arr[mid+1]) {
-                System.out.print(arr[mid]);
-                break;
-            }else if(arr[mid] > arr[high])
-                low = mid + 1;
-            else
-                high = mid;
-        }
-
-    }
 }

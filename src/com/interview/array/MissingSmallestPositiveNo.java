@@ -1,22 +1,23 @@
 package com.interview.array;
 
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
 public class MissingSmallestPositiveNo {
 
     public int solution() {
-        int A[] = { 0, 10, 2, -10, -20 };
-        int n = A.length;
+        Integer A[] = { 0, 10, 2, -10, -20 };
 
-        boolean[] present = new boolean[n + 1];
+        Set<Integer> distinct = new HashSet<>();
+        Collections.addAll(distinct, A);
 
-        for (int i = 0; i < n; i++) {
-            if (A[i] > 0 && A[i] <= n)
-                present[A[i]] = true;
+        int index = 1;
+        while (true) {
+            if (!distinct.contains(index)) {
+                return index;
+            }
+            index++;
         }
-
-        for (int i = 1; i <= n; i++)
-            if (!present[i])
-                return i;
-
-        return n + 1;
     }
 }

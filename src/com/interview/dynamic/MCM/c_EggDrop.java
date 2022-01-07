@@ -2,7 +2,7 @@ package com.interview.dynamic.MCM;
 
 import java.util.Arrays;
 
-public class e_EggDrop {
+public class c_EggDrop {
 
     public int eggDrop(int eggs, int floors){
         if (floors == 1 || floors == 0 || eggs == 1)

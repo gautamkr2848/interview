@@ -2,33 +2,25 @@ package com.interview.string;
 
 public class MaxAfterKSwap {
 
-    public void maxAfterKSwap(int[] arr, int k) {
-        int pos[] = new int[arr.length + 1];
+    public String MaxNum(int[] arr, int s) {
+        int[] result = new int[arr.length];
 
-        for (int i = 0; i < arr.length; ++i)
-            pos[arr[i]] = i;
-
-        for (int i = 0; i < arr.length && k > 0; ++i) {
-
-            // If element is already i'th largest, then no need to swap
-            if (arr[i] == arr.length - i)
-                continue;
-
-            // Find position of i'th largest value, n-i
-            int temp = pos[arr.length - i];
-
-            // Swap the elements position
-            pos[arr[i]] = pos[arr.length - i];
-            pos[arr.length - i] = i;
-
-            // Swap the ith largest value with the current value at ith place
-            int tmp1 = arr[temp];
-            arr[temp] = arr[i];
-            arr[i] = tmp1;
-            --k;
+        int ans=0;
+        for (int k = 1; k <arr.length; k++) {
+            result = swap(arr, k, 0);
+            ans=Math.max(result[0],arr[0]);
+            MaxNum(result, s-1);
+            swap(arr, k, 0);
         }
 
-        for(int i=0; i < arr.length; i++)
-            System.out.print(arr[i]);
+        return String.valueOf(result);
+    }
+
+    private int[] swap(int[] arr, int a, int b) {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+
+        return arr;
     }
 }

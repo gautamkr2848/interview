@@ -18,6 +18,8 @@ public class RowWithMax1 {
                 j--;
             }
         }
+        if(row==0 && arr[0][arr[0].length-1]==0)
+            System.out.println(-1);
         System.out.print("Row number = " + (row + 1) + ", MaxCount = " + (arr.length - 1 - j));
     }
 }

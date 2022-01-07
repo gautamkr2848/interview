@@ -4,12 +4,11 @@ import java.util.*;
 
 public class TwoSumK {
 
-    public void twoSumK(int[] a, int k){
-        Set<Integer> s = new HashSet<Integer>();
+    public void twoSumK(int[] a, int sum){
+        Set<Integer> s = new HashSet<>();
         for(int i=0; i<a.length; i++){
-            int temp = k - a[i];
-            if (s.contains(temp))
-                System.out.println(a[i] + ", " + temp);
+            if (s.contains(sum - a[i]))
+                System.out.println(a[i] + ", " + (sum - a[i]));
 
             s.add(a[i]);
         }

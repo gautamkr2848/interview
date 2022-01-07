@@ -1,7 +1,5 @@
 package com.interview.list;
 
-import java.util.LinkedList;
-
 public class SumOfLists {
 
     public void sumOfLists(Node a, Node b){

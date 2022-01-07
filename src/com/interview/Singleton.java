@@ -13,11 +13,11 @@ Uses
     2. Error Manager
 
 Break Singleton Pattern Of a Class
-    1. Using Reflection => we can use singleton enum to stop breaking singlton pattern
+    1. Using Reflection => we can use singleton enum to stop breaking singleton pattern
     2. Using Serialization => a. Serialization is used to convert an object of byte stream and save in
                                  a file or send over a network. Then if you de-serialize that object it
                                  will create a new instance
-                               b. To overcome this issue, we have to implement method readResolve() method.
+                               b. To ovehigh-level modules should not depend upon low-level modules; they should depend on abstractionsrcome this issue, we have to implement method readResolve() method.
     3. Using Clone => a. Using clone we can create copy of object.
                       b. To overcome this issue, override clone() method and throw an exception from clone
                          method that is CloneNotSupportedException

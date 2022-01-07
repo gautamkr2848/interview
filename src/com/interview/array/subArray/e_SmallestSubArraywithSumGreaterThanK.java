@@ -1,6 +1,6 @@
 package com.interview.array.subArray;
 
-public class SmallestSubArraywithValueGreaterThanK {
+public class e_SmallestSubArraywithSumGreaterThanK {
 
     public int smallestSubWithSumGreaterThanK(int arr[], int k) {
         int n = arr.length;

@@ -8,6 +8,12 @@ package com.interview.dynamic.knapsack;
     Math.abs(s2 - s1)
     Math.abs(sum - s1 - s1)
     Math.abs(sum - 2s1)
+
+    Input:  arr[] = {1, 6, 11, 5}
+    Output: 1
+    Explanation:
+    Subset1 = {1, 5, 6}, sum of Subset1 = 12
+    Subset2 = {11}, sum of Subset2 = 11
 */
 
 public class f_MinSubsetSumDiff {
@@ -32,7 +38,7 @@ public class f_MinSubsetSumDiff {
                 if (arr[i - 1] > j)
                     t[i][j] = t[i - 1][j];
                 else
-                    t[i][j] = t[i-1][j] || t[i - 1][j - arr[i - 1]];
+                    t[i][j] = t[i - 1][j] || t[i - 1][j - arr[i - 1]];
             }
         }
 

@@ -13,12 +13,6 @@ public class MaxProfit {
         int n = 8;
         int t[][] = new int[k + 1][ n + 1];
 
-        for (int i = 0; i <= k; i++)
-            t[i][0] = 0;
-
-        for (int j = 0; j <= n; j++)
-            t[0][j] = 0;
-
         for (int i = 1; i <= k; i++) {
             int profit = Integer.MIN_VALUE;
             for (int j = 1; j < n; j++) {
@@ -32,7 +26,6 @@ public class MaxProfit {
     public void maxProfit_2(){
 
         int[] price = {900, 180, 260, 310, 40, 535, 695};
-        int profit = 0;
         int k = 1;
 
         Stack<Transaction> stack = new Stack<>();

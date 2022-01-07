@@ -1,4 +1,4 @@
-package com.interview.dynamic;
+package com.interview.array.subArray;
 
 public class LongestIncreasingSubArray {
 

@@ -23,7 +23,7 @@ Cassandra work
     data is available on other machines in the cluster.
 
 6. Cassandra supplies linear scalability. For example, if 2 nodes can handle 100,000 transactions per second,
-    4 nodes will support 200,000 transactions/sec and 8 nodes will tackle 400,000 transactions/sec.
+    4 nodes will support Inter200,000 transactions/sec and 8 nodes will tackle 400,000 transactions/sec.
 
 What is CQL?
  CQL is the recommended way to interact with Cassandra. CQL and SQL share the same abstract idea
@@ -47,7 +47,7 @@ Key structures
 4. Commit log - All data is written first to the commit log for durability
 5. Memtable - Temporary table commit log => memtable
 
-Data distribution hadled by using consistenthashing
+Data distribution handled by using consistent hashing
 Data replication
 
 Storage Engine
@@ -93,3 +93,6 @@ Cassandra transactions
         instead offers atomic, isolated, and durable transactions.
     2. As a non-relational database, Cassandra does not support joins or foreign keys, and
         does not offer consistency in the ACID sense.
+
+HBASE & Redis provides Consistency and Partition tolerance.
+MongoDB, CouchDB, Cassandra and Dynamo guarantee only availability but no consistency.

@@ -1,4 +1,4 @@
-package com.interview.stack;
+package com.interview.stack.nearest;
 
 //  1   3   2   4   =>      3   4   4   -1
 

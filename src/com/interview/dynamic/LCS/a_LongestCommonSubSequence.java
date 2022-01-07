@@ -46,11 +46,6 @@ public class a_LongestCommonSubSequence {
     public int lcs(String a, String b, int m, int n){
         int t[][] = new int[m+1][n+1];
 
-        for (int i = 0; i <= n; i++)
-            t[0][i] = 0;
-        for (int i = 0; i <= m; i++)
-            t[i][0] = 0;
-
         for(int i=1; i <= m; i++){
             for(int j=1; j <= n; j++){
                 if(a.charAt(i-1) == b.charAt(j-1))
@@ -64,7 +59,7 @@ public class a_LongestCommonSubSequence {
     }
 
     public void printLCS(String a, String b, int m, int n){
-        int[][] t = new int[m+1][n+1];    //for printing LCS we have to use this t[][] matrix not inside LCS one
+        int[][] t = new int[m+1][n+1];    //for printing LCS we have to use this t[][] matrix outside LCS one
         lcs(a, b, m, n);
         Stack<Character> stk = new Stack<>();
         int i = m, j = n;
@@ -86,27 +81,6 @@ public class a_LongestCommonSubSequence {
             char data = stk.pop();
             System.out.print(data + " ");
         }
-    }
-
-    public int findMaximum() {
-        int[] a = {1,15,25,45,42,21,17,12,11};
-        int n = a.length;
-        int low = 0;
-        int high = n-1;
-
-        while(low <= high){
-            int mid = low + (high - low) / 2;
-
-            if(a[mid] > a[mid + 1] && a[mid] > a[mid - 1])
-                return a[mid];
-
-            if(a[mid] < a[mid + 1])
-                low = mid + 1;
-            else
-                high = mid - 1;
-        }
-
-        return -1;
     }
 }
 

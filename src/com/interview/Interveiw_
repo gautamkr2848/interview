@@ -26,10 +26,6 @@ TCS - 1
 11. OOPS
 12. Overloading vs overriding vs methodhiding
 
-DPWorld - 1
-1. Beautiful Segment
-2. Game Segment
-
 Bandhoo - 2
 1. String reverse using recurssion
 2. Find min and max with min number of comparisions
@@ -43,15 +39,6 @@ UpGrad - 2
 4. Mysql
 5. Design Exam Portal Website
 
-Myntra - 1
-1. Postorder using Preorder and Inorder
-
-Goldman Sachs - 2
-1. Form minimum number from given sequence
-2. Find number of positional elements
-3. First Non repeating character
-4. Smallest subArray with sum greater than a given value
-
 UpLoan - 3
 1. Mifos & Finrect
 2. Count vowels in string
@@ -64,7 +51,7 @@ UpLoan - 3
 9. Abstract Class vs Interface
 10. ConstantTimeO_1
 11. MatrixSearch
-12. Restraunt App Design
+12. Restaurant App Design
 13. Binary Search Time complexity
 
 Enfusion - 1
@@ -76,10 +63,6 @@ Enfusion - 1
 Zeta - 1
 1. Minimun number of antena
 2. Unbaised coin head probablity
-
-Skillovia - 1
-1. Array based cache
-2. Look and say program
 
 ServiceNow - 2
 1. 5 min time window
@@ -108,14 +91,167 @@ Infra.Market - 1
 Piramal- 1
 1. Maximum subsequence sum such that no three are consecutive
 
-OLA - 1
-1. Min no. of colors to color a graph
-2. Binary Tree min & max of X
-3. Subset Problem
-
-Recko - 1
+Recko - 5
 1. ACID
 2. OOPS
 3. Collections
 4. Project
 5. String Arrangement Problem
+6. Design Google Calender
+7. Design Social Media
+8. Cultural Fit
+9. Offer Discussion
+10. Rejection Due to Stripe
+
+Avatar - 1
+1. KSumTriplet
+2. Zigzag Array
+
+Housing.com - 3
+1. Union of list
+2. Lowest Common Ancestor
+3. Segregate odd and even elements
+4. ACID
+5. Mysql Join
+6. Indexing
+7. Dependency Injection
+8. Project Discussion
+9. Random_5()   =>  Random_25()
+10. Generics
+11. HR Talk
+12. Proposed Offer Letter
+13. Got the Offer
+
+Rupeek - 2
+1. Max sum from two sorted array
+2. String Combination
+
+MoneyView - 2
+1. Kadane Algo
+2. Max Number from given digits
+3. Delete, Truncate, Drop
+4. Inversion Control
+5. Matrix Max Sum from top left to bottom right
+6. Design Vending Machine
+
+MyGate - 2
+1. Project
+2. Postfix Evaluation
+
+BrightChamps - 3
+1. Mysql vs Nosql
+2. ACID
+3. Max profit with only one transaction
+4. Sum Array
+5. Low level Design
+6. Left Join
+7. Proxy Design Pattern
+8. Project
+
+Leap Finance - 4
+1. LRU Cache
+2. Singleton
+3. System Design
+4. Last round not went well
+5. Cultural Fit
+6. Rejection
+
+Walmart - 1
+1. Node At Distance
+2. Perfect Square
+
+Make My Trip - 3
+1. No. of Islands
+2. Tree next pointer
+3. Project Discussion
+4. Print random array
+5. No. of platforms
+6. Substring problem
+
+Neustar - 2
+1. Two Sum
+2. Three Sum
+3. Police and Thief
+4. K largest element
+5. Mysql Join query
+6. Implement HashMap
+7. Immutable class with Mutable reference
+8. Threading
+9. Two Diff K
+10. Logging
+
+Sayurbox - 2
+1. Triplet sum closest to target
+2. Boolean Matrix
+3. Design
+
+Informatica - 4
+1. Count min iteration to convert array product as 1
+2. Product Array
+3. Longest SubString without repeating characters
+4. Right view of Tree
+5. Singleton
+6. Aspect Oriented Programming
+7. Implement an API
+8. List
+9. Comparable
+10. Project
+11. Multithreading
+12. HR round
+13. Offer Discussion
+14. Rejected / Not Accepted
+
+Jupiter Money - 1
+1. Project
+2. Min Cost Path
+
+Visa - 1
+1. Project
+2. Odd Even LinkedList
+
+Q2 Software - 1
+1. Sort 0, 1, 2
+2. LCS
+3. Tree Height
+4. Reverse deck of cards
+
+6th Street - 1
+1. Project
+2. String
+
+Cleartrip - 2
+1. Design Parking Lot
+
+Vymo - 2
+1. Max Profit
+2. Combination count with target sum +/-
+3. Tree generation element
+
+Games 24*7 - 2
+1. Projetc use cases
+
+Intuit - 1
+1. Co-ordinates distance
+
+Quinbay - 3
+1. LinkedHashMap implementation
+2. Monolith vs microservices
+
+Nike - 4
+1. Array Problem
+2. Stock Profit
+3. Design Problem
+4. Missing Number from array
+5. Design Problem
+6. Mysql and Elastic search
+7. Behavioural Discussion
+
+Dailyhunt - 3
+1. print even odd
+2. Builder Pattern
+3. Print subset of size 3
+
+MPL - 2
+1. Design Load Balancer
+2. Reverse List
+3. Got the offer

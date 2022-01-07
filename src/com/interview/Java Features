@@ -11,8 +11,8 @@ Java 7
 
 Java 8
     1. Functional Interface and lambda expression
-            A functional interface is an interface that contains only one abstract method.
-            They can have only one functionality to exhibit.
+            Functional interfaces are interfaces which represent some functionality.
+            Can have only one abstract method.
     2. Stream API
     3. Default and static methods in Interface
     4. forEach() method in Iterable interface

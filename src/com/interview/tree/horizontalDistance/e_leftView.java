@@ -15,10 +15,11 @@ public class e_leftView {
         q.offer(root);
 
         while(!q.isEmpty()){
-            for (int i = 1; i <= q.size(); i++) {      // Traverse all nodes of current level
+            int size = q.size();
+            for (int i = 0; i < size; i++) {      // Traverse all nodes of current level
                 Node temp = q.poll();
 
-                if (i == 1)
+                if (i == 0)
                     System.out.print(temp.key);
 
                 if (temp.left != null)

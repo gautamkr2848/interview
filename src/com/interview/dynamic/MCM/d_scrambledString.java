@@ -10,6 +10,16 @@ at least one of the following conditions is true:
         string of S1[i+1…n].
     2. S2[0…i] is a scrambled string of S1[n-i…n] and S2[i…n] is a scrambled
         string of S1[0…n-i].
+
+Input: S1=”coder”, S2=”ocder”
+Output: Yes
+Explanation:
+“ocder” is a scrambled form of “coder”
+
+Input: S1=”abcde”, S2=”caebd”
+Output: No
+Explanation:
+“caebd” is not a scrambled form of “abcde”
 */
 
 public class d_scrambledString {

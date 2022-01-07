@@ -1,5 +1,15 @@
 package com.interview.string;
 
+/*
+    1. Take two-pointer where the first pointer track from the left side of a string
+        and second pointer keep track from the right side of a string.
+    2. Till the time we find the same character, keep moving the right pointer to one step left.
+    3. If the same character not found then return -1.
+    4. If the same character found then swap the right pointer’s character towards the
+        right until it is not placed at its correct position in a string.
+    5. Increase left pointer and repeat step 2.
+*/
+
 public class MinSwapStringPelindorme {
 
     public void minSwapStringPelindorme(){
