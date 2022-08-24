@@ -1,0 +1,38 @@
+An online movie ticket booking system provides its customers the ability to book
+movie tickets online like BookMyShow. BookMyShow allows the customers to browse movies
+currently being running in a city and to book seats, anywhere anytime for a show.
+
+Functional Requirements:
+1. Application should be able to list different cities
+2. After selecting the city, app should display movies released in that city
+3. Once the user selects a movie, the app should display the cinemas running
+    that movie and its available showtimes.
+4. The user should be able to choose a show at a particular cinema
+5. The service should be able to show the user the seating arrangement of the cinema hall.
+6. The user should be able to select multiple seats according to their preference.
+7. The user should be able to distinguish available seats from booked ones.
+8. Users should be able to put a hold on the seats for five minutes before they
+    make a payment to finalize the booking.
+
+Non-Functional Requirements:
+1. The system would need to be highly concurrent
+2. There are financial transactions in ticket bookings. So, the system should be secure
+    and the database should be ACID supported.
+
+System API's
+We can have REST API to expose the functionality
+1. /listAllCities
+2. /moviesInACity
+3. /listCinemasRunningTheMovieInThatCity
+4. /seatingArrangementInCinema
+5. /bookTicket
+6. /makePayment
+
+Database Design
+1. User Table
+2. City Table
+3. Cinemas Table
+4. Movies Table
+5. Booking Table
+5. Show Table
+6. Payment Table

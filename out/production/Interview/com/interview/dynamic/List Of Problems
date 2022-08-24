@@ -1,0 +1,40 @@
+How to choose DP
+    1. Choice   => either pick or not
+    2. Optimal  => max or min
+
+1. 0-1 Knapsack Problem
+    1. 0-1 Knapsack
+    2. Subset Sum
+    3. Equal Sum Partition
+    4. Count of Subset Sum
+    5. Minimum Subset Sum Difference
+    6. Number of Subsets with given Difference or Target Sum
+
+2. Unbounded Knapsack
+    1. Unbounded Knapsack or Rod Cutting Problem
+    3. Coin change in maximum number of ways
+    4. Coin change in minimum number of coins
+
+3. Longest Common SubSequence
+    1. Longest Common SubSequence
+    2. Longest Common SubString
+    3. Shortest Common Super SubSequence
+        a. 3. Shortest Common Super SubSequence Print
+    4. Number of insertion or deletion to convert a into b
+    5. Longest Palindromic SubSequence
+    6. Number of deletion to make a string palindrome
+    7. Number of insertion to make a string palindrome
+    8. Longest Repeating SubSequence
+    9. Sequence Pattern Matching
+
+4. Matrix Chain Multiplication
+    1. Matrix Chain Multiplication
+    2. Palindrome Partitioning
+    3. Evaluate Expression to True or Boolean Parenthesization
+    4. Scrambled String
+    5. Egg Dropping Puzzle
+
+5. DP on tree
+    1. Tree Diameter
+    2. Node to node max path sum
+    3. Leaf to leaf max path sum

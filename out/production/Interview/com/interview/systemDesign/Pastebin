@@ -1,0 +1,14 @@
+Pastebin is a service that allows users to paste text-based data or images over the
+internet and generates a unique URL for a user to access the uploaded data.
+
+Functional Requirements:
+1. Users can either enter a text or upload a text file and get a URL.
+2. URLs should expire after a certain period of time.
+
+System API's
+1. createPaste(content, userId, exp)
+2. readPaste(url)
+
+Database Design
+1. User Table
+2. Paste Table

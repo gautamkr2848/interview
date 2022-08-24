@@ -1,0 +1,58 @@
+Functional Interface
+    a. Functional interfaces are interfaces which represent some functionality. Can have only one abstract method.
+
+    b. Lambda's are used to represent the instance of a functional interfaces
+
+    c. @FunctionalInterface Annotation
+        a. Runnable
+        b. Callable
+        c. Comparator
+            * Looks like Comparator has two abstract methods but
+            * compare()
+            * equals()  =>   The equals is an abstract method overriding one of the public
+                             methods of java.lang.Object. So, this doesn’t count as an abstract method.
+        d. Predicate
+            * Predicate is a functional interface, which accepts an argument and returns a boolean
+            * public interface Predicate<T>{
+                1. boolean test(T t);       // abstract method
+                2. and      // default method
+                3. negate       // default method
+                4. or       // default method
+                5. isEqual      // static method
+            }
+            * Predicate<Integer> lesserthan = i -> (i < 18);        // Creating predicate
+              System.out.println(lesserthan.test(10));          // Calling Predicate method
+
+        e. Consumer
+            * Consumer is a functional interface, which accepts an argument and returns void
+            * public interface Consumer<T>{
+                1. void accept(T t);        //abstract method
+                2. andThen      // default method
+            }
+            * Consumer<Integer> display = a -> System.out.println(a);       // Consumer to display a number
+              display.accept(10);           // Implement display using accept()
+
+        f. Function
+            * Function is a functional interface, which accepts an argument and returns an object
+            * public interface Function<T, R>{
+                1. R apply(T t);    // abstract method
+                2. compose      // default method
+                3. andThen      // default method
+                4. identity     // static method
+            }
+            * Function<Integer, Double> half = a -> a / 2.0;        //creating a Function
+              System.out.println(half.apply(10));       // Applying the function to get the result
+
+        g. Supplier
+            * Supplier is a functional interface, which will not take any argument and returns an object
+            * public interface Supplier<T>{
+                T get();
+            }
+            * Supplier<Double> randomValue = () -> Math.random();       // This function returns a random value
+              System.out.println(randomValue.get());        // Print the random value using get()
+
+        https://www.youtube.com/watch?v=gpIUfj3KaOc&list=PLqq-6Pq4lTTa9YGfyhyW2CqdtW9RtY-I3
+
+
+Lambda Expressions
+    * Lambda expressions basically used for implementing abstract method of functional interface.

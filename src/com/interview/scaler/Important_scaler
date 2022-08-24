@@ -1,0 +1,23 @@
+OTT - https://whimsical.com/scaler-ott-platforms-Kei65tZhEKtJqkyWExbYNB
+
+social media - https://whimsical.com/scaler-social-media-platform-Mmg5KJTJ7qQ7qU4HnBrU9Z
+
+stock trading platform - https://whimsical.com/system-design-stock-trading-platforms-scaler-GpE3EjQ4FxaE1f19wFVmzC
+
+Real Time System Design - https://whimsical.com/scaler-real-time-systems-HdYmAtZwrFW4KydgJs1AkJ
+
+System Design - https://medium.com/@nishantparmar/distributed-system-design-patterns-2d20908fecfc
+
+DBMS -  https://docs.google.com/document/d/1DRw-075sS6gB6zLJS2usxG1T3-yfvhRTIXKnnENqtkY/edit
+
+Note :
+
+The performance of for loop is better than for-each in terms of Arraylist. Now, let’s use LinkedList instead of a
+ArrayList. You can see the performance of for-each is better for LinkedList.
+
+ArrayList internally uses Arrays to store elements. Since the arrays are contiguous memory spaces,
+the time complexity is O(1) because data is retrieved through indexes.
+
+LinkedList uses a two-way linked list. When we use for-loop to implement traversal it starts from the head
+node of the linked list every time that’s why the time complexity is O (n*n).
+

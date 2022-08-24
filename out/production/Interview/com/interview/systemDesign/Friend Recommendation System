@@ -1,0 +1,28 @@
+Friend recommendation system
+
+Since the friend recommendation system is a must-have thing for FB and is common for
+everyone in the social media platform.
+
+Let A and B be Facebook friends, and we are trying to build a recommendation system to
+decide whether to suggest C as an option @ the People you may know the list.
+
+If A and B have a mutual friend C, there is a high chance that person C might be a friend of A.
+
+If A and C have gone to the same school at the same time period, i.e, a difference in time of
+about +1 or -1 years, person C might be a good option to suggest
+
+If A and C have gone/goes to the same workplace at the same location, we have a good chance
+of both of them being friends.
+
+If A and C have reacted to the same posts for a long time and thus showing the same interest
+can be paired out as a friend. However, this has the least priority as they might not know each other.
+
+If A and C have some mutual private groups, they can be paired as friends and be suggested to
+others. For example, some alumni group.
+
+If A has searched and viewed a profile C, then they could be shown as the fact that they have searched
+and viewed shows they are interested in and know each other somehow.
+
+If both A and C are tagged in a photo of a post of some friend.
+
+These will be the criteria that will be checked upon before recommending someone to some other.

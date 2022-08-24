@@ -1,0 +1,21 @@
+Design Media Sharing Social Networking System
+
+This system will allow users to share post, photos and videos.
+Get other user profile details
+Send friend request
+
+– Availability
+– Reliability
+– Resiliency
+– Durability
+– Cost Performance
+
+API's
+    /addPost
+    /getPost
+    /deletePost
+
+Schema
+    User - id, name, mobile, email
+    UserFriends - id, userId, friendId
+    Post - id, userId, postType, post, postPath

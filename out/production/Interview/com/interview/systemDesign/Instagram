@@ -1,0 +1,50 @@
+Instagram is a social networking service that enables its users to upload and
+share their photos and videos with other users.
+
+Functional Requirements:
+1. Users should be able to upload/download/view photos.
+2. Users can perform searches based on user_name
+3. Users can follow other users.
+4. The system should generate and display a user’s home page consisting of top photos
+    from all the people the user follows.
+
+Non Functional Requirements:
+Performance, availability, consistency, scalability, reliability, etc
+
+Note - The system would be read-heavy.
+
+Database Design:
+    Photo: PhotoID (pk), UserID, PhotoLocation, CreationDate
+    User: UserID(pk), Name, Email, DOB, LastLoginTime
+    Follow: UserID1, UserID2 (paired pk)
+    FeedItem: FeedID(pk), UserID, Contents, PhotoID, CreationDate
+
+Rest API's
+1. /generateHomePage
+2. /crud photo
+3. /searchUser
+4. /followUser
+
+Home Page Creation
+1. Pull
+    Clients can pull the News-Feed contents from the server at a regular interval
+    or manually whenever they need it
+2. Push
+    Servers can push new data to the users as soon as it is available.
+3. Hybrid
+    We can move all the users who have a high number of followers to a pull-based
+    model and only push data to those who have a few hundred (or thousand) follows.
+
+Performance Estimation :
+Total users = 100 million.
+Daily active users = 10% = 10 million per day.
+Assuming that 1/5 user uploads 1 photos on average, so total photos upload in day = 2 million
+
+Throughput  Estimations:
+Total write transactions in day  = 2 million photos
+Since the read: write ratio is 80: 20, total read transactions = 10 million
+Thus total TPS (transactions per second) : 2 million + 10 million = 12 million per day ~ 150 per second
+
+Storage Estimations:
+Assume each photo is 200kb, so total storage for photos per day is 2 million x 200k ~ 400 GB per day.
+Total photo storage for 10 years =  10 years x 365 days a year x  400 GB per day ~ 1600 TB

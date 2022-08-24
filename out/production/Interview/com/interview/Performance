@@ -1,0 +1,31 @@
+The very first thing that we'll do common Java code level optimizations as well as best coding
+practices. Then, we’ll look at JVM specific tuning tips and architectural changes to improve
+the performance of a Java application.
+
+Identifying Bottlenecks
+    Using Load testing tools    =>  Galting
+
+    Find the Slowest Part Of Your Stack
+        1. Is a certain SQL statement slowing us down?
+        2. Is Redis slower all of a sudden?
+        3. Specific HTTP web service down or slow?
+
+Code Level Optimizations
+    1. Using StringBuilder for String Concatenation
+    2. Avoid Recursion
+    3. Use Regular Expressions Carefully
+    4. Avoid Creating and Destroying Too Many Threads
+
+JVM Tuning
+    1. Heap Size Tuning
+    2. Choosing the Right Garbage Collector
+
+JDBC Performance
+    1. Connection Pooling
+    2. JDBC Batching
+    3. Statement Caching
+    4. Database Scaling
+
+Architectural Improvements
+    1. Caching
+    2. Scaling
