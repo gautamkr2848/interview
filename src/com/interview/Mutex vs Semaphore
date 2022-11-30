@@ -1,0 +1,113 @@
+Mutex & Semaphore
+
+As per operating system terminology, mutexes and semaphores are kernel resources that are used for synchronization
+
+    Atomicity - Atomicity is unbreakability, i.e. an uninterrupted operation
+        If two users issue a print command, each print should go in single attempt. If the printer driver is sending
+        parts of data from two users, the printout will not be as expected. Hence, the printer driver must send the
+        print command as unbreakable operation from one application at a time.
+
+        Note that the data base terminology on atomicity would be different, yet the concept is same.
+
+        Consider in a multi-threaded application, a function is incrementing a global/static variable,
+
+            count++; // count has permanent storage in RAM
+
+            The above statement can be decomposed into, atleast three operations.
+
+                Fetching count value
+                Incrementing count value
+                Storing the updated value
+
+            If a thread executing the function containing the above statement is fetching its value (say 2). It is
+            possible that at this point of execution, the thread can be preempted and another thread may invoke the
+            same function. Consequently, the value of count will be incremented to 3 by that thread. When the former
+            thread is resumed, it still retains the previous value (2), instead of latest value (3), and ends up in
+            writing back 3 again. Infact, the value of count should be 4 due to affect of both the threads.
+
+            Such kind of bugs are quite difficult to recreate and locate.
+
+        An example of atomic operation is instruction execution, usually an instruction feed to the execution unit
+        can’t be stopped in the middle. Yet, a statement in high level language results in multiple instructions.
+        It is the root cause of non-atomic operations.
+
+
+    Critical Section - When more than one processes access the same resource i.e known as the critical section. The
+    critical section contains shared variables or resources which are needed to be synchronized to maintain the
+    consistency of data variables. In simple terms, a critical section is a group of instructions/statements or
+    region of code that need to be executed atomically (read this post for atomicity), such as accessing a resource
+    (file, input or output port, global data, etc.).
+
+    In concurrent programming, if one thread tries to change the value of shared data at the same time as another
+    thread tries to read the value (i.e. data race across threads), the result is unpredictable. The access to such
+    shared variables (shared memory, shared files, shared port, etc…) is to be synchronized.
+
+    Few programming languages have built-in support for synchronization. It is critical to understand the importance
+    of race conditions while writing kernel-mode programming (a device driver, kernel thread, etc.). since the
+    programmer can directly access and modify kernel data structures.
+
+
+Consider the standard producer-consumer problem. Assume, we have a buffer of 4096-byte length. A producer thread
+collects the data and writes it to the buffer. A consumer thread processes the collected data from the buffer. The
+objective is, both the threads should not run at the same time.
+
+Using Mutex:
+
+A mutex provides mutual exclusion, either producer or consumer can have the key (mutex) and proceed with their work.
+As long as the buffer is filled by the producer, the consumer needs to wait, and vice versa.
+
+At any point of time, only one thread can work with the entire buffer. The concept can be generalized using semaphore.
+
+Using Semaphore:
+
+A semaphore is a generalized mutex. In line of a single buffer, we can split the 4 KB buffer into four 1 KB buffers
+(identical resources). A semaphore can be associated with these four buffers. The consumer and producer can work on
+different buffers at the same time.
+
+Misconception:
+
+There is an ambiguity between binary semaphore and mutex. We might have come across that a mutex is a binary semaphore.
+But it is not! The purpose of mutex and semaphore are different. Maybe, due to similarity in their implementation a
+mutex would be referred to as a binary semaphore.
+
+Strictly speaking, a mutex is a locking mechanism used to synchronize access to a resource. Only one task (can be a
+thread or process based on OS abstraction) can acquire the mutex. It means there is ownership associated with a mutex,
+and only the owner can release the lock (mutex).
+
+Semaphore is signaling mechanism (“I am done, you can carry on” kind of signal). For example, if you are listening to
+songs (assume it as one task) on your mobile phone and at the same time, your friend calls you, an interrupt is
+triggered upon which an interrupt service routine (ISR) signals the call processing task to wakeup.
+
+
+General Questions:
+
+1. Can a thread acquire more than one lock (Mutex)?
+
+Yes, it is possible that a thread is in need of more than one resource, hence the locks. If any lock is not available
+the thread will wait (block) on the lock.
+
+2. Can a mutex be locked more than once?
+
+A mutex is a lock. Only one state (locked/unlocked) is associated with it. However, a recursive mutex can be locked
+more than once (POSIX compliant systems), in which a count is associated with it, yet retains only one state
+(locked/unlocked). The programmer must unlock the mutex as many number times as it was locked.
+
+3. What happens if a non-recursive mutex is locked more than once.
+
+Deadlock. If a thread that had already locked a mutex, tries to lock the mutex again, it will enter into the waiting
+list of that mutex, which results in a deadlock. It is because no other thread can unlock the mutex. An operating
+system implementer can exercise care in identifying the owner of the mutex and return if it is already locked by a
+same thread to prevent deadlocks.
+
+4. Are binary semaphore and mutex same?
+
+No. We suggest treating them separately, as it is explained in signaling vs locking mechanisms. But a binary semaphore
+may experience the same critical issues (e.g. priority inversion) associated with a mutex. We will cover these in a
+later article.
+A programmer can prefer mutex rather than creating a semaphore with count 1.
+
+5. Can we acquire mutex/semaphore in an Interrupt Service Routine?
+
+An ISR will run asynchronously in the context of current running thread. It is not recommended to query (blocking call)
+the availability of synchronization primitives in an ISR. The ISR are meant be short, the call to mutex/semaphore may
+block the current running thread. However, an ISR can signal a semaphore or unlock a mutex.
