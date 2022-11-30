@@ -3,6 +3,7 @@ package com.interview.array.subArray.slidingWindow;
 public class Kadane {
 
     public int Kadane(int[] a){
+
         int maxSum = a[0];
         int currMax = a[0];
 

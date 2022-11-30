@@ -22,12 +22,12 @@ public class g_SearchInRotatedArray {
         if (arr[mid] == key)
             return mid;
 
-        if (arr[l] <= arr[mid]) {
+        if (arr[l] <= arr[mid]) {       // left array is sorted
             if (key >= arr[l] && key <= arr[mid])
                 return search(arr, l, mid - 1, key);
             else
                 return search(arr, mid + 1, h, key);
-        } else {
+        } else {        // right array is sorted
             if (key >= arr[mid] && key <= arr[h])
                 return search(arr, mid + 1, h, key);
             else
@@ -35,4 +35,30 @@ public class g_SearchInRotatedArray {
         }
     }
 
+    private int search(int[] arr, int target) {
+        int left = 0;
+        int right = arr.length - 1;
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+
+            if (target == arr[mid])
+                return mid;
+
+            if (arr[left] <= arr[mid]) { // left array is sorted
+                if (target >= arr[left] && target < arr[mid]) { // target lies between start and mid index
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            } else { // right array is sorted
+                if (target > arr[mid] && target <= arr[right]) { // target lies between mid and end index
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+        }
+        return -1;
+    }
 }

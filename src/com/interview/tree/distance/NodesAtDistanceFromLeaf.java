@@ -58,12 +58,12 @@ public class NodesAtDistanceFromLeaf {
 
             if(tmp.left == null && tmp.right == null){
                 Node tmp2 = tmp;
-                while(tmp2 != null && k > 0){
+                int dist = 0;
+                while(tmp2 != null && dist < k){
                     tmp2 = parentMap.get(tmp2);
-                    k--;
+                    dist++;
                 }
                 System.out.println(tmp.key + " => "+ tmp2.key);
-                k = 2;
             }
 
             if(tmp.left != null)

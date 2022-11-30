@@ -12,18 +12,18 @@ Cassandra work
     users/operations per second
 
 2. Cassandra is a partitioned row store database
+
 3. Cassandra's architecture allows any authorized user to connect to any node in any datacenter
-    and access data using the CQL language. CQL uses a similar syntax to SQL. The most basic way
-    to interact with Cassandra is using the CQL shell, cqlsh. Using cqlsh, you can create keyspaces
-    and tables, insert and query tables, plus much more.
+    and access data using the CQL language.
 
 4. Cassandra provides automatic data distribution across all nodes in a database cluster.
+
 5. Cassandra also provides customizable replication strategy, which stores redundant copies of
     data across nodes. If incase any node in a cluster goes down, one or more copies of that node’s
     data is available on other machines in the cluster.
 
 6. Cassandra supplies linear scalability. For example, if 2 nodes can handle 100,000 transactions per second,
-    4 nodes will support Inter200,000 transactions/sec and 8 nodes will tackle 400,000 transactions/sec.
+    4 nodes will support 200,000 transactions/sec and 8 nodes will tackle 400,000 transactions/sec.
 
 What is CQL?
  CQL is the recommended way to interact with Cassandra. CQL and SQL share the same abstract idea

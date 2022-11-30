@@ -81,5 +81,12 @@ Singleton design pattern is the best solution of above specific problem.
 
          The visitor pattern consists of two parts:
              1. Visit() method which is implemented by the visitor and is called for every element in
-             the data structure
+                the data structure
              2. visitable classes providing Accept() methods that accept a visitor
+
+         eg -
+
+         Fruits - mango, apple, guava
+         Electronics - mobile, tv, laptop
+
+         In place of giving discount on each item, give discount as 10% on electronics and 5% on fruits

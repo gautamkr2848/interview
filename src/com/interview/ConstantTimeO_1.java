@@ -1,14 +1,11 @@
 package com.interview;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 
 public class ConstantTimeO_1 {
 
-    ArrayList<Integer> list;
-    HashMap<Integer, Integer> map;  //key as data and value as list index
+    List<Integer> list;
+    Map<Integer, Integer> map;  //key as data and value as list index
 
     public ConstantTimeO_1() {
         list = new ArrayList<>();

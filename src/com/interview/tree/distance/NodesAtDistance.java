@@ -14,7 +14,11 @@ package com.interview.tree.distance;
         12  =>  8
         10  =>  12
         14  =>  12
- */
+
+
+Given the root of a binary tree, the value of a target node target, and an integer k, return an array of the values
+of all nodes that have a distance k from the target node
+*/
 
 import com.interview.tree.Node;
 
@@ -60,11 +64,11 @@ public class NodesAtDistance {
 
     private void nodeAtDistK(Node target, int k, Map<Node, Node> map){
         Set<Node> s = new HashSet<>();
-        int dist = 0;
-
         Queue<Node> q = new LinkedList<>();
         q.add(target);
         s.add(target);
+
+        int dist =0;
         
         while (!q.isEmpty()) {
             if (dist == k) {

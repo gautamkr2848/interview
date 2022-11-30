@@ -39,10 +39,10 @@ public class FirstNegativeInWindow {
 
         for (; i < arr.length; i++) {
             System.out.print(arr[deque.peek()] + " ");
-            while (!deque.isEmpty() && deque.peek() <= i - k)
+            while (!deque.isEmpty() && deque.peek() <= i - k)       // Remove the elements which are out of this window
                 deque.removeFirst();
 
-            while (!deque.isEmpty() && arr[deque.peekLast()] >= 0)
+            while (!deque.isEmpty() && arr[deque.peekLast()] >= 0)      // remove useless elements
                 deque.removeLast();
 
             deque.addLast(i);

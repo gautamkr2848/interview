@@ -11,10 +11,18 @@ public class StringReverse {
         }
     }
 
-    public String reverseString(String str) {
+    private static String reverseString(String s){
+        if(s == null || s.length() == 0)
+            return s;
+        else {
+            return String.valueOf(s.charAt(s.length() - 1)).concat(reverseString(s.substring(0, s.length() - 1)));
+        }
+    }
+
+    public String reverseString_3(String str) {
         if(str.isEmpty())
             return str;
         else
-            return reverseString(str.substring(1))+str.charAt(0);
+            return reverseString_3(str.substring(1))+str.charAt(0);
     }
 }

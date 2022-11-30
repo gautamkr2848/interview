@@ -1,25 +1,47 @@
 package com.interview.dynamic;
 
+/*For two
+
+    1 => 1
+    1, 2 => Either 1 0r 2
+    1, 2, 3 => If we leave 3, then sum[i-1]
+               If we lave 2, then sum[i-2] + arr[i]
+
+
+ For three
+
+    1 => 1
+    1, 2 => 1 + 2
+    1, 2, 3 => If we leave 3, then 1 + 2
+                If we leave 2, then 1 + 3
+                If we leave 1, then 2 + 3
+    1, 2, 3, 4 => If we leave 4, then sum[i-1]
+                  If we lave 3, then sum[i-2] + arr[i]
+                  If we leave 2, then sum[i-3] + arr[i] + arr[i-1]
+
+ */
+
+
 public class MaxStolenVaue {
 
     public int maxLoot() {
         int house[] = {6, 7, 1, 3, 8, 2, 4};
         int n = house.length;
-        int[] dp = new int[n];
+        int[] sum = new int[n];
 
         if(house.length >= 2) {
-            dp[0] = house[0];
-            dp[1] = Math.max(house[0], house[1]);
+            sum[0] = house[0];
+            sum[1] = Math.max(house[0], house[1]);
         }
 
         for (int i = 2; i<n; i++)
-            dp[i] = Math.max(house[i]+dp[i-2], dp[i-1]);
+            sum[i] = Math.max(sum[i-1], house[i] + sum[i-2]);
 
-        return dp[n-1];
+        return sum[n-1];
     }
 
     //Max Sum such that no three elements are consecutive
-    public void maxSumNoThreeConsuctive(){
+    public void maxSumNoThreeConsecutive(){
         int[] arr = { 100, 1000, 100, 1000, 1 };
         int[] sum = new int[arr.length];
 

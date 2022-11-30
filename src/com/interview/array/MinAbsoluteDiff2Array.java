@@ -2,9 +2,9 @@ package com.interview.array;
 
 import java.util.Arrays;
 
-public class SmallestAbsoluteDiff2Array {
+public class MinAbsoluteDiff2Array {
 
-    public void SmallestAbsoluteDiff2Array(int[] A, int[] B){
+    public void MinAbsoluteDiff2Array(int[] A, int[] B){
         int m = A.length;
         int n = B.length;
         Arrays.sort(A);

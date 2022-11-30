@@ -10,13 +10,16 @@
     In order to improve speed and connectivity, a CDN will place servers at the exchange
     points between different networks.
 
+
 2. Distributed Cache    =>  Redis
+
 3. Pub/Sub Model
     The Publish/Subscribe pattern, also known as pub/sub, is an architectural design pattern
     that provides a framework for exchanging messages between publishers and subscribers. This
     pattern involves the publisher and the subscriber relying on a message broker that relays
     messages from the publisher to the subscribers. The host (publisher) publishes messages (events)
     to a channel that subscribers can then sign up to.
+
 
 4. Event Driven Architecture
     Two microservices communicate with each other based on event bus.
@@ -37,6 +40,7 @@
             Stores  A-I in user1 table
                     J-S in user2 table
                     T-Z in user3 table
+
 
 7. Load Balancing   =>  Ribbon
     Load balancing refers to the process of distributing a set of tasks over a set of resources,
@@ -83,7 +87,7 @@
     I/O Oriented - no. of threads = no. of cores * (1 + waitTime/CPUTime)
 
 17. Resilience4J    =>  Fault Tolerance
-    a. Retry
+    a. Auto Retry
     b. Circuit Breaker
     c. Bulkhead
     d. Timer
@@ -91,7 +95,7 @@
 
     https://javatechonline.com/how-to-implement-fault-tolerance-in-microservices-using-resilience4j/#What_is_Bulkhead
 
-18. Map Struct  =>  Mapper
+18. Map Struct  =>  Java Mapper class
 
 19. SOLID
     S   =>  Single Responsibility   =>  Single Responsibility Class

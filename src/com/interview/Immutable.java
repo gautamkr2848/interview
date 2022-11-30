@@ -22,7 +22,7 @@ package com.interview;
         5. performance
 
     Note => use char[] array over a string for storing passwords in Java
- */
+*/
 
 public final class Immutable {
 

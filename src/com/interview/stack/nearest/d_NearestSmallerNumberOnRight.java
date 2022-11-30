@@ -25,6 +25,9 @@ public class d_NearestSmallerNumberOnRight {
         }
     }
 
+    //Time complexity of the above solution is O(n2).
+    //Space Complexity: O(1)
+
     public void nearestSmallerNumberOnRight_2(){
         int[] a = {4, 8, 5, 2, 25};
         int n = a.length;
@@ -42,4 +45,7 @@ public class d_NearestSmallerNumberOnRight {
             s.add(a[i]);
         }
     }
+
+    //Time complexity of the above solution is O(n).
+    //Space Complexity: O(n)
 }

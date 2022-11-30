@@ -1,8 +1,21 @@
 package com.interview.array;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Stack;
 
-//For only on txn iterate array over right to left
+/*
+
+Let profit[t][i] represent maximum profit using at most t transactions up to day i (including day i). Then the relation is:
+profit[t][i] = max(profit[t][i-1], max(price[i] – price[j] + profit[t-1][j]))
+          for all j in range [0, i-1]
+profit[t][i] will be maximum of –
+
+profit[t][i-1] which represents not doing any transaction on the ith day.
+Maximum profit gained by selling on ith day. In order to sell shares on ith day, we need to purchase it on any one of [0, i – 1] days. If we buy shares on jth day and sell it on ith day, max profit will be price[i] – price[j] + profit[t-1][j] where j varies from 0 to i-1. Here profit[t-1][j] is best we could have done with one less transaction till jth day.
+
+    */
 
 public class StockBuySell {
 
@@ -21,17 +34,30 @@ public class StockBuySell {
         System.out.println("Maximum profit : " + profit);
     }
 
-    public static int maxProfit_3(int price[], int n, int k) {
-        int profit[][] = new int[k + 1][ n + 1];
+    public int maxProfit_2(int price[], int n, int k) {
+        int t[][] = new int[k + 1][ n + 1];
 
         for (int i = 1; i <= k; i++) {
             int prevDiff = Integer.MIN_VALUE;
             for (int j = 1; j < n; j++) {
-                prevDiff = Math.max(prevDiff, profit[i - 1][j - 1] - price[j - 1]);
-                profit[i][j] = Math.max(profit[i][j - 1], price[j] + prevDiff);
+                prevDiff = Math.max(prevDiff, t[i - 1][j - 1] - price[j - 1]);
+                t[i][j] = Math.max(t[i][j - 1], price[j] + prevDiff);
             }
         }
-        return profit[k][n - 1];
+        return t[k][n - 1];
+    }
+
+    //with only one txn
+    public void maxProfit_3(int arr[]) {
+        int minSoFar = arr[0];
+        int maxProfit = 0;
+
+        for(int i=0; i<arr.length; i++){
+            minSoFar = Math.min(minSoFar, arr[i]);
+            int profit = arr[i] - minSoFar;
+            maxProfit = Math.max(maxProfit, profit);
+        }
+        System.out.println(maxProfit);
     }
 
     public void stockBuySell() {
@@ -69,4 +95,52 @@ class Interval{
         this.end = end;
     }
 }
+
+class MaxProfit {
+
+    public void maxProfit_2(){
+
+        int[] price = {900, 180, 260, 310, 40, 535, 695};
+        int k = 1;
+
+        Stack<Transaction> stack = new Stack<>();
+        for(int i=1; i<price.length; i++){
+            int diff = price[i] - price[i-1];
+            if(diff > 0){
+                Transaction t = new Transaction(i-1, i, diff);
+                if(!stack.empty() && stack.peek().sell == t.buy){
+                    Transaction tmp = stack.pop();
+                    Transaction t1 = new Transaction(tmp.buy, t.sell, tmp.profit + diff);
+                    stack.push(t1);
+                } else {
+                    stack.push(t);
+                }
+            }
+        }
+
+        List<Integer> list= new ArrayList<>();
+        while (!stack.empty()){
+            Transaction t = stack.pop();
+            list.add(t.profit);
+        }
+
+        Collections.sort(list);
+        for(int i = list.size()-1; i>=0 && k>0; i--, k--){
+            System.out.println(list.get(i) + " ");
+        }
+    }
+}
+
+class Transaction{
+    int buy;
+    int sell;
+    int profit;
+
+    Transaction(int buy, int sell, int profit){
+        this.buy = buy;
+        this.sell = sell;
+        this.profit = profit;
+    }
+}
+
 

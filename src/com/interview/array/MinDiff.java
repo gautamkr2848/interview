@@ -2,6 +2,18 @@ package com.interview.array;
 
 import java.util.Arrays;
 
+/*
+
+Input  : {1, 5, 3, 19, 18, 25};
+Output : 1
+Minimum difference is between 18 and 19
+
+Input  : {30, 5, 20, 9};
+Output : 4
+Minimum difference is between 5 and 9
+
+ */
+
 public class MinDiff {
 
     public void minimum_difference(int[] arr) {

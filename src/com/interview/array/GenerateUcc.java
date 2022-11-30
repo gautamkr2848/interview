@@ -8,7 +8,6 @@ public class GenerateUcc {
         List<String> list = new ArrayList<>();
         List<String> list1 = new ArrayList<>();
         List<String> list2 = new ArrayList<>();
-        List<String> list3 = new ArrayList<>();
         int k = 2;
         int i=0;
         for(char c = 'A'; c <= 'Z' && i<26; ++c, i++)

@@ -4,8 +4,8 @@ Functional Interface
     b. Lambda's are used to represent the instance of a functional interfaces
 
     c. @FunctionalInterface Annotation
-        a. Runnable
-        b. Callable
+        a. Runnable - run()     // abstract method
+        b. Callable - call()    // abstract method
         c. Comparator
             * Looks like Comparator has two abstract methods but
             * compare()

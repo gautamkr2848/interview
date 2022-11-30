@@ -1,13 +1,12 @@
 package com.interview.stack.nearest;
 
-/*Given an array a of integers of length n, find the nearest smaller number for every element such that the smaller element is on the left side.If no small element present on the left print -1.
-
+/*Given an array a of integers of length n, find the nearest smaller number for every element such that the smaller
+  element is on the left side.If no small element present on the left print -1.
 
         Example 1:
         Input: n = 3
         a = {1, 6, 2}
         Output: -1 1 1
-
 
         Example 2:
         Input: n = 6
@@ -41,6 +40,9 @@ public class b_NearestSmallerNumbersOnLeft {
         }
     }
 
+    //Time complexity of the above solution is O(n2).
+    //Space Complexity: O(1)
+
     public void nearestSmallerNumbersOnLeft_2(){
         int[] arr = {1, 5, 0, 3, 4, 5};
         int n = arr.length;
@@ -61,4 +63,7 @@ public class b_NearestSmallerNumbersOnLeft {
             S.push(arr[i]);
         }
     }
+
+    //Time complexity of the above solution is O(n).
+    //Space Complexity: O(n)
 }
