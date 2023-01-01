@@ -3,6 +3,8 @@ Paytm - 2
 2. Mutex
 3. Semaphore
 4. google.com ==>> exact location
+5. Got the offer
+6. Joined on 3rd Dec 2020
 
 DirectI - 3
 1. Implement LRU Cache
@@ -17,17 +19,15 @@ TCS - 1
 2. use of @SpringBootApplication
 3. List vs Set
 4. concurrentHashMap vs synchronizedHashMap
-5. ServiceDiscovery
-6. Eureka
-7. @ControllerAdvice
-@ControllerAdvice is a specialization of the @Component annotation which allows to handle exceptions across the whole
-application in one global handling component.
+5. ServiceDiscovery - Eureka
+6. @ControllerAdvice - It's a specialization of the @Component annotation which allows to handle exceptions across the
+    whole application in one global handling component.
 
-8. Functional Interface
-9. Lambda Expression
-10. Mysql vs Nosql
-11. OOPS
-12. Overloading vs overriding vs methodhiding
+7. Functional Interface
+8. Lambda Expression
+9. Mysql vs Nosql
+10. OOPS
+11. Overloading vs overriding vs methodhiding
 
 Bandhoo - 2
 1. String reverse using recurssion
@@ -65,7 +65,7 @@ Enfusion - 1
 
 Zeta - 1
 1. Minimun number of antena
-2. Unbaised coin head probablity        //Not done
+2. Unbaised coin head probablity
 
 ServiceNow - 2
 1. 5 min time window
@@ -126,7 +126,7 @@ Housing.com - 3
 13. Got the Offer
 
 Rupeek - 2
-1. Find maximum sum path involving elements of given arrays      //Not done
+1. Find maximum sum path involving elements of given arrays
 2. String Combination
 
 MoneyView - 2
@@ -161,10 +161,10 @@ Leap Finance - 4
 
 Walmart - 1
 1. Node At Distance
-2. Perfect Square
+2. Perfect Square => If Math.ceil() & Math.floor() is equal then it's perfect square
 
 Make My Trip - 3
-1. No. of Islands
+1. No. of Islands       //Not done
 2. Tree next pointer
 3. Project Discussion
 4. Print random array
@@ -187,6 +187,7 @@ Sayurbox - 2
 1. Triplet sum closest to target
 2. Boolean Matrix
 3. Design
+4. Got the offer
 
 Informatica - 4
 1. Count min iteration to convert array product as 1
@@ -206,7 +207,7 @@ Informatica - 4
 
 Jupiter Money - 1
 1. Project
-2. Min Cost Path        //not done
+2. Min Cost Path
 
 Visa - 1
 1. Project
@@ -223,7 +224,7 @@ Q2 Software - 1
 2. String
 
 Cleartrip - 2
-1. Design Parking Lot       not done
+1. Design Parking Lot       //not done
 
 Vymo - 2
 1. Max Profit
@@ -242,9 +243,7 @@ Quinbay - 3
 
 Nike - 4
 2. Stock Profit
-3. Design Problem
 4. Missing Number from array
-5. Design Problem
 6. Mysql and Elastic search
 7. Behavioural Discussion
 
@@ -252,17 +251,10 @@ Dailyhunt - 3
 1. print even odd
 2. Builder Pattern
 3. Print subset of size 3
+4. Got the offer
+5. Joined on 10th Jan 2022
 
 MPL - 2
 1. Design Load Balancer
 2. Reverse List
 3. Got the offer
-
-
-
-
-MinAbsoluteDiff2Array
-PoliceThief
-MaximumPathSum2Arrays
-TripletSumClosestToTarget
-mergeSort

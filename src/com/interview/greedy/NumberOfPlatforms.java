@@ -19,7 +19,7 @@ public class NumberOfPlatforms {
             if (arr[i] <= dep[j]) {
                 plat_needed++;
                 i++;
-            } else if (arr[i] > dep[j]) {
+            } else {
                 plat_needed--;
                 j++;
             }

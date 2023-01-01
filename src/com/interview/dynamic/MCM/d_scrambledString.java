@@ -57,3 +57,5 @@ public class d_scrambledString {
         return false;
     }
 }
+
+//  0   i       n-i     n

@@ -15,7 +15,7 @@ public class d_MaxProductSubArray {
             if (arr[i] < 0) {
                 int temp = maxVal;
                 maxVal = minVal;
-                minVal =temp;
+                minVal = temp;
             }
 
             maxVal = Math.max(arr[i], maxVal * arr[i]);

@@ -42,13 +42,11 @@ public class MaximumPathSum2Arrays {
             }
         }
 
-        while (i < m){
+        while (i < m)
             res = res + a[i++];
-        }
 
-        while (j < n){
+        while (j < n)
             res = res + b[j++];
-        }
 
         System.out.println(res);
     }

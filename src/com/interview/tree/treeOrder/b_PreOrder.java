@@ -4,6 +4,12 @@ import com.interview.tree.Node;
 
 import java.util.Stack;
 
+/*
+                1
+        2               3           => 1 2 4 5 3 6
+    4       5       6
+*/
+
 public class b_PreOrder {
 
     public void preorder(Node node){

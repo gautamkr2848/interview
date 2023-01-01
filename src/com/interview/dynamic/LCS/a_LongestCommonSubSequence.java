@@ -11,6 +11,11 @@ package com.interview.dynamic.LCS;
    length of longest common sub sequence = 4
  */
 
+/*
+LCS for input Sequences “ABCDGH” and “AEDFHR” is “ADH” of length 3.
+LCS for input Sequences “AGGTAB” and “GXTXAYB” is “GTAB” of length 4.
+*/
+
 import java.util.Arrays;
 import java.util.Stack;
 
@@ -62,18 +67,17 @@ public class a_LongestCommonSubSequence {
         int[][] t = new int[m+1][n+1];    //for printing LCS we have to use this t[][] matrix outside LCS one
         lcs(a, b, m, n);
         Stack<Character> stk = new Stack<>();
-        int i = m, j = n;
 
-        while (i>0 && j>0){
-            if(a.charAt(i-1) == b.charAt(j-1)){
-                stk.push(a.charAt(i-1));
-                i--;
-                j--;
+        while (m>0 && n>0){
+            if(a.charAt(m-1) == b.charAt(n-1)){
+                stk.push(a.charAt(m-1));
+                m--;
+                n--;
             } else {
-                if(t[i][j-1] > t[i-1][j])
-                    j--;
+                if(t[m-1][n] >= t[m][n-1])
+                    m--;
                 else
-                    i--;
+                    n--;
             }
         }
 

@@ -7,7 +7,7 @@ For our purposes right now, we’ll make the following assumptions.
     in small spots.
 
 public enum VehicleType {
-    BIKE, CAR, BUS
+    BIKE, CAR, LARGE
 }
 
 public class Vehicle {

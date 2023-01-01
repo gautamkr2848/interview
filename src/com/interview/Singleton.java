@@ -37,7 +37,7 @@ class Singleton_2 {
     private static Singleton_2 singleton;
     private Singleton_2() { }
 
-    public static Singleton_2 getInstance(){
+    public static Singleton_2 getInstance() {
         if(singleton == null)
             singleton = new Singleton_2();
         return singleton;

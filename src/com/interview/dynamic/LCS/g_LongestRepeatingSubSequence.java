@@ -9,7 +9,9 @@ package com.interview.dynamic.LCS;
 
 public class g_LongestRepeatingSubSequence {
 
-    public void h_LongestRepeatingSubSequence(String a, String b){
+    //String a = "axxxy", String b = "axxxy"
+
+    public void g_LongestRepeatingSubSequence(String a, String b){
         int m = a.length(), n = b.length();
         int t[][] = new int[m+1][n+1];
 

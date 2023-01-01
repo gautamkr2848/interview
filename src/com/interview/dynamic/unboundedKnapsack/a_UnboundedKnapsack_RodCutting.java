@@ -5,6 +5,10 @@ For Rod Cutting
     wt[] => length[]
     price[] => value[]
     W => length or n
+
+
+Given a rod of length n inches and an array of prices that includes prices of all pieces of size smaller than n.
+Determine the maximum value obtainable by cutting up the rod and selling the pieces.
 */
 
 public class a_UnboundedKnapsack_RodCutting {

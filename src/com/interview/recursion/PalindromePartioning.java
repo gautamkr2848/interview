@@ -47,5 +47,8 @@ public class PalindromePartioning {
         }
         return true;
     }
+
+    //Time complexity: O(n*2n)
+    //Auxiliary Space: O(n2)
 }
 

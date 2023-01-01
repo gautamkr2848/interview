@@ -5,20 +5,6 @@ import java.util.Map;
 
 public class b_LongestSubArray_0_Sum {
 
-    public void longestSubArray_0_Sum(){
-        int[] arr = {15, -2, 2, -8, 1, 7, 10, 23};
-        int length = 0;
-        for(int i=0; i<arr.length; i++){
-            int sum = 0;
-            for(int j=i; j<arr.length; j++){
-                sum = sum + arr[j];
-                if(sum == 0 && length < j-i+1)
-                    length = j-i+1;
-            }
-        }
-        System.out.println(length);
-    }
-
     public void longestSubArray_0_Sum_2(){
         int[] arr = {15, -2, 2, -8, 1, 7, 10, 23};
         int sum = 0, maxLen = 0, k = 0;

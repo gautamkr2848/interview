@@ -58,8 +58,15 @@ public class MaxStolenVaue {
 
         if(arr.length > 3){
             for(int i=3; i<arr.length; i++)
-                sum[i] = Math.max(Math.max(sum[i - 1], sum[i - 2] + arr[i]), arr[i] + arr[i - 1] + sum[i - 3]);
+                sum[i] = max(sum[i - 1], sum[i - 2] + arr[i], arr[i] + arr[i - 1] + sum[i - 3]);
         }
         System.out.print(sum[arr.length - 1]);
+    }
+
+    private int max(int x, int y, int z) {
+        if(x < y)
+            return (y < z) ? z : y;
+        else
+            return (x < z) ? z : x;
     }
 }

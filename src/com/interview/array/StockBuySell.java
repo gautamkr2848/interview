@@ -1,42 +1,94 @@
 package com.interview.array;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Stack;
-
 /*
+        Input:
+        Stock Price: {2, 4, 7, 5, 4, 3, 5}
+        k = 2
 
-Let profit[t][i] represent maximum profit using at most t transactions up to day i (including day i). Then the relation is:
-profit[t][i] = max(profit[t][i-1], max(price[i] – price[j] + profit[t-1][j]))
-          for all j in range [0, i-1]
-profit[t][i] will be maximum of –
+        Output: The maximum profit is 7 (sum of 5 and 2)
 
-profit[t][i-1] which represents not doing any transaction on the ith day.
-Maximum profit gained by selling on ith day. In order to sell shares on ith day, we need to purchase it on any one of [0, i – 1] days. If we buy shares on jth day and sell it on ith day, max profit will be price[i] – price[j] + profit[t-1][j] where j varies from 0 to i-1. Here profit[t-1][j] is best we could have done with one less transaction till jth day.
+        Buy at a price 2 and sell at a price 7
+        Buy at a price 3 and sell at a price 5
 
-    */
+
+        Input:
+        Stock Price: {1, 5, 2, 3, 7, 6, 4, 5}
+        k = 3
+
+        Output: The maximum profit is 10 (sum of 4, 5 and 1)
+
+        Buy at a price 1 and sell at a price 5
+        Buy at a price 2 and sell at a price 7
+        Buy at a price 4 and sell at a price 5
+
+        Practice This Problem
+
+        There are several variations to the above problem:
+
+        If we are allowed to stock only once, then we can find the maximum difference between two elements in the array,
+        where the smaller element appears before the larger element.
+
+        Now we are only allowed to make at most k stock transactions. We can solve the problem by using dynamic
+        programming. Let T[k][i] be the maximum profit using most k transactions till the i'th day. Then T[k][i] can be
+        written as:
+
+        T[k][i] = max(T[k][i-1], T[k-1][j] + price[i] – price[j])
+        where j varies from 0 to i-1
+        The above relation states that T[k][i] would be a maximum of below:
+
+        T[k][i-1], which represents not doing any transaction on the i'th day.
+        Maximum profit gained by selling on the i'th day. To sell shares on the i'th day, we need to purchase them on
+        any previous day. If we buy shares on the j'th day and sell it on the i'th day, the maximum profit will be
+        price[i] - price[j] + T[k-1][j], where j varies from 0 to i-1 and T[k-1][j] is the best with one less
+        transaction till the j'th day.
+*/
 
 public class StockBuySell {
 
-    public void maxProfit(){
+    public void maxProfit() {
 
         int[] price = {900, 180, 260, 310, 40, 535, 695};
         int profit = 0;
 
-        for(int i=1; i<price.length; i++){
-            int diff = price[i] - price[i-1];
-            if(diff > 0){
-                System.out.println("Buy on day : "+ (i-1) + "  Sell on day : "+ i);
+        for (int i = 1; i < price.length; i++) {
+            int diff = price[i] - price[i - 1];
+            if (diff > 0) {
+                System.out.println("Buy on day : " + (i - 1) + "  Sell on day : " + i);
                 profit = profit + diff;
             }
         }
         System.out.println("Maximum profit : " + profit);
     }
 
-    public int maxProfit_2(int price[], int n, int k) {
-        int t[][] = new int[k + 1][ n + 1];
+    /*
+    Optimized Solution
+    We have already seen that T[i] can be written as:
 
+    T[t][i] = max(T[t][i-1], price[i] – price[j] + T[t-1][j])
+    where j varies from 0 to i-1
+    If we carefully notice, max(price[i] - price[j] + T[t-1][j]) can be rewritten as,
+
+        = price[i] + max(T[t-1][j] – price[j]), where j varies from 0 to i-1
+        = price[i] + max(prev_diff, T[t-1][i-1] – price[i-1])
+
+    where prev_diff is max(T[t-1][j] – price[j]) and j varies from 0 to i-2
+    Since we have already calculated max(T[t-1][j] - price[j]) for every j within range [0, i-2], we can easily
+    calculate it for j=i-1 in O(1) time. In other words, we don’t have to revisit range [0, i-1] to figure out the
+    best day for buying stock. This can be determined in O(1) time using the following revised relation:
+
+    T[t][i] = max(T[t][i-1], price[i] + max(prev_diff, T[t-1][i-1] – price[i-1]))
+    where prev_diff is max(T[t-1][j] – price[j]) and j varies from 0 to i-2
+*/
+
+    public int maxProfit_2(int price[], int k) {
+        int n = price.length;
+        int t[][] = new int[k + 1][n + 1];
+
+        // profit is 0 when:
+        // i = 0, i.e., for 0th day
+        // j = 0, i.e., no transaction is being performed
+
+        // fill the table in bottom-up fashion
         for (int i = 1; i <= k; i++) {
             int prevDiff = Integer.MIN_VALUE;
             for (int j = 1; j < n; j++) {
@@ -47,100 +99,36 @@ public class StockBuySell {
         return t[k][n - 1];
     }
 
-    //with only one txn
-    public void maxProfit_3(int arr[]) {
+    // For 1 txn
+    public void maxProfitWithOneTxn(int arr[]) {
         int minSoFar = arr[0];
-        int maxProfit = 0;
-
-        for(int i=0; i<arr.length; i++){
-            minSoFar = Math.min(minSoFar, arr[i]);
-            int profit = arr[i] - minSoFar;
-            maxProfit = Math.max(maxProfit, profit);
+        int profit = 0;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < minSoFar)
+                minSoFar = arr[i];
+            else if(arr[i] - minSoFar > profit)
+                profit = arr[i] - minSoFar;
         }
-        System.out.println(maxProfit);
+
+        System.out.print(profit);
     }
 
-    public void stockBuySell() {
-        int[] A = { 100, 180, 260, 310, 40, 535, 695 };
-        Stack<Interval> s = new Stack<>();
-        for(int i=1; i<A.length; i++){
-            int profit = A[i] - A[i-1];
-            if(profit > 0){
-                Interval tmp = new Interval(i-1, i);
-                if(!s.empty()) {
-                    Interval interval = s.peek();
-                    if(interval.end >= tmp.start){
-                        s.pop();
-                        s.push(new Interval(interval.start, tmp.end));
-                    } else
-                        s.push(tmp);
-                } else
-                    s.push(tmp);
-            }
-        }
+    //For 2 txns
+    public int maxtwobuysell(int arr[]) {
+        int n = arr.length;
+        int first_buy = Integer.MIN_VALUE;
+        int first_sell = 0;
+        int second_buy = Integer.MIN_VALUE;
+        int second_sell = 0;
 
-        while(!s.empty()){
-            Interval j = s.pop();
-            System.out.print("(" + j.start + " " + j.end + ")");
+        for(int i = 0; i < n; i++) {
+
+            first_buy = Math.max(first_buy, 0 - arr[i]);
+            first_sell = Math.max(first_sell, first_buy + arr[i]);
+            second_buy = Math.max(second_buy, first_sell - arr[i]);
+            second_sell = Math.max(second_sell, second_buy + arr[i]);
+
         }
+        return second_sell;
     }
 }
-
-class Interval{
-    int start;
-    int end;
-
-    Interval(int start, int end){
-        this.start = start;
-        this.end = end;
-    }
-}
-
-class MaxProfit {
-
-    public void maxProfit_2(){
-
-        int[] price = {900, 180, 260, 310, 40, 535, 695};
-        int k = 1;
-
-        Stack<Transaction> stack = new Stack<>();
-        for(int i=1; i<price.length; i++){
-            int diff = price[i] - price[i-1];
-            if(diff > 0){
-                Transaction t = new Transaction(i-1, i, diff);
-                if(!stack.empty() && stack.peek().sell == t.buy){
-                    Transaction tmp = stack.pop();
-                    Transaction t1 = new Transaction(tmp.buy, t.sell, tmp.profit + diff);
-                    stack.push(t1);
-                } else {
-                    stack.push(t);
-                }
-            }
-        }
-
-        List<Integer> list= new ArrayList<>();
-        while (!stack.empty()){
-            Transaction t = stack.pop();
-            list.add(t.profit);
-        }
-
-        Collections.sort(list);
-        for(int i = list.size()-1; i>=0 && k>0; i--, k--){
-            System.out.println(list.get(i) + " ");
-        }
-    }
-}
-
-class Transaction{
-    int buy;
-    int sell;
-    int profit;
-
-    Transaction(int buy, int sell, int profit){
-        this.buy = buy;
-        this.sell = sell;
-        this.profit = profit;
-    }
-}
-
-

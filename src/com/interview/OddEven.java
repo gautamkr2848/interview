@@ -5,19 +5,8 @@ public class OddEven {
     static int start = 1;
     static int N = 10;
     public void printOddEven() {
-        Thread oddThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                printOdd();
-            }
-        });
-
-        Thread evenThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                printEven();
-            }
-        });
+        Thread oddThread = new Thread(() -> printOdd());
+        Thread evenThread = new Thread(() -> printEven());
 
         oddThread.start();
         evenThread.start();
@@ -27,7 +16,7 @@ public class OddEven {
 
         synchronized(this) {
             while (start < N) {
-                while (start % 2 ==0) {
+                while (start % 2 == 0) {
                     try {
                         wait();
                     } catch (InterruptedException e) {
@@ -44,7 +33,7 @@ public class OddEven {
     public void printEven(){
         synchronized (this) {
             while (start < N) {
-                while (start % 2 !=0) {
+                while (start % 2 != 0) {
                     try {
                         wait();
                     } catch (InterruptedException e) {

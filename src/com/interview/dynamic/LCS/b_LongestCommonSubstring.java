@@ -9,7 +9,19 @@ package com.interview.dynamic.LCS;
    f    0   0   0   0   0   0   1
 
    length of longest common sub string = 3
- */
+*/
+
+/*
+Input : X = “GeeksforGeeks”, y = “GeeksQuiz”
+Output : 5
+Explanation:
+The longest common substring is “Geeks” and is of length 5.
+
+Input : X = “abcdxyz”, y = “xyzabcd”
+Output : 4
+Explanation:
+The longest common substring is “abcd” and is of length 4.
+*/
 
 public class b_LongestCommonSubstring {
 

@@ -14,10 +14,10 @@ public class MatrixSearch {
                 System.out.print("n Found at " + i + " " + j);
                 return;
             }
-            if (mat[i][j] > x)
-                j--;
-            else
+            if (mat[i][j] <= x)
                 i++;
+            else
+                j--;
         }
         System.out.print("n Element not found");
     }

@@ -10,13 +10,16 @@
     In order to improve speed and connectivity, a CDN will place servers at the exchange
     points between different networks.
 
+
 2. Distributed Cache    =>  Redis
+
 3. Pub/Sub Model
     The Publish/Subscribe pattern, also known as pub/sub, is an architectural design pattern
     that provides a framework for exchanging messages between publishers and subscribers. This
     pattern involves the publisher and the subscriber relying on a message broker that relays
     messages from the publisher to the subscribers. The host (publisher) publishes messages (events)
     to a channel that subscribers can then sign up to.
+
 
 4. Event Driven Architecture
     Two microservices communicate with each other based on event bus.
@@ -37,6 +40,7 @@
             Stores  A-I in user1 table
                     J-S in user2 table
                     T-Z in user3 table
+
 
 7. Load Balancing   =>  Ribbon
     Load balancing refers to the process of distributing a set of tasks over a set of resources,
@@ -83,7 +87,7 @@
     I/O Oriented - no. of threads = no. of cores * (1 + waitTime/CPUTime)
 
 17. Resilience4J    =>  Fault Tolerance
-    a. Retry
+    a. Auto Retry
     b. Circuit Breaker
     c. Bulkhead
     d. Timer
@@ -91,7 +95,7 @@
 
     https://javatechonline.com/how-to-implement-fault-tolerance-in-microservices-using-resilience4j/#What_is_Bulkhead
 
-18. Map Struct  =>  Mapper
+18. Map Struct  =>  Java Mapper class
 
 19. SOLID
     S   =>  Single Responsibility   =>  Single Responsibility Class
@@ -150,6 +154,35 @@
     2. i/o operations
     3. 32 bit vs 64 bit
     4. input => rate of growth of time a/c to input
+
+29. @SpringBootApplication Annotation
+    Many Spring Boot developers like their apps to use auto-configuration, component scan and be able to define extra
+    configuration on their "application class". A single @SpringBootApplication annotation can be used to enable those
+    three features, that is:
+
+        @EnableAutoConfiguration: enable Spring Boot’s auto-configuration mechanism
+        @ComponentScan: enable @Component scan on the package where the application is located
+        @Configuration: allow to register extra beans in the context or import additional configuration classes
+
+30. Spring IoC (Inversion of Control)
+    1. Spring IoC Container is the core of Spring Framework. It creates the objects, configures and assembles their
+       dependencies, manages their entire life cycle.
+    2. Spring helps in creating objects, managing objects, configurations, etc. because of IoC (Inversion of Control).
+    3. Spring IoC is achieved through Dependency Injection.
+    4. IoC is a design principle where the control flow of the program is inverted.
+    5. Aspect-Oriented Programing is one way to implement Inversion of Control.
+
+31. Spring Dependency Injection
+    1. Spring Dependency injection is a way to inject the dependency of a framework component by the following ways of
+       spring: Constructor Injection and Setter Injection
+    2. Spring framework helps in the creation of loosely-coupled applications because of Dependency Injection.
+    3. Dependency Injection is the method of providing the dependencies and Inversion of Control is the end result of
+       Dependency Injection.
+    4. Dependency Injection is one of the subtypes of the IOC principle.
+    5. In case of any changes in business requirements, no code change is required.
+
+
+
 
 NP Complete
 Traveling salesman

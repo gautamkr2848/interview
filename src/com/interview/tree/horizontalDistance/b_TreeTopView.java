@@ -27,7 +27,7 @@ public class b_TreeTopView {
         queue.add(root);
 
         while (!queue.isEmpty()){
-            a_NodeView temp = queue.remove();
+            a_NodeView temp = queue.poll();
             hd = temp.hd;
 
             if(!map.containsKey(hd))

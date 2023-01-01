@@ -41,8 +41,9 @@ public class c_LevelOrderSpiral {
     public void levelOrderSpiral_2(Node node){
         Boolean flag = true;
         int height = height(node);
-        for(int i=0; i<height; i++){
+        for(int i=1; i<=height; i++){
             printLevel(node, i, flag);
+            flag = !flag;
         }
     }
 
@@ -52,7 +53,7 @@ public class c_LevelOrderSpiral {
 
         if(level == 1)
             System.out.println(node.key);
-        else if(level > 0){
+        else if(level > 1){
             if(flag){
                 printLevel(node.left, level - 1, flag);
                 printLevel(node.right, level - 1, flag);

@@ -14,23 +14,48 @@ public class BTPath {
 
     public List<Integer> findPath(Node node, int n) {
         List<Integer> res = new ArrayList<>();
-        searchBT(node, n, res);
+        path(node, n, res);
         return res;
     }
 
-    private boolean searchBT(Node node, int n, List<Integer> path){
-        if(node == null)
+    private boolean path(Node node, int n, List<Integer> path){
+        if (node == null)
             return false;
 
-        path.add(node.key);
         if(node.key == n)
-            return true;
+            return true;    //path.add(node.key)
 
-        if (searchBT(node.left, n, path) || searchBT(node.right, n, path))
-            return true;
+        if(path(node.left, n, path))
+            return true;   //path.add(node.key)
 
-        path.remove(path.size()-1);
+        if(path(node.right, n, path))
+            return true;  //path.add(node.key)
+
         return false;
+    }
+
+    public List<Integer> nodeToRootPath(Node node, int data) {
+        if (node == null)
+            return new ArrayList<>();
+
+        if (node.key == data) {
+            List<Integer> list = new ArrayList<>();
+            list.add(node.key);
+            return list;
+        }
+
+        List<Integer> llist = nodeToRootPath(node.left, data);
+        if (llist.size() > 0) {
+            llist.add(node.key);
+            return llist;
+        }
+
+        List<Integer> rlist = nodeToRootPath(node.right, data);
+        if (rlist.size() > 0) {
+            rlist.add(node.key);
+            return rlist;
+        }
+        return new ArrayList<>();
     }
 
 }

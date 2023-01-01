@@ -2,7 +2,7 @@ package com.interview.string;
 
 public class CountVowels {
 
-    public void countVowels(String s){
+    public void countVowels(String s) {
         int count = 0;
         int n = s.length();
 

@@ -10,6 +10,7 @@ public class DeleteWithoutHead {
         node.next.next.next = new Node(7);
 
         // 5 -> 3 -> 8 -> 7
+        // 5 -> 8 -> 8 -> 7
         // 5 -> 8 -> 7 -> 7
         // 5 -> 8 -> 7
         Node tobeDeleted = node.next;

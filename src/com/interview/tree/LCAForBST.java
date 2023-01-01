@@ -1,6 +1,5 @@
 package com.interview.tree;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class LCAForBST {

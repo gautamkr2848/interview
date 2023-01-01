@@ -23,7 +23,7 @@ public class mergeKSortedList {
         return lists[0];
     }
 
-    private  Node sortedMerge(Node a, Node b) {
+    private Node sortedMerge(Node a, Node b) {
 
         if (a == null) return b;
         if (b == null) return a;

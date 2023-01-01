@@ -52,43 +52,39 @@ public class Deadlock {
     public static Object lock1 = new Object();
     public static Object lock2 = new Object();
 
-    private static class ThreadDemo1 extends Thread {
-        public void run() {
-            synchronized (lock1) {
-                System.out.println("Thread 1: Holding lock 1...");
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {}
-                System.out.println("Thread 1: Waiting for lock 2...");
+    public Deadlock() {
+        Thread t1 = new Thread(() -> method1());
+        Thread t2 = new Thread(() -> method2());
+        t1.start();
+        t2.start();
+    }
 
-                synchronized (lock2) {
-                    System.out.println("Thread 1: Holding lock 1 & 2...");
-                }
+    private void method1(){
+        synchronized (lock1) {
+            System.out.println("Thread 1: Holding lock 1...");
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {}
+            System.out.println("Thread 1: Waiting for lock 2...");
+
+            synchronized (lock2) {
+                System.out.println("Thread 1: Holding lock 1 & 2...");
             }
         }
     }
 
-    private static class ThreadDemo2 extends Thread {
-        public void run() {
-            synchronized (lock2) {      //change to Lock1
-                System.out.println("Thread 2: Holding lock 2...");
+    private void method2(){
+        synchronized (lock2) {      //change to Lock1
+            System.out.println("Thread 2: Holding lock 2...");
 
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {}
-                System.out.println("Thread 2: Waiting for lock 1...");
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {}
+            System.out.println("Thread 2: Waiting for lock 1...");
 
-                synchronized (lock1) {      //change to Lock2
-                    System.out.println("Thread 2: Holding lock 1 & 2...");
-                }
+            synchronized (lock1) {      //change to Lock2
+                System.out.println("Thread 2: Holding lock 1 & 2...");
             }
         }
-    }
-
-    public void deadlock() {
-        ThreadDemo1 T1 = new ThreadDemo1();
-        ThreadDemo2 T2 = new ThreadDemo2();
-        T1.start();
-        T2.start();
     }
 }

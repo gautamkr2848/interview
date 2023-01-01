@@ -1,5 +1,8 @@
 package com.interview.dynamic.LCS;
 
+//For “ABDEFGABEF”, the longest substring are “BDEFGA” and “DEFGAB”, with length 6.
+//For “BBBB” the longest substring is “B”, with length 1.
+
 public class k_LongestSubStringWithNonRepeatedChar {
 
     public int k_LongestSubStringWithNonRepeatedChar(){
@@ -18,7 +21,7 @@ public class k_LongestSubStringWithNonRepeatedChar {
             if (test.contains(current))
                 test = test.substring(test.indexOf(current) + 1);
 
-            test = test + String.valueOf(c);
+            test = test + current;
             maxLength = Math.max(test.length(), maxLength);
         }
 

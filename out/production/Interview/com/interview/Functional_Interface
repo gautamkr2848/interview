@@ -1,4 +1,5 @@
 Functional Interface
+
     a. Functional interfaces are interfaces which represent some functionality. Can have only one abstract method.
 
     b. Lambda's are used to represent the instance of a functional interfaces

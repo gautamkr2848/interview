@@ -1,6 +1,55 @@
 Kafka vs SQS
 
-There are two platforms Kafka vs SQS with important features and are mainly programmed to queue messages.
+There are two platforms Kafka & SQS are mainly programmed to queue messages.
+
+Amazon Simple Queue Service
+
+    SQS is a managed message queuing service that technical professionals and developers use to send, store and
+    retrieve multiple messages of various sizes all at the same time.
+
+    Subsequently one service sends messages to the queue and another service receives them. However it can be used for many purposes.
+
+    Importantly SQS frees developers from the hassle of configuring and managing queue structures as a managed service. Especially this service provides you with everything you need out of the box and is easily scalable to meet your demand.
+
+    Significantly ideal solution for time critical projects and small to medium development teams.
+
+    Working
+
+        Send Message: Services send requests to queues that are used by other services.
+        Receive Message: Another service requests to receive queued messages.
+        Delete Message: Once the message is successfully processed, the user removes it from the queue, should he wishes to do so.
+
+    Nevertheless SQS does not work as a database, so users cannot decide which messages in the queue to receive. However, you can limit the number of messages you will receive at any one time.
+
+    When a message is received, SQS temporarily removes it from the queues so it is never sent twice. Moreover the message is hidden for a while and the user processes it and removse it from the list.
+
+    If the message is not removed after the visibility timeout, it is then returned to the queue and receives a future requests. Timeout interval for visibility can be set.
+
+
+    Features
+        You are paying for the number of orders in the queue.
+        Excellent service that improves the efficiency, reliability and performance of applications.
+        Messages in the queue are delivered at least once. So guaranteed message delivery without message loss.
+        And those messages that cannot be processed are saved in the garbage queue.
+        There are two types of queues: standard queues and FIFO queues. In the default queue, messages are retrieved randomly.
+        Multiple components run in a single queue. Besides SQS uses a blocking mechanism, if one component consumes a message, it  hides it from other components.
+        After successful processing, the message is removed from the queue. If the message cannot be processed, it remains in the queue and is visible to all components. A feature called timeout visibility.
+        No data loss.
+        Each request is handled independently.
+
+
+    Pros
+        Automatic deduplication for FIFO queues.
+        A separate queue for unprocessed messages.
+        Scalability
+        Low cost.
+
+
+    Cons
+        Lack of support for broadcast messages.
+        High cost at scale.
+        Reduced control over performance.
+
 
 Kafka
 
@@ -60,57 +109,6 @@ Kafka
         Not a complete set of monitoring tools.
         Do not support wildcard topic selection.
         Streaming ETL.
-
-Amazon Simple Queue Service
-
-    SQS is a managed message queuing service that technical professionals and developers use to send, store and
-    retrieve multiple messages of various sizes all at the same time.
-
-    Subsequently one service sends messages to the queue and another service receives them. However it can be used for many purposes.
-
-    Importantly SQS frees developers from the hassle of configuring and managing queue structures as a managed service. Especially this service provides you with everything you need out of the box and is easily scalable to meet your demand.
-
-    Significantly ideal solution for time critical projects and small to medium development teams.
-
-    Working
-
-        Send Message: Services send requests to queues that are used by other services.
-        Receive Message: Another service requests to receive queued messages.
-        Delete Message: Once the message is successfully processed, the user removes it from the queue, should he wishes to do so.
-
-    Nevertheless SQS does not work as a database, so users cannot decide which messages in the queue to receive. However, you can limit the number of messages you will receive at any one time.
-
-    When a message is received, SQS temporarily removes it from the queues so it is never sent twice. Moreover the message is hidden for a while and the user processes it and removse it from the list.
-
-    If the message is not removed after the visibility timeout, it is then returned to the queue and receives a future requests. Timeout interval for visibility can be set.
-
-
-    Features
-        You are paying for the number of orders in the queue.
-        Excellent service that improves the efficiency, reliability and performance of applications.
-        Messages in the queue are delivered at least once. So guaranteed message delivery without message loss.
-        And those messages that cannot be processed are saved in the garbage queue.
-        There are two types of queues: standard queues and FIFO queues. In the default queue, messages are retrieved randomly.
-        Multiple components run in a single queue. Besides SQS uses a blocking mechanism, if one component consumes a message, it  hides it from other components.
-        After successful processing, the message is removed from the queue. If the message cannot be processed, it remains in the queue and is visible to all components. A feature called timeout visibility.
-        No data loss.
-        Each request is handled independently.
-
-
-    Pros
-        Automatic deduplication for FIFO queues.
-        A separate queue for unprocessed messages.
-        Options for Standard and FIFO queues.
-        Scalability
-        Pay for what you use.
-        Ease of setup and to use..
-        Low cost.
-
-
-    Cons
-        Lack of support for broadcast messages.
-        High cost at scale.
-        Reduced control over performance.
 
 
 Kafka vs SQS - Key Differences

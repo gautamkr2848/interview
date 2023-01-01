@@ -31,7 +31,7 @@ public class ListFlatten {
     }
 
     // An utility function to merge two sorted linked lists
-    Node_Flatten merge(Node_Flatten a, Node_Flatten b) {
+    private Node_Flatten merge(Node_Flatten a, Node_Flatten b) {
         if (a == null)      return b;
         if (b == null)      return a;
 

@@ -75,9 +75,7 @@ Singleton design pattern is the best solution of above specific problem.
     Strategy Pattern
     Template Pattern
     Visitor Pattern
-         It is used when we have to perform an operation on a group of similar kind of Objects. we'll
-         make good use of the Open/Closed principle as we won't modify the code, but we'll still be able to
-         extend the functionality by providing a new Visitor implementation.
+         It is used when we have to perform an operation on a group of similar kind of Objects.
 
          The visitor pattern consists of two parts:
              1. Visit() method which is implemented by the visitor and is called for every element in

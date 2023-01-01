@@ -16,4 +16,12 @@ public class StringReverse {
         }
         System.out.println(s2);
     }
+
+    //2nd approach
+    public String reverseString(String str) {
+        if(str.isEmpty())
+            return str;
+        else
+            return reverseString(str.substring(1)) + str.charAt(0);
+    }
 }

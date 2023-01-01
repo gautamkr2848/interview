@@ -14,7 +14,7 @@ public class h_LongestRepeatingSubstring {
         for (i = 1; i <= n; i++) {
             for (int j = i + 1; j <= n; j++) {
                 if (str.charAt(i - 1) == str.charAt(j - 1) && T[i - 1][j - 1] < (j - i)) {
-                    T[i][j] = T[i - 1][j - 1] + 1;
+                    T[i][j] = 1 + T[i - 1][j - 1];
                     if(T[i][j] > length){
                         length = T[i][j];
                         end = i;

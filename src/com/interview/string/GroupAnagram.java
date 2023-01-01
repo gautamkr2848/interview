@@ -29,7 +29,7 @@ public class GroupAnagram {
         for (String s : map.keySet()) {
             List<String> values = map.get(s);
             if (values.size() > 1)
-                System.out.print(values);
+                System.out.print(values.toString());
         }
     }
 }

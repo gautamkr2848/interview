@@ -16,7 +16,7 @@ public class MinSwapsToSort {
         System.out.println("Inversion count "+ count);
     }
 
-    public int minSwaps(int arr[]){
+    public int minSwaps(int arr[]) {
         int count = 0;
         int N = arr.length;
         int[] temp = Arrays.copyOfRange(arr, 0, N);

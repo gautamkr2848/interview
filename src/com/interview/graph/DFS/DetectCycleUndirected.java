@@ -5,7 +5,19 @@ import java.util.Iterator;
 
 public class DetectCycleUndirected {
 
-    public Boolean isCyclicUtil(int v, ArrayList<ArrayList<Integer>> adj, Boolean visited[], int parent) {
+    public Boolean isCyclic(int V, ArrayList<ArrayList<Integer>> adj) {
+
+        Boolean visited[] = new Boolean[V];
+
+        for (int u = 0; u < V; u++) {
+            if (!visited[u])
+                if (isCyclicUtil(u, adj, visited, -1))
+                    return true;
+        }
+        return false;
+    }
+
+    private Boolean isCyclicUtil(int v, ArrayList<ArrayList<Integer>> adj, Boolean visited[], int parent) {
 
         visited[v] = true;
         Iterator<Integer> it = adj.get(v).iterator();
@@ -17,20 +29,6 @@ public class DetectCycleUndirected {
                     return true;
             } else if (i != parent)
                 return true;
-        }
-        return false;
-    }
-
-    public Boolean isCyclic(int V, ArrayList<ArrayList<Integer>> adj) {
-
-        Boolean visited[] = new Boolean[V];
-        for (int i = 0; i < V; i++)
-            visited[i] = false;
-
-        for (int u = 0; u < V; u++) {
-            if (!visited[u])
-                if (isCyclicUtil(u, adj, visited, -1))
-                    return true;
         }
         return false;
     }

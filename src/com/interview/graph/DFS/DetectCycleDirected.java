@@ -4,6 +4,18 @@ import java.util.ArrayList;
 
 public class DetectCycleDirected {
 
+    public boolean isCyclic(int V, ArrayList<ArrayList<Integer>> adj) {
+
+        boolean[] visited = new boolean[V];
+        boolean[] recStack = new boolean[V];
+
+        for (int i = 0; i < V; i++)
+            if (isCyclicUtil(i, adj, visited, recStack))
+                return true;
+
+        return false;
+    }
+
     private boolean isCyclicUtil(int i, ArrayList<ArrayList<Integer>> adj, boolean[] visited, boolean[] recStack) {
         visited[i] = true;
         recStack[i] = true;
@@ -17,18 +29,6 @@ public class DetectCycleDirected {
         }
 
         recStack[i] = false;
-        return false;
-    }
-
-    private boolean isCyclic(int V, ArrayList<ArrayList<Integer>> adj) {
-
-        boolean[] visited = new boolean[V];
-        boolean[] recStack = new boolean[V];
-
-        for (int i = 0; i < V; i++)
-            if (isCyclicUtil(i, adj, visited, recStack))
-                return true;
-
         return false;
     }
 }

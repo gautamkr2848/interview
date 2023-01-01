@@ -19,7 +19,7 @@ Cassandra work
 4. Cassandra provides automatic data distribution across all nodes in a database cluster.
 
 5. Cassandra also provides customizable replication strategy, which stores redundant copies of
-    data across nodes. If incase any node in a cluster goes down, one or more copies of that node’s
+    data across nodes. If in case any node in a cluster goes down, one or more copies of that node’s
     data is available on other machines in the cluster.
 
 6. Cassandra supplies linear scalability. For example, if 2 nodes can handle 100,000 transactions per second,

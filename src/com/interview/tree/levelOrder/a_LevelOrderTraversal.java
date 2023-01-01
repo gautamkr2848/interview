@@ -29,7 +29,7 @@ public class a_LevelOrderTraversal {
     public void levelOrder_2(Node node) {
         int height = treeHeight(node);
 
-        for(int i=0; i<height; i++){
+        for(int i=1; i<=height; i++){
             printLevel(node, i);
         }
     }
@@ -40,7 +40,7 @@ public class a_LevelOrderTraversal {
 
         if(level == 1)
             System.out.println(node.key);
-        else {
+        else if (level > 1) {
             printLevel(node.left, level - 1);
             printLevel(node.right, level - 1);
         }

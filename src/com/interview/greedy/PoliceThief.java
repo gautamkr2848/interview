@@ -36,9 +36,11 @@ public class PoliceThief {
         int l = 0, r = 0;
         while (l < thief.size() && r < police.size()) {
 
-            if (Math.abs(thief.get(l++) - police.get(r++)) <= k)
+            if (Math.abs(thief.get(l) - police.get(r)) <= k) {
+                l++;
+                r++;
                 res++;
-            else if (thief.get(l) < police.get(r))
+            } else if (thief.get(l) < police.get(r))
                 l++;
             else
                 r++;

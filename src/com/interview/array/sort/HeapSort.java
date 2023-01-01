@@ -6,7 +6,7 @@ package com.interview.array.sort;
 
 public class HeapSort {
 
-    QuickSort q = new QuickSort();
+    e_QuickSort q = new e_QuickSort();
     public void heapSort(){
         int arr[] = {12, 11, 13, 5, 6, 7};
         int n = arr.length;

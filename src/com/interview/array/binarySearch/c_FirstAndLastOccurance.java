@@ -3,7 +3,7 @@ package com.interview.array.binarySearch;
 public class c_FirstAndLastOccurance {
 
     public void c_FirstAndLastOccurance(){
-        int[] arr = {1, 3, 11, 11, 15};
+        int[] arr = {1, 3, 11, 11, 11, 15};
         int key = 11;
         int low = 0;
         int high = arr.length - 1;

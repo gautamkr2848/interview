@@ -2,7 +2,7 @@ package com.interview.excel;
 
 public class ColumnNumberToName {
 
-    private void columnNumberToName(){
+    public void columnNumberToName(){
         int n = 28;
         StringBuilder columnName = new StringBuilder();
 

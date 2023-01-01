@@ -4,7 +4,7 @@ Since the friend recommendation system is a must-have thing for FB and is common
 everyone in the social media platform.
 
 Let A and B be Facebook friends, and we are trying to build a recommendation system to
-decide whether to suggest C as an option @ the People you may know the list.
+decide whether to suggest C as an option for the People you may know the list.
 
 If A and B have a mutual friend C, there is a high chance that person C might be a friend of A.
 

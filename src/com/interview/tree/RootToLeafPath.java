@@ -4,7 +4,7 @@ import java.util.*;
 
 public class RootToLeafPath {
 
-    public static ArrayList<ArrayList<Integer>> Paths(Node root){
+    public static List<List<Integer>> Paths(Node root){
 
         List<Node> leafs = new ArrayList<>();
         Map<Node, Node> map = new HashMap<>();
@@ -39,10 +39,10 @@ public class RootToLeafPath {
         }
     }
 
-    private static ArrayList<ArrayList<Integer>> findPaths(Map<Node, Node> map, List<Node> leafs){
-        ArrayList<ArrayList<Integer>> paths = new ArrayList<>();
+    private static List<List<Integer>> findPaths(Map<Node, Node> map, List<Node> leafs){
+        List<List<Integer>> paths = new ArrayList<>();
         for(Node node : leafs){
-            ArrayList<Integer> path = new ArrayList<>();
+            List<Integer> path = new ArrayList<>();
             path.add(node.key);
             while(map.get(node) != null){
                 path.add(map.get(node).key);
