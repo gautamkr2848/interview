@@ -19,6 +19,7 @@ public class PhoneNumberCombination {
 
         Queue<String> q = new LinkedList<>();
         q.add("");
+        q.peek();
 
         while (!q.isEmpty()) {
             String s = q.poll();

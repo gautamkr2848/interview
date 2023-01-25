@@ -43,7 +43,8 @@ public class MaxStolenVaue {
     //Max Sum such that no three elements are consecutive
     public void maxSumNoThreeConsecutive(){
         int[] arr = { 100, 1000, 100, 1000, 1 };
-        int[] sum = new int[arr.length];
+        int n = arr.length;
+        int[] sum = new int[n];
 
         if(arr.length >= 3){
             sum[0] = arr[0];
@@ -57,10 +58,10 @@ public class MaxStolenVaue {
         // 3) Exclude arr[i-2], i.e., sum[i] = sum[i-3] + arr[i] + arr[i-1]
 
         if(arr.length > 3){
-            for(int i=3; i<arr.length; i++)
-                sum[i] = max(sum[i - 1], sum[i - 2] + arr[i], arr[i] + arr[i - 1] + sum[i - 3]);
+            for(int i=3; i<n; i++)
+                sum[i] = max(sum[i - 1], sum[i - 2] + arr[i], sum[i - 3] + arr[i] + arr[i - 1]);
         }
-        System.out.print(sum[arr.length - 1]);
+        System.out.print(sum[n - 1]);
     }
 
     private int max(int x, int y, int z) {

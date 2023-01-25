@@ -133,13 +133,16 @@ MoneyView - 2
 1. Kadane Algo
 2. Max Number from given digits
 3. Delete, Truncate, Drop
+    Delete - DML, can restore
+    Truncate - DDL, cant restore
+    DROP - DDL, can't restore table
 4. Inversion Control
 5. Matrix Max Sum from top left to bottom right
 6. Design Vending Machine
 
 MyGate - 2
 1. Project
-2. Postfix Evaluation       //Not done
+2. Postfix Evaluation
 
 BrightChamps - 3
 1. Mysql vs Nosql
@@ -164,7 +167,7 @@ Walmart - 1
 2. Perfect Square => If Math.ceil() & Math.floor() is equal then it's perfect square
 
 Make My Trip - 3
-1. No. of Islands       //Not done
+1. No. of Islands
 2. Tree next pointer
 3. Project Discussion
 4. Print random array
@@ -192,7 +195,7 @@ Sayurbox - 2
 Informatica - 4
 1. Count min iteration to convert array product as 1
 2. Product Array
-3. Longest SubString without repeating characters       //not done
+3. Longest SubString without repeating characters
 4. Right view of Tree
 5. Singleton
 6. Aspect Oriented Programming
@@ -224,11 +227,11 @@ Q2 Software - 1
 2. String
 
 Cleartrip - 2
-1. Design Parking Lot       //not done
+1. Design Parking Lot
 
 Vymo - 2
 1. Max Profit
-2. Combination count with target sum +/-        //not done
+2. Target sum
 3. Tree generation element
 
 Games 24*7 - 2
@@ -258,3 +261,7 @@ MPL - 2
 1. Design Load Balancer
 2. Reverse List
 3. Got the offer
+
+Gamesberry - 1
+1. Max length substring having non-repeating character
+2. sort 1, 2, 3

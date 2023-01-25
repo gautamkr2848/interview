@@ -3,7 +3,7 @@ package com.interview.array.subArray;
 import java.util.HashMap;
 import java.util.Map;
 
-public class c_CountSubArrayWithEqual_0_1 {
+public class a_2_CountSubArrayWithEqual_0_1 {
 
     public void countSubarrWithEqualZeroAndOne(int[] arr, int n) {
         Map<Integer, Integer> myMap = new HashMap<>();

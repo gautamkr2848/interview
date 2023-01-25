@@ -3,10 +3,11 @@ package com.interview.matrix;
 public class MinCostPath {
 
     public void minCostPath(){
-        int cost[][]= {{1, 2, 3},
-                       {4, 8, 2},
-                       {1, 5, 3}};
-        int m=2, n=2;
+        int cost[][]= {{9, 4, 9, 9},
+                {6, 7, 6, 4},
+                {8, 3, 3, 7},
+                {7, 4, 9, 10}};
+        int m=3, n=3;
         int sum[][]=new int[m+1][n+1];
 
         sum[0][0] = cost[0][0];

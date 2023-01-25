@@ -5,8 +5,9 @@ import java.util.PriorityQueue;
 
 public class g_MideanOfRunningInt {
 
-    public void printMedian(int[] a) {
+    public void printMedian() {
 
+        int[] a = { 5, 15, 1, 3, 2, 8, 7, 9, 10, 6, 11, 4 };
         double med = a[0];
 
         PriorityQueue<Integer> smaller = new PriorityQueue<>(Collections.reverseOrder());
@@ -48,14 +49,25 @@ public class g_MideanOfRunningInt {
         }
     }
 
+    public void streamMed() {
+        int A[] = { 5, 15, 1, 3, 2, 8, 7, 9, 10, 6, 11, 4 };
+        int N = A.length;
 
-    public void printMedian_2() {
-        int[] a = {5, 15, 10, 20, 3};
-        int sum = 0;
+        PriorityQueue<Double> greater = new PriorityQueue<>();
+        PriorityQueue<Double> smaller = new PriorityQueue<>();
 
-        for(int i = 0; i < a.length; i++) {
-            sum = sum + a[i];
-            System.out.print(sum / (i + 1) + " ");
+        for (int i = 0; i < N; i++) {
+
+            smaller.add(-1.0 * A[i]);
+            greater.add(-1.0 * smaller.poll());
+
+            if (greater.size() > smaller.size())
+                smaller.add(-1.0 * greater.poll());
+
+            if (greater.size() != smaller.size())
+                System.out.print((-1.0 * smaller.peek()) + "     ");
+            else
+                System.out.print(((greater.peek() - smaller.peek()) / 2) + "     ");
         }
     }
 }

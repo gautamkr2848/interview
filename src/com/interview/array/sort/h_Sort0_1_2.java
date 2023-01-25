@@ -15,17 +15,14 @@ public class h_Sort0_1_2 {
         int low = 0, mid = 0, high = arr.length - 1;
         int pivot = 1;
         while (mid <= high) {
-            if (arr[mid] < pivot) {       // current element is 0
-                swap(arr, low, mid);
-                low++;
+            if (arr[mid] < pivot)        // current element is 0
+                swap(arr, low++, mid++);
+            else if (arr[mid] > pivot)         // current element is 2
+                swap(arr, mid, high--);
+            else                            // current element is 1
                 mid++;
-            } else if (arr[mid] > pivot) {        // current element is 2
-                swap(arr, mid, high);
-                high--;
-            } else {        // current element is 1
-                mid++;
-            }
         }
+
         for (int i = 0; i < arr.length; i++)
             System.out.print(arr[i] + " ");
     }

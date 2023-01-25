@@ -1,7 +1,9 @@
 package com.interview.matrix;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 class Cell{
     int x,y;
@@ -19,32 +21,37 @@ public class BooleanMatrix {
                         {0, 0, 1, 0},
                         {0, 0, 0, 0}};
 
-        List<Cell> cellList = new ArrayList<>();
+        Set<Integer> row = new HashSet<>();
+        Set<Integer> col = new HashSet<>();
 
-        for(int i=0; i<3; i++){
-            for(int j=0; j<4; j++){
+        int m = mat.length;
+        int n = mat[0].length;
+
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
                 if(mat[i][j] == 1){
-                    Cell c = new Cell(i, j);
-                    cellList.add(c);
+                    row.add(i);
+                    col.add(j);
                 }
             }
         }
 
-        int[][] result = new int[3][4];
-        for(Cell c : cellList){
-            int row = c.x;
-            int column = c.y;
-            for(int i=0; i<3; i++){
-                result[row][i] = 1;
-                result[i][column] = 1;
+        for(Integer i : row){
+            for(int j=0; j<n; j++){
+                mat[i][j] = 1;
             }
         }
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 4; j++) {
-                System.out.print(result[i][j]+ " ");
+        for(int i=0; i<m; i++){
+            for(Integer j : col){
+                mat[i][j] = 1;
             }
-            System.out.println();
+        }
+
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                System.out.println(mat[i][j]);
+            }
         }
     }
 }

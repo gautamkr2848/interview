@@ -2,6 +2,7 @@ package com.interview.dynamic;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 /*Approach: Basically a window of characters is maintained by using two pointers namely start and end.
         These start and end pointers can be used to shrink and increase the size of window respectively.
@@ -24,61 +25,36 @@ import java.util.HashMap;
 
 public class SmallestStringContainingAllCharacters {
 
-    public void SmallestStringContainingAllCharacters() {
-        String s = "aabcbcdbca";
-        String t = distinctChar(s);
-        HashMap<Character, Integer> goal = new HashMap<>();
-        int minLen = Integer.MAX_VALUE;
-        String result = "";
+    public String findSubString(String s) {
+        int n = s.length();
+        Map<Character, Integer> map = new HashMap<>();
 
-        //target dictionary
-        for(int k=0; k<t.length(); k++){
-            goal.put(t.charAt(k), goal.getOrDefault(t.charAt(k), 0)+1);
-        }
+        for (int i = 0; i < n; i++)
+            map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0)+1);
 
-        int i=0, total = 0;
-        HashMap<Character, Integer> map = new HashMap<>();
-        for(int j=0; j<s.length(); j++){
-            char c = s.charAt(j);
-            if(!goal.containsKey(c)){
-                continue;
-            }
+        int dist_count = map.size();
+        int size = Integer.MAX_VALUE;
+        String res = "";
 
-            //if c is a target character in the goal, and count is < goal, increase the total
-            int count = map.getOrDefault(c, 0);
-            if(count<goal.get(c)){
-                total++;
-            }
-            map.put(c, count+1);
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+            int visited[] = new int[256];
 
-            //when total reaches the goal, trim from left until no more chars can be trimmed.
-            if(total == t.length()){
-                while(!goal.containsKey(s.charAt(i)) || map.get(s.charAt(i))>goal.get(s.charAt(i))){
-                    char pc = s.charAt(i);
-                    if(goal.containsKey(pc) && map.get(pc)>goal.get(pc)){
-                        map.put(pc, map.get(pc)-1);
-                    }
-                    i++;
+            String tmp = "";
+            for (int j = i; j < n; j++) {
+                if (visited[s.charAt(j)] == 0) {
+                    count++;
+                    visited[s.charAt(j)] = 1;
                 }
-
-                if(minLen > j-i+1){
-                    minLen = j-i+1;
-                    result = s.substring(i, j+1);
-                }
+                tmp = tmp + s.charAt(j);
+                if (count == dist_count)
+                    break;
+            }
+            if (tmp.length() < size && count == dist_count) {
+                res = tmp;
+                size=res.length();
             }
         }
-        System.out.println(result);
-    }
-
-    String distinctChar(String s){
-        char[] c = s.toCharArray();
-        Arrays.sort(c);
-        StringBuffer sb = new StringBuffer();
-        sb.append(c[0]);
-        for(int i=1; i<c.length; i++){
-            if(c[i-1] != c[i])
-                sb.append(c[i]);
-        }
-        return sb.toString();
+        return res;
     }
 }

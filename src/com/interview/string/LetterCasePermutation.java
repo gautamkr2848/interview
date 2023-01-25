@@ -1,30 +1,25 @@
 package com.interview.string;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LetterCasePermutation {
 
-    public void permutations(){
-        String s = "a1b2";
-        char [] str = s.toCharArray();
-        printPermutation(str,0);
+    public List<String> letterCasePermutation(String S) {
+        List ans = new ArrayList();
+        dfs(S.toLowerCase().toCharArray(), ans, 0, S.length());
+        return ans;
     }
 
-    private void printPermutation(char [] str, int pos) {
-        if(pos == str.length) {
-            for(int i=0;i<pos;i++)
-                System.out.print(str[i]);
-            System.out.print(" ");
-            return;
-        }
-
-        if (str[pos] >= '0' && str[pos] <= '9') {
-            printPermutation(str, pos + 1);
-            return;
-        }
-
-        str[pos] = Character.toLowerCase(str[pos]);
-        printPermutation(str, pos + 1);
-
-        str[pos] = Character.toUpperCase(str[pos]);
-        printPermutation(str, pos + 1);
+    private void dfs(char[] arr, List ans, int i, int len) {
+        if (i < len) {
+            dfs(arr, ans, i+1, len);
+            if (Character.isLetter(arr[i])) {
+                arr[i] = Character.toUpperCase(arr[i]);
+                dfs(arr, ans, i+1, len);
+                arr[i] = Character.toLowerCase(arr[i]);
+            }
+        } else
+            ans.add(new String(arr));
     }
 }

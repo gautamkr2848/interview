@@ -24,8 +24,6 @@ public class b_PalindromePartitioning {
     }
 
     private Boolean isPalindrome(String s, int i, int j){
-        if(i >= j)
-            return true;
 
         while (i < j){
             if(s.charAt(i++) != s.charAt(j--))

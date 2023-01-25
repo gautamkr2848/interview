@@ -84,11 +84,6 @@ public class StockBuySell {
         int n = price.length;
         int t[][] = new int[k + 1][n + 1];
 
-        // profit is 0 when:
-        // i = 0, i.e., for 0th day
-        // j = 0, i.e., no transaction is being performed
-
-        // fill the table in bottom-up fashion
         for (int i = 1; i <= k; i++) {
             int prevDiff = Integer.MIN_VALUE;
             for (int j = 1; j < n; j++) {

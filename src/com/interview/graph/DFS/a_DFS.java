@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/*
+Input: n = 4, e = 6
+0 -> 1, 0 -> 2, 1 -> 2, 2 -> 0, 2 -> 3, 3 -> 3
+Output: DFS from vertex 1 : 1 2 0 3
+*/
+
 public class a_DFS {
 
     //Handling A Disconnected Graph
@@ -11,7 +17,7 @@ public class a_DFS {
         boolean visited[] = new boolean[V];
 
         for (int i = 0; i < V; ++i)
-            if (visited[i] == false)
+            if (!visited[i])
                 DFSUtil(i, visited, adj);
     }
 

@@ -46,19 +46,21 @@ public class MergeSortedList {
         return dummy.next;
     }
 
-    public Node mergeList_3(Node h1, Node h2){
-        if (h1 == null)
-            return h2;
-        if (h2 == null)
-            return h1;
+    private Node mergeList_3(Node a, Node b) {
 
-        if (h1.data < h2.data) {
-            h1.next = mergeList_3(h1.next, h2);
-            return h1;
+        if (a == null) return b;
+        if (b == null) return a;
+
+        Node result;
+
+        if (a.data <= b.data) {
+            result = a;
+            result.next = mergeList_3(a.next, b);
         } else {
-            h2.next = mergeList_3(h1, h2.next);
-            return h2;
+            result = b;
+            result.next = mergeList_3(a, b.next);
         }
+        return result;
     }
 }
 

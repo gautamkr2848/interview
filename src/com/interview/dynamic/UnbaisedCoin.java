@@ -45,11 +45,6 @@ public class UnbaisedCoin {
         }
 
         double ans = 0.0;
-
-        // When the number of heads is greater than (n+1)/2
-        // it means that heads are greater than tails as
-        // no of tails + no of heads is equal to n for
-        // any permutation of heads and tails
         for (int i = (n + 1) / 2; i <= n; i++)
             ans += dp[n][i];
 

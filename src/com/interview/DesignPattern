@@ -78,8 +78,7 @@ Singleton design pattern is the best solution of above specific problem.
          It is used when we have to perform an operation on a group of similar kind of Objects.
 
          The visitor pattern consists of two parts:
-             1. Visit() method which is implemented by the visitor and is called for every element in
-                the data structure
+             1. visitor class provides Visit() method and is called for every element in the data structure
              2. visitable classes providing Accept() methods that accept a visitor
 
          eg -

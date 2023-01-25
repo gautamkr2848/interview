@@ -9,7 +9,7 @@ public class BalanceTreeCheck {
         int right = height(root.right);
 
         if (isBalanced(root.right) && isBalanced(root.left)
-                && Math.abs(left - right) <= 1 )
+                && Math.abs(left - right) <= 1)
             return true;
         return false;
     }

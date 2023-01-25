@@ -16,14 +16,14 @@ package com.interview.dynamic.knapsack;
     Subset2 = {11}, sum of Subset2 = 11
 */
 
+import java.util.Arrays;
+
 public class e_MinSubsetSumDiff {
 
     public void minSubsetSumDiff(){
         int[] arr = {3, 1, 4, 2, 2, 1};
-        int sum = 0;
+        int sum = Arrays.stream(arr).sum();
         int n = arr.length;
-        for(int i=0; i<n; i++)
-            sum += arr[i];
 
         boolean t[][] = new boolean[n+1][sum+1];
 

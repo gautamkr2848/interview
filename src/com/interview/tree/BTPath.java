@@ -12,24 +12,18 @@ import java.util.List;
 
 public class BTPath {
 
-    public List<Integer> findPath(Node node, int n) {
-        List<Integer> res = new ArrayList<>();
-        path(node, n, res);
-        return res;
-    }
-
-    private boolean path(Node node, int n, List<Integer> path){
+    public boolean path(Node node, int n){
         if (node == null)
             return false;
 
         if(node.key == n)
-            return true;    //path.add(node.key)
+            return true;
 
-        if(path(node.left, n, path))
-            return true;   //path.add(node.key)
+        if(path(node.left, n))
+            return true;
 
-        if(path(node.right, n, path))
-            return true;  //path.add(node.key)
+        if(path(node.right, n))
+            return true;
 
         return false;
     }

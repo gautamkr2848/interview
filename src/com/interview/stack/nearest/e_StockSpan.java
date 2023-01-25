@@ -2,6 +2,9 @@ package com.interview.stack.nearest;
 
 import java.util.Stack;
 
+//Input: N = 7, price[] = [100 80 60 70 60 75 85]
+//Output: 1 1 1 2 1 4 6
+
 //nearest greater to left
 public class e_StockSpan {
 

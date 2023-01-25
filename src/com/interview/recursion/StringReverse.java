@@ -6,6 +6,6 @@ public class StringReverse {
         if(str.isEmpty())
             return str;
         else
-            return reverseString_3(str.substring(1))+str.charAt(0);
+            return reverseString_3(str.substring(1)) + str.charAt(0);
     }
 }

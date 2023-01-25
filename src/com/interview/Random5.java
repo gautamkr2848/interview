@@ -5,7 +5,7 @@ public class Random5 {
     public void random7() {
         // you can use random5() for generating 0 - 4 with equal probability.
         //int random25 = 5 * random5() + random5();
-        //while (random25 > 20) {
+        //while (random25 > 21) {
         //    random25 = 5 * random5() + random5();
         //}
         //return random25 % 7;

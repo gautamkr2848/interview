@@ -3,6 +3,8 @@ package com.interview.dynamic.unboundedKnapsack;
 /* coin change problem deals with finding the total number of ways that
          an amount of money can be made using specific coins only.*/
 
+import java.util.Arrays;
+
 public class b_CoinChangeMaxWays {
 
     public void coinChangeMaxNumberOfWays(){
@@ -26,4 +28,31 @@ public class b_CoinChangeMaxWays {
         }
         System.out.println(t[n][sum]);
     }
+
+    public int countWays(int coins[], int n, int sum) {
+        int dp[] = new int[sum + 1];
+        dp[0] = 1;
+
+        for (int i = 0; i < n; i++)
+            for (int j = coins[i]; j <= sum; j++)
+                dp[j] += dp[j - coins[i]];
+
+        return dp[sum];
+    }
+    // Time complexity of this function: O(n*sum)
+    // Space Complexity of this function: O(sum)
+
+    public int count(int coins[], int n, int sum) {
+
+        if (sum == 0)
+            return 1;
+
+        if (sum < 0 || n <= 0)
+            return 0;
+
+        return count(coins, n - 1, sum) + count(coins, n, sum - coins[n - 1]);
+    }
+
+    //Time Complexity: O(2 ^ sum)
+    //Auxiliary Space: O(target)
 }

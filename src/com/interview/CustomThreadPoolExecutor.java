@@ -51,8 +51,6 @@ public class CustomThreadPoolExecutor {
             while (true) {
                 try {
                     workerQueue.take().run();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -65,5 +63,4 @@ public class CustomThreadPoolExecutor {
         threadPoolExecutor.addTask(() -> System.out.println("First print task"));
         threadPoolExecutor.addTask(() -> System.out.println("Second print task"));
     }
-
 }

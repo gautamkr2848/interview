@@ -14,7 +14,7 @@ public class ListZigZag {
                     current.data = current.next.data;
                     current.next.data = temp;
                 }
-            } else{
+            } else {
                 if (current.data < current.next.data) {
                     temp = current.data;
                     current.data = current.next.data;

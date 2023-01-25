@@ -62,10 +62,47 @@ public class d_CountIsLand {
 
         visited[row][col] = true;
 
-        for (int k = 0; k < 8; ++k) {
-            Boolean isSafe = (row >= 0) && (row < ROW) && (col >= 0) && (col < COL) && M[row][col] == 1 && !visited[row][col];
+        for (int k = 0; k < 8; k++) {
+            Boolean isSafe = (row + rowNbr[k] >= 0) && (row + rowNbr[k] < ROW) && (col + colNbr[k] >= 0) && (col + colNbr[k] < COL) && M[row + rowNbr[k]][col + colNbr[k]] == 1 && !visited[row + rowNbr[k]][col + colNbr[k]];
             if (isSafe)
                 DFS(M, row + rowNbr[k], col + colNbr[k], visited);
+        }
+    }
+
+    public int numIslands() {
+
+        int grid[][] = {{0, 1},
+                {1, 0},
+                {1, 1},
+                {1, 0}};
+
+        int m = grid.length;
+        int n = grid[0].length;
+
+        boolean[][] visited = new boolean[m][n];
+
+        int count=0;
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                if(grid[i][j] == 1 && !visited[i][j]){
+                    dfsUtil(grid, visited, i, j);
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    private void dfsUtil(int[][] M, boolean[][] visited, int row, int col){
+        int rowNbr[] = { -1, -1, -1, 0, 0, 1, 1, 1 };
+        int colNbr[] = { -1, 0, 1, -1, 1, -1, 0, 1 };
+
+        visited[row][col] = true;
+
+        for (int k = 0; k < 8; k++) {
+            Boolean isSafe = (row + rowNbr[k] >= 0) && (row + rowNbr[k] < ROW) && (col + colNbr[k] >= 0) && (col + colNbr[k] < COL) && M[row + rowNbr[k]][col + colNbr[k]] == 1 && !visited[row + rowNbr[k]][col + colNbr[k]];
+            if (isSafe)
+                dfsUtil(M, visited, row + rowNbr[k], col + colNbr[k]);
         }
     }
 }

@@ -1,24 +1,41 @@
 package com.interview.stack;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class IntervalMerge {
 
-    public int[][] mergeInterval() {
-        int[][] intervals = {{1, 4}, {0, 4}};
-        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+    private static void mergeIntervals(Interval[] a){
+        List<Interval> list = Arrays.asList(a);
+        Collections.sort(list, (o1, o2) -> o1.start.compareTo(o2.start));
 
-        List<int[]> merged = new LinkedList<>();
-        for (int[] interval : intervals) {
+        Stack<Interval> stk = new Stack<>();
+        stk.push(list.get(0));
+        for (int i = 1 ; i < list.size(); i++) {
 
-            if (merged.isEmpty() || merged.get(merged.size()-1)[1] < interval[0])
-                merged.add(interval);
-            else
-                merged.get(merged.size()-1)[1] = Math.max(merged.get(merged.size()-1)[1], interval[1]);
+            Interval top = stk.peek();
+
+            if (top.end < list.get(i).start)
+                stk.push(list.get(i));
+            else if (top.end < list.get(i).end) {
+                top.end = list.get(i).end;
+                stk.pop();
+                stk.push(top);
+            }
         }
-        return merged.toArray(new int[merged.size()][]);
+
+        // Print contents of stack
+        System.out.print("The Merged Intervals are: ");
+        while (!stk.isEmpty()) {
+            Interval t = stk.pop();
+            System.out.print("["+t.start+","+t.end+"] ");
+        }
+    }
+}
+
+class Interval {
+    Integer start,end;
+    Interval(Integer start, Integer end) {
+        this.start=start;
+        this.end=end;
     }
 }

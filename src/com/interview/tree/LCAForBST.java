@@ -33,8 +33,8 @@ public class LCAForBST {
 
     public int findLCA_2(Node node, int n1, int n2){
         BTPath btPath = new BTPath();
-        List<Integer> path1 = btPath.findPath(node, n1);
-        List<Integer> path2 = btPath.findPath(node, n2);
+        List<Integer> path1 = btPath.nodeToRootPath(node, n1);
+        List<Integer> path2 = btPath.nodeToRootPath(node, n2);
 
         int res = -1;
         for(int i=0; i<path1.size(); i++){

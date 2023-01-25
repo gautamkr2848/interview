@@ -26,7 +26,7 @@ public class IsPrime {
         primes[0] = 0;
         primes[1] = 0;
 
-        for(int i=2; i <= Math.sqrt(new Double(n)); i++){
+        for(int i=2; i <= Math.sqrt(new Double(n)); i++) {
             if(primes[i] == 1){
                 for(int j=2; i*j <= n; j++){
                     primes[i*j] = 0;

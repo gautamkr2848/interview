@@ -3,8 +3,13 @@ package com.interview.graph.DFS;
 import java.util.ArrayList;
 import java.util.Stack;
 
+/*
 //Topological sorting for Directed Acyclic Graph (DAG) is a linear ordering of vertices such that for every directed edge u v,
 // vertex u comes before v. Topological Sorting for a graph is not possible if the graph is not a DAG.
+
+A directed acyclic graph is a directed graph with no directed cycles. That is, it consists of vertices and edges, with
+each edge directed from one vertex to another, such that following those directions will never form a closed loop.
+
 
 /* usages
 * Build systems

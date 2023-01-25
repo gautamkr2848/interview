@@ -15,10 +15,6 @@ public class WildcardPatternMatching {
             System.out.println(m == 0);
 
         boolean[][] temp = new boolean[m + 1][n + 1];
-
-        for (int i = 0; i < n + 1; i++)
-            Arrays.fill(temp[i], false);
-
         temp[0][0] = true;      // empty pattern can match with empty string
 
         for (int j = 1; j <= n; j++)        // Only '*' can match with empty string

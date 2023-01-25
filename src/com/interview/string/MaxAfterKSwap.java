@@ -1,23 +1,48 @@
 package com.interview.string;
 
+/*
+1. Create a global variable that will store the maximum string or number.
+2. Define a recursive function that takes the string as a number and value of k
+3. Run a nested loop, the outer loop from 0 to the length of string -1, and the inner loop from i+1 to the end of the string.
+4. Swap the ith and jth character and check if the string is now maximum and update the maximum string.
+5. Call the function recursively with parameters: string and k-1.
+6. Now again swap back the ith and jth character.
+
+Time Complexity: O((N2)k). For every digit, N2 recursive calls are generated until the value of k is 0 Thus O((N2)k).
+Auxiliary Space: O(N). This is the space required to store the output string.
+ */
+
 public class MaxAfterKSwap {
 
-    public String MaxNum(int[] arr, int s) {
-        int[] result = new int[arr.length];
-
-        int ans=0;
-        for (int k = 1; k <arr.length; k++) {
-            result = swap(arr, k, 0);
-            ans=Math.max(result[0],arr[0]);
-            MaxNum(result, s-1);
-            swap(arr, k, 0);
-        }
-
-        return String.valueOf(result);
+    String max = "";
+    public void findMaximum(String s, int k) {
+        findMaximumNum(s.toCharArray(), k);
+        System.out.println(max);
     }
 
-    private int[] swap(int[] arr, int a, int b) {
-        int temp = arr[a];
+    private void findMaximumNum(char[] arr, int k) {
+        int n = arr.length;
+        if (k == 0)
+            return;
+
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {       // Compare it with all digits after it
+
+                if (arr[i] < arr[j]){
+                    swap(arr, i, j);
+
+                    if (String.valueOf(arr).compareTo(max) > 0)
+                        max = String.valueOf(arr);
+
+                    findMaximumNum(arr, k - 1);
+                    swap(arr, i, j);
+                }
+            }
+        }
+    }
+
+    private char[] swap(char[] arr, int a, int b) {
+        char temp = arr[a];
         arr[a] = arr[b];
         arr[b] = temp;
 

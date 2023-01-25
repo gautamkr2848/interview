@@ -5,7 +5,7 @@ public class e_QuickSort {
     public void qs(){
         int arr[] = { 12, 3, 5, 7, 4, 19, 26 };
         int low = 0, high = arr.length-1;
-        quickSort(arr, low,high);
+        quickSort(arr, low, high);
 
         for(int i=0; i<arr.length; i++)
             System.out.print(arr[i] + " ");

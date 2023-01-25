@@ -27,11 +27,11 @@ public class GenerateParenthesis {
             result.add(cur);
             return;
         }
-        if (open < n) {
+
+        if (open < n)
             backtrack(result, cur + "(", open + 1, close, n);
-        }
-        if (close < open) {
+
+        if (close < open)
             backtrack(result, cur + ")", open, close + 1, n);
-        }
     }
 }

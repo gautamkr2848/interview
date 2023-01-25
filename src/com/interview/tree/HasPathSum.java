@@ -1,6 +1,6 @@
 package com.interview.tree;
 
-public class RootToLeafSum {
+public class HasPathSum {
 
     public boolean hasPathSum(Node node, int sum) {
         if (node == null)

@@ -29,9 +29,8 @@ public class a_LevelOrderTraversal {
     public void levelOrder_2(Node node) {
         int height = treeHeight(node);
 
-        for(int i=1; i<=height; i++){
+        for(int i=1; i<=height; i++)
             printLevel(node, i);
-        }
     }
 
     private void printLevel(Node node, int level){

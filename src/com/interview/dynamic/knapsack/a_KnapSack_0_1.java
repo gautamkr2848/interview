@@ -20,6 +20,11 @@ public class a_KnapSack_0_1 {
             return Math.max(val[n-1] + knapSack_1(wt, val, w-wt[n-1], n-1), knapSack_1(wt, val, w, n-1));
     }
 
+/*
+    Time Complexity: O(2N)
+    Auxiliary Space: O(N)
+*/
+
     static int[][] t = new int[5][51];
     public a_KnapSack_0_1(){
         for(int[] arr : t)
@@ -39,6 +44,11 @@ public class a_KnapSack_0_1 {
         return t[n][w];
     }
 
+/*
+    Time Complexity: O(N * W)
+    Auxiliary Space: O(N * W) + O(N)
+*/
+
     public int knapSack_3(int[] wt, int[] val, int w, int n){
         int[][] t = new int[n+1][w+1];
 
@@ -53,4 +63,9 @@ public class a_KnapSack_0_1 {
         }
         return t[n][w];
     }
+
+/*
+    Time Complexity: O(N * W)
+*/
+
 }

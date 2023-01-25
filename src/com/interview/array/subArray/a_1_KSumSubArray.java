@@ -11,10 +11,8 @@ Explanation: Subarrays : arr[0…2], arr[2…4] have a sum exactly equal to 33.
 */
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
-public class a_KSumSubArray {
+public class a_1_KSumSubArray {
 
     public void kSumSubArray(){
         int[] arr = {3,4,-7,1,3,3,1,-4};
@@ -41,13 +39,19 @@ public class a_KSumSubArray {
         for (int i = 0; i < A.length; i++) {
             currSum = currSum + A[i];
 
-            if(currSum == sum)
-                System.out.println(IntStream.range(0, i+1).mapToObj(k -> A[k]).collect(Collectors.toList()));
+            if(currSum == sum) {
+                for (int j = 0; j <= i; j++)
+                    System.out.print(A[j] + " ");
+                System.out.println();
+            }
 
             if (map.containsKey(currSum - sum)) {
                 List<Integer> list = map.get(currSum - sum);
-                for (Integer index: list)
-                    System.out.println(IntStream.range(index + 1, i + 1).mapToObj(k -> A[k]).collect(Collectors.toList()));
+                for (Integer index: list) {
+                    for (int j = index + 1; j <= i; j++)
+                        System.out.print(A[j] + " ");
+                    System.out.println();
+                }
             }
             map.putIfAbsent(currSum, new ArrayList<>());
             map.get(currSum).add(i);

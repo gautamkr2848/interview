@@ -19,7 +19,7 @@ LCS for input Sequences “AGGTAB” and “GXTXAYB” is “GTAB” of length 4
 import java.util.Arrays;
 import java.util.Stack;
 
-public class a_LongestCommonSubSequence {
+public class a_1_LongestCommonSubSequence {
 
     public int lcs_recurssion(String a, String b, int m, int n){
         if(m == 0 || n == 0)
@@ -31,7 +31,7 @@ public class a_LongestCommonSubSequence {
     }
 
     static int[][] t = new int[10][10];
-    public a_LongestCommonSubSequence(){
+    public a_1_LongestCommonSubSequence(){
         for(int[] arr : t)
             Arrays.fill(arr, -1);
     }

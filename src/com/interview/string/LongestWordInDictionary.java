@@ -1,30 +1,50 @@
 package com.interview.string;
 
-import java.util.Vector;
+import java.util.Collections;
+import java.util.List;
+
+/*
+Giving a dictionary and a string ‘str’, find the longest string in dictionary which can be formed by deleting some
+characters of the given ‘str’.
+
+Examples:
+
+Input : dict = {"ale", "apple", "monkey", "plea"}
+        str = "abpcplea"
+Output : apple
+
+Input  : dict = {"pintu", "geeksfor", "geeksgeeks",
+                                        " forgeek"}
+         str = "geeksforgeeks"
+Output : geeksgeeks
+*/
 
 public class LongestWordInDictionary {
 
-    public String findLongestString(Vector<String> dict, String str){
-        String result = "";
-        int length = 0;
-        for (String word : dict){
-            if (length < word.length() && isSubSequence(word, str)){
-                result = word;
-                length = word.length();
-            }
-        }
-        return result;
+    public void longestWord(List<String> d, String S) {
+        Collections.sort(d);
+        String res = "";
+        for(String c:d)
+            res = check(c,S).length() > res.length() ? check(c,S) : res;
+
+        System.out.println(res);
     }
 
-    boolean isSubSequence(String str1, String str2){
-        int m = str1.length();
-        int n = str2.length();
-        int j = 0;
+    private String check(String d, String s) {
 
-        for (int i = 0; i < n && j < m; i++) {
-            if (str1.charAt(j) == str2.charAt(i))
+        int i = 0;
+        int j = 0;
+        while(i < d.length() && j < s.length()) {
+
+            if(d.charAt(i) == s.charAt(j)) {
+                i++;
                 j++;
+            } else
+                j++;
+
+            if(i == d.length())
+                return d;
         }
-        return (j == m);
+        return "";
     }
 }

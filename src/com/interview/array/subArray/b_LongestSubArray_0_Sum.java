@@ -7,23 +7,49 @@ public class b_LongestSubArray_0_Sum {
 
     public void longestSubArray_0_Sum_2(){
         int[] arr = {15, -2, 2, -8, 1, 7, 10, 23};
-        int sum = 0, maxLen = 0, k = 0;
+        int currSum = 0, maxLen = 0, sum = 0;
         Map<Integer, Integer> map= new HashMap<>(); //Key as sum, value as length
 
         for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
+            currSum += arr[i];
 
-            if (sum == k)   // when subarray starts from index '0'
+            if (currSum == sum)   // when subarray starts from index '0'
                 maxLen = i + 1;
 
-            if (!map.containsKey(sum))
-                map.put(sum, i);
+            if (!map.containsKey(currSum))
+                map.put(currSum, i);
 
-            if (map.containsKey(sum - k)) {
-                if (maxLen < (i - map.get(sum - k)))
-                    maxLen = i - map.get(sum - k);
+            if (map.containsKey(currSum - sum)) {
+                if (maxLen < (i - map.get(currSum - sum)))
+                    maxLen = i - map.get(currSum - sum);
             }
         }
         System.out.println(maxLen);
+    }
+
+    public int lenOfLongSubarr(int A[], int N, int K) {
+
+        int i = 0, j = 0, sum = 0;
+        int maxLen = Integer.MIN_VALUE;
+
+        while (j < N) {
+            sum += A[j];
+            if (sum < K) {
+                j++;
+            } else if (sum == K) {
+                maxLen = Math.max(maxLen, j-i+1);
+                j++;
+            } else {
+                while (sum > K) {
+                    sum -= A[i];
+                    i++;
+                }
+                if(sum == K){
+                    maxLen = Math.max(maxLen, j-i+1);
+                }
+                j++;
+            }
+        }
+        return maxLen;
     }
 }

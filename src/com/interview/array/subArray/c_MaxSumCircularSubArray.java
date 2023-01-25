@@ -18,7 +18,7 @@ Output:  23
 Explanation: Subarray 7, 6, 5, -4, -1, 10 gives the maximum sum, that is 23.
 */
 
-public class b_MaxSumCircularSubArray {
+public class c_MaxSumCircularSubArray {
 
     public int runCircularKadane(int[] A) {
         if (A.length == 0)
@@ -38,5 +38,34 @@ public class b_MaxSumCircularSubArray {
         int tmp = k.Kadane(A);
 
         return Integer.max(kadane, sum + tmp);
+    }
+
+    public int maxCircularSum(int a[], int n) {
+
+        if (n == 1)
+            return a[0];
+
+        int sum = Arrays.stream(a).sum();
+
+        int curr_max = a[0], max_so_far = a[0],
+                curr_min = a[0], min_so_far = a[0];
+
+        for (int i = 1; i < n; i++) {
+
+            // Kadane's Algorithm to find Maximum subarray
+            // sum.
+            curr_max = Math.max(curr_max + a[i], a[i]);
+            max_so_far = Math.max(max_so_far, curr_max);
+
+            // Kadane's Algorithm to find Minimum subarray
+            // sum.
+            curr_min = Math.min(curr_min + a[i], a[i]);
+            min_so_far = Math.min(min_so_far, curr_min);
+        }
+
+        if (min_so_far == sum)
+            return max_so_far;
+
+        return Math.max(max_so_far, sum - min_so_far);
     }
 }

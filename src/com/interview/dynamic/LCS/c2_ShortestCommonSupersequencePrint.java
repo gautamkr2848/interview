@@ -23,12 +23,12 @@ public class c2_ShortestCommonSupersequencePrint {
                 i--;
                 j--;
             } else {
-                if(t[i][j-1] > t[i-1][j]) {
-                    stk.push(b.charAt(j-1));
-                    j--;
-                } else {
-                    stk.push(a.charAt(i-1));
+                if(t[i-1][j] >= t[i][j-1]) {
+                    stk.push(b.charAt(i-1));
                     i--;
+                } else {
+                    stk.push(a.charAt(j-1));
+                    j--;
                 }
             }
         }

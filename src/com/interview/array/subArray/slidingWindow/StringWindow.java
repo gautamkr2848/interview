@@ -1,5 +1,7 @@
 package com.interview.array.subArray.slidingWindow;
 
+//Smallest window in a String containing all characters of other String
+
 public class StringWindow {
 
     public String Minimum_Window(char []s, char []t) {

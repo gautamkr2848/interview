@@ -38,5 +38,38 @@ public final class Immutable {
     public String getName() { return name; }
 
     public int getRegNo() { return regNo; }
+}
 
+// Immutable class with mutable reference
+
+final class Employee{
+    private final int id;
+    private Address address;
+
+    public Employee(int id, Address address) {
+        this.id = id;
+        //this.address = (Address) address.clone();
+        this.address = address;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public Address getAddress() {
+        //return (Address) address.clone();
+        return address;
+    }
+}
+
+class Address implements Cloneable {
+    private String street;
+
+    public String getStreet(){
+        return street;
+    }
+
+    public void setStreet(String street){
+        this.street = street;
+    }
 }

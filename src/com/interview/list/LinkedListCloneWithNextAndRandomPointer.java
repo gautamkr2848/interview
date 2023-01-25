@@ -1,5 +1,7 @@
 package com.interview.list;
 
+import com.interview.tree.Node;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,6 +37,29 @@ public class LinkedListCloneWithNextAndRandomPointer {
             curr1 = curr1.next;
         }
         return map.get(head);
+    }
+
+    public void clone1(){
+        NodeRandom node = new NodeRandom(1);
+        node.next = new NodeRandom(2);
+        node.random = new NodeRandom(21);
+        node.next.next = new NodeRandom(3);
+        node.next.random = new NodeRandom(31);
+        node.next.next.next = new NodeRandom(4);
+        node.next.next.random = new NodeRandom(41);
+        NodeRandom curr = node;
+
+        NodeRandom head = new NodeRandom(node.data);
+        NodeRandom curr2 = head;
+
+        while(curr.next != null) {
+            curr2.next = curr.next;
+            curr2.random = curr.random;
+            curr2 = curr2.next;
+            curr = curr.next;
+        }
+
+        System.out.println("########");
     }
 
 }

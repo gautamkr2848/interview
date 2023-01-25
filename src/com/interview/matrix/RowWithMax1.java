@@ -2,6 +2,7 @@ package com.interview.matrix;
 
 //All the rows are sorted
 //start from top right corner
+//Time complexity - O(m + n)
 
 public class RowWithMax1 {
 

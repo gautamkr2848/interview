@@ -11,8 +11,8 @@ public class RemoveAdjacentPairs {
         String s = "ABCCBCBA";
         char[] array = s.toCharArray();
         int j=0;
-        for(int i=1; i<array.length; i++){
-            while ((array[i] == array[j]) && (j >= 0)){
+        for(int i=1; i<array.length; i++) {
+            while ((array[i] == array[j]) && (j >= 0)) {
                 i++;
                 j--;
             }
