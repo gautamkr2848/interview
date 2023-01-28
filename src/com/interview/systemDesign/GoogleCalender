@@ -6,8 +6,8 @@ It should support the following functionalities : Ability to create, update, del
     b. Events can either be like meetings(with a dedicated location and appropriate guest-list)
         or as well be like reminders etc.
     c. An event once created, can be either accepted or rejected by the constituent users
-    d. Get Calendar for a user Ui
-    e. Get Event details.
+    d. CMS for user calender details
+    e. Get specific Event details.
 
 Event Type : TYPE1, TYPE2
 
@@ -28,7 +28,7 @@ Estimations
         On an avg. an active user will schedule 2 meetings in a day. → 20M
         On an avg. a user will receive 4 meetings invites.  → 40M
 
-        Total = 100M * 1000 B = 100 * 10 ^ 9 = 100GB
+        Total = 100 M * 1000 B = 100 * 10 ^ 9 = 100GB
         Calendar Invites
                 Invites = 2 * 20M * 365
         Total = 40M * 400 * 200 Bytes = 32 * 10 ^11 = 3200 GB
