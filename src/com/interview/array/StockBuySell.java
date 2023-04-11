@@ -78,9 +78,32 @@ public class StockBuySell {
 
     T[t][i] = max(T[t][i-1], price[i] + max(prev_diff, T[t-1][i-1] – price[i-1]))
     where prev_diff is max(T[t-1][j] – price[j]) and j varies from 0 to i-2
+
+    {10, 22, 5, 75, 65, 80}
+
+    Matrix :
+        0   0   0   0   0   0   0
+        0   12  12  70  70  75  0
+        0   12  12  82  82  87  0
+
+
+   {12, 14, 17, 10, 14, 13, 12, 15}
+
+   Matrix :
+        0   0   0   0   0   0   0   0   0
+        0   2   5   5   5   5   5   5   0
+        0   2   5   5   9   9   9   10  0
+        0   2   5   5   9   9   9   12  0
+
 */
 
-    public int maxProfit_2(int price[], int k) {
+    public int maxProfit_2() {
+        /*int[] price = {10, 22, 5, 75, 65, 80};
+        int k = 2;*/
+
+        int[] price = {12, 14, 17, 10, 14, 13, 12, 15};
+        int k = 3;
+
         int n = price.length;
         int t[][] = new int[k + 1][n + 1];
 

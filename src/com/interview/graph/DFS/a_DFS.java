@@ -10,6 +10,9 @@ Input: n = 4, e = 6
 Output: DFS from vertex 1 : 1 2 0 3
 */
 
+// V = no. of vertices
+// v = starting vertices
+
 public class a_DFS {
 
     //Handling A Disconnected Graph
@@ -31,9 +34,9 @@ public class a_DFS {
         visited[v] = true;
         System.out.print(v + " ");
 
-        for(Integer n : adj.get(v)) {
-            if (!visited[n])
-                DFSUtil(n, visited, adj);
+        for(Integer i : adj.get(v)) {
+            if (!visited[i])
+                DFSUtil(i, visited, adj);
         }
     }
 }

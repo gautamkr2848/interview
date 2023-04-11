@@ -1,6 +1,6 @@
 package com.interview.matrix;
 
-public class MaxSumMatrix {
+public class  MaxSumMatrix {
 
     public int MaximumPath(int [][]cost) {
         int m = cost.length;

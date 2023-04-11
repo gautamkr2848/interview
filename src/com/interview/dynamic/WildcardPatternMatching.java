@@ -1,7 +1,5 @@
 package com.interview.dynamic;
 
-import java.util.Arrays;
-
 public class WildcardPatternMatching {
 
     public void wildcardPatternMatching(){

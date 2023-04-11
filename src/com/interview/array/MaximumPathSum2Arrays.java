@@ -24,13 +24,11 @@ public class MaximumPathSum2Arrays {
         int i=0, j=0, sum1 = 0, sum2 = 0, res = 0;
 
         while(i < m && j < n) {
-            if(a[i] < b[j]){
-                sum1 = sum1 + a[i];
-                i++;
-            } else if(a[i] > b[j]) {
-                sum2 = sum2 + b[j];
-                j++;
-            } else {
+            if(a[i] < b[j])
+                sum1 = sum1 + a[i++];
+            else if(a[i] > b[j])
+                sum2 = sum2 + b[j++];
+            else {
                 res = res + Math.max(sum1, sum2);
                 sum1 = 0;
                 sum2 = 0;

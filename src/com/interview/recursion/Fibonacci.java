@@ -13,4 +13,18 @@ public class Fibonacci {
     }
 
     //Time Complexity: O(2^n)
+
+    public void fibonacci_2(int n) {
+        int a = 0;
+        int b = 1;
+
+        int c = a + b;
+        System.out.print(a+ " "+b+" ");
+        while (c < n){
+            System.out.print(c+" ");
+            a = b;
+            b = c;
+            c = a + b;
+        }
+    }
 }

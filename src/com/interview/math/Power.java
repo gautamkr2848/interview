@@ -16,24 +16,6 @@ public class Power {
         }
     }
 
-    public void palindromepair() {
-
-        String[] arr = {"y", "v"};
-        int n = arr.length;
-
-        int count = 0;
-        for(int i=0; i<n-1; i++){
-            for(int j = i+1; j<n; j++){
-                StringBuilder sb = new StringBuilder(arr[i]);
-                sb.append(arr[j]);
-                if(isPelindrome(sb.toString())){
-                    count++;
-                }
-            }
-        }
-        System.out.println(count);
-    }
-
     public Boolean isPelindrome(String str){
         StringBuilder sb=new StringBuilder(str);
         sb.reverse();

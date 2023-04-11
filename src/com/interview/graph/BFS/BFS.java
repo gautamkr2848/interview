@@ -2,13 +2,14 @@ package com.interview.graph.BFS;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class BFS {
 
     public void BFS(int s, int V, ArrayList<ArrayList<Integer>> adj) {
 
         boolean visited[] = new boolean[V];
-        LinkedList<Integer> queue = new LinkedList<>();       // Create a queue for BFS
+        Queue<Integer> queue = new LinkedList<>();       // Create a queue for BFS
 
         visited[s] = true;        // Mark the current node as visited and enqueue it
         queue.add(s);

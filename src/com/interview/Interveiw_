@@ -232,7 +232,7 @@ Cleartrip - 2
 Vymo - 2
 1. Max Profit
 2. Target sum
-3. Tree generation element
+3. Tree generation element      //Not done
 
 Games 24*7 - 2
 1. Projetc use cases
@@ -265,3 +265,8 @@ MPL - 2
 Gamesberry - 1
 1. Max length substring having non-repeating character
 2. sort 1, 2, 3
+
+Fisdom - 2
+1. LWD
+2. Slack Design
+3. Design infinite login page

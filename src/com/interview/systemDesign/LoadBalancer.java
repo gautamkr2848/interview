@@ -5,19 +5,19 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class LoadBalancer {
 
-        public static Map<String, Integer> ipMap = new ConcurrentHashMap<>();
+        public static List<String> servers = new ArrayList<>();
 
         static {
-            ipMap.put("192.168.1.1", 10);
-            ipMap.put("192.168.1.2", 10);
-            ipMap.put("192.168.1.3", 10);
-            ipMap.put("192.168.1.4", 10);
-            ipMap.put("192.168.1.5", 10);
-            ipMap.put("192.168.1.6", 10);
-            ipMap.put("192.168.1.7", 10);
-            ipMap.put("192.168.1.8", 10);
-            ipMap.put("192.168.1.9", 10);
-            ipMap.put("192.168.1.10", 10);
+            servers.add("192.168.1.1");
+            servers.add("192.168.1.2");
+            servers.add("192.168.1.3");
+            servers.add("192.168.1.4");
+            servers.add("192.168.1.5");
+            servers.add("192.168.1.6");
+            servers.add("192.168.1.7");
+            servers.add("192.168.1.8");
+            servers.add("192.168.1.9");
+            servers.add("192.168.1.10");
         }
 
 }
@@ -31,16 +31,13 @@ class RoundRobin implements LoadBalance {
 
     @Override
     public String getServer(String clientIp) {
-        Set<String> servers = LoadBalancer.ipMap.keySet();
-        List<String> serverList = new ArrayList<>();
-        serverList.addAll(servers);
         String target = null;
 
         synchronized (position) {
-            if (position > serverList.size() - 1) {
+            if (position > LoadBalancer.servers.size() - 1) {
                 position = 0;
             }
-            target = serverList.get(position);
+            target = LoadBalancer.servers.get(position);
             position++;
         }
         return target;
@@ -51,11 +48,8 @@ class RandomLoadBalance implements LoadBalance {
 
     @Override
     public String getServer(String clientIp) {
-        Set<String> servers = LoadBalancer.ipMap.keySet();
-        List<String> serverList = new ArrayList<>();
-        serverList.addAll(servers);
-        int randomIndex = new Random().nextInt(serverList.size());
-        String target = serverList.get(randomIndex);
+        int randomIndex = new Random().nextInt(LoadBalancer.servers.size());
+        String target = LoadBalancer.servers.get(randomIndex);
 
         return target;
     }
@@ -68,12 +62,10 @@ class IpHash implements LoadBalance {
         if (clientIp == null) {
             clientIp = "127.0.0.1";
         }
-        Set<String> servers = LoadBalancer.ipMap.keySet();
-        List<String> serverList = new ArrayList<>();
-        serverList.addAll(servers);
+
         String remoteId = clientIp;
-        Integer index = remoteId.hashCode() % serverList.size();
-        String target = serverList.get(index);
+        Integer index = remoteId.hashCode() % LoadBalancer.servers.size();
+        String target = LoadBalancer.servers.get(index);
         return target;
     }
 }

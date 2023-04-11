@@ -1,63 +1,64 @@
 package com.interview;
 
-import com.interview.array.NextPermutation;
-import com.interview.array.subArray.a_2_CountSubArrayWithEqual_0_1;
-import com.interview.array.subArray.d_MaxProductSubArray;
-import com.interview.dynamic.knapsack.d_SubsetSumCount;
-import com.interview.dynamic.knapsack.f_SubsetSumDiffCount;
-import com.interview.string.LetterCasePermutation;
+import com.interview.array.StockBuySell;
+import com.interview.dynamic.LCS.k_LongestSubStringWithNonRepeatedChar;
+import com.interview.dynamic.MCM.a_MatrixChainMultiplication;
+import com.interview.list.Node;
+import com.interview.list.DetectAndRemoveLoop;
+import com.interview.list.RemoveDuplicates;
+import com.interview.list.SwapKthBeginingEnd;
+import com.interview.matrix.MaxSumRectangle;
+import com.interview.recursion.PalindromePartioning;
+import com.interview.stack.WaterTapping;
+import com.interview.string.excel.ColumnNumberToName;
 
-import java.lang.*;
-import java.util.Arrays;
-import java.util.List;
+import java.io.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        int[] arr = { 1, 2, 3, 6, 5, 4 };
-        NextPermutation n = new NextPermutation();
-        n.nextPermutation(arr);
-
-        //nextPermutation(arr);
-        for(int i=0; i<arr.length; i++)
-            System.out.print(arr[i] + " ");
+        ColumnNumberToName c = new ColumnNumberToName();
+        c.columnNumberToName();
     }
 
-    private static void nextPermutation(int[] arr){
-        int i = arr.length-2;
-        while(i>=0) {
-            if(arr[i] > arr[i+1]){
-                i--;
-            } else {
-                break;
+    private void excelCode(){
+        String path = "/Users/gautam.k/Desktop/Data1.csv";
+        String line = "";
+
+        Boolean flag = Boolean.TRUE;
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(path));
+            FileWriter writer = new FileWriter("/Users/gautam.k/Desktop/Data2.csv");
+            BufferedWriter bwr = new BufferedWriter(writer);
+
+            while((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+
+                if(flag){
+                    bwr.write(values[0] + ';');
+                    bwr.write(values[1] + ';');
+                    bwr.write(values[2] + ';');
+                    bwr.write(values[3] + ';');
+                    bwr.write(values[4] + ';');
+                    bwr.write("\n");
+                    flag = Boolean.FALSE;
+
+                } else if(values[2].equalsIgnoreCase("ca3c619f-f5ca-43ab-bfbb-e65f6d99015c")) {
+                    bwr.write(values[0] + ';');
+                    bwr.write(values[1] + ';');
+                    bwr.write(values[2] + ';');
+                    bwr.write(values[3] + ';');
+                    bwr.write(values[4] + ';');
+                    bwr.write("\n");
+                }
+
             }
-        }
-
-        int j = arr.length-1;
-        while(j>0) {
-            if(arr[j] < arr[i])
-                j--;
-            else
-                break;
-        }
-
-        swap(arr, i, j);
-        reverse(arr, i+1);
-
-    }
-
-    private static void swap(int[] nums, int i, int j) {
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
-    }
-
-    private static void reverse(int[] nums, int start) {
-        int i = start, j = nums.length - 1;
-        while (i < j) {
-            swap(nums, i, j);
-            i++;
-            j--;
+            bwr.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

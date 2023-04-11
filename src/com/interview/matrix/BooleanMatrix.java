@@ -1,12 +1,10 @@
 package com.interview.matrix;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 class Cell{
-    int x,y;
+    int x, y;
 
     Cell(int x, int y){
         this.x = x;

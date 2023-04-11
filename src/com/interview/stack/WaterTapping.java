@@ -33,7 +33,8 @@ Similar things happen for j also.
 public class WaterTapping {
 
     //preferred
-    public int trap(int[] heights) {
+    public int trap() {
+        int[] heights = {3, 0, 2, 0, 4};
 
         int i = 0, j = heights.length - 1, water = 0;
 

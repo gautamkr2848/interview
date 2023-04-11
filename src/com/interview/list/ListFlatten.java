@@ -10,20 +10,20 @@ package com.interview.list;
 30               45
 */
 
-class Node_Flatten{
-    int data;
-    Node_Flatten next, down;
-
-    public Node_Flatten(int data){
-        this.data = data;
-        this.next = null;
-        this.down = null;
-    }
-}
-
 public class ListFlatten {
 
-    Node_Flatten flatten(Node_Flatten root) {
+    class Node{
+        int data;
+        Node next, down;
+
+        public Node(int data){
+            this.data = data;
+            this.next = null;
+            this.down = null;
+        }
+    }
+
+    Node flatten(Node root) {
         if (root == null || root.next == null)
             return root;
 
@@ -31,11 +31,11 @@ public class ListFlatten {
     }
 
     // An utility function to merge two sorted linked lists
-    private Node_Flatten merge(Node_Flatten a, Node_Flatten b) {
+    private Node merge(Node a, Node b) {
         if (a == null)      return b;
         if (b == null)      return a;
 
-        Node_Flatten result;
+        Node result;
         if (a.data < b.data) {
             result = a;
             result.down =  merge(a.down, b);

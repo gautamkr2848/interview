@@ -1,6 +1,8 @@
 package com.interview.list;
 
 public class RemoveDuplicates {
+
+    //Remove duplicates from a sorted linked list
     public Node removeDuplicates(Node head){
         Node curr = head;
 

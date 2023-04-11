@@ -34,7 +34,7 @@ public class d_NearestSmallerNumberOnRight {
         Stack<Integer> s = new Stack<>();
 
         for(int i=n-1; i>=0; i--){
-            while (!s.empty() && s.peek() > a[i])
+            while (!s.empty() && s.peek() >= a[i])
                 s.pop();
 
             if(s.empty())

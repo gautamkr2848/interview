@@ -10,6 +10,14 @@ public class PerfectSquare {
         return false;
     }
 
+    public boolean isPerfectSquare_3(int x) {
+        if (x >= 0) {
+            if(Math.floor((double) x) == Math.ceil((double) x))
+                return true;
+        }
+        return false;
+    }
+
     public boolean isPerfectSquare_2(int num) {
         long left = 1, right = num;
 

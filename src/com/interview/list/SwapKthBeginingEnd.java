@@ -14,7 +14,7 @@ public class SwapKthBeginingEnd {
         head.next.next.next = new Node(17);
         head.next.next.next.next = new Node(9);
 
-        int k = 3;
+        int k = 2;
         int n = countNodes(head);
         if (n < k) return;
 

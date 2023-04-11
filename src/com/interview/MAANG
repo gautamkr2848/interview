@@ -471,3 +471,155 @@ Merge k Sorted Lists
 3Sum
 Permutations
 Longest Palindromic Substring
+
+
+
+Easy Problems -
+
+1. Lemonade Change
+2. Shortest Distance to a Character
+3. Greatest Common Divisor of Strings
+4. Design HashMap
+5. Logger Rate Limiter
+6. Backspace String Compare
+7. Valid Parentheses
+8. Leaf-Similar Trees
+9. Maximum Subarray
+10. Symmetric Tree
+11. Valid Palindrome II
+12. Diameter of Binary Tree
+13. Best Time to Buy and Sell Stock
+14. Single Number
+15. Merge Two Sorted Lists
+
+Medium Problems -
+
+1. Time Based Key-Value Store
+2. Design Hit Counter
+3. Maximum Average Subtree
+4. Letter Combinations of a Phone Number
+5. Dice Roll Simulation
+6. Rank Teams by Votes
+7. Longest Increasing Subsequence
+8. Number of Islands
+9. Single Element in a Sorted Array
+10. Peeking Iterator
+11. Evaluate Reverse Polish Notation
+12. Meeting Rooms II
+13. Decode String
+14. Friend Circles
+15. Validate Binary Search Tree
+16. Subarray Product Less Than K
+17. Next Permutation
+18. Palindromic Substrings
+19. Flatten Nested List Iterator
+20. Permutations
+21. Insert into a Binary Search Tree
+22. Random Pick with Weight
+23. Basic Calculator II
+24. Longest Substring Without Repeating Characters
+25. Binary Search Tree Iterator
+
+Hard Problems -
+
+1. Bus Routes
+2. Frog Jump
+3. Sliding Window Maximum
+4. Minimum Difficulty of a Job Schedule
+5. Shortest Distance from All Buildings
+6. Optimal Account Balancing
+7. Find Median from Data Stream
+8. Best Time to Buy and Sell Stock III
+9. Merge k Sorted Lists
+10. Find the Closest Palindrome
+11. Minimum Window Substring
+12. Maximum Frequency Stack
+13. Department Top Three Salaries
+14. Basic Calculator
+15. Median of Two Sorted Arrays
+
+
+
+Easy Problems -
+
+1. Two City Scheduling
+2. First Unique Character in a String
+3. Merge Sorted Array
+4. Nim Game
+5. Merge Two Sorted Lists
+6. Sum of Left Leaves
+7. Find Pivot Index
+8. Symmetric Tree
+9. Path Sum
+10. Palindrome Linked List
+
+Medium Problems -
+
+1. Invalid Transactions
+2. Remove All Adjacent Duplicates in String II
+3. Decode String
+4. Flatten a Multilevel Doubly Linked List
+5. Number of Islands
+6. Meeting Rooms II
+7. Design Browser History
+8. LRU Cache
+9. Add Two Numbers II
+10. Vertical Order Traversal of a Binary Tree
+11. Validate Binary Search Tree
+12. Populating Next Right Pointers in Each Node II
+13. Design A Leaderboard
+14. Add Two Numbers
+15. Candy Crush
+16. Insert Delete GetRandom O(1)
+17. Shuffle an Array
+18. Sort Characters By Frequency
+19. Design Bounded Blocking Queue
+20. Binary Tree Vertical Order Traversal
+21. Find K Closest Elements
+22. Valid Triangle Number
+23. Broken Calculator
+24. Kill Process
+25. Merge Intervals
+26. Maximum Number of Occurrences of a Substring
+27. Minimum Number of Steps to Make Two Strings Anagram
+28. Binary Tree Coloring Game
+29. Longest Substring Without Repeating Characters
+30. Design Snake Game
+
+Hard Problems -
+
+1. Longest Consecutive Sequence
+2. Minimum Insertion Steps to Make a String Palindrome
+3. Regular Expression Matching
+4. Word Break II
+5. LFU Cache
+6. Maximal Rectangle
+7. First Missing Positive
+8. Substring with Concatenation of All Words
+9. Largest Rectangle in Histogram
+10. Word Ladder II
+
+
+Heap Sort
+Convert BST to min heap
+Top k frequent elements
+Merge k sorted list
+Nearly sorted array
+Min cost of ropes
+Find median from data stream
+kth largest element in array
+Check if binary tree is heap
+Why binary heap preferred over BST for priority queue
+
+A typical Priority Queue requires following operations to be efficient.
+
+Get Top Priority Element (Get minimum or maximum)
+Insert an element
+Remove top priority element
+Decrease Key
+A Binary Heap supports above operations with following time complexities:
+
+O(1)
+O(Logn)
+O(Logn)
+O(Logn)

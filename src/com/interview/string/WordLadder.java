@@ -12,7 +12,7 @@ dictionary and length of all dictionary words is same.
 
 Example:
 
-Input: Dictionary = {POON, PLEE, SAME, POIE, PLEA, PLIE, POIN}, start = TOON, target = PLEA
+    Input: Dictionary = {POON, PLEE, SAME, POIE, PLEA, PLIE, POIN}, start = TOON, target = PLEA
 Output: 7
 Explanation: TOON – POON – POIN – POIE – PLIE – PLEE – PLEA
 
@@ -57,7 +57,7 @@ public class WordLadder {
                 char[] word = q.poll().toCharArray();
 
                 for (int pos = 0; pos < n; pos++) {
-                    char orig_char = word[pos];     // Retain the original character at the current position
+                    char orig_char = word[pos];     // To retain the original character at the current position
 
                     for (char c = 'a'; c <= 'z'; c++) {     // Replace the current character with  every possible lowercase alphabet
                         word[pos] = c;

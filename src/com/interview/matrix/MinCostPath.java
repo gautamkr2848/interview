@@ -24,18 +24,18 @@ public class MinCostPath {
         System.out.println(sum[m][n]);
     }
 
-    int min(int x, int y, int z) {
-        if (x < y)
-            return (x < z)? x : z;
-        else
-            return (y < z)? y : z;
-    }
-
     public int minCost_2(int[][] cost, int m, int n){
         if(m < 0 || n < 0)
             return Integer.MAX_VALUE;
         if(m == 0 && n == 0)
             return cost[m][n];
         return cost[m][n] + min(minCost_2(cost, m-1, n), minCost_2(cost, m, n-1), minCost_2(cost, m-1, n-1));
+    }
+
+    int min(int x, int y, int z) {
+        if (x < y)
+            return (x < z)? x : z;
+        else
+            return (y < z)? y : z;
     }
 }

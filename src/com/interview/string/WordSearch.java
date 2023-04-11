@@ -45,12 +45,11 @@ public class WordSearch {
     }
 
     private Boolean search2D(char[][] grid, int i, int j, String word){
-        int n = word.length();
 
         for (int dir = 0; dir < 8; dir++) {
             int k, rd = i + x[dir], cd = j + y[dir];
 
-            for (k = 1; k < n; k++) {     // First character is already checked, match remaining characters
+            for (k = 1; k < word.length(); k++) {     // First character is already checked, match remaining characters
 
                 Boolean isSafe = (rd >= 0) && (rd < R) && (cd >= 0) && (cd < C) && grid[rd][cd] == word.charAt(k);
                 if(!isSafe)
@@ -60,7 +59,7 @@ public class WordSearch {
                 cd += y[dir];
             }
 
-            if (k == n)
+            if (k == word.length())
                 return true;
         }
         return false;
