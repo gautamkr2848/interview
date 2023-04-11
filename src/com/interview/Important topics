@@ -1,6 +1,5 @@
 1. Content Delivery Network
-    A content delivery network (CDN) refers to a distributed group of servers
-    which work together to provide fast delivery of Internet content.
+    A (CDN) refers to a distributed group of servers which work together to provide fast delivery of Internet content.
     Benefits of CDN :
         a. Improving website load times
         b. Reducing bandwidth costs
@@ -131,6 +130,7 @@
 
     https://www.techiedelight.com/why-override-equals-and-hashcode-methods-java/
 
+
 25. Marker Interface
     It is an empty interface (no field or methods). Examples of marker interface are Serializable,
     Cloneable and Remote interface.
@@ -188,7 +188,25 @@
     some code on the bean instantiation and just after closing the spring container, then we can write that code inside
     the custom init() method and the destroy() method.
 
+33. DELETE vs DROP vs TRUNCATE
 
+    DELETE
+        DML command
+        Used to delete one or more records of a table
+        Slower than the TRUNCATE command
+        We can use the “ROLLBACK” command to restore
+
+    DROP
+        DDL command
+        Used to drop the whole table
+        We can’t restore the table by using the “ROLLBACK” command because it auto commits.
+
+    TRUNCATE
+        DDL command
+        Used to delete all the rows of a table in one go
+        With the help of the “TRUNCATE” command, we can’t delete the single row as here WHERE clause is not used
+        Faster than the delete command
+        We can’t restore the tuples of the table by using the “ROLLBACK” command.
 
 
 NP Complete

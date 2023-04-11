@@ -25,7 +25,7 @@ public class a_NearestGreaterNumbersOnLeft {
         }
     }
 
-    public void b_NearestGreaterNumbersOnLeft_2(){
+    public void nearestGreaterNumbersOnLeft_2(){
         int[] a = {1, 3, 2, 4};
         int n = a.length;
         Stack<Integer> s = new Stack<>();
@@ -34,10 +34,9 @@ public class a_NearestGreaterNumbersOnLeft {
             while (!s.empty() && s.peek() <= a[i])
                 s.pop();
 
-            // If all elements in S were less than arr[i]
-            if (s.empty()) {
+            if (s.empty()) {        // If all elements in S were less than arr[i]
                 System.out.print("-1, ");
-            } else { //Else print the nearest smaller element
+            } else {        //Else print the nearest smaller element
                 System.out.print(s.peek() + ", ");
             }
 

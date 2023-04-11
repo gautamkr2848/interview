@@ -63,6 +63,7 @@ Singleton design pattern is the best solution of above specific problem.
         Simply, proxy means an object representing another object.
 
 3. Behavioral Design Pattern
+    Behavioral design patterns identifies common communication patterns among objects.
 
     Chain Of Responsibility Pattern
     Command Pattern

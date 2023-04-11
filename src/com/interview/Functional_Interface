@@ -3,6 +3,7 @@ Functional Interface
     a. Functional interfaces are interfaces which represent some functionality. Can have only one abstract method.
 
     b. Lambda's are used to represent the instance of a functional interfaces
+       Lambda expressions basically used for implementing abstract method of functional interface.
 
     c. @FunctionalInterface Annotation
         a. Runnable - run()     // abstract method
@@ -54,6 +55,3 @@ Functional Interface
 
         https://www.youtube.com/watch?v=gpIUfj3KaOc&list=PLqq-6Pq4lTTa9YGfyhyW2CqdtW9RtY-I3
 
-
-Lambda Expressions
-    * Lambda expressions basically used for implementing abstract method of functional interface.

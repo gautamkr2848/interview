@@ -8,8 +8,15 @@ package com.interview.string;
 5. Call the function recursively with parameters: string and k-1.
 6. Now again swap back the ith and jth character.
 
-Time Complexity: O((N2)k). For every digit, N2 recursive calls are generated until the value of k is 0 Thus O((N2)k).
-Auxiliary Space: O(N). This is the space required to store the output string.
+Time Complexity: O(N pow k)
+Auxiliary Space: O(N)
+
+Input: M = 254, K = 1
+Output: 524
+Explanation: Swap 5 with 2 so number becomes 524
+
+Input: M = 254, K = 2
+Output: 542
  */
 
 public class MaxAfterKSwap {

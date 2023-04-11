@@ -1,18 +1,19 @@
 package com.interview.tree;
 
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ConvertBalancedBST {
 
     public Node buildTree(Node root) {
-        Vector<Node> nodes = new Vector<>();
+        List<Node> nodes = new ArrayList<>();
         storeBSTNodes(root, nodes);
 
         int n = nodes.size();
         return buildTreeUtil(nodes, 0, n - 1);
     }
 
-    private void storeBSTNodes(Node root, Vector<Node> nodes) {
+    private void storeBSTNodes(Node root, List<Node> nodes) {
         if (root == null)
             return;
 
@@ -21,7 +22,7 @@ public class ConvertBalancedBST {
         storeBSTNodes(root.right, nodes);
     }
 
-    private Node buildTreeUtil(Vector<Node> nodes, int start, int end) {
+    private Node buildTreeUtil(List<Node> nodes, int start, int end) {
         if (start > end)
             return null;
 

@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
+//Why did we choose sqrt(N)?
+//The reason is that the smallest and greater than one factor of a number cannot be more than the sqrt of N. And we
+// stop as soon as we find a factor. For example, if N is 49, the smallest factor is 7. For 15, smallest factor is 3.
+
 public class IsPrime {
 
     public String isPrime(int n){

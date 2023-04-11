@@ -1,6 +1,5 @@
-package com.interview.dynamic;
+package com.interview.array.subArray.slidingWindow;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,7 +22,7 @@ import java.util.Map;
      a. If the frequency of character at start pointer is greater than 1 increment the pointer as it is redundant.
      b.Now compare the length of present window with the minimum window length.*/
 
-public class SmallestStringContainingAllCharacters {
+public class e_SmallestStringContainingAllCharacters {
 
     public String findSubString(String s) {
         int n = s.length();

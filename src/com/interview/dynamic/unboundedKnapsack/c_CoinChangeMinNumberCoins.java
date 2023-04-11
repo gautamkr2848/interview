@@ -12,9 +12,9 @@ public class  c_CoinChangeMinNumberCoins {
 
         for (int i = 0; i <= n; i++)
             t[i][0] = 0;
-        for (int i = 0; i <= sum; i++)
-            t[0][i] = Integer.MAX_VALUE - 1;
         for (int i = 0; i <= sum; i++) {
+            t[0][i] = Integer.MAX_VALUE - 1;
+
             if(coinArray[0] % sum == 0)
                 t[1][i] = coinArray[0] / sum;
             else

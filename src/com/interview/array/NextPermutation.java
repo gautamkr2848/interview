@@ -21,9 +21,20 @@ Longest Non Increasing Suffix   7   5   0
 
 Pivot   1
 
-Swap Pivot & right most successor   2   4   5   7   1   0
+Swap Pivot & right most greater element   2   4   5   7   1   0         // for 1 right most greater element is 5
 
 Reverse suffix      2   4   5   0   1   7
+
+
+{ 1, 2, 3, 6, 5, 4 }
+
+6 5 4
+
+pivot 3
+
+1 2 4 6 5 3     // for 3 right most greater element is 4
+
+1 2 4 3 5 6
 */
 
 public class NextPermutation {

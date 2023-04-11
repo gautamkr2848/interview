@@ -1,6 +1,12 @@
-Kafka vs SQS
+Messaging System Internal Data Striucture
+    1. Queue Based DS - AWS SQS, Rabit MQ etc.
+    2. Log Based DS - Kafka, AWS Kinesis etc.
 
-There are two platforms Kafka & SQS are mainly programmed to queue messages.
+Use Case of Messaging System
+    1. Lightweight eventing / messaging between services or components
+    2. Heavy processing of large stream of data
+
+SQS vs Kafka
 
 Amazon Simple Queue Service
 
@@ -117,9 +123,17 @@ Kafka vs SQS - Key Differences
     Kafka is a distributed, segmented and redundant commit log service. Provides the functionality of the email system
     but with a unique design.
 
+    Max message size - 1 MB & configurable
+    Message order always preserved
+    Data retention is also configurable. Default 7 days.
+
     Amazon SQS as a “fully managed message queue service”. Hence you can transfer any amount of data without dropping
     messages or requiring other services to be always available. With SQS, you reduce the administrative burden of
     running and scaling a highly available message pool. While getting what you use at an affordable price.
+
+    Max message size - 256 kb
+    Message order always preserved only for FIFO queue
+    Data retention 60 secs to 14 days
 
 
     Kafka Use cases

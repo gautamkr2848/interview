@@ -6,7 +6,7 @@ import java.util.Stack;
 //Output: 1 1 1 2 1 4 6
 
 //nearest greater to left
-public class e_StockSpan {
+public class a1_StockSpan {
 
     public void calculateSpan(int price[], int n, int S[]) {
 
@@ -35,7 +35,7 @@ public class e_StockSpan {
             if(st.empty())
                 System.out.print(i + 1);
             else
-                System.out.print(i-st.peek());
+                System.out.print(i - st.peek());
 
             st.push(i);
         }

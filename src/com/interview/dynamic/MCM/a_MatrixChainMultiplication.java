@@ -26,6 +26,8 @@ public class a_MatrixChainMultiplication {
         return min;
     }
 
+    //Time complexity - exponential
+
     static int[][] t = new int[1001][1001];
     public a_MatrixChainMultiplication(){
         for(int i=0; i<t.length; i++)
@@ -48,4 +50,6 @@ public class a_MatrixChainMultiplication {
         t[i][j] = min;
         return min;
     }
+
+    //Time complexity - O(n3)
 }

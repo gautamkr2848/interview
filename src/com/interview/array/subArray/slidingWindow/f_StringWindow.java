@@ -1,4 +1,56 @@
-package com.interview.dynamic;
+package com.interview.array.subArray.slidingWindow;
+
+//Smallest window in a String containing all characters of other String
+
+//Follow the steps below to solve the problem:
+//
+//        Make a hash array of size 256.
+//        First store the frequency of every character of pattern string.
+//        Then loop over the string and decrement the frequency from the hash array.
+//        When count variable equals to zero then start minimizing the window.
+
+public class f_StringWindow {
+
+    public String Minimum_Window(char []s, char []t) {
+        int m[] = new int[256];
+        int ans = Integer.MAX_VALUE;
+        int start = 0, count = 0;
+
+        for (int i = 0; i < t.length; i++) {
+            if (m[t[i]] == 0)
+                count++;
+            m[t[i]]++;
+        }
+
+        int i = 0, j = 0;
+
+        while (j < s.length) {
+            m[s[j]]--;
+            if (m[s[j]] == 0)
+                count--;
+
+            if (count == 0) {
+                while (count == 0) {
+                    if (ans > j - i + 1) {
+                        ans = Math.min(ans, j - i + 1);
+                        start = i;
+                    }
+
+                    m[s[i]]++;
+                    if (m[s[i]] > 0)
+                        count++;
+
+                    i++;
+                }
+            }
+            j++;
+        }
+
+        if (ans != Integer.MAX_VALUE)
+            return String.valueOf(s).substring(start, ans+start);
+        else
+            return "-1";
+    }
 
 /*
 First check if the length of the string is less than the length of the given pattern, if yes then print "-1"
@@ -12,8 +64,6 @@ If found, then again check if count and pattern length are same and repeat the p
 Update min_length.
 Print the minimum length window.
 */
-
-public class MinWindowsubString {
 
     public void minWindowSubString() {
 

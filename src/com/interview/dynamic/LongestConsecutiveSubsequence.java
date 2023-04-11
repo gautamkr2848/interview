@@ -1,6 +1,8 @@
 package com.interview.dynamic;
 
+import java.util.HashSet;
 import java.util.PriorityQueue;
+import java.util.Set;
 
 public class LongestConsecutiveSubsequence {
 
@@ -31,4 +33,30 @@ public class LongestConsecutiveSubsequence {
         }
         System.out.println(max);
     }
+
+    public int findLongestConseqSubseq(int arr[], int n) {
+        Set<Integer> s = new HashSet<>();
+        int ans = 0;
+
+        for (int i = 0; i < n; i++)
+            s.add(arr[i]);
+
+        for (int i = 0; i < n; ++i) {
+            if (!s.contains(arr[i] - 1)) {      // if current element is the starting element of a sequence Then check for next elements
+                int j = arr[i];
+                while (s.contains(j)){
+                    s.remove(Integer.valueOf(j));//this will improve runtime by avoiding the repetitive counts of elements
+                    j++;
+                }
+
+                if (ans < j - i)       // update  optimal length if this length is more
+                    ans = j - i;
+            }
+        }
+        return ans;
+    }
+
+    //Time complexity: O(N)
+    //Auxiliary space: O(N)
+
 }

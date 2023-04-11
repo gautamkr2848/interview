@@ -7,7 +7,7 @@ public class SumOfLists {
         int carry = 0, sum;
 
         while (a != null || b != null) {
-            sum = carry + a.data + b.data;
+            sum = carry + (a != null ? a.data : 0) + (b != null ? b.data : 0);
             carry = sum / 10;
             sum = sum % 10;
             temp = new Node(sum);

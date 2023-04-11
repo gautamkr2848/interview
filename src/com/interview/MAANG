@@ -537,3 +537,89 @@ Hard Problems -
 13. Department Top Three Salaries
 14. Basic Calculator
 15. Median of Two Sorted Arrays
+
+
+
+Easy Problems -
+
+1. Two City Scheduling
+2. First Unique Character in a String
+3. Merge Sorted Array
+4. Nim Game
+5. Merge Two Sorted Lists
+6. Sum of Left Leaves
+7. Find Pivot Index
+8. Symmetric Tree
+9. Path Sum
+10. Palindrome Linked List
+
+Medium Problems -
+
+1. Invalid Transactions
+2. Remove All Adjacent Duplicates in String II
+3. Decode String
+4. Flatten a Multilevel Doubly Linked List
+5. Number of Islands
+6. Meeting Rooms II
+7. Design Browser History
+8. LRU Cache
+9. Add Two Numbers II
+10. Vertical Order Traversal of a Binary Tree
+11. Validate Binary Search Tree
+12. Populating Next Right Pointers in Each Node II
+13. Design A Leaderboard
+14. Add Two Numbers
+15. Candy Crush
+16. Insert Delete GetRandom O(1)
+17. Shuffle an Array
+18. Sort Characters By Frequency
+19. Design Bounded Blocking Queue
+20. Binary Tree Vertical Order Traversal
+21. Find K Closest Elements
+22. Valid Triangle Number
+23. Broken Calculator
+24. Kill Process
+25. Merge Intervals
+26. Maximum Number of Occurrences of a Substring
+27. Minimum Number of Steps to Make Two Strings Anagram
+28. Binary Tree Coloring Game
+29. Longest Substring Without Repeating Characters
+30. Design Snake Game
+
+Hard Problems -
+
+1. Longest Consecutive Sequence
+2. Minimum Insertion Steps to Make a String Palindrome
+3. Regular Expression Matching
+4. Word Break II
+5. LFU Cache
+6. Maximal Rectangle
+7. First Missing Positive
+8. Substring with Concatenation of All Words
+9. Largest Rectangle in Histogram
+10. Word Ladder II
+
+
+Heap Sort
+Convert BST to min heap
+Top k frequent elements
+Merge k sorted list
+Nearly sorted array
+Min cost of ropes
+Find median from data stream
+kth largest element in array
+Check if binary tree is heap
+Why binary heap preferred over BST for priority queue
+
+A typical Priority Queue requires following operations to be efficient.
+
+Get Top Priority Element (Get minimum or maximum)
+Insert an element
+Remove top priority element
+Decrease Key
+A Binary Heap supports above operations with following time complexities:
+
+O(1)
+O(Logn)
+O(Logn)
+O(Logn)

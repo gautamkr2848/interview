@@ -14,7 +14,7 @@ Tiny URL - upto 7-8 chrs
       total   =  62
 
       tiny url combinations = Math.pow(62, 7) = 3.5 trillion combinations
-                                                If 1000 url/sec then 110 years to exaust
+                                                If 1000 url/sec then 110 years to exhaust
 
 1. Generate random tiny url and check into database
     For same long url's there may be 2 diff. tiny url.

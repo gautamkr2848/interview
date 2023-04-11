@@ -3,6 +3,9 @@ package com.interview.string;
 import java.util.ArrayList;
 import java.util.List;
 
+//Input : ab
+//Output : AB Ab ab aB
+
 public class LetterCasePermutation {
 
     public List<String> letterCasePermutation(String S) {

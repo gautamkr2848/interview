@@ -12,17 +12,17 @@ import java.util.List;
 
 public class BTPath {
 
-    public boolean path(Node node, int n){
+    public boolean searchNode(Node node, int n){
         if (node == null)
             return false;
 
         if(node.key == n)
             return true;
 
-        if(path(node.left, n))
+        if(searchNode(node.left, n))
             return true;
 
-        if(path(node.right, n))
+        if(searchNode(node.right, n))
             return true;
 
         return false;
