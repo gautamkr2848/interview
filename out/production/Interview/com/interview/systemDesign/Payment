@@ -1,0 +1,55 @@
+Online Payment / By using swipe machine
+
+Customer    ==>>    Merchant    ==>>    Acquirer Bank   ==>>    Card Network / Scheme    ==>>    Issuer Bank
+
+Customer    ==>>    Merchant    ==>>    Stripe  ==>>    Acquirer Bank   ==>>    Card Network (visa / master card)    ==>>    Issuer Bank
+
+Payment Gateway
+    A service which allows us to make payments while making purchases from stores.It supports payment through card,
+    internet banking or wallets etc.
+
+Payment Service Provider
+    A PSP is the service which makes sure that money is transferred from buyer to seller accounts.
+
+Issuer Bank
+    Customer bank
+
+Card Association
+    Card providers like mastercard, visa etc.
+
+Payment Card Industry Data Security Standard
+    It is a security standard, if a seller is complaint with this standard then only payment page will be generated on
+    seller's page or else they need to redirect the request to PSP's payment page, which is complaint with this
+    standard.
+
+Acquiring Bank
+    seller's Bank
+
+3D Secure
+    Protocol defined by Visa, but now followed by all card association for security purpose
+
+ISO-8583
+    JSON message will not work here, we need to send message in ISO-8583 format
+
+Functional Requirements
+    1. Multiple payments options => card / internet banking / upi
+    2. Highly secure transactions / details
+    3. Avoid double payments
+    4. Latency should be low
+    5. Fault tolerance
+
+Non Functional Requirements
+    1. High consistent
+    2. High available
+    3. Scalable
+
+API's
+    Payment Ingestion
+        1. getFormForPayment
+        2. sendOtp
+        3. postRequestForPayment
+        4. getTransactionDetailsUsingTransactionId
+
+    Payment Processor
+        1. processPayment enabled with retry mechanism
+        2. getIsoMessage

@@ -5,8 +5,8 @@ package com.interview.dynamic.unboundedKnapsack;
 public class  c_CoinChangeMinNumberCoins {
 
     public void coinChangeMinNumberCoins(){
-        int[] coinArray = {25, 10, 5, 20 };
-        int sum = 35;
+        int[] coinArray = {9, 10, 20, 5};
+        int sum = 45;
         int n = coinArray.length;
         int[][] t = new int[n+1][sum+1];
 

@@ -63,8 +63,7 @@ class IpHash implements LoadBalance {
             clientIp = "127.0.0.1";
         }
 
-        String remoteId = clientIp;
-        Integer index = remoteId.hashCode() % LoadBalancer.servers.size();
+        Integer index = clientIp.hashCode() % LoadBalancer.servers.size();
         String target = LoadBalancer.servers.get(index);
         return target;
     }

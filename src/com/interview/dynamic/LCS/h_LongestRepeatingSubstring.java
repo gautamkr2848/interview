@@ -1,5 +1,25 @@
 package com.interview.dynamic.LCS;
 
+/*
+Longest repeating and non-overlapping substring
+
+Input : str = "geeksforgeeks"
+Output : geeks
+
+Input : str = "aab"
+Output : a
+
+Input : str = "aabaabaaba"
+Output : aaba
+
+Input : str = "aaaaaaaaaaa"
+Output : aaaaa
+
+Input : str = "banana"
+Output : an
+         or na
+ */
+
 public class h_LongestRepeatingSubstring {
 
     public void longestRepeatingSubstring(){

@@ -24,9 +24,8 @@ different buffers at the same time.
 
 Misconception:
 
-There is an ambiguity between binary semaphore and mutex that a mutex is a binary semaphore. But it is not! The purpose
-of mutex and semaphore are different. Maybe, due to similarity in their implementation a mutex would be referred to as
-a binary semaphore.
+A mutex is a binary semaphore. But it is not! The purpose of mutex and semaphore are different. Maybe, due to similarity
+in their implementation a mutex would be referred to as a binary semaphore.
 
 Strictly speaking, a mutex is a locking mechanism used to synchronize access to a resource. Only one task  can acquire
 the mutex. It means there is ownership associated with a mutex, and only the owner can release the lock (mutex).

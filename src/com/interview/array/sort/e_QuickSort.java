@@ -1,6 +1,6 @@
 package com.interview.array.sort;
 
-public class e_QuickSort {
+public class    e_QuickSort {
 
     public void qs(){
         int arr[] = { 12, 3, 5, 7, 4, 19, 26 };
@@ -22,10 +22,8 @@ public class e_QuickSort {
     public int partition(int arr[], int low, int high) {
         int pivot = arr[high], i = low;
         for (int j = low; j < high; j++) {
-            if (arr[j] <= pivot) {
-                swap(arr, i, j);
-                i++;
-            }
+            if (arr[j] <= pivot)
+                swap(arr, i++, j);
         }
         swap(arr, i, high);
         return i;

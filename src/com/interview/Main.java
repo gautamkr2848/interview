@@ -1,24 +1,43 @@
 package com.interview;
 
-import com.interview.array.StockBuySell;
-import com.interview.dynamic.LCS.k_LongestSubStringWithNonRepeatedChar;
-import com.interview.dynamic.MCM.a_MatrixChainMultiplication;
-import com.interview.list.Node;
-import com.interview.list.DetectAndRemoveLoop;
-import com.interview.list.RemoveDuplicates;
-import com.interview.list.SwapKthBeginingEnd;
-import com.interview.matrix.MaxSumRectangle;
-import com.interview.recursion.PalindromePartioning;
-import com.interview.stack.WaterTapping;
-import com.interview.string.excel.ColumnNumberToName;
+import com.interview.array.MaxJminusI;
+import com.interview.greedy.ActivitySelection;
+import com.interview.string.SubdomainCount;
 
 import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
 
     public static void main(String[] args) {
-        ColumnNumberToName c = new ColumnNumberToName();
-        c.columnNumberToName();
+        SubdomainCount s = new SubdomainCount();
+        s.subdomainVisits(new String[]{"900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"});
+    }
+
+    private static String maxSum(String w,char x[],int b[], int n){
+        int maxSum = 0, sum = 0;
+        String ans = "", res = "";
+        for(int i=0; i<w.length(); i++){
+            sum = sum + ascii(w.charAt(i), x, b);
+            ans = ans + w.charAt(i);
+            if(sum > maxSum){
+                maxSum = sum;
+                res = ans;
+            } else if(sum < 0){
+                sum = 0;
+                ans = "";
+            }
+        }
+        return res;
+    }
+
+    private static int ascii(char c, char[] x, int[] b) {
+        for(int i=0; i<b.length; i++){
+            if(x[i] == c)
+                return b[i];
+        }
+        return (int) c;
     }
 
     private void excelCode(){
@@ -44,7 +63,7 @@ public class Main {
                     bwr.write("\n");
                     flag = Boolean.FALSE;
 
-                } else if(values[2].equalsIgnoreCase("ca3c619f-f5ca-43ab-bfbb-e65f6d99015c")) {
+                } else if (values[2].equalsIgnoreCase("ca3c619f-f5ca-43ab-bfbb-e65f6d99015c")) {
                     bwr.write(values[0] + ';');
                     bwr.write(values[1] + ';');
                     bwr.write(values[2] + ';');
@@ -52,7 +71,6 @@ public class Main {
                     bwr.write(values[4] + ';');
                     bwr.write("\n");
                 }
-
             }
             bwr.close();
         } catch (FileNotFoundException e) {

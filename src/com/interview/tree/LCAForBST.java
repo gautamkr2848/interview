@@ -1,7 +1,5 @@
 package com.interview.tree;
 
-import java.util.List;
-
 public class LCAForBST {
 
     public void lCAForBST(Node root, int n1, int n2){

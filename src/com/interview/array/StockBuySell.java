@@ -98,8 +98,6 @@ public class StockBuySell {
 */
 
     public int maxProfit_2() {
-        /*int[] price = {10, 22, 5, 75, 65, 80};
-        int k = 2;*/
 
         int[] price = {12, 14, 17, 10, 14, 13, 12, 15};
         int k = 3;

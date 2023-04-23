@@ -16,9 +16,9 @@ public class b_FindMin {
             if (arr[mid] < arr[mid - 1])        // Check if mid is the minimum element
                 return arr[mid];
 
-            if (arr[mid] > arr[high])       // If the right half is sorted, the minimum element must be in the left half
+            if (arr[mid] > arr[high])       // If the left half is sorted, the minimum element must be in the right half
                 low = mid + 1;
-            else      // If the left half is sorted, the minimum element must be in the right half
+            else      // If the right half is sorted, the minimum element must be in the left half
                 high = mid - 1;
         }
         return -1;
