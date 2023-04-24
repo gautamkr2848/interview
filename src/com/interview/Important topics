@@ -9,6 +9,8 @@
     In order to improve speed and connectivity, a CDN will place servers at the exchange
     points between different networks.
 
+    eg - Akamai, Open connect (Netflix)
+
 
 2. Distributed Cache    =>  Redis
 
@@ -28,6 +30,7 @@
             It then publishes either a Credit Reserved event or a CreditLimitExceeded event.
         c. The Order Service receives the event from the Customer Service and changes the state of
             the order to either approved or cancelled
+
 
 5. Service Discovery    =>  Eureka
 
@@ -207,6 +210,76 @@
         With the help of the “TRUNCATE” command, we can’t delete the single row as here WHERE clause is not used
         Faster than the delete command
         We can’t restore the tuples of the table by using the “ROLLBACK” command.
+
+
+35. Forward Proxy
+    A forward proxy is an application that sits in front of client's device and placed b/w device & internet. Blocking
+     unwanted urls while using office laptops
+
+
+36. Reverse proxy
+    In computer networks, a reverse proxy is an application that sits in front of back-end applications and forwards
+    client requests to those applications. Reverse proxies help increase scalability, performance, resilience and security.
+
+
+37. Performance vs scalability
+    If you have a performance problem, your system is slow for a single user.
+    If you have a scalability problem, your system is fast for a single user but slow under heavy load.
+
+
+38. Latency vs throughput
+    Latency is the time to perform single task or to produce some result.
+    Throughput is the number of such actions or results per unit of time.
+    Generally, you should aim for maximal throughput with acceptable latency.
+
+
+39. HTTP    <<<<====>>>>    FTP
+    1.	HyperText Transfer Protocol.    <<<<====>>>>    File Transfer Protocol
+    2.	It is the set of rules that how web pages are transferred on different computers over the internet.    <<<<====>>>>    It is the set of rules that permit the downloading and uploading the files on the computer over the internet.
+    3.	It only supports the data connection.    <<<<====>>>>    It supports both data connection and control connection
+    4.	It uses Transmission Control Protocol and runs on TCP port 80.	It uses Transmission Control Protocol and runs on TCP port 20 and TCP port 21.
+    5.	It does not require authentication.    <<<<====>>>>    It requires authentication.
+    6.	It is efficient in transferring small files.    <<<<====>>>>    It is efficient in transferring large files.
+    7. 	The files transferred to the computer over the internet are not saved to the memory.    <<<<====>>>>    The files transferred to the computer over the internet are saved to the memory.
+    8.	It is a stateless protocol.    <<<<====>>>>    It is not a stateless protocol and it maintains states.
+    9.	HTTP is faster.    <<<<====>>>>    FTP is slower as compared to HTTP.
+
+
+40. TCP    <<<<====>>>>    UDP
+    1. TCP is a connection-oriented protocol.    <<<<====>>>>    UDP is the Datagram-oriented protocol.
+    2. TCP provides extensive error-checking mechanisms.    <<<<====>>>>    UDP has only the basic error-checking mechanism using checksums.
+    3. An acknowledgment segment is present.    <<<<====>>>>    No acknowledgment segment.
+    4. Sequencing of data is a feature of TCP.    <<<<====>>>>    There is no sequencing of data in UDP.
+    5. TCP is comparatively slower than UDP.    <<<<====>>>>    UDP is faster, simpler, and more efficient than TCP.
+    6. Weight	TCP is heavy-weight.    <<<<====>>>>    UDP is lightweight.
+    7. Uses handshakes such as SYN, ACK, SYN-ACK.    <<<<====>>>>    It’s a connectionless protocol i.e. No handshake
+    8. TCP doesn’t support Broadcasting.    <<<<====>>>>    UDP supports Broadcasting.
+
+
+41. Secure Sockets Layer (SSL)
+    1. The web browser sends the server a copy of its SSL certificate.
+    2. The server checks to see whether or not it trusts the SSL certificate. If so, it sends a message to the web browser.
+    3. The web browser sends back a digitally signed acknowledgement to start an SSL encrypted session.
+
+
+42. GIT Merge vs Rebase
+    1. Total 3 commits, A-B-C
+    2. Then developer Dan created commit D, and developer E created commit E:
+        A-B-C-D
+             -E
+
+    3. Obviously, this conflict should be resolved somehow. For this, there are 2 ways:
+        MERGE: A-B-C-D
+                    -E-M
+
+    4. Both commits D and E are still here, but we create merge commit M that inherits changes from both D and E.
+    However, this creates diamond shape, which many people find very confusing.
+       REBASE: A-B-C-D-R
+
+    5. We create commit R, which actual file content is identical to that of merge commit M above. But, we get rid of
+    commit E, like it never existed. Because of this obliteration, E should be local
+    to developer Ed and should have never been pushed to any other repository. Advantage of rebase is that diamond
+    shape is avoided, and history stays nice straight line - most developers love that!
 
 
 NP Complete

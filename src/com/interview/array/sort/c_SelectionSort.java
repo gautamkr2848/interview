@@ -12,17 +12,25 @@ package com.interview.array.sort;
 public class c_SelectionSort {
 
     e_QuickSort q = new e_QuickSort();
-    public void selectionSort(){
+    public void selectionSort_2(){
         int arr[] = {10, 7, 8, 9, 1, 5};
         int n = arr.length;
 
         for (int i = 0; i < n-1; i++) {
-            int min = i;    // Find the minimum element in unsorted array
-            for (int j = i+1; j < n; j++)
-                if (arr[j] < arr[min])
-                    min = j;
-
-            q.swap(arr, min, i);
+            int j = findMin(arr, i, n);
+            q.swap(arr, i, j);
         }
+
+        for(int i=0; i<n; i++)
+            System.out.print(arr[i] + " ");
+    }
+
+    private int findMin(int[] arr, int start, int end){
+        int min = start;
+        for(int i=start + 1; i<end; i++){
+            if(arr[i] < arr[min])
+                min = i;
+        }
+        return min;
     }
 }

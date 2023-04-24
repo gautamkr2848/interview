@@ -2,6 +2,21 @@ package com.interview.tree;
 
 import java.util.Stack;
 
+/*
+Approach
+    Push all the left nodes to the stack starting from the root in the constructor. This will push the nodes in
+    descending order.
+
+    In the hasNext() return true if the stack has elements and false if its empty
+
+    In the next(), pop the node from the stack, push to the stack the right subtree of this node and return its value.
+
+Run Time Complexity
+    hasNext(): O(1)
+    next(): O(logn)
+    memory: O(logn)
+ */
+
 public class BSTIterator {
 
     Stack<Node> stack = new Stack<>();

@@ -1,6 +1,6 @@
 package com.interview.heap.min;
 
-//Given a binary search tree which is also a complete binary tree. The problem is to convert the given BST into a Min
+// Given a binary search tree which is also a complete binary tree. The problem is to convert the given BST into a Min
 // Heap with the condition that all the values in the left subtree of a node should be less than all the values in the
 // right subtree of the node. This condition is applied to all the nodes, in the resultant converted Min Heap.
 
@@ -12,7 +12,7 @@ Perform the inorder traversal of the BST and copy the node values in the list in
 Now perform the preorder traversal of the tree.
 While traversing the root during the preorder traversal, one by one copy the values from the array arr[] to the nodes
 of the BST.
- */
+*/
 
 import com.interview.tree.Node;
 

@@ -32,21 +32,26 @@ public class TreePathSumK {
     List<Integer> path = new ArrayList<>();
     int count = 0;
 
-    public void printKPathUtil(Node root, int k) {
+    public void printPath(Node root, int k) {
         if (root == null)
             return;
 
         path.add(root.key);
 
-        printKPathUtil(root.left, k);
-        printKPathUtil(root.right, k);
+        printPath(root.left, k);
+        printPath(root.right, k);
 
         int currSum = 0;
         for (int j = path.size() - 1; j >= 0; j--) {
             currSum += path.get(j);
 
-            if (currSum == k)
+            if (currSum == k) {
                 count++;
+                for (int i=j; i<path.size(); i++){
+                    System.out.print(path.get(i) + " ");
+                }
+                System.out.println();
+            }
         }
         path.remove(path.size() - 1);       // Remove the current element from the path
     }

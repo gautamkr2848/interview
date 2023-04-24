@@ -14,7 +14,7 @@ public class BalanceTreeCheck {
         return false;
     }
 
-    int height(Node root){
+    private int height(Node root){
         if (root == null)
             return 0;
         return 1 + Math.max(height(root.left), height(root.right));

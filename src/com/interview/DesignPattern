@@ -50,6 +50,8 @@ Singleton design pattern is the best solution of above specific problem.
             2. It allows reusability of existing functionality.
 
     Bridge Pattern
+        The Bridge design pattern allows you to separate the abstraction from the implementation
+
     Composite Pattern
     Decorator Pattern
         A Decorator Pattern says that just attach a flexible additional responsibilities to an object dynamically.

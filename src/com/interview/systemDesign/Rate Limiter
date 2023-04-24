@@ -1,27 +1,51 @@
+
+                                                           ---------------------
+                                                           |    Rule Engine    |
+                                                           ---------------------
+                                                                    |
+                                                                    |
+                                                           ---------------------
+                                                           |    Redis Cache    |
+                                                           ---------------------
+                                                                    ^
+                                                                    |
+                                                                   / \
+                                                                /      \
+    ---------------------        -----------------             /  Rate   \                 ---------------------
+    |    Redis Cache    | <----> | Load Balancer | <---------> \  Limiter / <------------> |    API / Server   |
+    ---------------------        -----------------            ^  \      /                  ---------------------
+    ^                                                         |     \/
+    |-------------          429           --------------------      |
+                                                                    |
+                                                          ---------------------
+                                                          |    Redis Cache    |
+                                                          ---------------------
+                                                                    |
+                                                                    |
+                                                          ---------------------
+                                                          | Logging Mechanism |
+                                                          ---------------------
+                                                                    |
+                                                                    |
+                                                          ------------------------
+                                                          | Large Storage System |
+                                                          ------------------------
+
 What is Rate Limiting?
 
-Rate limiting is used for security purposes as well as performance improvement. For example, a service can serve a
-limited number of requests per second. However, if a service is receiving a huge number of requests at a time, it might
-be too much for the server to handle. In that case, even the server might be shut down. To handle this type of problem,
-we would need some kind of limiting mechanism that would allow only a certain number of requests to the service.
-
-If we want to put it simply, rate limiting is limiting some operations with some threshold. If those threshold values
-are crossed, the system will return errors. You may say rate limiting limits the number of operations performed within
-a given amount of time.
+Rate limiter restricts the number of events that a certain user or device can perform within a given time range. It
+helps us to limit the number of requests a sender can send in a perticular period of time. Once the upper limit is
+reached, the rate limiter bolcks the further requests.
 
 
 Why do Need Rate Limiting?
 
-The denial of service attack, which is mostly known as a DOS attack, is when hackers try to flood a system with many
-requests within a short period of time to shut the system down. Because a server has a limit of how many requests it
-can serve within a certain period of time. So, the system can’t handle the floods of requests properly; it can not
-handle them properly.
-
-Service provider wants to use rate limiter for client based on pricing.
-
-If the application is not able to handle huge amount of requests.
+    1. DOS attack - When hackers try to flood a system with many requests within a short period of time.
+    2. Service provider wants to use rate limiter for client based on pricing.
+    3. If the application is not able to handle huge amount of requests.
 
 Note - We can rate-limit the system in various ways, like based on user id, IP address, region, overall application wise etc.
+        Rate limiter will throw, if any requests were rejected
 
 
 Functional Requirements:
@@ -47,7 +71,8 @@ Algorithms:
     1. Token Bucket
     2. Leaky Bucket
     3. Fixed Window
-    4. Sliding Window
+    4. Sliding Window Log
+    5. Silding Window Counter
 
 
 Token Bucket
@@ -56,8 +81,8 @@ Assume a bucket has few tokens. When a request comes in, a token from the bucket
 request will be refused if no tokens is available in the bucket. As a result, token bucket gets refreshed every time
 unit.
 
-By allocating a bucket, fixed number of tokens will be assigned to each user. When a user uses all of his tokens in a
-certain time, we'll deny further requests.
+    Drawbacks - If there is a spike in traffic, you have large number of users who are getting response as 429 then you
+    need to tweaking the size of bucket.
 
 
 Leaky Bucket
@@ -71,43 +96,24 @@ Fixed Window algorithm:
 
     A client can make two requests per minute. So, request 1 and request 2 are allowed by the rate limiter. But the
     third request is blocked as it can within 1 minute from the same user. This type of algorithm is named as Fixed
-    Window algorithm. In this algorithm, a period is considered 1 minute( for this example) irrespective of the time
-    frame at which the two API requests have been allowed.
+    Window algorithm. After 1 minute of the first request from a specific client, the start time is reset for that user.
 
-    After 1 minute of the first request from a specific client, the start time is reset for that user. This is a simple
-    approach for rate limiters. But there are some drawbacks to this approach.
-
-Drawbacks:
+    Drawbacks:
 
     It can allow twice the number of allowed requests per minute. Imagine the user sends two requests at the last
     second of a minute(12:01:59) and immediately makes two more requests at the first second(12:02:00) of the next
-    minute. It may seem a minor problem for only two requests. But if the number of requests is much higher(for example,
-    50 requests) or the time frame is much lower, e.g., 15 seconds, it can cause a huge number of requests for a server.
-    Especially we are considering here only one user. Imagine what will happen to a service that serves millions of
-    users.
-
-    Besides, in a distributed system, the “read-and-then-write” behavior can create a race condition. For example,
-    imagine if the client’s current request count is 2 and makes two more requests. If two separate processes serve
-    each of these requests and concurrently read the Count value before either of them updated it, the process would
-    result in the client not hitting the rate limit. Thus, we may need to implement locking each record.
+    minute. It may seem a minor problem for only two requests. But if the number of requests is much higher.
 
 
-Sliding Window Algorithm:
+Sliding Window :
+
+    Redis / HashTable -
+        1. Log - userId as key & List of timestamp as value
+        2. Counter - userId as key & List of timestamp with counter
 
     If we keep track of each request per user in a time frame, we may store the timestamp of each request in a Sorted
     Set in our ‘value’ field of hash-table. But, it would take a lot of memory. So, we can use a sliding window with
-    the counters. Now, consider this if we keep track of request counts for each user using multiple fixed time windows.
-
-    For example, if we have an hourly window, when we receive a new request to calculate the limit, we can count
-    requests each minute and calculate the sum of all counters in the past hour. This would reduce the memory we need
-    for the set.
-
-    Suppose we rate-limit at 500 requests per hour with an additional limit of 10 requests per minute. This means that
-    the client has exceeded the rate limit when the sum of the counters in the past hour exceeds the limit request(500).
-
-    For a smaller time frame, the client can’t send more than ten requests per minute. This would be a hybrid and
-    reasonable consideration as we may think that none of the real users would send such frequent requests. Even if
-    they do, they will get success with retries since their limits get reset every minute.
+    the counters.
 
 
 Problems in Distributed Environment:

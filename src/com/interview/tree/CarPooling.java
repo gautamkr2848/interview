@@ -7,7 +7,7 @@ public class CarPooling {
     public boolean carPooling(int capacity) {
         int[][] trips = {{3, 2, 7},
                         {3, 7, 9},
-                        {8,3, 9}};
+                        {8, 3, 9}};
         this.capacity = capacity;
 
         List<Trip> tripList = new ArrayList<>();

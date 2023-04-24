@@ -150,15 +150,9 @@ Kafka vs SQS - Key Differences
         Not as fast as Kafka and not suitable for large workloads.
         Better for events with few events per second.
 
-    Message Model - Message model of Apache Kafka follows publish subscriber model, where as SQS is pull based
-    streaming. Also SQS has two types of queues: FIFO and Standard and they are focused on the successful delivery and
-    processing of messages by individual clients.
+    Message Model - Apache Kafka follows publish subscriber model, where as SQS is pull based streaming.
+
+    SQS has two types of queues: FIFO and Standard
 
     Message size - For Kafka is 1MB and configurable. But for SQS Max Message size 256KB.
 
-    Deduplication - is supported in Kafka with dedupe “worker” is a Go program which reads off the Kafka input
-    partitions.  Contrarily SQS does not support deduplication if the same data is generated multiple times. Also it
-    attempts to delete messages based on the deduplication ID and deduplication interval.
-
-    Ordering at scale is supported with Kafka. Produced messages are always consumed in order irrespective of the
-    number of items in the queue.

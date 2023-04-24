@@ -22,7 +22,7 @@ public class b_NearestSmallerNumbersOnLeft {
 
     public void nearestSmallerNumbersOnLeft(){
         //int[] arr = {1, 5, 0, 3, 4, 5};
-        int[] arr = {25, 2, 5, 8, 4};
+        int[] arr = {3, 5, 4, 2, 2, 5, 5, 4, 2, 5};
         System.out.print( "-1, ");
         int n = arr.length;
 
@@ -44,18 +44,18 @@ public class b_NearestSmallerNumbersOnLeft {
     //Space Complexity: O(1)
 
     public void nearestSmallerNumbersOnLeft_2(){
-        int[] arr = {1, 5, 0, 3, 4, 5};
+        int[] arr = {3, 5, 4, 2, 2, 5, 5, 4, 2, 5};
         int n = arr.length;
         Stack<Integer> S = new Stack<>();
 
         for (int i = 0; i < n; i++) {
             // Keep removing top element from S while the top element is greater than or equal to arr[i]
-            while (!S.empty() && S.peek() >= arr[i])
+            while (!S.empty() && S.peek() > arr[i])
                 S.pop();
 
             // If all elements in S were greater than arr[i]
             if (S.empty()) {
-                System.out.print("_, ");
+                System.out.print("-1, ");
             } else { //Else print the nearest smaller element
                 System.out.print(S.peek() + ", ");
             }
