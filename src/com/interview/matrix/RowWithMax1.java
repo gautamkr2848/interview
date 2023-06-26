@@ -6,7 +6,7 @@ package com.interview.matrix;
 
 public class RowWithMax1 {
 
-    public void rowWithMax1(){
+    public void rowWithMax1() {
         int arr[][] = {{0, 0, 1, 1},
                        {0, 0, 0, 1},
                        {0, 0, 0, 0},

@@ -3,7 +3,7 @@ package com.interview.matrix;
 public class MatrixSearch {
 
     public void matrixSearch(){
-        int mat[][] = { { 10, 20, 30},
+        int mat[][] = {{ 10, 20, 30},
                         { 15, 25, 35 },
                         { 27, 29, 37}};
         int n = 3, x = 20;

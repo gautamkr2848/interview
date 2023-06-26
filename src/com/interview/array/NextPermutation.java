@@ -42,7 +42,7 @@ public class NextPermutation {
 
         public void nextPermutation(int[] nums) {
             int i = nums.length - 2;
-            while (i >= 0 && nums[i + 1] <= nums[i])
+            while (i >= 0 && nums[i] >= nums[i + 1])
                 i--;
 
             if (i >= 0) {

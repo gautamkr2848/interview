@@ -6,7 +6,7 @@ import java.util.Map;
 public class a_2_CountSubArrayWithEqual_0_1 {
 
     public void countSubarrWithEqualZeroAndOne(int[] arr, int n) {
-        Map<Integer, Integer> myMap = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         int sum = 0;
         int count = 0;
         for (int i = 0; i < n; i++) {
@@ -18,8 +18,8 @@ public class a_2_CountSubArrayWithEqual_0_1 {
             if (sum == 0)
                 count++;
 
-            count = count + myMap.getOrDefault(sum, 0);
-            myMap.put(sum, myMap.getOrDefault(sum, 0) + 1);
+            count = count + map.getOrDefault(sum, 0);
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
         System.out.println(count);
     }

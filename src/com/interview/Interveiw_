@@ -73,7 +73,7 @@ ServiceNow - 2
 3. String Subset
 
 BlackBuck - 1
-1. CarPooling [People, Start, End]      //Not done
+1. CarPooling [People, Start, End]
 2. Nearest greater right side
 
 GamesCraft - 2
@@ -232,7 +232,6 @@ Cleartrip - 2
 Vymo - 2
 1. Max Profit
 2. Target sum
-3. Tree generation element      //Not done
 
 Games 24*7 - 2
 1. Projetc use cases
@@ -245,10 +244,10 @@ Quinbay - 3
 2. Monolith vs microservices
 
 Nike - 4
-2. Stock Profit
-4. Missing Number from array
-6. Mysql and Elastic search
-7. Behavioural Discussion
+1. Stock Profit
+2. Missing Number from array
+3. Mysql and Elastic search
+4. Behavioural Discussion
 
 Dailyhunt - 3
 1. print even odd
@@ -270,3 +269,4 @@ Fisdom - 2
 1. LWD
 2. Slack Design
 3. Design infinite login page
+4. Asymptotic notation

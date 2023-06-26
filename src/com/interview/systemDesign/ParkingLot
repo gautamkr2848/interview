@@ -6,6 +6,22 @@ For our purposes right now, we’ll make the following assumptions.
 6) A bus can park in five large spots that are consecutive and within the same row. It cannot park
     in small spots.
 
+Endpoints
+    1. /reserve
+    2. /payment
+    3. /calculate payment
+    4. /available slots
+    5. /login
+    6. /createAccount
+    7. /bookSlot
+
+Database : Expecting Structured data only. So, will go with MYSQL
+    1. Garage Table - id, name, address
+    2. User Table - id, name, email, password (SHA - 256 Hash), garage_id
+    3. Spot Table - id, garage_id, spot_type, price, is_available
+    4. Reservation - id, spot_id, start_time, end_time, is_paid
+    5. Vehicle - id, registration, reservation_id
+
 public enum VehicleType {
     BIKE, CAR, LARGE
 }

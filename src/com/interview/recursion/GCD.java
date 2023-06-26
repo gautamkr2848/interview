@@ -9,6 +9,8 @@ public class GCD {
             return gcd(b, a % b);
     }
 
+    //time complexity - O(log(min(a,b))
+
     public int gcd_2(int a, int b){
         int dividend = a >= b ? a : b;
         int divisor = a <= b ? a : b;

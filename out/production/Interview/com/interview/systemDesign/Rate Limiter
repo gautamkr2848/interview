@@ -1,3 +1,10 @@
+Design Rate Limiter
+
+Requirements -
+    1. Server side rate limiter
+    2. Block based on user ip or user id
+    3. Send 429 to user after blocking
+    4. Logging mechanism for future use
 
                                                            ---------------------
                                                            |    Rule Engine    |
@@ -12,10 +19,10 @@
                                                                    / \
                                                                 /      \
     ---------------------        -----------------             /  Rate   \                 ---------------------
-    |    Redis Cache    | <----> | Load Balancer | <---------> \  Limiter / <------------> |    API / Server   |
-    ---------------------        -----------------            ^  \      /                  ---------------------
+    |    client         | <----> | Load Balancer | <---------> \  Limiter / <------------> |    API / Server   |
+    ---------------------        -----------------            |  \      /                  ---------------------
     ^                                                         |     \/
-    |-------------          429           --------------------      |
+    |<------------          429           <-------------------      |
                                                                     |
                                                           ---------------------
                                                           |    Redis Cache    |
@@ -30,6 +37,8 @@
                                                           ------------------------
                                                           | Large Storage System |
                                                           ------------------------
+
+Ref - https://www.youtube.com/watch?v=SgWb6tWx3S8&t=394s
 
 What is Rate Limiting?
 
@@ -109,7 +118,7 @@ Sliding Window :
 
     Redis / HashTable -
         1. Log - userId as key & List of timestamp as value
-        2. Counter - userId as key & List of timestamp with counter
+        2. Counter - userId as key & List of timestamp with counter as value
 
     If we keep track of each request per user in a time frame, we may store the timestamp of each request in a Sorted
     Set in our ‘value’ field of hash-table. But, it would take a lot of memory. So, we can use a sliding window with

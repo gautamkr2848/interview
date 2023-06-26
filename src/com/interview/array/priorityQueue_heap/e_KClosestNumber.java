@@ -16,7 +16,7 @@ public class e_KClosestNumber {
         int n = arr.length;
         int x = 35, k = 4;
 
-        PriorityQueue<Value> pq = new PriorityQueue<>(((o1, o2) -> o2.x.compareTo(o1.x)));
+        PriorityQueue<Value> pq = new PriorityQueue<>((o1, o2) -> o2.x.compareTo(o1.x));
         for(int i=0; i<k; i++)
             if(arr[i] != x)
                 pq.add(new Value(Math.abs(arr[i] - x), arr[i]));

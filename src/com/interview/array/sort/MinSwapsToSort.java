@@ -45,4 +45,25 @@ public class MinSwapsToSort {
         arr[i] = arr[j];
         arr[j] = temp;
     }
+
+    public int minSwaps_2(int arr[]) {
+        int count = 0;
+        int N = arr.length;
+        int[] temp = Arrays.copyOfRange(arr, 0, N);
+        Arrays.sort(temp);
+
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < N; i++)
+            map.put(temp[i], i);
+
+        for (int i = 0; i < N; i++){
+
+            if(i != map.get(arr[i])) {
+                count++;
+                swap(arr, i, map.get(arr[i]));
+                i--;
+            }
+        }
+        return count;
+    }
 }

@@ -20,6 +20,8 @@ public class a_InOrder {
         inOrder(node.right);
     }
 
+    // O(n) time complexity
+
     public void inOrder2(Node node){
         if (node == null)
             return;

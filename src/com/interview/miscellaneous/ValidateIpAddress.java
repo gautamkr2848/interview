@@ -29,9 +29,7 @@ public class ValidateIpAddress {
         InetAddress i = InetAddress.getLocalHost();
         System.out.println("local ip address : "+i.getHostAddress().trim());
 
-        /*InetAddressValidator validator = InetAddressValidator.getInstance();
-
-        System.out.println(validator.isValidInet4Address(ip) ? true : false);
-        System.out.println(validator.isValidInet6Address(ip) ? true : false);*/
+        //System.out.println(InetAddressValidator.getInstance().isValidInet4Address(ip) ? true : false);
+        //System.out.println(InetAddressValidator.getInstance().isValidInet6Address(ip) ? true : false);
     }
 }

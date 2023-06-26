@@ -3,6 +3,7 @@ package com.interview.graph.DFS;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Stack;
 
 /*
 Input: n = 4, e = 6
@@ -38,6 +39,29 @@ public class a_DFS {
             if (!visited[i])
                 DFSUtil(i, visited, adj);
         }
+    }
+
+    public ArrayList<Integer> dfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
+        ArrayList<Integer> res = new ArrayList<>();
+        boolean[] visited = new boolean[V];
+        Stack<Integer> stack = new Stack<>();
+
+        int s = 2;
+        stack.add(2);
+        visited[s] = true;
+
+        while(!stack.isEmpty()) {
+            s = stack.pop();
+            res.add(s);
+
+            for (Integer j : adj.get(s)) {
+                if(!visited[j]) {
+                    stack.push(j);
+                    visited[j] = true;
+                }
+            }
+        }
+        return res;
     }
 }
 

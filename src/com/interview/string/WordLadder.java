@@ -80,3 +80,17 @@ public class WordLadder {
         return 0;
     }
 }
+
+// Add start word in a queue
+// Iterate while queue is not empty
+// Take queue size, run a for loop on this size
+// Poll queue element and put in a char array
+// Run a loop over start word length
+// Take original character from char array
+// Run a loop from char a to z
+// change character one by one within char array based on position
+// After changing, if word equals to target then return length
+// Else check the word exist in dictionary
+    // if it's not in dictionary, continue
+// Push newly generated word into dictionary
+// Restore the original character  at the current position

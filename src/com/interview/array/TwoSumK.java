@@ -22,10 +22,7 @@ public class TwoSumK {
             if (m.containsKey(k - arr[i]))
                 count = count + m.get(k - arr[i]);
 
-            if (m.containsKey(arr[i]))
-                m.put(arr[i], m.get(arr[i]) + 1);
-            else
-                m.put(arr[i], 1);
+            m.put(arr[i], m.getOrDefault(arr[i], 0) + 1);
         }
         return count;
     }

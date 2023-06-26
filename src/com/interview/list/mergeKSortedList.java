@@ -28,6 +28,7 @@ public class mergeKSortedList {
             result = b;
             result.next = mergeList_3(a, b.next);
         }
+
         return result;
     }
 

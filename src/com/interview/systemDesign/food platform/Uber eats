@@ -1,0 +1,21 @@
+Uber Eats
+
+Functional Requirements
+    1. Restaurants
+        a. add
+        b. remove
+        c. update
+    2. User
+        a. User CRUD
+        b. Search
+        c. View
+        d. Order
+    3. Delivery Person
+
+
+Non Functional Requirements
+    1. Scalable
+    2. Eventual Consistency
+    3. Latency - 150 ms for viewing
+    4. High availability
+    5. Security

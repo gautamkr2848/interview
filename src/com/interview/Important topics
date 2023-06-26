@@ -1,7 +1,7 @@
 1. Content Delivery Network
     A (CDN) refers to a distributed group of servers which work together to provide fast delivery of Internet content.
     Benefits of CDN :
-        a. Improving website load times
+        a. Improving website load times / minimize latency
         b. Reducing bandwidth costs
         c. Increasing content availability and redundancy
         d. Improving website security
@@ -11,6 +11,18 @@
 
     eg - Akamai, Open connect (Netflix)
 
+    A website is hosted on AWS in usa somewhere. For the people of USA it will take only 10-20 milli seconds for
+    fetching data. But for the people of India it will take 3-4 secs. There are strategies for minimize this request
+    latency for users that are far away. You always have to keep these strategies in mind when designing or building
+    systems on the global scale.
+
+    Static data we store at CDN. Every CDN has it's own local cache which should all be in sync.
+    There are two types of CDN's
+        1. Pull based CDN - CDN will pull data from server, more popular, maintanence is low
+        2. Push based CDN - Server will send data to CDN
+
+    We use cdn's for reduce latency for static files, but not most api requests. We should not use cdn's if our users
+    are from a specific target location. CDN will also not be a good idea if our most of assets are dynamic and sensitive.
 
 2. Distributed Cache    =>  Redis
 
@@ -111,7 +123,7 @@
 21. Indexing - https://chartio.com/learn/databases/how-does-indexing-work/
 
 22. Pagination is the task of dividing the potential result into pages and retrieving the
-    required pages, one by one on demand.  Using OFFSET and LIMIT is the easy way to write
+    required pages, one by one on demand. Using OFFSET and LIMIT is the easy way to write
     pagination into database queries
 
         client requests parameters with a specific limit (the number of results) and
@@ -145,7 +157,7 @@
     2. Assembly Line
     3. Functional Parallelism   =>  Fork/Join Pool
 
-27. Bean Scope
+27. Bean Scope => The scope of a bean defines the life cycle and visibility of that bean
     1. Singleton - single instance per Spring IoC container
     2. Prototype - single bean definition to have any number of object instances
     3. Request - a bean definition to an HTTP request
@@ -281,12 +293,31 @@
     to developer Ed and should have never been pushed to any other repository. Advantage of rebase is that diamond
     shape is avoided, and history stays nice straight line - most developers love that!
 
+43. Asymptotic Notation
+    Asymptotic notation is a way to describe the running time or space complexity of an algorithm based on the input size.
+    The three most commonly used notations are Big O, Omega, and Theta.
 
-NP Complete
-Traveling salesman
-Discrete Math
-Probability
-nChooseK
-Resource Allocation
-Context Switching
-Networking
+    Big O notation (O): This notation provides an upper bound on the growth rate of an algorithm’s running time or space
+    usage. It represents the worst-case scenario, i.e., the maximum amount of time or space an algorithm may need to
+    solve a problem. For example, if an algorithm’s running time is O(n), then it means that the running time of the
+    algorithm increases linearly with the input size n or less.
+
+    Omega notation (Ω): This notation provides a lower bound on the growth rate of an algorithm’s running time or space
+    usage. It represents the best-case scenario, i.e., the minimum amount of time or space an algorithm may need to
+    solve a problem. For example, if an algorithm’s running time is Ω(n), then it means that the running time of the
+    algorithm increases linearly with the input size n or more.
+
+    Theta notation (Θ): This notation provides both an upper and lower bound on the growth rate of an algorithm’s
+    running time or space usage. It represents the average-case scenario, i.e., the amount of time or space an algorithm
+    typically needs to solve a problem. For example, if an algorithm’s running time is Θ(n), then it means that the
+    running time of the algorithm increases linearly with the input size n
+
+44. Jar (Java Archieve) - A collection of .class files
+    War (Web Archieve) - An entire web appication in zipped form. (.class, .xml, .html, .css, .properties etc)
+    Ear (Enterprize Archive) - An Enterprize application in zipped form.
+
+45. Web Application - 1. we can use only web releated technologies.
+                        2. Web server needs to run web applications.
+    Enterprize Application - 1. we can use anything from Java J2EE like EJB, JMS etc.
+                            2. Application server needs to run enterprize application.
+

@@ -14,8 +14,25 @@ import java.util.*;
 
 public class a_1_KSumSubArray {
 
-    public void kSumSubArray(){
-        int[] arr = {3,4,-7,1,3,3,1,-4};
+    public void kSumSubArray_2(String[] args) {
+        int arr[] = { 10, 2, -2, -20, 10 };
+        int k = -10;
+        int n = arr.length;
+        int res = 0;
+
+        for (int i = 0; i < n; i++) {
+            int sum = 0;
+            for (int j = i; j < n; j++) {
+                sum = sum + arr[j];
+                if (sum == k)
+                    res++;
+            }
+        }
+        System.out.println(res);
+    }
+
+    public void kSumSubArray() {
+        int[] arr = {3, 4, -7, 1, 3, 3, 1, -4};
         Map<Integer, Integer> map = new HashMap();
         int currsum = 0;
         int sum = 7;

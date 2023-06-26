@@ -1,6 +1,7 @@
 package com.interview.dynamic.knapsack;
 
-/*Knapsack    => Bag
+/*
+    Knapsack    => Bag
     1. 0-1  => we can't break the item
     2. Fractional   => we can break the item
     3. Unbounded    => we can add same item multiple times

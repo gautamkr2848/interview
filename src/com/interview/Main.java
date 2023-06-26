@@ -1,18 +1,54 @@
 package com.interview;
 
-import com.interview.array.MaxJminusI;
-import com.interview.greedy.ActivitySelection;
-import com.interview.string.SubdomainCount;
+
+
+import com.interview.array.sort.MinSwapsToSort;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
+import java.net.URL;
+import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
-        SubdomainCount s = new SubdomainCount();
-        s.subdomainVisits(new String[]{"900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"});
+    public static void main(String[] args) throws IOException {
+        int[] a = {10, 19, 6, 3, 5};
+        MinSwapsToSort m = new MinSwapsToSort();
+        System.out.print(m.minSwaps_2(a));
+    }
+
+    private static void matrixSearch(){
+        int[][] mat = {{1, 3, 5},
+                {2, 4, 7},
+                {6, 8, 9}};
+        int i=0, j=mat[0].length-1;
+        int key = 6;
+
+        matrixUtil(mat, i, j, key);
+    }
+
+    private static void matrixUtil(int[][] mat, int row, int col, int key) {
+        int rowMid = row/2, colMid = col/2;
+
+        if(mat[rowMid][colMid] == key)
+            System.out.println(rowMid +" "+ colMid);
+
+
+    }
+
+    public static void saveImage(String imageUrl, String destinationFile) throws IOException {
+        URL url = new URL(imageUrl);
+        InputStream is = url.openStream();
+        OutputStream os = new FileOutputStream(destinationFile);
+
+        byte[] b = new byte[2048];
+        int length;
+
+        while ((length = is.read(b)) != -1) {
+            os.write(b, 0, length);
+        }
+
+        is.close();
+        os.close();
     }
 
     private static String maxSum(String w,char x[],int b[], int n){

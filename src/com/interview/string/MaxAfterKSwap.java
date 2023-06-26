@@ -3,7 +3,7 @@ package com.interview.string;
 /*
 1. Create a global variable that will store the maximum string or number.
 2. Define a recursive function that takes the string as a number and value of k
-3. Run a nested loop, the outer loop from 0 to the length of string -1, and the inner loop from i+1 to the end of the string.
+3. Run a nested loop, the outer loop from 0 to the length of string n-1, and the inner loop from i+1 to the end of the string.
 4. Swap the ith and jth character and check if the string is now maximum and update the maximum string.
 5. Call the function recursively with parameters: string and k-1.
 6. Now again swap back the ith and jth character.
@@ -35,7 +35,7 @@ public class MaxAfterKSwap {
         for (int i = 0; i < n - 1; i++) {
             for (int j = i + 1; j < n; j++) {       // Compare it with all digits after it
 
-                if (arr[i] < arr[j]){
+                if (arr[i] < arr[j]) {
                     swap(arr, i, j);
 
                     if (String.valueOf(arr).compareTo(max) > 0)

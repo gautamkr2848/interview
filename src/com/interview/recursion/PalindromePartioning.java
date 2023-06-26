@@ -5,50 +5,43 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
+// Given a string S, partition S such that every substring of that partition is a plaindrome. Return all possible
+// palindrome partioning of S.
+
 public class PalindromePartioning {
 
-    public void palindromeParioning(){
+    public List<List<String>> partition() {
         String s = "nitin";
-        int n = s.length();
-        List<List<String>> result = new ArrayList<>();
-
-        Deque<String> currPart = new LinkedList<>();
-        partitonsUtil(result, currPart, 0, n, s);
-
-        for (int i = 0; i < result.size(); i++) {
-            for (int j = 0; j < result.get(i).size(); j++)
-                System.out.print(result.get(i).get(j) + " ");
-            System.out.println();
-        }
+        List<List<String>> res= new ArrayList<>();
+        List<String> curr = new ArrayList<>();
+        partition_util(s, curr, res);
+        return res;
     }
 
-    private void partitonsUtil(List<List<String>> result, Deque<String> currPart, int start, int n, String s) {
-        if (start >= n) {
-            result.add(new ArrayList<>(currPart));
+    private void partition_util(String s, List<String> curr, List<List<String>> res) {
+        if(s.length()==0){
+            res.add(new ArrayList<>(curr));
             return;
         }
 
-        for (int i = start; i < n; i++) {
-            if (isPalindrome(s, start, i)) {
-                currPart.addLast(s.substring(start, i + 1));
-                partitonsUtil(result, currPart, i + 1, n, s);
-                currPart.removeLast();
+        for(int i=1;i<=s.length();i++){
+            String s1=s.substring(0,i);
+            if(isPalindrome(s1)){
+                curr.add(s1);
+                partition_util(s.substring(i), curr, res);
+                curr.remove(curr.size()-1);
             }
         }
     }
 
-    private Boolean isPalindrome(String s, int i, int j){
-        if(i >= j)
-            return true;
-
-        while (i < j){
-            if(s.charAt(i++) != s.charAt(j--))
-                return false;
+    private boolean isPalindrome(String s) {
+        int i=0, j=s.length()-1;
+        while(j>=i){
+            if(s.charAt(i)!=s.charAt(j)) return false;
+            i++;
+            j--;
         }
         return true;
     }
-
-    //Time complexity: O(n*2n)
-    //Auxiliary Space: O(n2)
 }
 
