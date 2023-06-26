@@ -8,4 +8,6 @@ public class Factorial {
         else
             return n * factorial(n - 1);
     }
+
+    //Time Complexity: O(n)
 }

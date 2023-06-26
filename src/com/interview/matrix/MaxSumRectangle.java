@@ -1,5 +1,7 @@
 package com.interview.matrix;
 
+// The Naive Solution for this problem is to check every possible rectangle in the given 2D array.
+
 /*
 The idea is to fix the left and right columns one by one and find the maximum sum contiguous rows for every left and
 right column pair.

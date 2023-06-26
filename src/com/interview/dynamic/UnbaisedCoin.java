@@ -30,7 +30,7 @@ public class UnbaisedCoin {
 
     public void Probability() {
 
-        double[] p =  {0.3, 0.4, 0.7};
+        double[] p =  {0.0, 0.3, 0.4, 0.7};
         int n =p.length-1;
         double[][] dp = new double[n + 1][n + 1];
         dp[0][0] = 1.0;

@@ -17,10 +17,10 @@ public class TripletSumClosestToTarget {
                 if (Math.abs(x - sum) < Math.abs(x - closestSum))
                     closestSum = sum;
 
-                if (sum > x)
-                    right--;
-                else
+                if (sum <= x)
                     left++;
+                else
+                    right--;
             }
         }
         return closestSum;

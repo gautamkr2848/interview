@@ -20,10 +20,8 @@ public class DetectCycleUndirected {
     private Boolean isCyclicUtil(int v, ArrayList<ArrayList<Integer>> adj, Boolean visited[], int parent) {
 
         visited[v] = true;
-        Iterator<Integer> it = adj.get(v).iterator();
 
-        while (it.hasNext()) {
-            Integer i = it.next();
+        for (Integer i : adj.get(v)) {
             if (!visited[i]) {
                 if (isCyclicUtil(i, adj, visited, v))
                     return true;

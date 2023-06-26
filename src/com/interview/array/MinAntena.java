@@ -23,7 +23,7 @@ public class MinAntena {
         int count = 0;
         int i=0;
 
-        while(i<n){
+        while(i < n){
             count++;
 
             int tmp = house[i] + range;

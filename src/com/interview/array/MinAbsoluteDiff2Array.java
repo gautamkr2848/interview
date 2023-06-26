@@ -10,16 +10,16 @@ public class MinAbsoluteDiff2Array {
         Arrays.sort(A);
         Arrays.sort(B);
 
-        int a = 0, b = 0;
+        int i = 0, j = 0;
         int result = Integer.MAX_VALUE;
-        while (a < m && b < n) {
-            if (Math.abs(A[a] - B[b]) < result)
-                result = Math.abs(A[a] - B[b]);
+        while (i < m && j < n) {
+            if (Math.abs(A[i] - B[j]) < result)
+                result = Math.abs(A[i] - B[j]);
 
-            if (A[a] < B[b])
-                a++;
+            if (A[i] < B[j])
+                i++;
             else
-                b++;
+                j++;
         }
         System.out.println(result);
     }

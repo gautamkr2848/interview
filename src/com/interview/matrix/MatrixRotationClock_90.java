@@ -1,5 +1,11 @@
 package com.interview.matrix;
 
+/*
+1 2 3       3 2 1       3 6 9
+4 5 6   =>  6 5 4   =>  2 5 8
+7 8 9       9 8 7       1 4 7
+*/
+
 public class MatrixRotationClock_90 {
 
     public void matrixRotation_2(int matrix[][]){

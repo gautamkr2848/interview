@@ -1,7 +1,9 @@
 package com.interview.array.subArray.slidingWindow;
 
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.List;
 
 public class c_FirstNegativeInWindow {
 
@@ -31,6 +33,7 @@ public class c_FirstNegativeInWindow {
         int arr[] = { 12, -1, -7, 8, -15, 30, 16, 28 };
         int k = 3;
         Deque<Integer> deque = new LinkedList<>();
+        List<Integer> result = new ArrayList<>();
 
         int i;
         for (i = 0; i < k; i++)
@@ -38,7 +41,9 @@ public class c_FirstNegativeInWindow {
                 deque.addLast(i);
 
         for (; i < arr.length; i++) {
-            System.out.print(arr[deque.peek()] + " ");
+            if(deque.peek() != null)
+                result.add(arr[deque.peek()]);
+
             while (!deque.isEmpty() && deque.peek() <= i - k)       // Remove the elements which are out of this window
                 deque.removeFirst();
 
@@ -47,7 +52,10 @@ public class c_FirstNegativeInWindow {
 
             deque.addLast(i);
         }
-        if(arr[deque.peek()] >=0)
-            System.out.print("0 ");
+
+        if(arr[deque.peek()] >= 0)
+            result.add(0);
+
+        System.out.println(result.toString());
     }
 }

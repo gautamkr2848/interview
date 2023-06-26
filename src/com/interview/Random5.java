@@ -1,14 +1,17 @@
 package com.interview;
 
+// Given a function foo() that returns integers from 1 to 5 with equal probability, write a function that returns
+// integers from 1 to 7 with equal probability using foo() only.
+
 public class Random5 {
 
     public void random7() {
         // you can use random5() for generating 0 - 4 with equal probability.
-        //int random25 = 5 * random5() + random5();
-        //while (random25 > 21) {
-        //    random25 = 5 * random5() + random5();
+        //int i = 5 * random5() + random5();
+        //while (i > 21) {
+        //    i = 5 * random5() + random5();
         //}
-        //return random25 % 7;
+        //return i % 7;
     }
 
     public void random7_2() {

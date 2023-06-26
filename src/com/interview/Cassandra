@@ -8,37 +8,14 @@ Features
     Faster than SQL
 
 Cassandra work
-1. Cassandra is capable of handling petabytes of information and thousands of concurrent
-    users/operations per second
+    1. Cassandra is capable of handling petabytes of information and thousands of concurrent users/operations per second
+    2. Cassandra is a partitioned row store database
+    3. Cassandra's uses CQL language for accessing DB.
+    4. Cassandra provides automatic data distribution across all nodes in a database cluster.
+    5. Cassandra also provides customizable replication strategy.
+    6. Cassandra supplies linear scalability. For example, if 2 nodes can handle 100,000 transactions per second,
+        4 nodes will support 200,000 transactions/sec and 8 nodes will tackle 400,000 transactions/sec.
 
-2. Cassandra is a partitioned row store database
-
-3. Cassandra's architecture allows any authorized user to connect to any node in any datacenter
-    and access data using the CQL language.
-
-4. Cassandra provides automatic data distribution across all nodes in a database cluster.
-
-5. Cassandra also provides customizable replication strategy, which stores redundant copies of
-    data across nodes. If in case any node in a cluster goes down, one or more copies of that node’s
-    data is available on other machines in the cluster.
-
-6. Cassandra supplies linear scalability. For example, if 2 nodes can handle 100,000 transactions per second,
-    4 nodes will support 200,000 transactions/sec and 8 nodes will tackle 400,000 transactions/sec.
-
-What is CQL?
- CQL is the recommended way to interact with Cassandra. CQL and SQL share the same abstract idea
-    of a table constructed of columns and rows. The main difference from SQL is that Cassandra
-    does not support joins or subqueries.
-
-Architecture in brief
-    1. Cassandra is designed to handle big data workloads across multiple nodes with no single point of failure.
-    2. It's architecture is based on the understanding that system and hardware failures can and do occur.
-    3. In cassandra each node exchanges using peer-to-peer gossip communication protocol.
-    4. A sequentially written commit log on each node captures write activity to ensure data durability.
-    5. Data is then indexed and written to an in-memory structure, called a memtable.
-    6. All writes are automatically distributed throughout the cluster.
-    7. Cassandra is a partitioned row store database, where rows are organized into tables with a
-        primary key.
 
 Key structures
 1. Node - Where you store your data.
@@ -48,14 +25,15 @@ Key structures
 5. Memtable - Temporary table commit log => memtable
 
 Data distribution handled by using consistent hashing
-Data replication
 
 Storage Engine
 1. Cassandra uses a storage structure similar to a Log-Structured Merge Tree
 2. Cassandra avoids reading before writing. Read-before-write, especially in a large distributed
     system, can result in performance issue
-3. A log-structured engine that avoids overwrites and uses sequential I/O to update data is
-    essential for writing
+3. To avoid using read-before-write for most writes in Cassandra, the storage engine groups inserts and updates
+   in memory, and at intervals, sequentially writes the data to disk in append mode. Once written to disk, the data
+   is immutable and is never overwritten. Reading data involves combining this immutable sequentially-written data to
+   discover the correct query results.
 
 Data Write
     Logging data in the commit log

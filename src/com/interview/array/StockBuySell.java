@@ -2,16 +2,6 @@ package com.interview.array;
 
 /*
         Input:
-        Stock Price: {2, 4, 7, 5, 4, 3, 5}
-        k = 2
-
-        Output: The maximum profit is 7 (sum of 5 and 2)
-
-        Buy at a price 2 and sell at a price 7
-        Buy at a price 3 and sell at a price 5
-
-
-        Input:
         Stock Price: {1, 5, 2, 3, 7, 6, 4, 5}
         k = 3
 
@@ -21,26 +11,20 @@ package com.interview.array;
         Buy at a price 2 and sell at a price 7
         Buy at a price 4 and sell at a price 5
 
-        Practice This Problem
-
-        There are several variations to the above problem:
-
         If we are allowed to stock only once, then we can find the maximum difference between two elements in the array,
         where the smaller element appears before the larger element.
 
         Now we are only allowed to make at most k stock transactions. We can solve the problem by using dynamic
-        programming. Let T[k][i] be the maximum profit using most k transactions till the i'th day. Then T[k][i] can be
-        written as:
+        programming.
 
-        T[k][i] = max(T[k][i-1], T[k-1][j] + price[i] – price[j])
-        where j varies from 0 to i-1
-        The above relation states that T[k][i] would be a maximum of below:
+        Let profit[i][j] represent maximum profit using at most t transactions up to day j (including day j). Then the
+        relation is:
+            profit[i][j] = max(profit[i][j-1], max(price[j] – price[m] + profit[i-1][m])) for all m in range [0, j-1]
 
-        T[k][i-1], which represents not doing any transaction on the i'th day.
-        Maximum profit gained by selling on the i'th day. To sell shares on the i'th day, we need to purchase them on
-        any previous day. If we buy shares on the j'th day and sell it on the i'th day, the maximum profit will be
-        price[i] - price[j] + T[k-1][j], where j varies from 0 to i-1 and T[k-1][j] is the best with one less
-        transaction till the j'th day.
+        profit[i][j] will be maximum of –
+            1. profit[i][j-1] which represents not doing any transaction on the jth day.
+            2. price[j] - price[m] + profit[i-1][m]
+                Selling on jth day, i.e buying on some day before j i.e mth day + profit upto mth day
 */
 
 public class StockBuySell {
@@ -62,22 +46,18 @@ public class StockBuySell {
 
     /*
     Optimized Solution
-    We have already seen that T[i] can be written as:
 
-    T[t][i] = max(T[t][i-1], price[i] – price[j] + T[t-1][j])
-    where j varies from 0 to i-1
-    If we carefully notice, max(price[i] - price[j] + T[t-1][j]) can be rewritten as,
+    profit[i][j] = max(profit[i][j-1], max(price[j] – price[m] + profit[i-1][m])) for all m in range [0, j-1]
 
-        = price[i] + max(T[t-1][j] – price[j]), where j varies from 0 to i-1
-        = price[i] + max(prev_diff, T[t-1][i-1] – price[i-1])
+    If we carefully notice,
+        max(price[j] – price[m] + profit[i-1][m]) for all m in range [0, j-1]
+        can be rewritten as,
+        = price[j] + max(profit[i-1][m] – price[m]) for all m in range [0, i-1]
+        = price[j] + max(prevDiff, profit[i-1][j-1] – price[j-1]) where prevDiff is max(profit[i-1][m] – price[m]) for all j in range [0, i-2]
 
-    where prev_diff is max(T[t-1][j] – price[j]) and j varies from 0 to i-2
-    Since we have already calculated max(T[t-1][j] - price[j]) for every j within range [0, i-2], we can easily
-    calculate it for j=i-1 in O(1) time. In other words, we don’t have to revisit range [0, i-1] to figure out the
-    best day for buying stock. This can be determined in O(1) time using the following revised relation:
-
-    T[t][i] = max(T[t][i-1], price[i] + max(prev_diff, T[t-1][i-1] – price[i-1]))
-    where prev_diff is max(T[t-1][j] – price[j]) and j varies from 0 to i-2
+    So, if we have already calculated max(profit[t-1][j] – price[j]) for all j in range [0, i-2], we can calculate it for j = i – 1 in constant time. In other words, we don’t have to look back in the range [0, i-1] anymore to find out best day to buy. We can determine that in constant time using below revised relation.
+profit[i][j] = max(profit[i][j-1], price[j] + max(prevDiff, profit [i-1][j-1] – price[j-1])
+where prevDiff is max(profit[i-1][j] – price[j]) for all j in range [0, i-2]
 
     {10, 22, 5, 75, 65, 80}
 
@@ -96,6 +76,24 @@ public class StockBuySell {
         0   2   5   5   9   9   9   12  0
 
 */
+
+    public int maxProfit(int[] price, int n, int k) {
+
+        int[][] profit = new int[k + 1][n + 1];
+
+        for (int i = 1; i <= k; i++) {
+            for (int j = 1; j < n; j++) {
+                int max_so_far = 0;
+
+                for (int m = 0; m < j; m++)
+                    max_so_far = Math.max(max_so_far, price[j] - price[m] + profit[i - 1][m]);
+
+                profit[i][j] = Math.max(profit[i][j - 1], max_so_far);
+            }
+        }
+
+        return profit[k][n - 1];
+    }
 
     public int maxProfit_2() {
 

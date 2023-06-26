@@ -57,10 +57,9 @@ public class MaxStolenVaue {
         // 2) Exclude arr[i-1], i.e., sum[i] = sum[i-2] + arr[i]
         // 3) Exclude arr[i-2], i.e., sum[i] = sum[i-3] + arr[i] + arr[i-1]
 
-        if(arr.length > 3){
-            for(int i=3; i<n; i++)
-                sum[i] = max(sum[i - 1], sum[i - 2] + arr[i], sum[i - 3] + arr[i] + arr[i - 1]);
-        }
+        for(int i=3; i<n; i++)
+            sum[i] = max(sum[i - 1], sum[i - 2] + arr[i], sum[i - 3] + arr[i] + arr[i - 1]);
+
         System.out.print(sum[n - 1]);
     }
 

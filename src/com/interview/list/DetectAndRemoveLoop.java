@@ -1,5 +1,8 @@
 package com.interview.list;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class DetectAndRemoveLoop {
 
     public Node detectLoop(Node head){
@@ -27,5 +30,22 @@ public class DetectAndRemoveLoop {
         }
 
         prev.next = null;
+    }
+
+    public boolean removeLoop_2(Node h) {
+        Set<Node> s = new HashSet<Node>();
+        Node prev = null;
+        while (h != null) {
+            if (s.contains(h)) {
+                prev.next = null;
+                return true;
+            } else {
+                s.add(h);
+                prev = h;
+                h = h.next;
+            }
+        }
+
+        return false;
     }
 }

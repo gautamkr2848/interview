@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public class Graph {
 
-    private Integer V;
-    private ArrayList<ArrayList<Integer>> adj;
+    public Integer V;
+    public ArrayList<ArrayList<Integer>> adj;
 
-    Graph(Integer v){
+    public Graph(Integer v){
         this.V = v;
-        this.adj = new ArrayList<>();
+        this.adj = new ArrayList<>(V);
         for(int i=0; i<v; i++)
-            adj.set(i, new ArrayList<>());
+            adj.add(i, new ArrayList<>());
     }
 
     public void addUndirectedEdge(int v, int w){
@@ -19,7 +19,9 @@ public class Graph {
         adj.get(w).add(v);
     }
 
-    public void addDirectedEdge(int v, int w){
+    public void addEdge(int v, int w){
+        if(adj.get(v).size() == 0)
+            adj.get(v).add(v);
         adj.get(v).add(w);
     }
 }

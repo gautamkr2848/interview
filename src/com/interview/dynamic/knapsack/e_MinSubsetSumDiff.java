@@ -43,6 +43,10 @@ public class e_MinSubsetSumDiff {
         }
 
         int diff = Integer.MAX_VALUE;
+
+        //The idea is, sum of S1 is j and it should be closest
+        //to sum/2, i.e., 2*j should be closest to sum (as this will ideally minimize sum-2*j)
+
         for (int j = sum / 2; j >= 0; j--){
             if (t[n][j] == true){
                 diff = Math.min(diff, sum - 2*j);

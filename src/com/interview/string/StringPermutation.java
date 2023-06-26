@@ -1,5 +1,8 @@
 package com.interview.string;
 
+//Input: S = “ABC”
+//Output: “ABC”, “ACB”, “BAC”, “BCA”, “CBA”, “CAB”
+
 public class StringPermutation {
 
     public void permutation(String str, int l, int r){
