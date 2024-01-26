@@ -20,7 +20,6 @@ public class ListUnionAndIntersection {
     }
 
     void getIntersection(Node head1, Node head2) {
-        Node result = null;
         Node t1 = head1;
 
         while (t1 != null) {

@@ -16,6 +16,26 @@ Output: DFS from vertex 1 : 1 2 0 3
 
 public class a_DFS {
 
+    public void dfsOfGraph(int s, ArrayList<ArrayList<Integer>> adj) {
+        boolean[] visited = new boolean[adj.size()];
+        Stack<Integer> stack = new Stack<>();
+
+        stack.add(s);
+        visited[s] = true;
+
+        while(!stack.isEmpty()) {
+            s = stack.pop();
+            System.out.println(s+" ");
+
+            for (Integer j : adj.get(s)) {
+                if(!visited[j]) {
+                    stack.push(j);
+                    visited[j] = true;
+                }
+            }
+        }
+    }
+
     //Handling A Disconnected Graph
     public void DFS_2(int V, ArrayList<ArrayList<Integer>> adj) {
         boolean visited[] = new boolean[V];
@@ -39,29 +59,6 @@ public class a_DFS {
             if (!visited[i])
                 DFSUtil(i, visited, adj);
         }
-    }
-
-    public ArrayList<Integer> dfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
-        ArrayList<Integer> res = new ArrayList<>();
-        boolean[] visited = new boolean[V];
-        Stack<Integer> stack = new Stack<>();
-
-        int s = 2;
-        stack.add(2);
-        visited[s] = true;
-
-        while(!stack.isEmpty()) {
-            s = stack.pop();
-            res.add(s);
-
-            for (Integer j : adj.get(s)) {
-                if(!visited[j]) {
-                    stack.push(j);
-                    visited[j] = true;
-                }
-            }
-        }
-        return res;
     }
 }
 

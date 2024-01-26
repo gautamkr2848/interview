@@ -28,4 +28,17 @@ public class DuplicateElements {
                 System.out.println(i);
         }
     }
+
+    public int remove_duplicate_from_sorted_array(int a[],int n){
+        if(n == 0)
+            return 0;
+        int slow = 0, fast = 1;
+
+        while(fast < n){
+            if(a[slow] != a[fast])
+                a[++slow] = a[fast];
+            ++fast;
+        }
+        return ++slow;
+    }
 }

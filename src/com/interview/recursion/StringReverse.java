@@ -8,13 +8,4 @@ public class StringReverse {
         else
             return reverseString_3(str.substring(1)) + str.charAt(0);
     }
-
-    public void reverse(char[] str, int start, int end) {
-        if (start == end)
-            return;
-
-        char temp = str[start];
-        reverse(str, start + 1, end);
-        System.out.print(temp);
-    }
 }

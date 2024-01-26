@@ -32,8 +32,7 @@ public class MaxHistogramArea {
             while (right < n && a[i] <= a[right])
                 right++;
 
-            int tmp = (right - left - 1) * a[i];
-            area = Math.max(area, tmp);
+            area = Math.max(area, (right - left - 1) * a[i]);
         }
     }
 
@@ -70,10 +69,10 @@ public class MaxHistogramArea {
             s.push(i);
         }
 
-        int ans = 0;
+        int area = 0;
         for (int i = 0; i < n; i++)
-            ans = Math.max(ans, heights[i] * (nsr[i] - nsl[i] - 1));
+            area = Math.max(area, heights[i] * (nsr[i] - nsl[i] - 1));
 
-        return ans;
+        return area;
     }
 }

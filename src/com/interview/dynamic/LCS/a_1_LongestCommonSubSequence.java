@@ -81,10 +81,8 @@ public class a_1_LongestCommonSubSequence {
             }
         }
 
-        while (!stk.empty()){
-            char data = stk.pop();
-            System.out.print(data + " ");
-        }
+        while (!stk.empty())
+            System.out.print(stk.pop() + " ");
     }
 }
 

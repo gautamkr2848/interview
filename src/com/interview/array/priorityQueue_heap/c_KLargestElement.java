@@ -8,7 +8,7 @@ public class c_KLargestElement {
         int[] arr = { 12, 35, 1, 10, 34, 1 };
         int k = 2;
 
-        PriorityQueue<Integer> q = new PriorityQueue<>();   //Collections.reverseOrder() for smallest
+        PriorityQueue<Integer> q = new PriorityQueue<>();
         for(int i = 0; i < k; i++)
             q.add(arr[i]);
 

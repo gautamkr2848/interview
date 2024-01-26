@@ -1,7 +1,18 @@
 Paytm - 2
 1. Tree Reverse Order Traversal
-2. Mutex
-3. Semaphore
+
+2. Mutex vs Semaphore
+
+    A mutex is a binary semaphore. But it's not! The purpose of mutex and semaphore are different. Maybe, due to similarity
+    in their implementation a mutex would be referred to as a binary semaphore.
+
+    Strictly speaking, a mutex is a locking mechanism used to synchronize access to a resource. Only one task can acquire
+    the mutex. It means there is ownership associated with a mutex, and only the owner can release the lock (mutex).
+
+    Semaphore is signaling mechanism (“I am done, you can carry on” kind of signal).
+
+    A programmer should prefer mutex rather than creating a semaphore with count 1.
+
 4. google.com ==>> exact location
 5. Got the offer
 6. Joined on 3rd Dec 2020
@@ -13,44 +24,105 @@ Cleartrip - 3
 1. SpringBoot Web Application
 2. No.of min platforms
 3. Nearest Smaller elements on left
+4. Design Parking Lot
 
 TCS - 1
 1. @Controller vs @RestController
 2. use of @SpringBootApplication
+
+        Many Spring Boot developers like their apps to use auto-configuration, component scan and be able to define extra
+        configuration on their "application class". A single @SpringBootApplication annotation can be used to enable those
+        three features, that is:
+
+            @EnableAutoConfiguration: enable Spring Boot’s auto-configuration mechanism
+            @ComponentScan: enable @Component scan on the package where the application is located
+            @Configuration: allow to register extra beans in the context or import additional configuration classes
+
 3. List vs Set
 4. concurrentHashMap vs synchronizedHashMap
 5. ServiceDiscovery - Eureka
+
+    A microservices-based application typically runs in virtualized or containerized environments. The number of instances
+    of a service and its locations changes dynamically. We need to know where these instances are and their names to allow
+    requests to arrive at the target microservice. This is where tactics such as Service Discovery come into play.
+
+    The Service Discovery mechanism helps us know where each instance is located. In this way, a Service Discovery
+    component acts as a registry in which the addresses of all instances are tracked.
+
 6. @ControllerAdvice - It's a specialization of the @Component annotation which allows to handle exceptions across the
     whole application in one global handling component.
 
-7. Functional Interface
-8. Lambda Expression
+7. Functional Interface and Lambda Expression
 9. Mysql vs Nosql
+
+    MySQL is most suitable for use cases that require high availability and data consistency, such as e-commerce applications.
+    Cassandra is most suitable for use cases that require high scalability and performance, such as social media applications.
+
 10. OOPS
 11. Overloading vs overriding vs methodhiding
+12. Monolith vs microservices
+13. Singleton vs static method
+
+    Use a Singleton when you want to control access to a single instance and provide a global point of access to that instance.
+    Use static methods when you have utility functions that do not depend on the state of an instance.
+
+14. Custom Exception Handling
+15. Spring vs Springboot
+
+    In the Spring framework, you have to build configurations manually. In Spring Boot there are default configurations
+    that allow faster bootstrapping.
+
+16. Java 8 features
+17. How to improve java code quality
+
+        1. Using StringBuilder for String Concatenation
+        2. Avoid Recursion
+        3. Use Regular Expressions Carefully
+        4. Avoid Creating and Destroying Too Many Threads
+        a. Avoid Writing Long Methods
+        b. Avoid Multiple If-else Statements
+        c. Avoid Getting the Size of the Collection in the Loop
+        d. Avoid Using String Objects For Concatenation
+        e. Use Primitive Types Wherever Possible
+        f. Avoid Using BigDecimal Class
+        g. Avoid Creating Big Objects Often
+        h. Use Stored Procedures Instead of Queries
+        i. Avoid using recurssion
+
+18. Map internal implementation
+
+19. String immutability
+
+        a. Security: parameters are typically represented as String in network connections, database connection urls,
+           usernames/passwords etc. If it were mutable, these parameters could be easily changed.
+        b. Synchronization and concurrency: making String immutable automatically makes them thread safe thereby solving the
+           synchronization issues.
+        c. Performance: We used to store string in a String pool. String pool improves efficiency by reducing heap memory.
+            The JVM verifies if the value already exists inside the String pool when we want to declare a new String object.
+            If it already exists, the new object is given the same value. If two objects have same value (a="test", and
+            b="test") and thus you need only one string object (for both a and b, these two will point to the same object).
+        d. Immutability gives the security of loading the correct class by Classloader.
 
 Bandhoo - 2
 1. String reverse using recurssion
 2. Find min and max with min number of comparisions
-3. OOPS vs procedureal language
-4. Visitor pattern
+3. Visitor pattern
 
 UpGrad - 2
 1. OOPS vs procedureal language
-2. Collection
-3. Java Stream Sorted() => Tim Sort
-4. Mysql
-5. Design Exam Portal Website
+2. Java Stream Sorted() => Tim Sort
+3. Design Exam Portal Website
 
 UpLoan - 3
 1. Mifos & Finrect
 2. Count vowels in string
 3. Abstraction & Encapulation
 4. Polymorphism
-5. Delete vs Truncate in mysql
-6. Mysql vs Nosql
 7. Normalization
-8. Oops features
+
+    normalisation is the process of structuring a relational database in accordance with a series of so-called normal
+    forms in order to reduce data redundancy and improve data integrity.
+
 9. Abstract Class vs Interface
 10. ConstantTimeO_1
 11. MatrixSearch
@@ -60,8 +132,6 @@ UpLoan - 3
 Enfusion - 1
 1. Predicate
 2. Default methods in Interface
-3. Abstraction
-4. Abstract class vs Interface
 
 Zeta - 1
 1. Minimun number of antena
@@ -76,17 +146,13 @@ BlackBuck - 1
 1. CarPooling [People, Start, End]
 2. Nearest greater right side
 
-GamesCraft - 2
-1. From two arrays Min absolute diff
+GamesKraft - 2
+1. From two arrays Min absolute diff from 2 Array
 2. BookMyShow
 3. SQS
-4. Design Parking Lot
 
 Mphasis - 2
-1. SpringBoot
-2. Microservices
-3. Mysql
-4. Projects
+1. Projects
 
 Infra.Market - 1
 1. Create Social Media
@@ -96,15 +162,12 @@ Piramal- 1
 
 Recko - 5
 1. ACID
-2. OOPS
-3. Collections
-4. Project
-5. String Arrangement Problem
-6. Design Google Calender
-7. Design Social Media
-8. Cultural Fit
-9. Offer Discussion
-10. Rejection Due to Stripe
+2. String Arrangement Problem
+3. Design Google Calender
+4. Design Social Media
+5. Cultural Fit
+6. Offer Discussion
+7. Rejection Due to Stripe
 
 Avatar - 1
 1. KSumTriplet
@@ -114,7 +177,6 @@ Housing.com - 3
 1. Union of list
 2. Lowest Common Ancestor
 3. Segregate odd and even elements
-4. ACID
 5. Mysql Join
 6. Indexing
 7. Dependency Injection
@@ -137,59 +199,42 @@ MoneyView - 2
     Truncate - DDL, cant restore
     DROP - DDL, can't restore table
 4. Inversion Control
-5. Matrix Max Sum from top left to bottom right
+5. Matrix Max Sum from top left to bottom right - max path sum
 6. Design Vending Machine
 
 MyGate - 2
-1. Project
-2. Postfix Evaluation
+1. Postfix Evaluation
 
 BrightChamps - 3
-1. Mysql vs Nosql
-2. ACID
-3. Max profit with only one transaction
-4. Sum Array
-5. Low level Design
-6. Left Join
-7. Proxy Design Pattern
-8. Project
+1. Low level Design
+2. Proxy Design Pattern
 
 Leap Finance - 4
-1. LRU Cache
-2. Singleton
-3. System Design
-4. Last round not went well
-5. Cultural Fit
-6. Rejection
+1. Singleton
+2. Cultural Fit
+3. Rejection
 
 Walmart - 1
 1. Node At Distance
-2. Perfect Square => If Math.ceil() & Math.floor() is equal then it's perfect square
+2. Perfect Square => If Math.ceil(Math.sqrt(n)) & Math.floor(Math.sqrt(n)) is equal then it's perfect square
 
 Make My Trip - 3
 1. No. of Islands
 2. Tree next pointer
-3. Project Discussion
-4. Print random array
-5. No. of platforms
-6. Substring problem
 
 Neustar - 2
-1. Two Sum
-2. Three Sum
+1. Two Sum k
+2. Three Sum k
 3. Police and Thief
 4. K largest element
-5. Mysql Join query
 6. Implement HashMap
 7. Immutable class with Mutable reference
-8. Threading
 9. Two Diff K
 10. Logging
 
 Sayurbox - 2
 1. Triplet sum closest to target
 2. Boolean Matrix
-3. Design
 4. Got the offer
 
 Informatica - 4
@@ -197,37 +242,24 @@ Informatica - 4
 2. Product Array
 3. Longest SubString without repeating characters
 4. Right view of Tree
-5. Singleton
 6. Aspect Oriented Programming
-7. Implement an API
-8. List
 9. Comparable
-10. Project
 11. Multithreading
 12. HR round
 13. Offer Discussion
 14. Rejected / Not Accepted
 
 Jupiter Money - 1
-1. Project
-2. Min Cost Path
+1. Min Cost Path
 
 Visa - 1
-1. Project
-2. Odd Even LinkedList
+1. Odd Even LinkedList
 
 Q2 Software - 1
 1. Sort 0, 1, 2
 2. LCS
 3. Tree Height
 4. Reverse deck of cards        //not done
-
-6th Street - 1
-1. Project
-2. String
-
-Cleartrip - 2
-1. Design Parking Lot
 
 Vymo - 2
 1. Max Profit
@@ -241,7 +273,6 @@ Intuit - 1
 
 Quinbay - 3
 1. LinkedHashMap implementation
-2. Monolith vs microservices
 
 Nike - 4
 1. Stock Profit
@@ -252,21 +283,17 @@ Nike - 4
 Dailyhunt - 3
 1. print even odd
 2. Builder Pattern
-3. Print subset of size 3
-4. Got the offer
-5. Joined on 10th Jan 2022
+3. Got the offer
+4. Joined on 10th Jan 2022
 
 MPL - 2
 1. Design Load Balancer
-2. Reverse List
-3. Got the offer
+2. Got the offer
 
 Gamesberry - 1
-1. Max length substring having non-repeating character
-2. sort 1, 2, 3
+1. Reverse List
 
 Fisdom - 2
-1. LWD
-2. Slack Design
-3. Design infinite login page
-4. Asymptotic notation
+1. Slack Design
+2. Design infinite login page
+3. Asymptotic notation

@@ -1,6 +1,8 @@
 Messaging System Internal Data Striucture
     1. Queue Based DS - AWS SQS, Rabit MQ etc.
     2. Log Based DS - Kafka, AWS Kinesis etc.
+        Log is the simplest data structure that represents append-only sequence of records. Log records are immutable
+        and appended in strictly sequential order to the end of the log file.
 
 Use Case of Messaging System
     1. Lightweight eventing / messaging between services or components
@@ -156,3 +158,48 @@ Kafka vs SQS - Key Differences
 
     Message size - For Kafka is 1MB and configurable. But for SQS Max Message size 256KB.
 
+
+
+Why is Kafka so fast?
+
+Apache Kafka is an open-source distributed event streaming platform which is widely used for high performance pipelines, streaming of events etc.
+Kafka comes with some core capabilities of providing a high throughput and a very low latency.
+There are multiple design decisions that have been taken while designing Kafka to make it such highly performant. Out
+of all, we will go through 2 very important factors that contribute to it:
+    a. Sequential I/O
+    b. Zero Copy Principle
+
+Sequential I/O
+
+One of the key factors that contributes to its performance is its use of sequential I/O. It uses sequential I/O to
+improve the performance of its log-based storage system.
+
+Kafka stores all the data it ingests in a log-structured format, which means that new data is appended to the end of the
+log. This allows for very fast writes, since only the latest data needs to be appended, but it also means that older
+data needs to be periodically compacted to reclaim disk space.
+
+In addition to this, Kafka also uses a technique called log compaction to clean up old data, which is also done in a
+sequential manner. It keeps the latest version of a message key, while discarding older versions, thus making use of
+the sequential IO when doing compaction.
+
+Zero-Copy Principle
+
+The zero-copy principle is a technique used in computer systems to minimise the number of times data is copied between
+different memory locations. This can significantly improve performance by reducing the amount of memory and CPU
+resources used.
+
+When data needs to be transferred from one location to another, a traditional approach would be to copy the data from
+the source location to a temporary buffer, and then copy it again to the destination location. However, the zero-copy
+principle eliminates this intermediate step by allowing the data to be transferred directly from the source location to
+the destination location, without the need for an intermediate copy.
+
+There are different ways to implement the zero-copy principle, but some common techniques include:
+Memory mapping
+Direct memory access (DMA)
+
+Kafka uses the zero-copy principle to improve its performance by minimising the number of copies of data that are made
+as messages are produced and consumed.
+
+When a consumer reads a message from a Kafka topic, it can read the data directly from the log file, without the need
+to copy it into a separate buffer. This is achieved using a technique called direct memory access (DMA). DMA allows the
+consumer to read the data directly from the log file into the consumer’s memory buffer, without the need for an intermediate copy.

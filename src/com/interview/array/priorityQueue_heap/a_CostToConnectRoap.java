@@ -7,7 +7,7 @@ public class a_CostToConnectRoap {
     public void costToConnectRoap(){
         int arr[] = { 4, 8, 3, 2, 6, 1, 5, 9, 7};
         int res = 0;
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        PriorityQueue<Integer> pq = new PriorityQueue<>();          //returns min element first
 
         for (int i = 0; i < arr.length; i++)
             pq.add(arr[i]);

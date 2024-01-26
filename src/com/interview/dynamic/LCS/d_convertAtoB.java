@@ -4,6 +4,7 @@ package com.interview.dynamic.LCS;
 a : heap    b : pea
 LCS - 2 (ea)
 insertion => (length of b) - LCS
+                &
 deletion => (length of a) - LCS*/
 public class d_convertAtoB {
 }

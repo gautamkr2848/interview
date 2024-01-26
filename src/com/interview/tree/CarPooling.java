@@ -1,7 +1,5 @@
 package com.interview.tree;
 
-import java.util.*;
-
 // There is a car with capacity empty seats.
 
 // You are given the integer capacity and an array trips where trips[i] = [numPassengersi, fromi, toi] indicates that

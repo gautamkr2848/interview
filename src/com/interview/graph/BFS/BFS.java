@@ -6,9 +6,9 @@ import java.util.Queue;
 
 public class BFS {
 
-    public void BFS(int s, int V, ArrayList<ArrayList<Integer>> adj) {
+    public void BFS(int s, ArrayList<ArrayList<Integer>> adj) {
 
-        boolean visited[] = new boolean[V];
+        boolean visited[] = new boolean[adj.size()];
         Queue<Integer> queue = new LinkedList<>();       // Create a queue for BFS
 
         visited[s] = true;        // Mark the current node as visited and enqueue it

@@ -9,30 +9,17 @@ As per operating system terminology, mutexes and semaphores are kernel resources
     critical section contains shared variables or resources which are needed to be synchronized to maintain the
     consistency of data variables.
 
-Using Mutex:
-
-A mutex provides mutual exclusion, either producer or consumer can have the key (mutex) and proceed with their work.
-As long as the buffer is filled by the producer, the consumer needs to wait, and vice versa.
-
-At any point of time, only one thread can work with the entire buffer. The concept can be generalized using semaphore.
-
-Using Semaphore:
-
-A semaphore is a generalized mutex. In line of a single buffer, we can split the 4 KB buffer into four 1 KB buffers
-(identical resources). A semaphore can be associated with these four buffers. The consumer and producer can work on
-different buffers at the same time.
-
 Misconception:
 
 A mutex is a binary semaphore. But it is not! The purpose of mutex and semaphore are different. Maybe, due to similarity
 in their implementation a mutex would be referred to as a binary semaphore.
 
-Strictly speaking, a mutex is a locking mechanism used to synchronize access to a resource. Only one task  can acquire
+Strictly speaking, a mutex is a locking mechanism used to synchronize access to a resource. Only one task can acquire
 the mutex. It means there is ownership associated with a mutex, and only the owner can release the lock (mutex).
 
 Semaphore is signaling mechanism (“I am done, you can carry on” kind of signal).
 
-A programmer can prefer mutex rather than creating a semaphore with count 1.
+A programmer should prefer mutex rather than creating a semaphore with count 1.
 
 
 General Questions:

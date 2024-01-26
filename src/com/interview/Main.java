@@ -1,83 +1,69 @@
 package com.interview;
 
-
-
-import com.interview.array.sort.MinSwapsToSort;
+import com.interview.backtracking.GenerateParenthesis;
+import com.interview.recursion.PalindromePartioning;
+import com.interview.stack.LongestValidSubString;
 
 import java.io.*;
-import java.net.URL;
+import java.text.ParseException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-        int[] a = {10, 19, 6, 3, 5};
-        MinSwapsToSort m = new MinSwapsToSort();
-        System.out.print(m.minSwaps_2(a));
-    }
+    public static void main(String[] args) throws ParseException {
 
-    private static void matrixSearch(){
-        int[][] mat = {{1, 3, 5},
-                {2, 4, 7},
-                {6, 8, 9}};
-        int i=0, j=mat[0].length-1;
-        int key = 6;
 
-        matrixUtil(mat, i, j, key);
-    }
-
-    private static void matrixUtil(int[][] mat, int row, int col, int key) {
-        int rowMid = row/2, colMid = col/2;
-
-        if(mat[rowMid][colMid] == key)
-            System.out.println(rowMid +" "+ colMid);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String mailSubject = " Josh Alert! Notification Job for failed due to Request Timeout : 408, At : " + LocalDateTime.now().format(formatter);
+        System.out.println(mailSubject);
 
 
     }
 
-    public static void saveImage(String imageUrl, String destinationFile) throws IOException {
-        URL url = new URL(imageUrl);
-        InputStream is = url.openStream();
-        OutputStream os = new FileOutputStream(destinationFile);
+    public Map<String, Integer> sortByValue(Map<String, Integer> hm) {
+        List<Map.Entry<String, Integer>> list = new LinkedList<>(hm.entrySet());
 
-        byte[] b = new byte[2048];
-        int length;
+        Collections.sort(list, (i1, i2) -> i1.getValue().compareTo(i2.getValue()));
 
-        while ((length = is.read(b)) != -1) {
-            os.write(b, 0, length);
-        }
+        HashMap<String, Integer> temp = new HashMap<>();
+        for (Map.Entry<String, Integer> aa : list)
+            temp.put(aa.getKey(), aa.getValue());
 
-        is.close();
-        os.close();
+        return temp;
     }
 
-    private static String maxSum(String w,char x[],int b[], int n){
-        int maxSum = 0, sum = 0;
-        String ans = "", res = "";
-        for(int i=0; i<w.length(); i++){
-            sum = sum + ascii(w.charAt(i), x, b);
-            ans = ans + w.charAt(i);
-            if(sum > maxSum){
-                maxSum = sum;
-                res = ans;
-            } else if(sum < 0){
-                sum = 0;
-                ans = "";
-            }
-        }
-        return res;
+    public Map<String, Integer> sortByValue_2(Map<String, Integer> hm){
+        return hm.entrySet().stream()
+                .sorted((i1, i2) -> i1.getValue().compareTo(i2.getValue()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
-    private static int ascii(char c, char[] x, int[] b) {
-        for(int i=0; i<b.length; i++){
-            if(x[i] == c)
-                return b[i];
-        }
-        return (int) c;
+    private static Date addMinutes(Date date, int minutes) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.MINUTE, minutes);
+        return calendar.getTime();
     }
 
-    private void excelCode(){
-        String path = "/Users/gautam.k/Desktop/Data1.csv";
+    private void method1() {
+        List<String> list = Arrays.asList("a", "b", "a");
+        Map<String, Long> map = list.stream()
+                .collect(Collectors.groupingBy(x -> x, Collectors.counting()));
+        System.out.println(map.toString());
+    }
+
+    private static Date addHours(Date date, int hours) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.HOUR_OF_DAY, hours);
+        return calendar.getTime();
+    }
+
+    private static void excelCode(){
+        String path = "/Users/gautam.k/Downloads/Data1.csv";
         String line = "";
 
         Boolean flag = Boolean.TRUE;

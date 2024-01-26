@@ -4,7 +4,19 @@ import com.interview.graph.Pair;
 
 import java.util.*;
 
+// First choose a source vretex, let's say 0
+// Start selecting the closest nodes from all the adjacent reachable nodes
+// Stop when all the nodes have been included and we are left with shortest path tree
 // O(ELogV)
+
+//Input:
+//V = 3, E = 3
+//adj = {{{1, 1}, {2, 6}}, {{2, 3}, {0, 1}}, {{1, 3}, {0, 6}}}
+//S = 2
+//Output:
+//4 3 0
+
+// follows greedy algo
 
 public class Dijkstra {
 

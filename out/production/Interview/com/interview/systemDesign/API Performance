@@ -1,0 +1,14 @@
+API Performance
+
+First thing is to find all the Bottle necks
+
+1. Caching
+2. Connection Pooling for Database
+3. JSON Serialization
+4. Pagination
+5. Avoid n + 1 DB calls
+6. Async logging
+7. Payload compression
+
+
+SQL Query Optimization

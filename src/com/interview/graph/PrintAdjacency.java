@@ -24,10 +24,10 @@ Your Output:
 
 public class PrintAdjacency {
 
-    public ArrayList<ArrayList<Integer>> printGraph(int V, ArrayList<ArrayList<Integer>> adj) {
+    public ArrayList<ArrayList<Integer>> printGraph(ArrayList<ArrayList<Integer>> adj) {
         ArrayList<ArrayList<Integer>> list=new ArrayList<>();
 
-        for(int i=0; i<V; i++) {
+        for(int i=0; i<adj.size(); i++) {
             ArrayList<Integer> tmp=new ArrayList<>();
             tmp.add(i);
             for(Integer j : adj.get(i))

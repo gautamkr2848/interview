@@ -25,22 +25,4 @@ public class f_KFrequentNumbers {
         for (int i = 0; i < k; i++)
             System.out.println(queue.poll().getKey());
     }
-
-    public Map<String, Integer> sortByValue(Map<String, Integer> hm) {
-        List<Map.Entry<String, Integer>> list = new LinkedList<>(hm.entrySet());
-
-        Collections.sort(list, (i1, i2) -> i1.getValue().compareTo(i2.getValue()));
-
-        HashMap<String, Integer> temp = new HashMap<>();
-        for (Map.Entry<String, Integer> aa : list)
-            temp.put(aa.getKey(), aa.getValue());
-
-        return temp;
-    }
-
-    public Map<String, Integer> sortByValue_2(Map<String, Integer> hm){
-        return hm.entrySet().stream()
-                .sorted((i1, i2) -> i1.getValue().compareTo(i2.getValue()))
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-    }
 }

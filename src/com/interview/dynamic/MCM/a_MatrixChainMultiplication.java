@@ -18,11 +18,9 @@ public class a_MatrixChainMultiplication {
             return 0;
 
         int min = Integer.MAX_VALUE;
-        for(int k=i; k<j; k++){
-            int temp = MCM(arr, i, k) + MCM(arr, k+1, j) + arr[i-1] * arr[k] * arr[j];
-            if(temp <   min)
-                min = temp;
-        }
+        for(int k=i; k<j; k++)
+            min = Math.min(min, MCM(arr, i, k) + MCM(arr, k+1, j) + arr[i-1] * arr[k] * arr[j]);
+
         return min;
     }
 

@@ -18,6 +18,30 @@ each edge directed from one vertex to another, such that following those directi
 
 public class b_TopologicalSort {
 
+    public void topologocalSort(int s, ArrayList<ArrayList<Integer>> adj) {
+        boolean[] visited = new boolean[adj.size()];
+        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> res = new Stack<>();
+
+        stack.add(s);
+        visited[s] = true;
+
+        while(!stack.isEmpty()) {
+            s = stack.pop();
+            res.add(s);
+
+            for (Integer j : adj.get(s)) {
+                if(!visited[j]) {
+                    stack.push(j);
+                    visited[j] = true;
+                }
+            }
+        }
+
+        while (!res.isEmpty())
+            System.out.println(res.pop()+ " ");
+    }
+
     //Same as DFS for disconnected graph
     public void topologicalSort(int V, ArrayList<ArrayList<Integer>> adj){
         Stack<Integer> stack = new Stack<>();

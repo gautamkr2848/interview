@@ -3,7 +3,7 @@
     Benefits of CDN :
         a. Improving website load times / minimize latency
         b. Reducing bandwidth costs
-        c. Increasing content availability and redundancy
+        c. Increasing content availability
         d. Improving website security
 
     In order to improve speed and connectivity, a CDN will place servers at the exchange
@@ -11,7 +11,7 @@
 
     eg - Akamai, Open connect (Netflix)
 
-    A website is hosted on AWS in usa somewhere. For the people of USA it will take only 10-20 milli seconds for
+    A website is hosted on AWS in USA somewhere. For the people of USA it will take only 10-20 milli seconds for
     fetching data. But for the people of India it will take 3-4 secs. There are strategies for minimize this request
     latency for users that are far away. You always have to keep these strategies in mind when designing or building
     systems on the global scale.
@@ -91,10 +91,10 @@
 
 14. Executor Service
      Java provides its own multi-threading framework called the Java Executor Framework.
-            1. SingleThreadExecutor
+            1. SingleThreadExecutor => BlockingQueue
             2. FixedThreadPool(n)   =>  LinkedBlockingQueue
             3. CachedThreadPool     =>  SynchronousQueue
-            4. ScheduledExecutor
+            4. ScheduledExecutor    =>  DelayQueue
 
 15. Ideal Thread Pool Size
     CPU Oriented - no. of threads = no. of cores
@@ -103,8 +103,8 @@
 17. Resilience4J    =>  Fault Tolerance
     a. Auto Retry
     b. Circuit Breaker
-    c. Bulkhead
-    d. Timer
+    c. Bulkhead - if we want to limit the number of concurrent requests, we can use Bulkhead
+    d. Timer - Time Limiting is the process of setting a time limit for a Microservice to respond
     e. Rate Limiter
 
     https://javatechonline.com/how-to-implement-fault-tolerance-in-microservices-using-resilience4j/#What_is_Bulkhead
@@ -180,21 +180,19 @@
         @Configuration: allow to register extra beans in the context or import additional configuration classes
 
 30. Spring IoC (Inversion of Control)
+    0. Inversion of Control is a principle in software engineering which transfers the control of objects to a container
     1. Spring IoC Container is the core of Spring Framework. It creates the objects, configures and assembles their
        dependencies, manages their entire life cycle.
-    2. Spring helps in creating objects, managing objects, configurations, etc. because of IoC (Inversion of Control).
-    3. Spring IoC is achieved through Dependency Injection.
-    4. IoC is a design principle where the control flow of the program is inverted.
-    5. Aspect-Oriented Programing is one way to implement Inversion of Control.
+    2. Spring IoC is achieved through Dependency Injection.
+    3. Aspect-Oriented Programing is one way to implement Inversion of Control.
 
 31. Spring Dependency Injection
-    1. Spring Dependency injection is a way to inject the dependency of a framework component by the following ways of
-       spring: Constructor Injection and Setter Injection
-    2. Spring framework helps in the creation of loosely-coupled applications because of Dependency Injection.
-    3. Dependency Injection is the method of providing the dependencies and Inversion of Control is the end result of
-       Dependency Injection.
-    4. Dependency Injection is one of the subtypes of the IOC principle.
-    5. In case of any changes in business requirements, no code change is required.
+    0. Dependency Injection is a fundamental aspect of the Spring framework, through which the Spring container “injects”
+       objects into other objects or “dependencies”.
+    1. Dependency injection types are Constructor Injection and Setter Injection
+    2. Dependency Injection helps in the creation of loosely-coupled applications.
+    3. Dependency Injection is one of the subtypes of the IOC principle.
+    4. In case of any changes in business requirements, no code change is required.
 
 32. Spring Bean Life Cycle
     Bean life cycle is managed by the spring container. When we run the program then, first of all, the spring container
@@ -202,27 +200,6 @@
     injected. And finally, the bean is destroyed when the spring container is closed. Therefore, if we want to execute
     some code on the bean instantiation and just after closing the spring container, then we can write that code inside
     the custom init() method and the destroy() method.
-
-33. DELETE vs DROP vs TRUNCATE
-
-    DELETE
-        DML command
-        Used to delete one or more records of a table
-        Slower than the TRUNCATE command
-        We can use the “ROLLBACK” command to restore
-
-    DROP
-        DDL command
-        Used to drop the whole table
-        We can’t restore the table by using the “ROLLBACK” command because it auto commits.
-
-    TRUNCATE
-        DDL command
-        Used to delete all the rows of a table in one go
-        With the help of the “TRUNCATE” command, we can’t delete the single row as here WHERE clause is not used
-        Faster than the delete command
-        We can’t restore the tuples of the table by using the “ROLLBACK” command.
-
 
 35. Forward Proxy
     A forward proxy is an application that sits in front of client's device and placed b/w device & internet. Blocking
@@ -263,7 +240,7 @@
     3. An acknowledgment segment is present.    <<<<====>>>>    No acknowledgment segment.
     4. Sequencing of data is a feature of TCP.    <<<<====>>>>    There is no sequencing of data in UDP.
     5. TCP is comparatively slower than UDP.    <<<<====>>>>    UDP is faster, simpler, and more efficient than TCP.
-    6. Weight	TCP is heavy-weight.    <<<<====>>>>    UDP is lightweight.
+    6. TCP is heavy-weight.    <<<<====>>>>    UDP is lightweight.
     7. Uses handshakes such as SYN, ACK, SYN-ACK.    <<<<====>>>>    It’s a connectionless protocol i.e. No handshake
     8. TCP doesn’t support Broadcasting.    <<<<====>>>>    UDP supports Broadcasting.
 
@@ -286,11 +263,11 @@
 
     4. Both commits D and E are still here, but we create merge commit M that inherits changes from both D and E.
     However, this creates diamond shape, which many people find very confusing.
-       REBASE: A-B-C-D-R
 
+    REBASE: A-B-C-D-R
     5. We create commit R, which actual file content is identical to that of merge commit M above. But, we get rid of
     commit E, like it never existed. Because of this obliteration, E should be local
-    to developer Ed and should have never been pushed to any other repository. Advantage of rebase is that diamond
+    to developer E and should have never been pushed to any other repository. Advantage of rebase is that diamond
     shape is avoided, and history stays nice straight line - most developers love that!
 
 43. Asymptotic Notation
@@ -320,4 +297,14 @@
                         2. Web server needs to run web applications.
     Enterprize Application - 1. we can use anything from Java J2EE like EJB, JMS etc.
                             2. Application server needs to run enterprize application.
+
+
+48. Postgres reads were generally slower than MySQL, but it was capable of writing large amounts of data more efficiently,
+    and it handled concurrency better.
+
+    Postgres is an object-relational database, while MySQL is a purely relational database. This means that Postgres
+    includes features like table inheritance and function overloading, which can be important to certain applications.
+
+    PostgreSQL supports all MySQL data types along with geometric, enumerated, network address, arrays, ranges, XML,
+    hstore, and composite.
 

@@ -2,6 +2,8 @@ package com.interview.graph;
 
 import java.util.ArrayList;
 
+// Only applicable for Directed Graph
+
 public class TransitiveCLosure {
 
     public ArrayList<ArrayList<Integer>> transitiveClosure(int V, int graph[][]) {
@@ -15,7 +17,7 @@ public class TransitiveCLosure {
         for (k = 0; k < V; k++) {       // Pick all vertices as source one by one
             for (i = 0; i < V; i++) {       // Pick all vertices as destination for the above picked source
                 for (j = 0; j < V; j++) {       // If vertex k is on a path from i to j, then make sure that the value of reach[i][j] is 1
-                    reach[i][j] = (reach[i][j]!=0) || ((reach[i][k]!=0) && (reach[k][j]!=0)) ? 1 : 0;
+                    reach[i][j] = (reach[i][j]==1) || ((reach[i][k]==1) && (reach[k][j]==1)) ? 1 : 0;
                 }
             }
         }
@@ -24,7 +26,7 @@ public class TransitiveCLosure {
         for (i = 0; i < V; i++) {
             ArrayList<Integer> tmp = new ArrayList<>();
             for (j = 0; j < V; j++) {
-                if ( i == j)
+                if (i == j)
                     tmp.add(1);
                 else
                     tmp.add(reach[i][j]);

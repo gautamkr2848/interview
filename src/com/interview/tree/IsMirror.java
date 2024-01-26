@@ -9,5 +9,4 @@ public class IsMirror {
             return false;
         return (isMirror(node1.left, node2.right) && isMirror(node1.right, node2.left));
     }
-
 }
