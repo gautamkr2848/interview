@@ -13,7 +13,7 @@ Algorithm:-
 
 public class MinAntena {
 
-    public void minAntena(){
+    public static void minAntena(){
         int house[] = { 7, 2, 4, 6, 5, 9, 12, 11 };
         int range = 2;
         int n = house.length;
@@ -35,5 +35,9 @@ public class MinAntena {
                 i++;
         }
         System.out.println(count);
+    }
+
+    public static void main(String[] args) {
+        minAntena();
     }
 }

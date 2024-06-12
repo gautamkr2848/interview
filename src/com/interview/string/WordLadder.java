@@ -13,12 +13,12 @@ dictionary and length of all dictionary words is same.
 Example:
 
     Input: Dictionary = {POON, PLEE, SAME, POIE, PLEA, PLIE, POIN}, start = TOON, target = PLEA
-Output: 7
-Explanation: TOON – POON – POIN – POIE – PLIE – PLEE – PLEA
+    Output: 7
+    Explanation: TOON – POON – POIN – POIE – PLIE – PLEE – PLEA
 
-Input: Dictionary = {ABCD, EBAD, EBCD, XYZA}, start = ABCV, target = EBAD
-Output: 4
-Explanation: ABCV – ABCD – EBCD – EBAD
+    Input: Dictionary = {ABCD, EBAD, EBCD, XYZA}, start = ABCV, target = EBAD
+    Output: 4
+    Explanation: ABCV – ABCD – EBCD – EBAD
 
 
 
@@ -65,10 +65,10 @@ public class WordLadder {
                         if (String.valueOf(word).equals(target))        // If the new word is equal to the target word
                             return level + 1;
 
-                        if (!dictionary.contains(String.valueOf(word)))      // Remove the word from the set if it is found in it
+                        if (!dictionary.contains(String.valueOf(word)))
                             continue;
 
-                        dictionary.remove(String.valueOf(word));
+                        dictionary.remove(String.valueOf(word));    // Remove the word from the set if it is found in it
                         q.add(String.valueOf(word));        // And push the newly generated word  which will be a part of the chain
                     }
 

@@ -44,11 +44,10 @@ public final class Immutable {
 
 final class Employee{
     private final int id;
-    private Address address;
+    private final Address address;
 
     public Employee(int id, Address address) {
         this.id = id;
-        //this.address = (Address) address.clone();
         this.address = address;
     }
 
@@ -56,9 +55,8 @@ final class Employee{
         return id;
     }
 
-    public Address getAddress() {
-        //return (Address)address.clone();
-        return address;
+    public Address getAddress() throws CloneNotSupportedException {
+        return (Address)address.clone();
     }
 }
 
@@ -71,5 +69,9 @@ class Address implements Cloneable {
 
     public void setStreet(String street){
         this.street = street;
+    }
+
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

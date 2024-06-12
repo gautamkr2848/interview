@@ -19,17 +19,14 @@ public class ReverseLinkedList {
     // 1    2   3   4
     // 2    3   4
     // 3    4
+    // 4
     // 4    3
     // 4    3   2
     // 4    3   2   1
 
-
     public Node reverseListRecurrsion(Node head){
 
-        if(head == null)
-            return head;
-
-        if(head.next == null)
+        if(head == null || head.next == null)
             return head;
 
         Node newHead = reverseListRecurrsion(head.next);

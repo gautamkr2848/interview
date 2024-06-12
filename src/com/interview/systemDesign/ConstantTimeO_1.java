@@ -2,6 +2,8 @@ package com.interview.systemDesign;
 
 import java.util.*;
 
+// Design a data structure that supports insert, delete, search and getRandom in constant time
+
 public class ConstantTimeO_1 {
 
     List<Integer> list;

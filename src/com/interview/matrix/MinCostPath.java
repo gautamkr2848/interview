@@ -32,6 +32,24 @@ public class MinCostPath {
         return cost[m][n] + min(minCost_2(cost, m-1, n), minCost_2(cost, m, n-1), minCost_2(cost, m-1, n-1));
     }
 
+    // Time Complexity: O((M * N)3)
+    // Auxiliary Space: O(M + N), for recursive stack space
+
+    public int minCostMemoized(int[][] cost, int m, int n, int[][] dp) {
+        if (n < 0 || m < 0)
+            return Integer.MAX_VALUE;
+        else if (m == 0 && n == 0)
+            return cost[m][n];
+
+        // Check if the result is already memoized
+        if (dp[m][n] != -1)
+            return dp[m][n];
+
+        dp[m][n] = cost[m][n] + min(minCostMemoized(cost, m - 1, n - 1, dp), minCostMemoized(cost, m - 1, n, dp), minCostMemoized(cost, m, n - 1, dp));
+
+        return dp[m][n];
+    }
+
     int min(int x, int y, int z) {
         if (x < y)
             return (x < z)? x : z;

@@ -17,6 +17,6 @@ public class ColumnNumberToName {
                 n = n / 26;
             }
         }
-        System.out.println(columnName.reverse().toString());
+        System.out.println(columnName.reverse());
     }
 }

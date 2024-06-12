@@ -10,8 +10,9 @@ public class DetectCycleDirected {
         boolean[] recStack = new boolean[V];
 
         for (int i = 0; i < V; i++)
-            if (isCyclicUtil(i, adj, visited, recStack))
-                return true;
+            if(!visited[i])
+                if (isCyclicUtil(i, adj, visited, recStack))
+                    return true;
 
         return false;
     }

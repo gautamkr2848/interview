@@ -7,14 +7,15 @@ import java.util.Queue;
 
 public class PhoneNumberCombination {
 
-    public List<String> letterCombinations(int[] number, int n) {
-        String[] table = { "0",   "1",   "abc",  "def", "ghi",
-                            "jkl", "mno", "pqrs", "tuv", "wxyz" };
+    public static void main(String[] args) {
+        int[] number = {5,2,4,3};
+        int n = 4;
+        String[] table = { "0",   "1",   "abc",  "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
 
-        return letterCombinationsUtil(number, n, table);
+        System.out.println(letterCombinationsUtil(number, n, table).toString());
     }
 
-    private List<String> letterCombinationsUtil(int[] number, int n, String[] table) {
+    private static List<String> letterCombinationsUtil(int[] number, int n, String[] table) {
         List<String> list = new ArrayList<>();
 
         Queue<String> q = new LinkedList<>();

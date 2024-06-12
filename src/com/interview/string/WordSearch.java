@@ -30,7 +30,7 @@ public class WordSearch {
     static int R = 3;
     static int C = 13;
 
-    public void wordSearch(){
+    public static void wordSearch(){
         char[][] grid = { { 'G', 'E', 'E', 'K', 'S', 'F', 'O', 'R', 'G', 'E', 'E', 'K', 'S' },
                 { 'G', 'E', 'E', 'K', 'S', 'Q', 'U', 'I', 'Z', 'G', 'E', 'E', 'K' },
                 { 'I', 'D', 'E', 'Q', 'A', 'P', 'R', 'A', 'C', 'T', 'I', 'C', 'E' } };
@@ -44,7 +44,7 @@ public class WordSearch {
         }
     }
 
-    private Boolean search2D(char[][] grid, int i, int j, String word){
+    private static Boolean search2D(char[][] grid, int i, int j, String word){
 
         for (int dir = 0; dir < 8; dir++) {
             int k, rd = i + x[dir], cd = j + y[dir];
@@ -63,5 +63,9 @@ public class WordSearch {
                 return true;
         }
         return false;
+    }
+
+    public static void main(String[] args) {
+        wordSearch();
     }
 }

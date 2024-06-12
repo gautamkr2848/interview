@@ -4,8 +4,7 @@ public class MirrorTree {
 
     public Node convertMirrorTree(Node node) {
 
-        if(node == null)
-                return node;
+        if(node == null) return node;
 
         Node left = convertMirrorTree(node.left);
         Node right = convertMirrorTree(node.right);

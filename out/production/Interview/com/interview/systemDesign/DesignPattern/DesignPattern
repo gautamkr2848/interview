@@ -1,0 +1,67 @@
+Creational Design Patterns
+
+Creational design patterns are design patterns that focus on creating objects effectively. But there are some scenarios
+where the nature of the object changes according to the nature of the problem at hand.
+
+    Factory Method
+        Suppose we go to a cake shop and order a chocolate cake. When we place an order, the shopkeeper sends the order
+        to the kitchen and we get it in a few minutes when the cake is ready. We are not concerned with what happens
+        inside the kitchen and what ingredients are used to make the cake. The internal call by the shopkeeper to create
+        a vanilla, chocolate, or strawberry cake is hidden from the user.
+
+        The factory design pattern says that define an interface ( A java interface or an abstract class) for creating object
+        and let the subclasses decide which class to instantiate.
+
+    Abstract Factory Method
+
+        Let’s take an example of a multi-cuisine restaurant that serves Chinese, Indian, and Continental food and you
+        opt for Chinese. There might be different specialized chefs for the different items and for different cuisines
+        but you don’t need to get into the details. In fact, you would not even know which kitchen or chef is involved
+        in preparing your food.
+
+        Abstract Factory pattern is almost similar to Factory Pattern and is considered as another layer of abstraction
+        over factory pattern. Abstract Factory patterns creates other factories.
+
+    Singleton Pattern
+    Builder Pattern
+    Prototype Pattern
+
+
+Structural Design Pattern
+
+Structural design pattern is a blueprint of how different objects and classes are combined together to form a bigger structure for achieving multiple goals altogether.
+
+    Adapter Pattern
+    Bridge Pattern
+    Composite Pattern
+    Decorator Pattern
+
+        In Decorator Pattern, we can add or remove object functionality without changing the function or external
+        appearance of the object. Therefore with help of a decorator pattern, we can add additional responsibilities to
+        an object without changing the functionalities of the object.
+
+        When to use Decorator Pattern
+
+        It enhances the extensibility of an object, as changes are made by coding new classes.
+        Rather than coding all behaviour into a single object Each specific part of the functionality is simplified by
+        coding a series of classes.
+
+    Proxy Pattern
+
+
+Behavioral Design Patterns
+
+In these design patterns, the interaction between the objects should be in such a way that they can easily talk to each other and still should be loosely coupled.
+    Chain of Responsibility Pattern
+    Command Pattern
+    Interpreter Pattern
+    Iterator Pattern
+    Mediator Pattern
+    Memento Pattern
+    Observer Pattern
+    State Pattern
+    Strategy Pattern
+    Template Pattern
+    Visitor Pattern
+    Null Object
+

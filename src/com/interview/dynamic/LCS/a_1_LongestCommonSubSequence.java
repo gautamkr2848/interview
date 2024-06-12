@@ -64,7 +64,7 @@ public class a_1_LongestCommonSubSequence {
     }
 
     public void printLCS(String a, String b, int m, int n){
-        int[][] t = new int[m+1][n+1];    //for printing LCS we have to use this t[][] matrix outside LCS one
+        int[][] t = new int[m+1][n+1];    //for printing LCS we have to use this t[][] matrix outside LCS
         lcs(a, b, m, n);
         Stack<Character> stk = new Stack<>();
 
@@ -81,10 +81,8 @@ public class a_1_LongestCommonSubSequence {
             }
         }
 
-        while (!stk.empty()){
-            char data = stk.pop();
-            System.out.print(data + " ");
-        }
+        while (!stk.empty())
+            System.out.print(stk.pop() + " ");
     }
 }
 

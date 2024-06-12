@@ -1,0 +1,409 @@
+🥷 Two Pointers
+
+1. Remove Duplicates from Sorted Array
+2. Sorted array square
+3. 3Sum
+4. 3Sum Closest
+5. Sort Colors => 0, 1, 2
+6. Backspace String Compare     //Not done
+
+🥷 Fast and Slow Pointers
+
+1. Linked List Cycle
+2. Happy Number         //Not done
+3. Palindrome Linked List
+4. Reorder List
+5. Circular Array Loop
+
+🥷 Sliding Window
+
+1. Maximum Average Subarray I
+2. Minimum Size Subarray Sum
+3. Longest Substring with At Most K Distinct
+4. Characters
+5. Fruit Into Baskets
+6. Longest Substring with At Most Two Distinct Characters
+7. Longest Substring Without Repeating Characters
+8. Max Consecutive Ones III
+9. Minimum Window Substring
+10. Find All Anagrams in a String
+
+🥷 Merged Intervals
+
+1. Insert Interval
+2. Interval List Intersections
+3. Meeting Rooms
+4. Meeting Rooms II
+5. Car Pooling
+6. Employee Free Time
+
+🥷 Depth First Search (DFS)
+
+1. Path Sum II
+2. Binary Tree Paths
+3. Sum Root to Leaf Numbers
+4. Path Sum III
+5. Diameter of Binary Tree
+6. Binary Tree Maximum Path Sum
+
+🥷 Breadth First Search (BFS)
+
+1. Binary Tree Level Order Traversal II
+2. Binary Tree Zigzag Level Order Traversal
+3. Average of Levels in Binary Tree
+4. Maximum Level Sum of a Binary Trees
+5. Minimum Depth of Binary Tree
+6. Maximum Depth of Binary Tree
+7. Populating Next Right Pointers in Each Node
+8. Binary Tree Right Side View
+
+
+Array
+Two Sum
+Best Time to Buy and Sell Stock
+Contains Duplicate
+Product of Array Except Self
+Maximum Subarray
+Maximum Product Subarray
+Find Minimum in Rotated Sorted Array
+Search in Rotated Sorted Array
+3 Sum
+Container With Most Water
+
+Binary
+Sum of Two Integers
+Number of 1 Bits
+Counting Bits
+Missing Number
+Reverse Bits
+
+Dynamic Programming
+Climbing Stairs
+Coin Change
+Longest Increasing Subsequence
+Longest Common Subsequence
+Word Break Problem
+Combination Sum
+House Robber
+House Robber II
+Decode Ways
+Unique Paths
+Jump Game
+
+Graph
+Clone Graph
+Course Schedule
+Pacific Atlantic Water Flow
+Number of Islands
+Longest Consecutive Sequence
+Alien Dictionary (Leetcode Premium)
+Graph Valid Tree (Leetcode Premium)
+Number of Connected Components in an Undirected Graph (Leetcode Premium)
+
+Interval
+Insert Interval
+Merge Intervals
+Non-overlapping Intervals
+Meeting Rooms (Leetcode Premium)
+Meeting Rooms II (Leetcode Premium)
+
+Linked List
+Reverse a Linked List
+Detect Cycle in a Linked List
+Merge Two Sorted Lists
+Merge K Sorted Lists
+Remove Nth Node From End Of List
+Reorder List
+
+Matrix
+Set Matrix Zeroes
+Spiral Matrix
+Rotate Image
+Word Search
+
+String
+Longest Substring Without Repeating Characters
+Longest Repeating Character Replacement
+Minimum Window Substring
+Valid Anagram
+Group Anagrams
+Valid Parentheses
+Valid Palindrome
+Longest Palindromic Substring
+Palindromic Substrings
+Encode and Decode Strings (Leetcode Premium)
+
+Tree
+Maximum Depth of Binary Tree
+Same Tree
+Invert/Flip Binary Tree
+Binary Tree Maximum Path Sum
+Binary Tree Level Order Traversal
+Serialize and Deserialize Binary Tree
+Subtree of Another Tree
+Construct Binary Tree from Preorder and Inorder Traversal
+Validate Binary Search Tree
+Kth Smallest Element in a BST
+Lowest Common Ancestor of BST
+Implement Trie (Prefix Tree)
+Add and Search Word
+Word Search II
+
+Heap
+Merge K Sorted Lists
+Top K Frequent Elements
+Find Median from Data Stream
+
+Flipkart
+👉 Integer To English words (10 times): https://lnkd.in/d3QyaGAE
+👉 Search In Rotated Sorted Array (14 times): https://lnkd.in/dgHSMcdJ
+👉 Number of Ways to Stay in the Same Place After Some Steps (13 times): https://lnkd.in/d_RuNffy
+👉 Rotting Oranges (18 times):https://lnkd.in/dmRdeZPd
+👉 Diameter of the tree (21 times):https://lnkd.in/dje-GFKK
+👉 Sliding Window Maximum (31 times): https://lnkd.in/dRqhBTNY
+👉 Maximum Product Subarray (19): https://lnkd.in/dm8ZXnqm
+👉 Network Delay Time (17 times): https://lnkd.in/dVYvSKRv
+👉 Exam Room (18 times): https://lnkd.in/daedCHuA
+👉 Shortest World Distance (12 times): https://lnkd.in/dcTh5Zp8
+👉 Design a leaderboard (18 times): https://lnkd.in/dTAEgbm4
+👉 Merge Interverls (19 times): https://lnkd.in/dcx2WGj3
+👉 Network Delay Time (19 times): https://lnkd.in/dVYvSKRv
+👉 Weighted job scheduling (11 times): https://lnkd.in/dBgFUvYe
+👉 My Calendar (12 times): https://lnkd.in/dwi2CTXH
+👉 Shortest Path in a Grid with Obstacles Elimination (18 times): https://lnkd.in/dKeAyMjy
+👉 Number of Ways to Stay in the Same Place After Some Steps (22 times): https://lnkd.in/d_RuNffy
+👉 Middle element in the linkedin-list (20 times): https://lnkd.in/dSuAEDqz
+👉 Minimum Time to Complete Trips (23 times): https://lnkd.in/dmwcz7gw
+👉 Trapping rain water (29 times) - https://lnkd.in/dxeep39m
+👉 Set Matrix to zero (19 times) - https://lnkd.in/dMQPm6Ut
+👉 Swap nodes in pairs (19 times) - https://lnkd.in/dzKn4k6n
+
+
+Tech Interview Handbook (solve 50 suggested LCs multiple times): https://lnkd.in/dbK9TasP
+
+Grokking Coding Interview: https://lnkd.in/d4YzR_3d
+
+- Graph problems: https://lnkd.in/dT4brkwG
+- Kahn’s topsort: https://lnkd.in/dc8VzPx7
+- Dijkstra’s shortest path: https://lnkd.in/djWD4ncp
+- Kruskal’s MST: https://lnkd.in/dUaF7dDr
+- Union find: https://lnkd.in/dmZSyGXq
+- Dynamic programming: https://lnkd.in/d85BHsQp
+
+Great resource on Binary Search (esp. for harder variants): https://lnkd.in/dPVikn9e
+
+Grokking system design: https://lnkd.in/dKBtGDDG
+
+Watch all videos and take notes from this channel: https://lnkd.in/d32sycXJ
+
+Read papers on Dynamo, BigTable, MapReduce, Cassandra, Raft, Lamport Clocks, etc.
+
+A lot of material written by this Medium writer is great: https://lnkd.in/d_4yxAA7
+
+Memorize Jeff Dean’s latency numbers: https://lnkd.in/dq42yWsa
+
+If you have time, read DDIA: https://dataintensive.net
+
+
+
+
+
+
+
+Here are Top 45 with resources to study them (for free):
+
+- SYSTEM DESIGN
+
+- Gaurav Sen - (https://lnkd.in/dQzUk9Ek)
+
+- SudoCode - (https://lnkd.in/dKPi59vK)
+
+- WhatsApp System Design - (https://lnkd.in/gGxPqGw6)
+
+- Instagram Design - (https://lnkd.in/gnBWQqs6)
+
+- TikTok Architecture Design - (https://lnkd.in/g8wn2AbE)
+
+- Tinder System Design - (https://lnkd.in/gbf5WKNW)
+
+- System Design of Amazon, Flipkart like E-commerce - (https://lnkd.in/gyMHRC5S)
+
+- Mock Low Level Design Interview - (https://lnkd.in/gv63EQMr)
+
+- High Level Design vs Low Level Design - (https://lnkd.in/gDZNjGCK)
+
+- low Level Design of a Fitness App - (https://lnkd.in/gME6rpQz)
+
+- Mock Low Level Design Interview - (https://lnkd.in/gAXKJNrP)
+
+1) Design URL Shortener like TinyURL: https://lnkd.in/gB76Pknt
+
+2) Design Text Storage Service like Pastebin: https://lnkd.in/gFHPJxnp
+
+3) Design Netflix: https://lnkd.in/gzwN2ZjJ
+
+4) Design Youtube: https://lnkd.in/gtKw4knw
+
+5) Design Instagram: https://lnkd.in/grQN4rjG
+
+6) Design Twitter: https://lnkd.in/gCjEn5YT
+
+7) Design E-commerce Store like Amazon: https://lnkd.in/gzy6wzHy
+
+8) Design WhatsApp: https://lnkd.in/gKUheB47
+
+9) Design Facebook: https://lnkd.in/g_yurcsQ
+
+10) Design File Sharing System like Dropbox: https://lnkd.in/gQs2vm38
+
+11) Design Autocomplete for Search Engines: https://lnkd.in/g-7QkTCe
+
+12) Design Google Search: https://lnkd.in/gxt65hEW
+
+13) Design Airbnb: https://lnkd.in/gcUQrt8R
+
+14) Design Tinder: https://lnkd.in/grpyXJbc
+
+15) Design Stock Exchange system: https://lnkd.in/gt_PZhzy
+
+16) Design Google Maps: https://lnkd.in/gPjVJr2Z
+
+17) Design Distributed Web Crawler: https://lnkd.in/gZfAzjjV
+
+18) Design Location Based Service like Yelp: https://lnkd.in/gKAGkFBQ
+
+19) Design Uber: https://lnkd.in/gcHvRgkY
+
+20) Design Ticket Booking System like BookMyShow: https://lnkd.in/g3qJgG6r
+
+21) Design Spotify: https://lnkd.in/gArruN9e
+
+22) Design Food Delivery App like Doordash: https://lnkd.in/gGHdAa_i
+
+23) Design Zoom: https://lnkd.in/gcJuhcMG
+
+24) Design Shopify: https://lnkd.in/g85JfHhH
+
+25) Design Google Docs: https://lnkd.in/gAFE7G_m
+
+26) Design TikTok: https://lnkd.in/gT2Ju9-8
+
+27) Design Reddit: https://lnkd.in/grGAf4dR
+
+28) Design Code Deployment System: https://lnkd.in/gr_BJD6f
+
+29) Design Distributed Message Queue like Kafka: https://lnkd.in/gNAeTiCP
+
+30) Design Distributed Cloud Storage like S3: https://lnkd.in/gmFbArYt
+
+31) Design Distributed Job Scheduler: https://lnkd.in/g6T5Dfr7
+
+32) Design Rate Limiter: https://lnkd.in/gEFF6H_f
+
+33) Design Distributed Locking Service: https://lnkd.in/gmx2Bhc4
+
+34) Design Distributed key-value store: https://lnkd.in/gdYCP9w4
+
+35) Design Distributed Cache: https://lnkd.in/gmKpA4qE
+
+36) Design Notification Service: https://lnkd.in/gNNTUSAu
+
+37) Design Metrics & Logging Service: https://lnkd.in/gQM7XTuh
+
+38) Design Content Delivery Network (CDN): https://lnkd.in/gVjBNqr7
+
+39) Design Parking Garage: https://lnkd.in/gHhe84bd
+
+40) Design Flight Booking System: https://lnkd.in/gkVkTb65
+
+41) Design Online Code Editor: https://lnkd.in/gRfCACAV
+
+42) Design Vending Machine: https://lnkd.in/gyhA8QUZ
+
+43) Design Authentication System: https://lnkd.in/gK95Y3mg
+
+44) Design Payment System: https://lnkd.in/gBuJkXUf
+
+45) Design UPI: https://lnkd.in/gP4AatEd
+
+
+
+
+10. Crash Course
+
+📍https://lnkd.in/dkvNdG_K
+
+CrashCourse has fit into 10-12 minute videos with multiple lessons on economics, physics, philosophy, astronomy, politics, psychology, literature, and biology.
+
+
+9. Khan Academy
+
+📍https://lnkd.in/dEiZqiGe
+
+If you’ve never used Khan Academy’s website before, it is a free educational resource with tutorials on all sorts of subjects.
+
+
+8. Thomas Frank
+
+📍https://lnkd.in/d7NpmMcf
+
+Thomas Frank’s channel is actually called College Info Geek and what he publishes are videos on studying and habits and tips that can help you do better in your college classes.
+
+
+7. The School of Life
+
+📍https://lnkd.in/dBq4wCxi
+
+The School of Life is a place that tries to answer the great questions of life.
+
+The best Value for Money Business Studies
+
+
+6. TED
+
+📍https://youtube.com/c/TED
+
+TED is a nonprofit organisation devoted to spreading ideas, usually in the form of short, powerful talks (18 minutes or less).
+
+
+5. MIT OpenCourseWare
+
+📍https://lnkd.in/dgzhyHVJ
+
+Did you know you could attend an MIT class without actually being accepted?
+
+For those who don´t know what MIT is, it is a highly-ranked Boston university not only in the United States but in the world.
+
+
+4. Bozeman Science
+
+📍https://lnkd.in/dwYD25BE
+
+Do you love science? But wait, what is the best way to teach science? Paul Andersen can help you to get deeper into science.
+
+3. freeCodeCamp
+
+📍https://lnkd.in/dbgDuqHZ
+
+⚡️Learn how to code for free.
+⚡️Web development and programming tutorials
+⚡️Full courses teaching HTML, CSS, JavaScript, Python, and more
+
+2. Charisma On Command
+
+📍https://lnkd.in/dFk2uCRy
+
+Want to be more charismatic and confident?
+
+This channel will give you lessons on:
+
+⚡️How to be more confident
+⚡️How to make people laugh
+⚡️How to be more likable
+
+
+1. Better Than Yesterday
+
+📍https://lnkd.in/dNsdYn8n
+
+Animated lessons from the best personal development books.

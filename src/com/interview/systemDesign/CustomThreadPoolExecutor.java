@@ -18,6 +18,10 @@ LinkedBlockingQueue
     A bounded blocking queue based on linked nodes. This queue stores elements in FIFO order.
     It is thread-safe in nature and acts as a temporary storage of runnable tasks.
 
+    A blocking queue indicates that the queue blocks the accessing thread if it is full (when the queue is bounded) or
+    becomes empty. If the queue is full, then adding a new element will block the accessing thread unless there is space
+    available for the new element.
+
 */
 
 public class CustomThreadPoolExecutor {
@@ -47,6 +51,7 @@ public class CustomThreadPoolExecutor {
             super(name);
         }
 
+        @Override
         public void run() {
             while (true) {
                 try {

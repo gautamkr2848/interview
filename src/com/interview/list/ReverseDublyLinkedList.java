@@ -21,6 +21,7 @@ public class ReverseDublyLinkedList {
             temp = current.prev;
             current.prev = current.next;
             current.next = temp;
+
             current = current.prev;
         }
 
@@ -29,5 +30,23 @@ public class ReverseDublyLinkedList {
         if (temp != null) {
             head = temp.prev;
         }
+    }
+
+    public static DoublyNode Reverse(DoublyNode node) {
+        if (node == null)
+            return null;
+
+        // Otherwise, swap the next and prev
+        DoublyNode temp = node.next;
+        node.next = node.prev;
+        node.prev = temp;
+
+        // If the prev is now null, the list
+        // has been fully reversed
+        if (node.prev == null)
+            return node;
+
+        // Otherwise, keep going
+        return Reverse(node.prev);
     }
 }

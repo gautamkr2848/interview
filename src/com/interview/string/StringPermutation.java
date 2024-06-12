@@ -5,7 +5,7 @@ package com.interview.string;
 
 public class StringPermutation {
 
-    public void permutation(String str, int l, int r){
+    public static void permutation(String str, int l, int r){
         if (l == r)
             System.out.print(str + " ");
         else {
@@ -17,12 +17,16 @@ public class StringPermutation {
         }
     }
 
-    public String swap(String a, int i, int j) {
+    public static String swap(String a, int i, int j) {
         char temp;
         char[] charArray = a.toCharArray();
         temp = charArray[i];
         charArray[i] = charArray[j];
         charArray[j] = temp;
         return String.valueOf(charArray);
+    }
+
+    public static void main(String[] args) {
+        permutation("abc", 0, 2);
     }
 }

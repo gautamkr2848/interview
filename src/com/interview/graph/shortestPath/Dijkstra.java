@@ -4,9 +4,24 @@ import com.interview.graph.Pair;
 
 import java.util.*;
 
+// First choose a source vretex, let's say 0
+// Start selecting the closest nodes from all the adjacent reachable nodes
+// Stop when all the nodes have been included and we are left with shortest path tree
 // O(ELogV)
 
+//Input:
+//V = 3, E = 3
+//adj = {{{1, 1}, {2, 6}}, {{2, 3}, {0, 1}}, {{1, 3}, {0, 6}}}
+//S = 2
+//Output:
+//4 3 0
+
+// follows greedy algo
+
 public class Dijkstra {
+
+    private ArrayList<ArrayList<iPair>> adj;
+    private int V;
 
     public int[] dijkstra(int V, int S, ArrayList<ArrayList<ArrayList<Integer>>> adj){
         boolean[] visited = new boolean[V];
@@ -36,6 +51,40 @@ public class Dijkstra {
             }
         }
         return ans;
+    }
+
+    void shortestPath(int src) {
+        PriorityQueue<iPair> pq = new PriorityQueue<>(V, Comparator.comparingInt(o -> o.first));
+        int[] dist = new int[V];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+
+        pq.add(new iPair(0, src));
+        dist[src] = 0;
+
+        while (!pq.isEmpty()) {
+            int u = pq.poll().second;
+
+            for (iPair v : adj.get(u)) {
+                if (dist[v.first] > dist[u] + v.second) {
+                    dist[v.first] = dist[u] + v.second;
+                    pq.add(new iPair(dist[v.first], v.first));
+                }
+            }
+        }
+
+        System.out.println("Vertex Distance from Source");
+        for (int i = 0; i < V; i++) {
+            System.out.println(i + "\t\t" + dist[i]);
+        }
+    }
+
+    static class iPair {
+        int first, second;
+
+        iPair(int first, int second) {
+            this.first = first;
+            this.second = second;
+        }
     }
 }
 

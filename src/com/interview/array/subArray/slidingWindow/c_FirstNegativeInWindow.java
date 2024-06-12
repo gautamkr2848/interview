@@ -7,55 +7,56 @@ import java.util.List;
 
 public class c_FirstNegativeInWindow {
 
-    public void firstNegativeInWindow(){
-        int arr[] = { 12, -1, -7, 8, -15, 30, 16, 28 };
+    public static void printFirstNegativeInteger() {
+        int arr[] = { 12, -1, -7, 8, 15, 30, -16, 28 };
         int k = 3;
+        Deque<Integer> q = new LinkedList<>();
+        List<Integer> result = new ArrayList<>();
 
-        for(int i = 0; i <= arr.length-k; i++) {
-            int tmp = arr[i];
-            if(arr[i] < 0) {
-                System.out.print(tmp + " ");
-                continue;
-            }
-            int j;
-            for(j=1; j<k; j++){
-                if (arr[i+j] < 0){
-                    System.out.print(arr[i+j]);
-                    break;
+        for (int i = 0; i < arr.length; i++) {
+
+            if (!q.isEmpty() && q.peekFirst() <= i - k)
+                q.removeFirst();
+
+            if (arr[i] < 0)
+                q.addLast(i);
+
+            if (i >= k - 1) {
+                if (!q.isEmpty()) {
+                    System.out.print(arr[q.peekFirst()] + " ");
+                } else {
+                    System.out.print("0 ");
                 }
             }
-            if(j == k)
-                System.out.print("0 ");
         }
     }
 
-    public void printFirstNegativeInteger() {
-        int arr[] = { 12, -1, -7, 8, -15, 30, 16, 28 };
+    public static void main(String[] args) {
+        printFirstNegativeInteger();
+    }
+
+    public void printFirstNegativeInteger_2() {
+        int arr[] = {12, -1, -7, 8, -15, 30, 16, 28};
         int k = 3;
-        Deque<Integer> deque = new LinkedList<>();
+        Deque<Integer> q = new LinkedList<>();
         List<Integer> result = new ArrayList<>();
 
         int i;
         for (i = 0; i < k; i++)
             if (arr[i] < 0)
-                deque.addLast(i);
+                q.addLast(i);
 
         for (; i < arr.length; i++) {
-            if(deque.peek() != null)
-                result.add(arr[deque.peek()]);
+            if (q.peek() != null)
+                result.add(arr[q.peek()]);
 
-            while (!deque.isEmpty() && deque.peek() <= i - k)       // Remove the elements which are out of this window
-                deque.removeFirst();
+            while (!q.isEmpty() && q.peek() <= i - k)       // Remove the elements which are out of this window
+                q.removeFirst();
 
-            while (!deque.isEmpty() && arr[deque.peekLast()] >= 0)      // remove useless elements
-                deque.removeLast();
+            while (!q.isEmpty() && arr[q.peekLast()] >= 0)      // remove useless elements
+                q.removeLast();
 
-            deque.addLast(i);
+            q.addLast(i);
         }
-
-        if(arr[deque.peek()] >= 0)
-            result.add(0);
-
-        System.out.println(result.toString());
     }
 }

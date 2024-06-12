@@ -14,14 +14,12 @@ public class Graph {
             adj.add(i, new ArrayList<>());
     }
 
-    public void addUndirectedEdge(int v, int w){
-        adj.get(v).add(w);
-        adj.get(w).add(v);
+    public void addUndirectedEdge(int x, int y){
+        adj.get(x).add(y);
+        adj.get(y).add(x);
     }
 
-    public void addEdge(int v, int w){
-        if(adj.get(v).size() == 0)
-            adj.get(v).add(v);
-        adj.get(v).add(w);
+    public void addEdge(int x, int y){
+        adj.get(x).add(y);
     }
 }

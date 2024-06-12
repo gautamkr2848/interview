@@ -18,7 +18,7 @@ public class InsertionPoint {
         System.out.println("null");
     }
 
-    public void insertionPoint2(Node n1, Node n2){
+    public int insertionPoint2(Node n1, Node n2){
         Node curr1 = n1, curr2 = n2;
         while(curr1 != curr2){
             if(curr1 != null)
@@ -31,6 +31,10 @@ public class InsertionPoint {
             else
                 curr2 = n1;
         }
-        System.out.println(curr1.data);
+
+        if(curr1 == null)
+            return -1;
+        else
+            return curr1.data;
     }
 }

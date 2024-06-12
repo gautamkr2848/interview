@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ListCloneWithNextAndRandomPointer {
-    class Node {
+    static class Node {
         int data;
         Node next,random;
         Node(int x){
@@ -13,29 +13,10 @@ public class ListCloneWithNextAndRandomPointer {
         }
     }
 
-    public Node listCloneWithNextAndRandomPointer(Node head){
+     /* 1       2       3       4       5
+            1       2       3       4       5 */
 
-        Node curr1 = head;
-        Node curr2 = null;
-        Map<Node, Node> map = new HashMap<>();
-
-        while (curr1 != null) {
-            curr2 = new Node(curr1.data);
-            map.put(curr1, curr2);
-            curr1 = curr1.next;
-        }
-
-        curr1 = head;
-        while (curr1 != null){
-            curr2 = map.get(curr1);
-            curr2.next = map.get(curr1.next);
-            curr2.random = map.get(curr1.random);
-            curr1 = curr1.next;
-        }
-        return map.get(head);
-    }
-
-    public Node cloneLinkedList(Node head) {
+    public static Node cloneLinkedList(Node head) {
         if (head == null)
             return null;
 
@@ -70,7 +51,58 @@ public class ListCloneWithNextAndRandomPointer {
         return clonedHead;
     }
 
+    public static void main(String[] args) {
+        Node head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = new Node(4);
+        head.next.next.next.next = new Node(5);
+        head.random = head.next.next;
+        head.next.random = head;
+        head.next.next.random = head.next.next.next.next;
+        head.next.next.next.random = head.next.next;
+        head.next.next.next.next.random = head.next;
 
-    /*1       2       3       4       5
-          1       2       3       4       5*/
+        // Print the original list
+        System.out.println("The original linked list:");
+        printList(head);
+
+        // Function call
+        Node sol = cloneLinkedList(head);
+
+        System.out.println("The cloned linked list:");
+        printList(sol);
+    }
+
+    private static void printList(Node head) {
+        System.out.print(head.data + "(" + head.random.data + ")");
+        head = head.next;
+        while (head != null) {
+            System.out.print(" -> " + head.data + "(" + head.random.data + ")");
+            head = head.next;
+        }
+        System.out.println();
+    }
+
+    public Node listCloneWithNextAndRandomPointer(Node head){
+
+        Node curr1 = head;
+        Node curr2 = null;
+        Map<Node, Node> map = new HashMap<>();
+
+        while (curr1 != null) {
+            curr2 = new Node(curr1.data);
+            map.put(curr1, curr2);
+            curr1 = curr1.next;
+        }
+
+        curr1 = head;
+        while (curr1 != null){
+            curr2 = map.get(curr1);
+            curr2.next = map.get(curr1.next);
+            curr2.random = map.get(curr1.random);
+            curr1 = curr1.next;
+        }
+        return map.get(head);
+    }
 }

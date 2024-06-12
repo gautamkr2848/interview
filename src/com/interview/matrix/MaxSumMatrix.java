@@ -19,13 +19,6 @@ public class  MaxSumMatrix {
             return Integer.MIN_VALUE;
         if(m == 0 && n == 0)
             return cost[m][n];
-        return cost[m][n] + max(maxCost_2(cost, m-1, n), maxCost_2(cost, m, n-1), maxCost_2(cost, m-1, n-1));
-    }
-
-    private int max(int x, int y, int z) {
-        if(x < y)
-            return (y < z) ? z : y;
-        else
-            return (x < z) ? z : x;
+        return cost[m][n] + Math.max(maxCost_2(cost, m-1, n), maxCost_2(cost, m, n-1));
     }
 }

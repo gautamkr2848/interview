@@ -10,16 +10,15 @@ import java.util.Stack;
 
 public class b_PalindromePartitioning {
 
+    //i = 0, j = n-1
     public int b_PalindromePartitioning(String s, int i, int j){
         if(i >= j || isPalindrome(s, i, j))
             return 0;
 
         int min = Integer.MAX_VALUE;
-        for(int k=i; k<j; k++){
-            int temp = b_PalindromePartitioning(s, i, k) + b_PalindromePartitioning(s, k+1, j) + 1;
-            if(temp < min)
-                min = temp;
-        }
+        for(int k=i; k<j; k++)
+            min = Math.min(min, b_PalindromePartitioning(s, i, k) + b_PalindromePartitioning(s, k+1, j) + 1);
+
         return min;
     }
 
@@ -39,9 +38,7 @@ public class b_PalindromePartitioning {
     }
 
     public int b_PalindromePartitioning_momorization(String s, int i, int j){
-        if(i >= j)
-            return 0;
-        if(isPalindrome(s, i, j))
+        if(i >= j || isPalindrome(s, i, j))
             return 0;
 
         if(t[i][j] != -1)
@@ -59,9 +56,7 @@ public class b_PalindromePartitioning {
     }
 
     public int b_PalindromePartitioning_momorization_opmized(String s, int i, int j){
-        if(i >= j)
-            return 0;
-        if(isPalindrome(s, i, j))
+        if(i >= j || isPalindrome(s, i, j))
             return 0;
 
         if(t[i][j] != -1)

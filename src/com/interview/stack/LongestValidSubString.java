@@ -18,7 +18,7 @@ public class LongestValidSubString {
             else {
                if (!stk.empty()) {
                    stk.pop();
-                   result = Math.max(result, i - stk.peek());
+                   result = Math.max(result, i - (stk.isEmpty() ? 0 : stk.peek()));
                } else
                     stk.push(i);
             }

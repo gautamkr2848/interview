@@ -5,12 +5,18 @@ import java.util.PriorityQueue;
 
 public class h_MideanOfRunningInt {
 
-//we can use a max heap on the left side to represent elements that are less than effective median, and a min-heap on
+// we can use a max heap on the left side to represent elements that are less than effective median, and a min-heap on
 // the right side to represent elements that are greater than effective median.
 
-//After processing an incoming element, the number of elements in heaps differs utmost by 1 element. When both heaps
+// After processing an incoming element, the number of elements in heaps differs utmost by 1 element. When both heaps
 // contain the same number of elements, we pick the average of heaps root data as effective median. When the heaps are
 // not balanced, we select effective median from the root of the heap containing more elements.
+
+// maxHeap - evicts greater element and store min element
+// minHeap - evicts lesser element and store max element
+
+    // maxHeap size can't be less than minHeap size
+    // maHeap size either equal or only 1 greater than minHeap size
 
     PriorityQueue<Integer> maxHeap;
     PriorityQueue<Integer> minHeap;

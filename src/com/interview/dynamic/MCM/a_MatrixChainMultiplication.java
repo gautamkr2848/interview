@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /*
 m1 2 * 3, m2 3 * 6  cost => 2 * 3 * 6
+
 m1 2 * 3, m2 3 * 6, m3 6 * 9
     1. (m1 * m2) * m3
     2. m1 * (m2 * m3)
@@ -18,11 +19,9 @@ public class a_MatrixChainMultiplication {
             return 0;
 
         int min = Integer.MAX_VALUE;
-        for(int k=i; k<j; k++){
-            int temp = MCM(arr, i, k) + MCM(arr, k+1, j) + arr[i-1] * arr[k] * arr[j];
-            if(temp <   min)
-                min = temp;
-        }
+        for(int k=i; k<j; k++)
+            min = Math.min(min, MCM(arr, i, k) + MCM(arr, k+1, j) + arr[i-1] * arr[k] * arr[j]);
+
         return min;
     }
 

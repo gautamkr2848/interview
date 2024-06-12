@@ -28,7 +28,7 @@ class Node {
 public class LRUCache {
 
     int capacity;
-    HashMap<Integer, Node> map = new HashMap<>();
+    Map<Integer, Node> map = new HashMap<>();
     Node head = null;
     Node end = null;
 
@@ -101,7 +101,7 @@ class LRUCache2 {
     public LRUCache2(int capacity) {
         CAPACITY = capacity;
         map = new LinkedHashMap<Integer, Integer>(capacity, 0.75f, true) {
-            protected boolean removeEldestEntry(Map.Entry eldest) {
+            public boolean removeEldestEntry(Map.Entry eldest) {
                 return size() > CAPACITY;
             }
         };

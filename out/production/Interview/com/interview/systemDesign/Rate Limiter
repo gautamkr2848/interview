@@ -6,24 +6,24 @@ Requirements -
     3. Send 429 to user after blocking
     4. Logging mechanism for future use
 
-                                                           ---------------------
-                                                           |    Rule Engine    |
-                                                           ---------------------
-                                                                    |
-                                                                    |
-                                                           ---------------------
-                                                           |    Redis Cache    |
-                                                           ---------------------
-                                                                    ^
-                                                                    |
-                                                                   / \
-                                                                /      \
-    ---------------------        -----------------             /  Rate   \                 ---------------------
-    |    client         | <----> | Load Balancer | <---------> \  Limiter / <------------> |    API / Server   |
-    ---------------------        -----------------            |  \      /                  ---------------------
-    ^                                                         |     \/
-    |<------------          429           <-------------------      |
-                                                                    |
+                                                        ---------------------
+                                                        |    Rule Engine    |
+                                                        ---------------------
+                                                                 |
+                                                                 |
+                                                        ---------------------
+                                                        |    Redis Cache    |
+                                                        ---------------------
+                                                                 ^
+                                                                 |
+                                                                 / \
+                                                                /   \
+    ---------------------        -----------------             /Rate \                 ---------------------
+    |    client         | <----> | Load Balancer | <---------> \Limi / <------------> |    API / Server   |
+    ---------------------        -----------------      |        \ /                  ---------------------
+    ^                                                   |         \/
+    |<------------          429           <--------------          |
+                                                                   |
                                                           ---------------------
                                                           |    Redis Cache    |
                                                           ---------------------
@@ -54,12 +54,12 @@ Why do Need Rate Limiting?
     3. If the application is not able to handle huge amount of requests.
 
 Note - We can rate-limit the system in various ways, like based on user id, IP address, region, overall application wise etc.
-        Rate limiter will throw, if any requests were rejected
+        Rate limiter will throw 429, if any requests were rejected
 
 
 Functional Requirements:
 
-A client can send a limited number of requests to a server within a time window, e.g., 100 requests per minute. The
+A client can send a limited number of requests to a server within a time window. e.g - 100 requests per minute. The
 client should get an error message if the defined threshold limit of request is crossed.
 
 
@@ -81,7 +81,7 @@ Algorithms:
     2. Leaky Bucket
     3. Fixed Window
     4. Sliding Window Log
-    5. Silding Window Counter
+    5. Sliding Window Counter
 
 
 Token Bucket

@@ -3,7 +3,10 @@ package com.interview.list;
 import java.util.HashSet;
 import java.util.Set;
 
-public class DetectAndRemoveLoop {
+//Floyd’s Cycle-Finding Algorithm:
+
+public class
+DetectAndRemoveLoop {
 
     public Node detectLoop(Node head){
         Node slow = head;
@@ -20,6 +23,10 @@ public class DetectAndRemoveLoop {
 
     public void removeLoop(Node head) {
         Node meet = detectLoop(head);
+
+        if(meet == null)
+            System.out.print("No loop exists");
+
         Node curr = head;
         Node prev = null;
 

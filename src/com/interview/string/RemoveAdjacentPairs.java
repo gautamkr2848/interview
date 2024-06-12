@@ -7,7 +7,7 @@ public class RemoveAdjacentPairs {
     //ABCCBCBA -> ABBCBA -> ACBA
     //ABCCBCBA -> ACCCBCBA -> ACBCBCBA -> ACBABCBA
 
-    public void removeAdjacentPairs(){
+    public static void removeAdjacentPairs(){
         String s = "ABCCBCBA";
         char[] array = s.toCharArray();
         int j=0;
@@ -20,5 +20,9 @@ public class RemoveAdjacentPairs {
         }
         for(int i=0; i<=j; i++)
             System.out.print(array[i]);
+    }
+
+    public static void main(String[] args) {
+        removeAdjacentPairs();
     }
 }

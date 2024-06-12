@@ -8,7 +8,7 @@ merge2 : geeke
 o/p - length of a + length of b - length of LCS of a & b
 */
 
-public class c1_ShortestCommonSuperSubsequence {
+public class    c1_ShortestCommonSuperSubsequence {
 
     public void c_ShortestCommonSuperSubsequence(){
 

@@ -3,15 +3,6 @@ package com.interview.matrix;
 import java.util.HashSet;
 import java.util.Set;
 
-class Cell{
-    int x, y;
-
-    Cell(int x, int y){
-        this.x = x;
-        this.y = y;
-    }
-}
-
 public class BooleanMatrix {
 
     public void booleanMatrix(){

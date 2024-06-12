@@ -5,7 +5,7 @@ package com.interview.dynamic;
     1 => 1
     1, 2 => Either 1 0r 2
     1, 2, 3 => If we leave 3, then sum[i-1]
-               If we lave 2, then sum[i-2] + arr[i]
+               If we leave 2, then sum[i-2] + arr[i]
 
 
  For three
@@ -49,7 +49,7 @@ public class MaxStolenVaue {
         if(arr.length >= 3){
             sum[0] = arr[0];
             sum[1] = arr[0] + arr[1];
-            sum[2] = Math.max(sum[1], Math.max(arr[0] + arr[2], arr[1] + arr[2]));
+            sum[2] = max(sum[1], arr[0] + arr[2], arr[1] + arr[2]);
         }
 
         // We have three cases

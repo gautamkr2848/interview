@@ -1,10 +1,223 @@
 1. Employees earning more than their manager
 
-    SELECT
-        a.Name AS 'Employee'
-    FROM
-        Employee AS a,
-        Employee AS b
-    WHERE
-        a.ManagerId = b.Id
-            AND a.Salary > b.Salary;
+    SELECT a.Name FROM Employee AS a, Employee AS b WHERE a.ManagerId = b.Id AND a.Salary > b.Salary;
+
+2. How to find duplicates in a table
+
+SELECT order_id, count(order_id) from order group_by order_id having count(order_id) > 1;
+
+3.  How to delete duplicates from a table
+
+DELETE t1 FROM contacts t1  INNER JOIN contacts t2 WHERE t1.id < t2.id AND t1.email = t2.email;
+
+WITH CTE as (Select *, row_number() over (partition by emp_id order by emp_id) as rn from emp)
+DELETE from CTE where rn > 1;
+
+4.  Difference between union and union all
+
+UNION returns distinct records from both the table, while UNION ALL returns all the records from both the tables
+
+Select emp_id from emp1 UNION Select emp_id from emp1;
+Select emp_id from emp1 UNION ALL Select emp_id from emp1;
+
+5. Employees who are not present in department table
+
+SELECT * from emp where dept_id not in (select id from department);
+
+SELECT * from emp LEFT JOIN dept on emp.dept_id = dept.id where dept.id is null;
+
+📌 Leetcode 183 - Customers Who Never Order
+
+SELECT c.name AS Customers
+FROM Customers c LEFT JOIN Orders o ON c.id=o.customerId
+WHERE o.customerId IS NULL;
+
+
+📌 LeetCode 184 - Department Highest Salary
+
+first identify highest salary by
+SELECT departmentId, MAX(salary) FROM Employee GROUP BY departmentId
+
+Then JOIN both table by
+SELECT d.name AS Department , e.name AS Employee, e.salary FROM Department d JOIN Employee e ON e.departmentId=d.id
+
+Then put Condition by
+WHERE(departmentId, salary) IN (SELECT departmentId, MAX(salary) FROM Employee GROUP BY departmentId) ;
+
+Code
+
+SELECT d.name AS Department , e.name AS Employee, e.salary
+FROM Department d JOIN Employee e ON e.departmentId = d.id
+WHERE(departmentId, salary) IN (SELECT departmentId,MAX(salary) FROM Employee GROUP BY departmentId)
+
+5. DELETE vs DROP vs TRUNCATE
+
+       DELETE
+           DML command
+           Used to delete one or more records of a table
+           Slower than the TRUNCATE command
+           We can use the “ROLLBACK” command to restore
+
+       DROP
+           DDL command
+           Used to drop the whole table
+           We can’t restore the table by using the “ROLLBACK” command because it auto commits.
+
+       TRUNCATE
+           DDL command
+           Used to delete all the rows of a table in one go
+           With the help of the “TRUNCATE” command, we can’t delete the single row as here WHERE clause is not used
+           Faster than the delete command
+           We can’t restore the tuples of the table by using the “ROLLBACK” command.
+
+6. Find second highest salary
+
+    SELECT salary FROM employee ORDER BY salary desc limit n-1,1
+
+7. Find second highest salary employees in each department
+
+    SELECT t.deptno, max(t.salary) as 2nd_max_salary FROM emp t WHERE
+    t.salary < (SELECT max(salary) FROM emp t2 WHERE t2.deptno = t.deptno) GROUP BY t.deptno;
+
+    SELECT * FROM (SELECT emp.*, dense_rank() over (partition by dept_id order by salary desc) as rn from emp) a where rn = 2;
+
+9. Explain order of execution of SQL.
+
+    a. FROM and JOINs - The FROM clause, and subsequent JOINs are first executed to determine the total working set of
+    data that is being queried. This includes subqueries in this clause, and can cause temporary tables to be created
+    under the hood containing all the columns and rows of the tables being joined.
+
+    b. WHERE - Once we have the total working set of data, the first-pass WHERE constraints are applied to the individual
+    rows, and rows that do not satisfy the constraint are discarded. Each of the constraints can only access columns
+    directly from the tables requested in the FROM clause. Aliases in the SELECT part of the query are not accessible
+    in most databases since they may include expressions dependent on parts of the query that have not yet executed.
+
+    c. GROUP BY - The remaining rows after the WHERE constraints are applied are then grouped based on common values in
+    the column specified in the GROUP BY clause. As a result of the grouping, there will only be as many rows as there
+    are unique values in that column. Implicitly, this means that you should only need to use this when you have aggregate
+    functions in your query.
+
+    d. HAVING - If the query has a GROUP BY clause, then the constraints in the HAVING clause are then applied to the
+    grouped rows, discard the grouped rows that don't satisfy the constraint. Like the WHERE clause, aliases are also
+    not accessible from this step in most databases.
+
+    e. SELECT - Any expressions in the SELECT part of the query are finally computed.
+
+    f. DISTINCT - Of the remaining rows, rows with duplicate values in the column marked as DISTINCT will be discarded.
+
+    g. ORDER BY - If an order is specified by the ORDER BY clause, the rows are then sorted by the specified data in
+    either ascending or descending order. Since all the expressions in the SELECT part of the query have been computed,
+    you can reference aliases in this clause.
+
+    h. LIMIT / OFFSET - Finally, the rows that fall outside the range specified by the LIMIT and OFFSET are discarded,
+    leaving the final set of rows to be returned from the query.
+
+10. What is difference between where and having?
+
+WHERE clause filters individual rows, whereas the HAVING clause filters groups instead of one row at a time. We cannot
+use the WHERE clause with aggregate functions because it works for filtering individual rows. In contrast, HAVING can
+works with aggregate functions because it is used to filter groups.
+
+SELECT dept_id, avg(salary) from emp where salary > 10000 group by dept_id having avg(salary) > 12000;
+
+11. Convert rows data to column
+
+SELECT emp_id,
+sum(case when salary_component_type = 'salary' then val end) as salary,
+sum(case when salary_component_type = 'bonus' then val end) as bonus,
+sum(case when salary_component_type = 'hike_percentage' then val end) as hike_percentage
+into emp_compensation_pivot from emp_compensation group by emp_id;
+
+SELECT * from
+(SELECT emp_id, 'salary' as salary_component_type, salary as val from emp_compensation_pivot UNION ALL
+SELECT emp_id, 'bonus' as salary_component_type, bonus as val from emp_compensation_pivot UNION ALL
+SELECT emp_id, 'hike_percentage' as salary_component_type, hike_percentage as val from emp_compensation_pivot) a
+order by emp_id;
+
+12. Explain all types of joins in SQL?
+
+13. What are triggers in SQL?
+
+An SQL trigger is a database object that is associated with a table and automatically executes a set of SQL statements
+when a specific event occurs on that table. Triggers are used to enforce business rules, maintain data integrity, and
+automate certain actions within a database.
+
+14. What is stored procedure in SQL
+
+A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again. So if you
+have an SQL query that you write over and over again, save it as a stored procedure, and then just call it to execute it.
+
+15. Explain all types of window functions? (Mainly rank, row_num, dense_rank, lead & lag)
+
+16. What are Views?
+
+Views are some kind of virtual tables created by original tables from the database. Views actually do not hold the
+actual data and just have the definition of the original data.
+
+15. What is difference between varchar and nvarchar?
+
+varchar stores - 1 byte & nvarchar stores - 2 byte data
+
+18. Difference between Function and Store procedure ?
+
+The function must return a value but in Stored Procedure it is optional. Even a procedure can return zero or n values.
+Functions can have only input parameters for it whereas Procedures can have input or output parameters. Functions can
+be called from Procedure whereas Procedures cannot be called from a Function.
+
+19. Do we use variable in views? - no
+
+20.People working for walmart , flipkar and microsoft we want to say product based else sevrice based
+
+select student_id,student_name, student_company,
+CASE WHEN student_company in ('flipkart','walmart','microsoft')
+         THEN 'product based' ELSE 'service based'
+END as company_type from students;
+
+21. If course more than 4 months we categorize as Master's program else diploma program
+
+select course_id,course_name,course_fee,
+    CASE WHEN course_duration_in_months > 4
+THEN 'masters' ELSE 'diploma'
+     END as course_type from courses;
+
+23. Create a table only structure
+
+CREATE TABLE NewTable AS SELECT * FROM EmployeeInfo;
+SELECT * INTO NewTable FROM EmployeeInfo WHERE 1 = 0;
+
+24. Write a query to add email validation
+
+SELECT Email FROM EmployeeInfo WHERE NOT REGEXP_LIKE(Email, ‘[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}’, ‘i’);
+
+25. WHERE vs HAVING vs GROUP BY
+
+-- Find the source_of_joining through which more than 1 student has enrolled
+
+SELECT source_of_joining, COUNT(*) AS total from students GROUP BY source_of_joining WHERE total > 1;
+
+Error: ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE total > 1' at
+line 1
+
+** WHERE clause is used to filter the individual records before GROUP BY or aggregation.
+
+SELECT source_of_joining, COUNT(*) AS total from students GROUP BY source_of_joining HAVING total > 1;
+
+** HAVING clause is used to filter the records after GROUP BY or aggregation.
+
+--  Find the total number of students who have enrolled through linkedin as source_of_joining
+
+-- OPTIMISED QUERY (Filtering is happening before aggregation)
+SELECT source_of_joining, COUNT(*) AS total FROM students WHERE source_of_joining = 'linkedin' GROUP BY source_of_joining;
+
+or
+
+-- NON-OPTIMISEZ QUERY (Filtering is happening after aggregation)
+SELECT source_of_joining, COUNT(*) AS total FROM students GROUP BY source_of_joining HAVING source_of_joining = 'linkedin';
+
+------------------------------------------------------
+Can we use WHERE and HAVING clause in the same query ?
+------------------------------------------------------
+
+-- Find the locations from which more than 1 student has joined & the students years_of_exp is more than 5 years
+
+SELECT location, COUNT(*) AS total from students WHERE years_of_exp > 5 GROUP BY location HAVING total > 1;

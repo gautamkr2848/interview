@@ -1,6 +1,7 @@
 package com.interview.graph;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /*
 For Input:
@@ -14,26 +15,41 @@ For Input:
 3 4
 
 Your Output:
-0-> 1-> 4
-1-> 0-> 2-> 3-> 4
-2-> 1-> 3
-3-> 1-> 2-> 4
-4-> 0-> 1-> 3
-
+0 -> [1, 4]
+1 -> [0, 2, 3, 4]
+2 -> [1, 3]
+3 -> [1, 2, 4]
+4 -> [0, 1, 3]
+5 -> [7]
+6 -> []
+7 -> [5]
 */
 
 public class PrintAdjacency {
 
-    public ArrayList<ArrayList<Integer>> printGraph(int V, ArrayList<ArrayList<Integer>> adj) {
-        ArrayList<ArrayList<Integer>> list=new ArrayList<>();
+    public static void printGraph() {
 
-        for(int i=0; i<V; i++) {
-            ArrayList<Integer> tmp=new ArrayList<>();
-            tmp.add(i);
-            for(Integer j : adj.get(i))
-                tmp.add(j);
-            list.add(tmp);
+        int[][] edges = {{5, 7},
+                {0, 1},
+                {0, 4},
+                {1, 2},
+                {1, 3},
+                {1, 4},
+                {2, 3},
+                {3,4}};
+        int V = edges.length;
+        List<List<Integer>> ans = new ArrayList<>();
+        for(int i=0;i<V;i++)
+            ans.add(new ArrayList<>());
+
+        for(int i=0;i<edges.length;i++){
+            ans.get(edges[i][0]).add(edges[i][1]);
+            ans.get(edges[i][1]).add(edges[i][0]);
         }
-        return list;
+
+        int i=0;
+        for(List<Integer> list : ans) {
+            System.out.println(i++ + " -> " +list.toString());
+        }
     }
 }

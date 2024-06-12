@@ -14,7 +14,7 @@ public class b_KSmallerElements {
             queue.add(arr[i]);
 
         for(int i = k; i < arr.length; i++) {
-            if (queue.peek() >= arr[i]){    //q.peek() >= arr[i]
+            if (queue.peek() >= arr[i]){
                 queue.poll();
                 queue.add(arr[i]);
             }

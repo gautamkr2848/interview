@@ -17,14 +17,6 @@ package com.interview.array;
         Now we are only allowed to make at most k stock transactions. We can solve the problem by using dynamic
         programming.
 
-        Let profit[i][j] represent maximum profit using at most t transactions up to day j (including day j). Then the
-        relation is:
-            profit[i][j] = max(profit[i][j-1], max(price[j] – price[m] + profit[i-1][m])) for all m in range [0, j-1]
-
-        profit[i][j] will be maximum of –
-            1. profit[i][j-1] which represents not doing any transaction on the jth day.
-            2. price[j] - price[m] + profit[i-1][m]
-                Selling on jth day, i.e buying on some day before j i.e mth day + profit upto mth day
 */
 
 public class StockBuySell {
@@ -43,6 +35,38 @@ public class StockBuySell {
         }
         System.out.println("Maximum profit : " + profit);
     }
+
+    public int maxProfit(int[] price, int n, int k) {
+
+        int[][] profit = new int[k + 1][n + 1];
+
+        //        Let profit[i][j] represent maximum profit using at most i transactions up to day j (including day j). Then the
+        //        relation is:
+        //            i = no. of transactions
+        //            j = days
+        //            profit[i][j] = max(profit[i][j-1], max(price[j] – price[m] + profit[i-1][m])) for all m in range [0, j-1]
+        //
+        //        profit[i][j] will be maximum of –
+        //            1. profit[i][j-1] which represents not doing any transaction on the jth day.
+        //            2. price[j] - price[m] + profit[i-1][m]
+        //                Selling on jth day, i.e buying on some day before j i.e mth day + profit upto mth day
+
+        for (int i = 1; i <= k; i++) {
+            for (int j = 1; j < n; j++) {
+                int max_profit_so_far = 0;
+
+                for (int m = 0; m < j; m++)
+                    max_profit_so_far = Math.max(max_profit_so_far, price[j] - price[m] + profit[i - 1][m]);
+
+                profit[i][j] = Math.max(profit[i][j - 1], max_profit_so_far);
+            }
+        }
+
+        return profit[k][n - 1];
+    }
+
+    //Space Complexity: O(n*k)
+    //Time Complexity: O(k.n2)
 
     /*
     Optimized Solution
@@ -76,24 +100,6 @@ where prevDiff is max(profit[i-1][j] – price[j]) for all j in range [0, i-2]
         0   2   5   5   9   9   9   12  0
 
 */
-
-    public int maxProfit(int[] price, int n, int k) {
-
-        int[][] profit = new int[k + 1][n + 1];
-
-        for (int i = 1; i <= k; i++) {
-            for (int j = 1; j < n; j++) {
-                int max_so_far = 0;
-
-                for (int m = 0; m < j; m++)
-                    max_so_far = Math.max(max_so_far, price[j] - price[m] + profit[i - 1][m]);
-
-                profit[i][j] = Math.max(profit[i][j - 1], max_so_far);
-            }
-        }
-
-        return profit[k][n - 1];
-    }
 
     public int maxProfit_2() {
 

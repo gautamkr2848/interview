@@ -65,7 +65,7 @@ cookies etc.
 6. The server handles the request and sends back a response.
 
 The server receives the request from the browser and passes it to a request handler to read and generate a response.
-The request handler is a program that reads the request, its’ headers, and cookies to check what is being requested
+The request handler is a program that reads the request, it’s headers, and cookies to check what is being requested
 and also update the information on the server if needed. Then it will assemble a response in a particular format
 (JSON, XML, HTML).
 

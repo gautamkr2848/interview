@@ -1,6 +1,6 @@
 package com.interview.array;
 
-//Given an array arr[] containing N integers. In one step, any element of the array can either be
+// Given an array arr[] containing N integers. In one step, any element of the array can either be
 // increased or decreased by one. The task is to find minimum steps required such that the product
 // of the array elements becomes 1.
 
@@ -22,12 +22,13 @@ public class MinStepToArrayProduct1 {
             }
         }
 
+        // 1 0 1 -1 -1 0 1
         // Now the array will have -1, 0 and 1 only
         if (negative % 2 == 0) {
-            step = step + zero;
+            step = step + zero;     // make all zero to one
         } else {
             if (zero > 0) {
-                step = step + zero;
+                step = step + zero;     // make all zero to one
             } else {
                 step = step + 2;
             }

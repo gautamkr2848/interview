@@ -1,5 +1,9 @@
 package com.interview.systemDesign;
 
+// Load balancing is the process of distributing a set of tasks over a set of resources, with the aim of making their
+// overall processing more efficient. Load balancing can optimize the response time and avoid unevenly overloading some
+// compute nodes while other compute nodes are left idle.
+
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
