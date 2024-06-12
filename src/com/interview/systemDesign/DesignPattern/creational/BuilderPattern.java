@@ -81,7 +81,9 @@ package com.interview.systemDesign.DesignPattern.creational;
 //	}
 //
 //}
-//Notice that Computer class has only getter methods and no public constructor. So the only way to get a Computer object is through the ComputerBuilder class. Here is a builder pattern example test program showing how to use Builder class to get the object.
+// Notice that Computer class has only getter methods and no public constructor. So the only way to get a Computer object
+// is through the ComputerBuilder class. Here is a builder pattern example test program showing how to use Builder
+// class to get the object.
 //
 //
 //public class TestBuilderPattern {

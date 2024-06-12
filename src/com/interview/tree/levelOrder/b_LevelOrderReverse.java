@@ -21,7 +21,7 @@ public class b_LevelOrderReverse {
         Queue<Node> queue = new LinkedList<>();
 
         queue.offer(node);
-        while(queue.size() > 0){
+        while(queue.size() > 0) {
             Node temp = queue.poll();
             stk.push(temp);
 

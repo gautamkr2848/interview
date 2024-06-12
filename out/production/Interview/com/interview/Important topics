@@ -6,7 +6,7 @@
         c. Increasing content availability
         d. Improving website security
 
-    In order to improve speed and connectivity, a CDN will place servers at the exchange
+    In order to improve speed and connectivity, a CDN will be place at the exchange
     points between different networks.
 
     eg - Akamai, Open connect (Netflix)
@@ -25,6 +25,8 @@
     are from a specific target location. CDN will also not be a good idea if our most of assets are dynamic and sensitive.
 
 2. Distributed Cache    =>  Redis
+
+2. Time Series Database     =>      InFluxDB, TimeScaleDB
 
 3. Pub/Sub Model
     The Publish/Subscribe pattern, also known as pub/sub, is an architectural design pattern
@@ -46,6 +48,12 @@
 
 5. Service Discovery    =>  Eureka
 
+    A microservices-based application typically runs in virtualized or containerized environments. The number of instances
+    of a service and its locations changes dynamically. We need to know where these instances are and their names to allow
+    requests to arrive at the target microservice. This is where tactics such as Service Discovery come into play.
+
+    The Service Discovery mechanism helps us know where each instance is located. In this way, a Service Discovery
+    component acts as a registry in which the addresses of all instances are tracked.
 
 6. Database Sharding
     Example of horizontal scaling
@@ -71,8 +79,13 @@
         c. Scalability
         d. Flexibility
 
+8. nginx - https://medium.com/devopscurry/what-is-nginx-understanding-the-basics-of-nginx-in-2021-f8ee0f3d3d54
+
 8. Consistent Hashing
     https://medium.com/@sandeep4.verma/consistent-hashing-8eea3fb4a598
+
+    Hashing is a technique of mapping one piece of data of some arbitrary size into another piece of data of fixed size,
+    typically an integer, known as hash or hash code.
 
 9. Scaling
     Vertical => Buying a bigger system
@@ -81,6 +94,14 @@
 12. Apache Kafka
 
 13. Zuul    =>  API Gateway
+
+    An API gateway is a component that sits between clients and services and provides centralized handling of API
+    communication between them. It also delivers security, policy enforcement, monitoring and visibility across
+    on-premises, multi-cloud, and hybrid environments.
+
+    An API gateway accepts API requests from a client, processes them based on defined policies, directs them to the
+    appropriate services, and combines the responses for a simplified user experience.
+
     Separate Out
         Authentication
         Authorization
@@ -91,7 +112,7 @@
 
 14. Executor Service
      Java provides its own multi-threading framework called the Java Executor Framework.
-            1. SingleThreadExecutor => BlockingQueue
+            1. SingleThreadExecutor =>  LinkedBlockingQueue
             2. FixedThreadPool(n)   =>  LinkedBlockingQueue
             3. CachedThreadPool     =>  SynchronousQueue
             4. ScheduledExecutor    =>  DelayQueue
@@ -119,6 +140,10 @@
     D   =>  Dependency Inversion    =>  High-level modules should not depend upon low-level modules. They should depend on abstractions
 
 20. CAP Theorem
+
+    A partition is a communications break within a distributed system — a lost or temporarily delayed connection between
+    two nodes. Partition tolerance means that the cluster must continue to work despite any number of communication
+    breakdowns between nodes in the system.
 
 21. Indexing - https://chartio.com/learn/databases/how-does-indexing-work/
 
@@ -176,7 +201,7 @@
     three features, that is:
 
         @EnableAutoConfiguration: enable Spring Boot’s auto-configuration mechanism
-        @ComponentScan: enable @Component scan on the package where the application is located
+        @ComponentScan: enable component scan on the package where the application is located
         @Configuration: allow to register extra beans in the context or import additional configuration classes
 
 30. Spring IoC (Inversion of Control)
@@ -206,7 +231,7 @@
      unwanted urls while using office laptops
 
 
-36. Reverse proxy
+36. Reverse proxy / API Gateway
     In computer networks, a reverse proxy is an application that sits in front of back-end applications and forwards
     client requests to those applications. Reverse proxies help increase scalability, performance, resilience and security.
 
@@ -293,7 +318,7 @@
     War (Web Archieve) - An entire web appication in zipped form. (.class, .xml, .html, .css, .properties etc)
     Ear (Enterprize Archive) - An Enterprize application in zipped form.
 
-45. Web Application - 1. we can use only web releated technologies.
+45. Web Application - 1. We can use only web releated technologies.
                         2. Web server needs to run web applications.
     Enterprize Application - 1. we can use anything from Java J2EE like EJB, JMS etc.
                             2. Application server needs to run enterprize application.

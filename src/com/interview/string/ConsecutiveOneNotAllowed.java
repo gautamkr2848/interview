@@ -16,6 +16,10 @@ public class ConsecutiveOneNotAllowed {
         System.out.println(a + b);
     }
 
+    public static void main(String[] args) {
+
+    }
+
     public void consecutiveOneNotAllowed(){
         int n = 3;
         int a[] = new int[n];

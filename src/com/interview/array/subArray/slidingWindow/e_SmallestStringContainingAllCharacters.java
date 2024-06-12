@@ -1,7 +1,9 @@
 package com.interview.array.subArray.slidingWindow;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /*Approach: Basically a window of characters is maintained by using two pointers namely start and end.
         These start and end pointers can be used to shrink and increase the size of window respectively.
@@ -26,12 +28,12 @@ public class e_SmallestStringContainingAllCharacters {
 
     public String findSubString(String s) {
         int n = s.length();
-        Map<Character, Integer> map = new HashMap<>();
+        Set<Character> set = new HashSet<>();
 
         for (int i = 0; i < n; i++)
-            map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0)+1);
+            set.add(s.charAt(i));
 
-        int dist_count = map.size();
+        int dist_count = set.size();
         int size = Integer.MAX_VALUE;
         String res = "";
 
@@ -51,7 +53,7 @@ public class e_SmallestStringContainingAllCharacters {
             }
             if (tmp.length() < size && count == dist_count) {
                 res = tmp;
-                size=res.length();
+                size = res.length();
             }
         }
         return res;

@@ -4,119 +4,51 @@ Messaging System Internal Data Striucture
         Log is the simplest data structure that represents append-only sequence of records. Log records are immutable
         and appended in strictly sequential order to the end of the log file.
 
-Use Case of Messaging System
-    1. Lightweight eventing / messaging between services or components
-    2. Heavy processing of large stream of data
-
 SQS vs Kafka
 
 Amazon Simple Queue Service
 
-    SQS is a managed message queuing service that technical professionals and developers use to send, store and
-    retrieve multiple messages of various sizes all at the same time.
+    1. SQS is a managed message queuing service that we use to send multiple messages of various sizes and received by another server.
 
-    Subsequently one service sends messages to the queue and another service receives them. However it can be used for many purposes.
+    2. Importantly SQS make developers free from the hassle of configuring and managing queue structures as a managed
+       service. Especially this service provides you with everything you need out of the box and is easily scalable to
+       meet your demand.
 
-    Importantly SQS frees developers from the hassle of configuring and managing queue structures as a managed service. Especially this service provides you with everything you need out of the box and is easily scalable to meet your demand.
+    3. In SQS users cannot decide which messages in the queue to receive. However, you can limit the number of messages
+     you will receive at any one time.
 
-    Significantly ideal solution for time critical projects and small to medium development teams.
+    4. SQS uses a blocking mechanism, if one component consumes a message, it  hides it from other components.
 
-    Working
+    5. When a message is received, SQS temporarily removes it from the queues so it is never sent twice. Moreover the
+     message is hidden for a while and the user processes it and remove it from the list.
 
-        Send Message: Services send requests to queues that are used by other services.
-        Receive Message: Another service requests to receive queued messages.
-        Delete Message: Once the message is successfully processed, the user removes it from the queue, should he wishes to do so.
+    6. If the message is not removed after the visibility timeout, it is then returned to the queue and receives a
+     future requests. Timeout interval for visibility can be set.
 
-    Nevertheless SQS does not work as a database, so users cannot decide which messages in the queue to receive. However, you can limit the number of messages you will receive at any one time.
+    7. Each request is handled independently.
 
-    When a message is received, SQS temporarily removes it from the queues so it is never sent twice. Moreover the message is hidden for a while and the user processes it and removse it from the list.
-
-    If the message is not removed after the visibility timeout, it is then returned to the queue and receives a future requests. Timeout interval for visibility can be set.
-
-
-    Features
-        You are paying for the number of orders in the queue.
-        Excellent service that improves the efficiency, reliability and performance of applications.
-        Messages in the queue are delivered at least once. So guaranteed message delivery without message loss.
-        And those messages that cannot be processed are saved in the garbage queue.
-        There are two types of queues: standard queues and FIFO queues. In the default queue, messages are retrieved randomly.
-        Multiple components run in a single queue. Besides SQS uses a blocking mechanism, if one component consumes a message, it  hides it from other components.
-        After successful processing, the message is removed from the queue. If the message cannot be processed, it remains in the queue and is visible to all components. A feature called timeout visibility.
-        No data loss.
-        Each request is handled independently.
-
-
-    Pros
-        Automatic deduplication for FIFO queues.
-        A separate queue for unprocessed messages.
-        Scalability
-        Low cost.
-
-
-    Cons
-        Lack of support for broadcast messages.
-        High cost at scale.
-        Reduced control over performance.
+    8. You are paying for the number of orders in the queue.
+    9. Excellent service that improves the efficiency, reliability and performance of applications.
+    10. Messages in the queue are delivered at least once. So guaranteed message delivery without message loss.
+    11. hose messages that cannot be processed are saved in the garbage queue.
+    12. There are two types of queues: standard queues and FIFO queues. In the default queue, messages are retrieved randomly.
 
 
 Kafka
 
-    It’s a real technology that developers and architects use to build the latest generation of scalable streaming
-    applications that serve real time data.
+    1. Apache Kafka is an open source distributed messaging platform. Designed to manage streaming data in real time for
+    distributed systems.
 
-    Apache Kafka is an open source distributed messaging platform. Designed to manage streaming data in real time for
-    distributed streaming, pipetting, and playback of data streams for fast and scalable operations.
-
-    Apache Kafka is, of course, an optimized data warehouse in terms of data transfer and processing. The transferred
+    2. Apache Kafka is, of course, an optimized data warehouse in terms of data transfer and processing. The transferred
     data is continuously generated by thousands of data sources, typically by sending data records. Streaming platforms
     have to deal with the continuous flow of data, sequentially and incrementally.
 
-    Kafka is a middleware based solution that works by maintaining data streams as logs on a series of servers. Moreover
-    kafka servers span multiple data centers and provide data robustness by storing messages in threads across multiple
-    server instances.
+    3. Kafka is one of the fastest growing open source messaging communications solutions.
 
-    Kafka is one of the fastest growing open source communications solutions. Design pattern gives you an excellent
-    logging mechanism for distributed systems.
-
-    Kafka is designed to stream logs in real time and is ideal for the needs of:
-
-        Reliable data exchange between different components.
-        Has built in support for data/message playback.
-        Splits messaging workloads based on application needs.
-        Real time transmission of data processing.
-
-
-    Features
-        Handles scalability in all four dimensions: event producers, event handlers, event consumers and event connectors. In other words, Kafka expands easily without stopping.
-        Very productive for both publishing and subscribing messages. Maintains stable performance despite storing many terabytes of messages.
-        Distributed, partitioned, replicated and fault tolerant, leads to amazing reliability.
-        Forks new data streams using product data streams.
-        Especially Kafka Mirror maker provides transcription support for your group.
-        Replication messages are replicated across multiple data centers or cloud regions.
-        You can use these passive/passive schemas for backup and recovery, or to bring data closer to users or to support data area requirements.
-        Durable solution as it uses distributed commit log, that means messages persists on disk as fast as possible.
-        Clusters of Kafka handle large failures and databases.
-
-
-    Pros
-        Very accessible.
-        Reduces the need for multiple integrations.
-        Low latency.
-        Batch approach.
-        Real time handling.
-        High throughput.
-        Distributed system.
-        Operational Metrics/KPIs.
-        Log aggregation.
-
-
-    Cons
-        Lacks some message paradigms.
-        Reduces performance.
-        Message tweaking issues.
-        Not a complete set of monitoring tools.
-        Do not support wildcard topic selection.
-        Streaming ETL.
+    4. Distributed, partitioned, replicated and fault tolerant, leads to amazing reliability.
+    5. Replication messages are replicated across multiple data centers or cloud regions.
+    6. Durable solution as it uses distributed commit log, that means messages persists on disk as fast as possible.
+    7. Clusters of Kafka handle large failures and databases.
 
 
 Kafka vs SQS - Key Differences

@@ -1,6 +1,5 @@
 Paytm - 2
 1. Tree Reverse Order Traversal
-
 2. Mutex vs Semaphore
 
     A mutex is a binary semaphore. But it's not! The purpose of mutex and semaphore are different. Maybe, due to similarity
@@ -29,15 +28,6 @@ Cleartrip - 3
 TCS - 1
 1. @Controller vs @RestController
 2. use of @SpringBootApplication
-
-        Many Spring Boot developers like their apps to use auto-configuration, component scan and be able to define extra
-        configuration on their "application class". A single @SpringBootApplication annotation can be used to enable those
-        three features, that is:
-
-            @EnableAutoConfiguration: enable Spring Boot’s auto-configuration mechanism
-            @ComponentScan: enable @Component scan on the package where the application is located
-            @Configuration: allow to register extra beans in the context or import additional configuration classes
-
 3. List vs Set
 4. concurrentHashMap vs synchronizedHashMap
 5. ServiceDiscovery - Eureka
@@ -82,14 +72,12 @@ TCS - 1
         a. Avoid Writing Long Methods
         b. Avoid Multiple If-else Statements
         c. Avoid Getting the Size of the Collection in the Loop
-        d. Avoid Using String Objects For Concatenation
         e. Use Primitive Types Wherever Possible
         f. Avoid Using BigDecimal Class
         g. Avoid Creating Big Objects Often
         h. Use Stored Procedures Instead of Queries
-        i. Avoid using recurssion
 
-18. Map internal implementation
+18. Map internal implementation - https://www.geeksforgeeks.org/internal-working-of-hashmap-java/
 
 19. String immutability
 
@@ -119,10 +107,6 @@ UpLoan - 3
 3. Abstraction & Encapulation
 4. Polymorphism
 7. Normalization
-
-    normalisation is the process of structuring a relational database in accordance with a series of so-called normal
-    forms in order to reduce data redundancy and improve data integrity.
-
 9. Abstract Class vs Interface
 10. ConstantTimeO_1
 11. MatrixSearch
@@ -147,7 +131,7 @@ BlackBuck - 1
 2. Nearest greater right side
 
 GamesKraft - 2
-1. From two arrays Min absolute diff from 2 Array
+1. Min absolute diff from 2 Array
 2. BookMyShow
 3. SQS
 
@@ -181,14 +165,14 @@ Housing.com - 3
 6. Indexing
 7. Dependency Injection
 8. Project Discussion
-9. Random_5()   =>  Random_25()
+9. Random_5()   =>  Random_7()
 10. Generics
 11. HR Talk
 12. Proposed Offer Letter
 13. Got the Offer
 
 Rupeek - 2
-1. Find maximum sum path involving elements of given arrays
+1. MaximumPathSum2Arrays
 2. String Combination
 
 MoneyView - 2
@@ -198,6 +182,9 @@ MoneyView - 2
     Delete - DML, can restore
     Truncate - DDL, cant restore
     DROP - DDL, can't restore table
+    The DROP command in SQL removes the table from the database, the DELETE command removes one or more records from
+    the table, and the TRUNCATE command removes all the rows from the existing table.
+
 4. Inversion Control
 5. Matrix Max Sum from top left to bottom right - max path sum
 6. Design Vending Machine
@@ -245,8 +232,6 @@ Informatica - 4
 6. Aspect Oriented Programming
 9. Comparable
 11. Multithreading
-12. HR round
-13. Offer Discussion
 14. Rejected / Not Accepted
 
 Jupiter Money - 1
@@ -259,7 +244,7 @@ Q2 Software - 1
 1. Sort 0, 1, 2
 2. LCS
 3. Tree Height
-4. Reverse deck of cards        //not done
+4. Suffle deck of cards
 
 Vymo - 2
 1. Max Profit
@@ -282,18 +267,16 @@ Nike - 4
 
 Dailyhunt - 3
 1. print even odd
+
 2. Builder Pattern
+
+    Builder is a design pattern that allows you to avoid having constructors with a long list of parameters, not all of
+    which are required. It allows you to build instances of a certain object in a more flexible way, since it lets you
+    configure only those attributes that are strictly necessary.
+
 3. Got the offer
 4. Joined on 10th Jan 2022
 
 MPL - 2
 1. Design Load Balancer
 2. Got the offer
-
-Gamesberry - 1
-1. Reverse List
-
-Fisdom - 2
-1. Slack Design
-2. Design infinite login page
-3. Asymptotic notation

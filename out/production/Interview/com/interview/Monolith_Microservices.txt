@@ -1,0 +1,49 @@
+[1.] Design for failure
+- Microservices should be designed to tolerate failure at every level, from infrastructure to individual services.
+- Use techniques such as circuit breakers, bulkheads & graceful degradation.
+
+[2.] Keep services small and focused
+- A microservice should be designed to do one thing well.
+
+[3.] Use lightweight communication protocols
+- Microservices should communicate with each other using lightweight protocols such as REST, gRPC or messaging queues.
+- This helps to reduce overhead and increase performance.
+
+[4.] Implement service discovery
+- Microservices should be able to discover and communicate with each other dynamically.
+- Use service registries such as Consul or Eureka or use DNS-based service discovery.
+
+[5.] Automate testing & deployment
+- Microservices should be thoroughly tested and automated for deployment, using techniques such as Ci/Cd & automated testing.
+
+[6.] Decentralized data management
+- Data should be managed by the services that own it, rather than being stored in a central database.
+- This helps to reduce coupling between services and enables independent evolution.
+
+[7.] Monitor services proactively
+- To understand how your microservices are performing, it's important to collect & analyze metrics like latency, throughput, and error rates.
+- Use monitoring tools such as Prometheus or Grafana, to ensure that they are performing as expected and to identify potential issues before they become critical.
+
+[8.] Implement security at all levels
+- Security should be implemented at every level of the microservices architecture, including infrastructure, services, and communication.
+- Use techniques such as SSL/TLS, OAuth2, and JWT.
+
+[9.] Centralized logging
+- Logs from all services should be aggregated in a centralized location, to enable easy debugging and troubleshooting.
+
+[10.] Standardize development processes
+- Development processes should be standardized across all teams, including coding standards, testing frameworks & deployment procedures.
+- This helps to ensure consistency and reduce the risk of errors.
+
+[11.] Use containerization
+- Use technologies like Docker & Kubernetes to simplify deployment and scaling of microservices.
+
+[12.] Implement resiliency patterns
+- In addition to designing for failure, you can implement specific resiliency patterns to improve the reliability & availability of your microservices.
+- Use retry policies, caching & load shedding.
+
+[13.] Asynchronous communication
+- Use event-driven architecture to decouple microservices and make them more scalable.
+
+[14.] Define clear APIs
+- Each microservice should expose a well-defined API that is easy to use and understand.

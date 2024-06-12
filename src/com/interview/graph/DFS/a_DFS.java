@@ -27,10 +27,10 @@ public class a_DFS {
             s = stack.pop();
             System.out.println(s+" ");
 
-            for (Integer j : adj.get(s)) {
-                if(!visited[j]) {
-                    stack.push(j);
-                    visited[j] = true;
+            for (Integer neighbour : adj.get(s)) {
+                if(!visited[neighbour]) {
+                    stack.push(neighbour);
+                    visited[neighbour] = true;
                 }
             }
         }
@@ -40,7 +40,7 @@ public class a_DFS {
     public void DFS_2(int V, ArrayList<ArrayList<Integer>> adj) {
         boolean visited[] = new boolean[V];
 
-        for (int i = 0; i < V; ++i)
+        for (int i = 0; i < V; i++)
             if (!visited[i])
                 DFSUtil(i, visited, adj);
     }

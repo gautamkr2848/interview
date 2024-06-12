@@ -24,6 +24,10 @@ Playing vlc file. Name: far far away.vlc
 Invalid media. avi format not supported
 */
 
+interface MediaPlayer {
+    void play(String audioType, String fileName);
+}
+
 class AudioPlayer implements MediaPlayer {
     MediaAdapter mediaAdapter;
 
@@ -44,7 +48,6 @@ class AudioPlayer implements MediaPlayer {
         }
     }
 }
-
 
 class MediaAdapter implements MediaPlayer {
 
@@ -70,10 +73,6 @@ class MediaAdapter implements MediaPlayer {
             advancedMusicPlayer.playMp4(fileName);
         }
     }
-}
-
-interface MediaPlayer {
-    void play(String audioType, String fileName);
 }
 
 interface AdvancedMediaPlayer {

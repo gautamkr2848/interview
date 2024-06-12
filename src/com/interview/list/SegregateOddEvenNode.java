@@ -2,7 +2,7 @@ package com.interview.list;
 
 public class SegregateOddEvenNode {
 
-    public Node rearrangeEvenOdd(Node head) {
+    public static Node rearrangeEvenOdd(Node head) {
 
         if (head == null || head.next == null) {
             return null;
@@ -21,7 +21,6 @@ public class SegregateOddEvenNode {
                 evenEnd = curr;
 
             } else {      // odd
-
                 if (oddStart == null)
                     oddStart = curr;
                 else
@@ -37,5 +36,19 @@ public class SegregateOddEvenNode {
         oddEnd.next = evenStart;
         evenEnd.next = null;
         return oddStart;
+    }
+
+    public static void main(String[] args){
+        Node node = new Node(1);
+        node.next = new Node(2);
+        node.next.next = new Node(3);
+        node.next.next.next = new Node(4);
+        node.next.next.next.next = new Node(5);
+
+        Node curr = rearrangeEvenOdd(node);
+        while (curr != null) {
+            System.out.print(curr.data + " -> ");
+            curr = curr.next;
+        }
     }
 }

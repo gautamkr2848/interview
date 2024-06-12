@@ -33,7 +33,7 @@ public class mergeKSortedList {
     }
 
     public Node mergeKLists_2(Node[] lists) {
-        PriorityQueue<Node> pq = new PriorityQueue<>(Collections.reverseOrder());
+        PriorityQueue<Node> pq = new PriorityQueue<>();     // use min heap, which will return min element first
         pq.addAll(Arrays.asList(lists).subList(0, lists.length));  // push the first node of each list into the min-heap
 
         Node head = null;   // head points to the first node of the output list

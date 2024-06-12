@@ -28,7 +28,7 @@ Explanation:
 
 public class d_scrambledString {
 
-    public boolean isScramble(String S1, String S2) {
+    public static boolean isScramble(String S1, String S2) {
 
         if (S1.length() != S2.length())
             return false;
@@ -62,6 +62,11 @@ public class d_scrambledString {
     }
 
     //Time complexity - O(2^n)
+
+    public static void main(String[] args) {
+        System.out.println(isScramble("coder", "ocder"));
+        System.out.print(isScramble("abcde", "caebd"));
+    }
 
 
 

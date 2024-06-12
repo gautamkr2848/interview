@@ -6,7 +6,7 @@ import java.util.List;
 
 public class FlattenNestedArray {
 
-    public Integer[] flatten(Object[] a){
+    public List<Integer> flatten(Object[] a){
 
         if (a == null) return null;
 
@@ -16,11 +16,11 @@ public class FlattenNestedArray {
             if (element instanceof Integer) {
                 flatList.add((Integer) element);
             } else if (element instanceof Object[]) {
-                flatList.addAll(Arrays.asList(flatten((Object[]) element)));
+                flatList.addAll(flatten((Object[]) element));
             } else {
                 throw new IllegalArgumentException("Input must be an array of Integers or nested arrays of Integers");
             }
         }
-        return flatList.toArray(new Integer[flatList.size()]);
+        return flatList;
     }
 }

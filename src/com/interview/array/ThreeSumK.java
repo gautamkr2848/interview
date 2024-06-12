@@ -31,8 +31,8 @@ public class ThreeSumK {
                 if (sum == 0) {
                     System.out.print(x + " ");
                     System.out.print(arr[l] + " ");
-                    System.out.println(arr[r] + " ");
-
+                    System.out.print(arr[r] + " ");
+                    System.out.print("\n");
                     l++;
                     r--;
                 } else if (sum < 0)

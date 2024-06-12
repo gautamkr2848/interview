@@ -17,7 +17,7 @@ import java.util.Stack;
 
 public class MaxHistogramArea {
 
-    public void maxArea_2(){
+    public static void maxArea_2(){
         int[] a = { 6, 2, 5, 4, 5, 1, 6 };
         int area = Integer.MIN_VALUE;
         int n = a.length;
@@ -26,7 +26,7 @@ public class MaxHistogramArea {
             int left = i;
             int right = i;
 
-            while(left >=0 && a[i] <= a[left])
+            while(left >= 0 && a[i] <= a[left])
                 left--;
 
             while (right < n && a[i] <= a[right])
@@ -34,6 +34,10 @@ public class MaxHistogramArea {
 
             area = Math.max(area, (right - left - 1) * a[i]);
         }
+    }
+
+    public static void main(String[] args) {
+        maxArea_2();
     }
 
     public int largestRectangleArea(int[] heights) {

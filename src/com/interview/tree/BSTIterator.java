@@ -40,9 +40,9 @@ public class BSTIterator {
     }
 
     private void pushLeftMostNode(Node node){
-        if (node != null){
+        while (node != null){
             stack.push(node);
-            pushLeftMostNode(node.left);
+            node = node.left;
         }
     }
 }

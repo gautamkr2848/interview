@@ -9,6 +9,9 @@ package com.interview.array.subArray.slidingWindow;
 //        Then loop over the string and decrement the frequency from the hash array.
 //        When count variable equals to zero then start minimizing the window.
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class f_StringWindow {
 
     public String Minimum_Window(char []s, char []t) {
@@ -111,5 +114,47 @@ Print the minimum length window.
 
         System.out.println(str.substring(start_index, start_index + min_len));
 
+    }
+
+    public String minWindow(String s, String t) {
+        if(s.length() == 0 || t.length() == 0)
+            return "";
+
+        Map<Character, Integer> mapT = new HashMap();
+        for(char c: t.toCharArray()) {
+            mapT.put(c, mapT.getOrDefault(c,0)+1);
+        }
+        int requiredMatch = mapT.size();
+
+        int left = 0, minLeft = 0, minLength = Integer.MAX_VALUE, matchedSoFar = 0;
+        Map<Character, Integer> mapS = new HashMap();
+        for(int right = 0; right < s.length(); right++) {
+            char rc = s.charAt(right);
+
+            if(mapT.containsKey(rc)) {
+                mapS.put(rc, mapS.getOrDefault(rc,0)+1);
+                if(mapS.get(rc).intValue() == mapT.get(rc).intValue()) {
+                    matchedSoFar++;
+                }
+                while(matchedSoFar == requiredMatch) {
+                    if(right-left +1 < minLength) {
+                        minLeft = left;
+                        minLength = right-left +1;
+                    }
+                    char lc = s.charAt(left);
+                    if(mapT.containsKey(lc)) {
+                        mapS.put(lc, mapS.getOrDefault(lc,0)-1);
+                        if(mapS.get(lc).intValue() < mapT.get(lc).intValue()) {
+                            matchedSoFar--;
+                        }
+                    }
+                    left++;
+                }
+            }
+        }
+        if(minLength == Integer.MAX_VALUE) {
+            return "";
+        }
+        return s.substring(minLeft, minLeft+minLength);
     }
 }

@@ -1,5 +1,6 @@
 package com.interview.array.priorityQueue_heap;
 
+import java.util.Objects;
 import java.util.PriorityQueue;
 
 //Given a sorted array arr[] and a value X, find the k closest elements to X in arr[].
@@ -34,7 +35,7 @@ public class e_KClosestNumber {
     }
 }
 
-class Value{
+class Value implements Comparable<Value>{
      Integer x;
      Integer y;
 
@@ -42,4 +43,27 @@ class Value{
          this.x = x;
          this.y = y;
      }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || this.getClass() != o.getClass()) return false;
+        Value value = (Value) o;
+        return Objects.equals(x, value.x) && Objects.equals(y, value.y);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
+
+
+    @Override
+    public int compareTo(Value o) {
+        int x1 = x * x;
+        int y1 = y * y;
+        int x2 = o.x * o.x;
+        int y2 = o.y * o.y;
+        return (x1 + y1) - (x2 + y2);
+    }
 }

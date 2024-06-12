@@ -3,7 +3,8 @@ package com.interview.graph.shortestPath;
 // works with negative weight edges
 // time complexity - O(EV)
 
-//1. Initialize distances from the source to all vertices as infinite and distance to the source itself as 0. Create an array dist[] of size |V| with all values as infinite except dist[src] where src is the source vertex.
+//1. Initialize distances from the source to all vertices as infinite and distance to the source itself as 0. Create an
+// array dist[] of size |V| with all values as infinite except dist[src] where src is the source vertex.
 
 //2. This step calculates the shortest distances. Do the following |V|-1 times where |V| is the number of vertices in the given graph.
 //Do the following for each edge u-v.

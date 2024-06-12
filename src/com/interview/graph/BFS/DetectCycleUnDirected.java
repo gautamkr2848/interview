@@ -7,26 +7,34 @@ import java.util.Queue;
 
 public class DetectCycleUnDirected {
 
-    public boolean isCyclicConnected(ArrayList<ArrayList<Integer>> adj, int s) {
-
-        int parent[] = new int[adj.size()];
-        Arrays.fill(parent, -1);        // Set parent vertex for every vertex as -1.
-
-        Queue<Integer> q = new LinkedList<>();      // Create a queue for BFS
-        boolean[] visited = new boolean[adj.size()];
-        visited[s] = true;
+    public static boolean isCyclicConnected(ArrayList<Integer>[] adj, int s, int V, boolean[] visited) {
+        Queue<Integer> q = new LinkedList<>();
         q.add(s);
 
         while (!q.isEmpty()) {
+            int v = q.poll();
 
-            int u = q.poll();
-            for (Integer v : adj.get(u)) {
-                if (!visited[v]) {
-                    visited[v] = true;
-                    q.add(v);
-                    parent[v] = u;
-                } else if (parent[u] != v)
-                    return true;
+            if (visited[v]) {
+                return true; // Cycle detected
+            }
+
+            visited[v] = true; // Mark as visited
+
+            for (int it : adj[v]) {
+                if (!visited[it]) {
+                    q.add(it);
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean isCyclicDisconnected(ArrayList<Integer>[] adj, int V) {
+        boolean[] visited = new boolean[V];
+
+        for (int i = 0; i < V; i++) {
+            if (!visited[i] && isCyclicConnected(adj, i, V, visited)) {
+                return true;
             }
         }
         return false;

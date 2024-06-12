@@ -10,41 +10,13 @@ import java.util.function.Function;
 
 public class IsPrime {
 
-    public String isPrime(int n){
-        for(int i=2; i<=Math.sqrt(new Double(n)); i++) {
-            if (n % i == 0) {
-                return "Not a prime";
-            }
+    public boolean isPrime(int N) {
+        for (int i = 2; i * i <= N; i++) {
+            if (N % i == 0)
+                return false;
         }
-        return "Is a prime";
+        return true;
     }
-
-    //Using of Sieve Of Eratosthenes
-    //If a number is prime then all the multipliers of that number will not be prime
-    public void findAllPrime(){
-        int n = 100;
-        int[] primes = new int[n];
-        for(int i=0; i<n; i++)
-            primes[i] = 1;
-
-        primes[0] = 0;
-        primes[1] = 0;
-
-        for(int i=2; i <= Math.sqrt(new Double(n)); i++) {
-            if(primes[i] == 1){
-                for(int j=2; i*j <= n; j++){
-                    primes[i*j] = 0;
-                }
-            }
-        }
-
-        for(int i=0; i<n; i++){
-            if(primes[i] == 0)
-                System.out.println(i + " ");
-        }
-    }
-
-    //Time Complexity = O(nloglog(n))
 
     //Find all factors
     //36 => {1, 2, 3, 4, 6, 9, 12, 18, 36}

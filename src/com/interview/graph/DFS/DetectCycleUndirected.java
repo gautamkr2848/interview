@@ -10,9 +10,8 @@ public class DetectCycleUndirected {
         Boolean visited[] = new Boolean[V];
 
         for (int i = 0; i < V; i++) {
-            if (!visited[i])
-                if (isCyclicUtil(i, adj, visited, -1))
-                    return true;
+            if (!visited[i] && isCyclicUtil(i, adj, visited, -1))
+                return true;
         }
         return false;
     }

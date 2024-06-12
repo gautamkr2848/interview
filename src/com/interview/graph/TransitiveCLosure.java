@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class TransitiveCLosure {
 
-    public ArrayList<ArrayList<Integer>> transitiveClosure(int V, int graph[][]) {
+    public void transitiveClosure(int V, int graph[][]) {
         int reach[][] = new int[V][V];
         int  i, j, k;
 
@@ -22,17 +22,20 @@ public class TransitiveCLosure {
             }
         }
 
-        ArrayList<ArrayList<Integer>> res = new ArrayList<>();
-        for (i = 0; i < V; i++) {
-            ArrayList<Integer> tmp = new ArrayList<>();
-            for (j = 0; j < V; j++) {
-                if (i == j)
-                    tmp.add(1);
+        printSolution(reach, V);
+    }
+
+    private static void printSolution(int reach[][], int V) {
+        System.out.println("Following matrix is transitive closure"+
+                " of the given graph");
+        for (int i = 0; i < V; i++) {
+            for (int j = 0; j < V; j++) {
+                if ( i == j)
+                    System.out.print("1 ");
                 else
-                    tmp.add(reach[i][j]);
+                    System.out.print(reach[i][j]+" ");
             }
-            res.add(tmp);
+            System.out.println();
         }
-        return (res);
     }
 }

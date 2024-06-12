@@ -1,13 +1,6 @@
 1. Employees earning more than their manager
 
-    SELECT
-        a.Name AS 'Employee'
-    FROM
-        Employee AS a,
-        Employee AS b
-    WHERE
-        a.ManagerId = b.Id
-            AND a.Salary > b.Salary;
+    SELECT a.Name FROM Employee AS a, Employee AS b WHERE a.ManagerId = b.Id AND a.Salary > b.Salary;
 
 2. How to find duplicates in a table
 
@@ -17,9 +10,45 @@ SELECT order_id, count(order_id) from order group_by order_id having count(order
 
 DELETE t1 FROM contacts t1  INNER JOIN contacts t2 WHERE t1.id < t2.id AND t1.email = t2.email;
 
+WITH CTE as (Select *, row_number() over (partition by emp_id order by emp_id) as rn from emp)
+DELETE from CTE where rn > 1;
+
 4.  Difference between union and union all
 
 UNION returns distinct records from both the table, while UNION ALL returns all the records from both the tables
+
+Select emp_id from emp1 UNION Select emp_id from emp1;
+Select emp_id from emp1 UNION ALL Select emp_id from emp1;
+
+5. Employees who are not present in department table
+
+SELECT * from emp where dept_id not in (select id from department);
+
+SELECT * from emp LEFT JOIN dept on emp.dept_id = dept.id where dept.id is null;
+
+📌 Leetcode 183 - Customers Who Never Order
+
+SELECT c.name AS Customers
+FROM Customers c LEFT JOIN Orders o ON c.id=o.customerId
+WHERE o.customerId IS NULL;
+
+
+📌 LeetCode 184 - Department Highest Salary
+
+first identify highest salary by
+SELECT departmentId, MAX(salary) FROM Employee GROUP BY departmentId
+
+Then JOIN both table by
+SELECT d.name AS Department , e.name AS Employee, e.salary FROM Department d JOIN Employee e ON e.departmentId=d.id
+
+Then put Condition by
+WHERE(departmentId, salary) IN (SELECT departmentId, MAX(salary) FROM Employee GROUP BY departmentId) ;
+
+Code
+
+SELECT d.name AS Department , e.name AS Employee, e.salary
+FROM Department d JOIN Employee e ON e.departmentId = d.id
+WHERE(departmentId, salary) IN (SELECT departmentId,MAX(salary) FROM Employee GROUP BY departmentId)
 
 5. DELETE vs DROP vs TRUNCATE
 
@@ -47,19 +76,10 @@ UNION returns distinct records from both the table, while UNION ALL returns all 
 
 7. Find second highest salary employees in each department
 
-    SELECT
-        t.deptno, max(t.salary) as maxs
-    FROM
-        table t
-    WHERE
-        t.salary < (SELECT
-                        max(salary)
-                    FROM
-                        table t2
-                    WHERE
-                        t2.deptno = t.deptno)
-    GROUP BY
-        t.deptno;
+    SELECT t.deptno, max(t.salary) as 2nd_max_salary FROM emp t WHERE
+    t.salary < (SELECT max(salary) FROM emp t2 WHERE t2.deptno = t.deptno) GROUP BY t.deptno;
+
+    SELECT * FROM (SELECT emp.*, dense_rank() over (partition by dept_id order by salary desc) as rn from emp) a where rn = 2;
 
 9. Explain order of execution of SQL.
 
@@ -98,6 +118,22 @@ WHERE clause filters individual rows, whereas the HAVING clause filters groups i
 use the WHERE clause with aggregate functions because it works for filtering individual rows. In contrast, HAVING can
 works with aggregate functions because it is used to filter groups.
 
+SELECT dept_id, avg(salary) from emp where salary > 10000 group by dept_id having avg(salary) > 12000;
+
+11. Convert rows data to column
+
+SELECT emp_id,
+sum(case when salary_component_type = 'salary' then val end) as salary,
+sum(case when salary_component_type = 'bonus' then val end) as bonus,
+sum(case when salary_component_type = 'hike_percentage' then val end) as hike_percentage
+into emp_compensation_pivot from emp_compensation group by emp_id;
+
+SELECT * from
+(SELECT emp_id, 'salary' as salary_component_type, salary as val from emp_compensation_pivot UNION ALL
+SELECT emp_id, 'bonus' as salary_component_type, bonus as val from emp_compensation_pivot UNION ALL
+SELECT emp_id, 'hike_percentage' as salary_component_type, hike_percentage as val from emp_compensation_pivot) a
+order by emp_id;
+
 12. Explain all types of joins in SQL?
 
 13. What are triggers in SQL?
@@ -122,15 +158,11 @@ actual data and just have the definition of the original data.
 
 varchar stores - 1 byte & nvarchar stores - 2 byte data
 
-16. What is the difference between UNION and UNION ALL in SQL?
-
-UNION returns distinct records from both the table, while UNION ALL returns all the records from both the tables.
-
-17. Find the second highest salary of an employee?
-
 18. Difference between Function and Store procedure ?
 
-The function must return a value but in Stored Procedure it is optional. Even a procedure can return zero or n values. Functions can have only input parameters for it whereas Procedures can have input or output parameters. Functions can be called from Procedure whereas Procedures cannot be called from a Function.
+The function must return a value but in Stored Procedure it is optional. Even a procedure can return zero or n values.
+Functions can have only input parameters for it whereas Procedures can have input or output parameters. Functions can
+be called from Procedure whereas Procedures cannot be called from a Function.
 
 19. Do we use variable in views? - no
 

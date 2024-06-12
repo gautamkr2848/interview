@@ -38,9 +38,7 @@ public class b_PalindromePartitioning {
     }
 
     public int b_PalindromePartitioning_momorization(String s, int i, int j){
-        if(i >= j)
-            return 0;
-        if(isPalindrome(s, i, j))
+        if(i >= j || isPalindrome(s, i, j))
             return 0;
 
         if(t[i][j] != -1)
@@ -58,9 +56,7 @@ public class b_PalindromePartitioning {
     }
 
     public int b_PalindromePartitioning_momorization_opmized(String s, int i, int j){
-        if(i >= j)
-            return 0;
-        if(isPalindrome(s, i, j))
+        if(i >= j || isPalindrome(s, i, j))
             return 0;
 
         if(t[i][j] != -1)

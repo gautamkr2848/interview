@@ -63,7 +63,7 @@ public class MinSwapStringPelindorme {
             map.put(c, map.getOrDefault(c, 0) +1);
 
         for (Map.Entry i : map.entrySet()) {
-            int val = map.get(i.getKey());
+            int val = (int)i.getValue();
             if(val % 2 == 1)
                 odd++;
         }

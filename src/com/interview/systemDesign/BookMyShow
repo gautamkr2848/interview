@@ -15,7 +15,7 @@ Functional Requirements:
     make a payment to finalize the booking.
 
 Non-Functional Requirements:
-1. The system would need to be highly concurrent
+1. The system should be highly concurrent
 2. There are financial transactions in ticket bookings. So, the system should be secure
     and the database should be ACID supported.
 

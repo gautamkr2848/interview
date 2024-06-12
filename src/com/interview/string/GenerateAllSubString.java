@@ -2,10 +2,14 @@ package com.interview.string;
 
 public class GenerateAllSubString {
 
-    public void SubString(String str, int n) {
+    public static void subString(String str, int n) {
         for (int i = 0; i < n; i++)
             for (int j = i+1; j <= n; j++)
                 System.out.println(str.substring(i, j));
+    }
+
+    public static void main(String[] args) {
+        subString("ABC", 3);
     }
 
     public void printSubStrings(String str) {

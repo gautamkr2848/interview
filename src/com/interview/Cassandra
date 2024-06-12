@@ -8,7 +8,7 @@ Features
     Faster than SQL
 
 Cassandra work
-    1. Cassandra is capable of handling petabytes of information and thousands of concurrent users/operations per second
+    1. Cassandra is capable of handling petabytes of information and thousands of concurrent requests per second
     2. Cassandra is a partitioned row store database
     3. Cassandra's uses CQL language for accessing DB.
     4. Cassandra provides automatic data distribution across all nodes in a database cluster.

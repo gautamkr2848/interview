@@ -2,7 +2,7 @@ package com.interview.list;
 
 public class DeleteWithoutHead {
 
-    public void deleteWithoutHead(){
+    public static void deleteWithoutHead(){
 
         Node node = new Node(5);
         node.next = new Node(3);
@@ -27,5 +27,9 @@ public class DeleteWithoutHead {
             node = node.next;
         }
 
+    }
+
+    public static void main(String[] args) {
+        deleteWithoutHead();
     }
 }

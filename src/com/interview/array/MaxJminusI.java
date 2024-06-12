@@ -1,5 +1,7 @@
 package com.interview.array;
 
+import java.util.Stack;
+
 //Given an array arr[], find the maximum j – i such that arr[j] > arr[i]
 public class MaxJminusI {
 
@@ -14,6 +16,40 @@ public class MaxJminusI {
             }
         }
         System.out.println(maxDiff);
+    }
+
+    public int maxIndexDiff(int a[], int n) {
+
+        Stack<Integer> stk = new Stack<>();
+
+        //loop for storing index in stack whose value appears in decreasing order
+        for(int i=0;i<n;i++){
+            if(stk.isEmpty() || a[stk.peek()] > a[i])
+                stk.push(i);
+        }
+
+        int maxDiff = 0;
+
+        //Now we traverse from right to left.
+        int i = n-1;
+        while(i >= 0){
+
+            /*
+            This will compare top value of array at index stack top.
+            if it satisfy our condition we check the difference  and update out result.
+            else we decrement our counter
+            */
+            if(!stk.isEmpty() && a[stk.peek()] <= a[i]){
+                int tmp = i - stk.pop();
+                if(tmp > maxDiff){
+                    maxDiff  = tmp;
+                }
+                continue;
+            }
+            i--;
+        }
+
+        return maxDiff;
     }
 
     public void max_2(){

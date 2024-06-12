@@ -6,8 +6,6 @@ stock trading platform - https://whimsical.com/system-design-stock-trading-platf
 
 System Design - https://medium.com/@nishantparmar/distributed-system-design-patterns-2d20908fecfc
 
-DBMS -  https://docs.google.com/document/d/1DRw-075sS6gB6zLJS2usxG1T3-yfvhRTIXKnnENqtkY/edit
-
 Note :
 
 The performance of for loop is better than for-each in terms of Arraylist. Now, let’s use LinkedList instead of a

@@ -34,17 +34,17 @@ public class a_1_KSumSubArray {
     public void kSumSubArray() {
         int[] arr = {3, 4, -7, 1, 3, 3, 1, -4};
         Map<Integer, Integer> map = new HashMap();
-        int currsum = 0;
-        int sum = 7;
+        int sum = 0;
+        int k = 7;
         int count = 0;
 
         for(int i = 0; i < arr.length; ++i) {
-            currsum = currsum + arr[i];
-            if (currsum == sum)
+            sum = sum + arr[i];
+            if (sum == k)
                 count++;
 
-            count = count + map.getOrDefault(currsum - sum, 0);
-            map.put(currsum, map.getOrDefault(currsum, 0) + 1);
+            count = count + map.getOrDefault(sum - k, 0);
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
         System.out.println(count);
     }

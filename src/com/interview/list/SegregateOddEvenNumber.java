@@ -2,7 +2,7 @@ package com.interview.list;
 
 public class SegregateOddEvenNumber {
 
-    public Node segregateEvenOdd(Node head) {
+    public static Node segregateEvenOdd(Node head) {
 
         Node evenStart = null, evenEnd = null, oddStart = null, oddEnd = null;
         Node curr = head;
@@ -40,5 +40,19 @@ public class SegregateOddEvenNumber {
         head=evenStart;
 
         return head;
+    }
+
+    public static void main(String[] args){
+        Node node = new Node(1);
+        node.next = new Node(2);
+        node.next.next = new Node(3);
+        node.next.next.next = new Node(4);
+        node.next.next.next.next = new Node(5);
+
+        Node curr = segregateEvenOdd(node);
+        while (curr != null) {
+            System.out.print(curr.data + " -> ");
+            curr = curr.next;
+        }
     }
 }

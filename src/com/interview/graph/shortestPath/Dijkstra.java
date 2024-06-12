@@ -20,6 +20,9 @@ import java.util.*;
 
 public class Dijkstra {
 
+    private ArrayList<ArrayList<iPair>> adj;
+    private int V;
+
     public int[] dijkstra(int V, int S, ArrayList<ArrayList<ArrayList<Integer>>> adj){
         boolean[] visited = new boolean[V];
         PriorityQueue<Pair> pq = new PriorityQueue<>((o1, o2) -> o1.getW().compareTo(o2.getW()));
@@ -48,6 +51,40 @@ public class Dijkstra {
             }
         }
         return ans;
+    }
+
+    void shortestPath(int src) {
+        PriorityQueue<iPair> pq = new PriorityQueue<>(V, Comparator.comparingInt(o -> o.first));
+        int[] dist = new int[V];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+
+        pq.add(new iPair(0, src));
+        dist[src] = 0;
+
+        while (!pq.isEmpty()) {
+            int u = pq.poll().second;
+
+            for (iPair v : adj.get(u)) {
+                if (dist[v.first] > dist[u] + v.second) {
+                    dist[v.first] = dist[u] + v.second;
+                    pq.add(new iPair(dist[v.first], v.first));
+                }
+            }
+        }
+
+        System.out.println("Vertex Distance from Source");
+        for (int i = 0; i < V; i++) {
+            System.out.println(i + "\t\t" + dist[i]);
+        }
+    }
+
+    static class iPair {
+        int first, second;
+
+        iPair(int first, int second) {
+            this.first = first;
+            this.second = second;
+        }
     }
 }
 

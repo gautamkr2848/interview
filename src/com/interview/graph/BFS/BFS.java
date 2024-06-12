@@ -6,6 +6,10 @@ import java.util.Queue;
 
 public class BFS {
 
+    // Go to nearest neighbour, level wise
+
+    // In Binary tree, for level order we use Queue data structure
+
     public void BFS(int s, ArrayList<ArrayList<Integer>> adj) {
 
         boolean visited[] = new boolean[adj.size()];

@@ -19,7 +19,7 @@ public class PrimMinimumSpanningTree {
         int ans = 0;
 
         while (pq.size() != 0){
-            Pair curr = pq.remove();
+            Pair curr = pq.poll();
             int u = curr.getV();
             if(visited[u]){
                 continue;

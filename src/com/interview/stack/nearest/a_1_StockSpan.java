@@ -8,8 +8,9 @@ import java.util.Stack;
 //nearest greater to left
 public class a_1_StockSpan {
 
-    public void calculateSpan(int price[], int n, int S[]) {
+    public void calculateSpan(int price[], int n) {
 
+        int[] S = new int[price.length];
         S[0] = 1;
 
         for (int i = 1; i < n; i++) {

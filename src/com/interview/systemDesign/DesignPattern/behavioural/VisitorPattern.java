@@ -8,9 +8,9 @@ Visitor Pattern
          It is used when we have to perform an operation on a group of similar kind of Objects.
 
          The visitor pattern consists of two parts:
-             1. Visit() method which is implemented by the visitor and is called for every element in
+             1. visitor class having visit() method and is called for every element in
                 the data structure
-             2. visitable classes providing Accept() methods that accept a visitor
+             2. visitable classes (interface) having accept() methods that accept an object of visitor class
 
          eg -
 
@@ -53,14 +53,13 @@ class ShoppingCartClient {
 
 }
 
-interface ItemElement {     //visitable
-    int accept(ShoppingCartVisitor visitor);
-}
-
 interface ShoppingCartVisitor {
-
     int visit(Book book);
     int visit(Fruit fruit);
+}
+
+interface ItemElement {     //visitable
+    int accept(ShoppingCartVisitor visitor);
 }
 
 class ShoppingCartVisitorImpl implements ShoppingCartVisitor {

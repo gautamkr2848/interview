@@ -1,10 +1,16 @@
 package com.interview;
 
-import com.interview.backtracking.GenerateParenthesis;
-import com.interview.recursion.PalindromePartioning;
-import com.interview.stack.LongestValidSubString;
+import com.interview.array.RemoveElement;
+import com.interview.graph.DFS.e_CountIsLand;
 
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocketFactory;
 import java.io.*;
+import java.math.BigInteger;
+import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -13,53 +19,52 @@ import java.util.stream.Collectors;
 
 public class Main {
 
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) {
 
+        int[] people = {4, 1, 3, 5};
+        int limit = 5;
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String mailSubject = " Josh Alert! Notification Job for failed due to Request Timeout : 408, At : " + LocalDateTime.now().format(formatter);
-        System.out.println(mailSubject);
+        Arrays.sort(people);
 
+        int start = 0;
+        int end = people.length-1;
+        int boatCount = 0;
 
+        while(start <= end) {
+            boatCount++;
+            if(people[start] + people[end] <= limit)
+                start++;
+
+            end--;
+        }
+        System.out.println(boatCount);
     }
 
-    public Map<String, Integer> sortByValue(Map<String, Integer> hm) {
-        List<Map.Entry<String, Integer>> list = new LinkedList<>(hm.entrySet());
+    static int ROW=4, COL=2;
+    private static int countIslands(int M[][]) {
+        boolean visited[][] = new boolean[ROW][COL];
+        int count = 0;
 
-        Collections.sort(list, (i1, i2) -> i1.getValue().compareTo(i2.getValue()));
-
-        HashMap<String, Integer> temp = new HashMap<>();
-        for (Map.Entry<String, Integer> aa : list)
-            temp.put(aa.getKey(), aa.getValue());
-
-        return temp;
+        for (int i = 0; i < ROW; i++)
+            for (int j = 0; j < COL; j++)
+                if (M[i][j] == 1 && !visited[i][j]) {
+                    DFS(M, i, j, visited);
+                    count++;
+                }
+        return count;
     }
 
-    public Map<String, Integer> sortByValue_2(Map<String, Integer> hm){
-        return hm.entrySet().stream()
-                .sorted((i1, i2) -> i1.getValue().compareTo(i2.getValue()))
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-    }
+    private static void DFS(int M[][], int row, int col, boolean visited[][]) {
+        int rowNbr[] = { -1, -1, -1, 0, 0, 1, 1, 1 };
+        int colNbr[] = { -1, 0, 1, -1, 1, -1, 0, 1 };
 
-    private static Date addMinutes(Date date, int minutes) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.add(Calendar.MINUTE, minutes);
-        return calendar.getTime();
-    }
+        visited[row][col] = true;
 
-    private void method1() {
-        List<String> list = Arrays.asList("a", "b", "a");
-        Map<String, Long> map = list.stream()
-                .collect(Collectors.groupingBy(x -> x, Collectors.counting()));
-        System.out.println(map.toString());
-    }
-
-    private static Date addHours(Date date, int hours) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.add(Calendar.HOUR_OF_DAY, hours);
-        return calendar.getTime();
+        for (int k = 0; k < 8; k++) {
+            Boolean isSafe = (row + rowNbr[k] >= 0) && (row + rowNbr[k] < ROW) && (col + colNbr[k] >= 0) && (col + colNbr[k] < COL) && M[row + rowNbr[k]][col + colNbr[k]] == 1 && !visited[row + rowNbr[k]][col + colNbr[k]];
+            if (isSafe)
+                DFS(M, row + rowNbr[k], col + colNbr[k], visited);
+        }
     }
 
     private static void excelCode(){

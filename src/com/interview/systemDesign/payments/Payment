@@ -5,7 +5,7 @@ Customer    ==>>    Merchant    ==>>    Acquirer Bank   ==>>    Card Network / S
 Customer    ==>>    Merchant    ==>>    Stripe  ==>>    Acquirer Bank   ==>>    Card Network (visa / master card)    ==>>    Issuer Bank
 
 Payment Gateway
-    A service which allows us to make payments while making purchases from stores.It supports payment through card,
+    A service which allows us to make payments while making purchases from stores. It supports payment through card,
     internet banking or wallets etc.
 
 Payment Service Provider

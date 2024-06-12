@@ -5,7 +5,8 @@ import java.util.Set;
 
 //Floyd’s Cycle-Finding Algorithm:
 
-public class DetectAndRemoveLoop {
+public class
+DetectAndRemoveLoop {
 
     public Node detectLoop(Node head){
         Node slow = head;

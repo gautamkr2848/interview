@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /*
 m1 2 * 3, m2 3 * 6  cost => 2 * 3 * 6
+
 m1 2 * 3, m2 3 * 6, m3 6 * 9
     1. (m1 * m2) * m3
     2. m1 * (m2 * m3)

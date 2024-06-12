@@ -22,7 +22,7 @@ public class a_KnapSack_0_1 {
     }
 
 /*
-    Time Complexity: O(2N)
+    Time Complexity: O(2^N)
     Auxiliary Space: O(N)
 */
 

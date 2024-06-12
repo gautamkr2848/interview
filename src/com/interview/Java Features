@@ -18,10 +18,20 @@ Java 8
     4. forEach() method in Iterable interface
 
 Java 9
-    1. Private method in interface
+    1. Private and static methods in interface
     2. List.of(1, 2, 3);
        Set.of();
        map.of();
+    3. Improved try with resource Blocks
+
+        Public static void main(String[] args) {
+            MyThread th = new MyThread();
+            try (th) {
+                Th.executeSomething();
+            } catch (Exception ex) {}
+        }
+
+    4. Immutable Collection
 
 Java 10
     1. GC interface
@@ -30,3 +40,25 @@ Java 10
             for (var number : numbers) {
 
             }
+
+Java 11
+    1. String API Updates
+        a. isBlank()
+        b. lines()
+        c. strip()
+        d. repeat()
+    2. File API update
+        a. Files.writeString() & Files.readString()
+    3. IsEmpty() method on Optional Class
+
+Java 12
+    1. Collectors.teeing() in Stream API
+    2. String API Changes
+    3. Files.mismatch(Path, Path)
+    4. Compact Number Formatting
+    5. Support for Unicode 11
+    6. Switch Expressions (Preview)
+
+
+
+

@@ -1,7 +1,10 @@
 package com.interview.string;
 
+import com.interview.trie.Trie;
+
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /*
@@ -21,15 +24,16 @@ The string can be segmented as "i like samsung" or "i like sam sung"
 */
 
 public class WordBreak {
+
+    List<String> dictionary = Arrays.asList("mobile","samsung","sam","sung",
+            "man","mango","icecream","and",
+            "go","i","like","ice","cream");
+
     public Boolean wordBreak(String word){
         int n = word.length();
         Set<String> dictionary = new HashSet<>();
 
-        String temp_dictionary[] = {"mobile","samsung","sam","sung",
-                "man","mango","icecream","and",
-                "go","i","like","ice","cream"};
-
-        dictionary.addAll(Arrays.asList(temp_dictionary));
+        dictionary.addAll(dictionary);
         if (n == 0) return true;
 
         for (int i = 1; i <= n; i++) {
@@ -37,6 +41,20 @@ public class WordBreak {
                     wordBreak(word.substring(i,n)))
                 return true;
         }
+        return false;
+    }
+
+    public Boolean wordBreak_2(String word){
+        int n = word.length();
+        if(word.length() == 0)
+            return true;
+        Trie trie = new Trie(dictionary);
+
+        for(int i=1; i<=n; i++){
+            if(Trie.search(word.substring(0,i)) && wordBreak_2(word.substring(i,n)))
+                return true;
+        }
+
         return false;
     }
 }

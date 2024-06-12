@@ -1,0 +1,223 @@
+Requirement Gathering
+
+    If you are leading a System Design interview, you have cleared 50% of it.
+
+    Functional Requirement
+    Non Functional Requirement
+
+    1. It’s always good to start with the main features of the system you are trying to build.
+    2. For example, the prompt could be “How would you design Twitter?” Start by listing the main features of Twitter,
+     to make sure you and the interviewer are on the same page about what you’re trying to build.
+    3. What are the tradeoffs you should make? What’s more important for this system – availability, or consistency?
+      For a bank or e-commerce site, consistency may be more important than availability. What matters is that the user
+      is never charged twice for the same transaction. For a social networking site, availability is typically the better
+      tradeoff–it is not as big a deal if a user’s post appears twice, for example.
+
+
+Users
+
+    1. When do most users use the system, and how many people do we need to serve? How fast is our userbase growing?
+    2. Are there higher loads during a particular time of day? Particular time of the year?
+    3. Do our users log on from different regions?
+    4. Are they accessing the system from a web interface, mobile app, or both?
+
+
+Database
+
+    Primary database is your single source of truth when you save data. You always rely on this data.
+
+    Which database to choose?
+
+    SQL Database
+    1. Relational, Table-based
+    2. When you require ACID (Atomicity, Consistency, Isolation, and Durability) properties.
+    3. You choose SQL Database for saving financial transactions which gives you ACID guarantee that multiple records belongs to the same transaction are saved either all or nothing.
+    4. You choose SQL Database when rigid schema is required. For e.g. you want to maintain strict relationships between the tables. you want to maintain unique, not_null constraints.
+    5. You choose SQL Database when Joins and complex queries are required.
+    6. SQL Databases are: Oracle, MySQL, MariaDB, Microsoft SQL Server and PostgreSQL
+
+    NoSQL Database
+    1. Document-based, key-value pairs, Graph database
+    2. You choose NoSQL Database when flexible schema is required.
+    3. You choose NoSQL when horizontal scaling is required. They scale very well.
+    4. NoSQL Databases are: MongoDB, BigTable, Redis, RavenDb, Neo4j, and CouchDb
+
+    BLOB Storage / Object Storage - amazon s3
+    For storing image, videos
+    Time Series Database - for resolving conflicts during concurrent update
+
+Reliability
+
+    1. Fault Tolerance
+    2. Monitoring and alerting
+    3. Recovery Plans
+
+
+Scalability
+
+    As your company grow, data grow and scalability comes into picture:-
+
+    Vertical Scaling
+
+    1. Database can be scaled vertically by adding more power (CPU, RAM or SSD) to same machine, so that database can handle more load.
+    2. Vertical scaling has limitations as can not add power to same machine beyond a point.
+    3. SQL Databases are often scaled vertically
+
+    Horizontal Scaling
+    1. Databases can be scaled horizontally by adding more machines into the pool of databases. Data is saved in pool
+     of databases using Database Sharding or also known as Horizontal Partitioning
+    2. Database sharding is easier in NoSQL databases as compare to SQL databases.
+    3. Database sharding means partitioning of data in multiple databases. Incoming data can be saved in databases based
+     on some key. for e.g. userId in case of saving user profile.
+
+
+Availability
+
+    Availability is measured based on replication factor. Replication factor = 3 means a database is having 2 additional
+    copies which keep themselves in-sync asynchronously.
+
+    1. Active-Active => Data read and write happen in any database replica.
+    2. Active-Passive (Master-Slave) => Data read and write happen only in master database. Data is synced with slave
+    database asynchronously. When Master goes down, Slave started serving as master.
+    3. Write-Read (Master Slave) => Data write happen in master database. Data read happen from any database.
+
+    Geo Sharding => Geo sharding is nothing but database sharding based on geo location.
+
+
+File Storage Options (Image/Video)
+
+    E-Commerce like Amazon, Social Media like Instagram, Facebook, Twitter, Streaming Provider like Netflix requires to
+    store a huge amount of Images and Videos.
+
+    Images and Videos are stored a BLOB (Binary Large Object) and Database Storage is not a good option for this kind of storage. Why?
+
+    You are not going to query on BLOB Storage
+    You do not need any ACID guarantees for BLOB storage as such provided by RDBMS
+    Costly to store in Database
+    Cheaper and scalable options to store such files are Distributed File Systems (DFS) such as Sharepoint, Amazon S3.
+
+    Details about the image/video such as its DFS URL, metadata can be save in Database, referred by Image ID.
+    It is also a smart idea to save thumbnail of image, or cover photo of the video in database, size of which should not exceed few KBs. Initially the thumbnail or cover photo can be sent to the client along with the URL of image/video. It is a good experience for the user to see something while image/video is downloading/streaming from DFS.
+
+    Availability
+    You may want to use Content Delivery Network (CDN) which distribute the same images/videos to different locations geographically near to the client locations.
+
+
+Caching => Redis, Memcached
+
+    1. To increase the speed of reads, caching at multiple levels / layers of your system.
+    2. What could you cache directly on the user’s device?
+    3. What would you cache just between a microservice and your database?
+    4. What type of eviction policy would you use, so that your cache only retains the most relevant data?
+
+
+Text Search Capabilities
+
+    Almost all the websites requires searching capabilities in one way or another. For e.g. Amazon for product search,
+    Netflix for movies search, Youtube for video search, Social media websites for user profile search, and so and so forth.
+
+    1. Elastic Search and Apache Solr has been written on top of Apache Lucene provide additional search capabilities
+     such as fuzzy search, type ahead, search suggestions.
+    2. Apache Lucene is the core framework written based on Map-Reduce and Inverted-Index algorithm.
+    3. You don’t rely on these for storage. You generally save data in your primary database and write to Elastic Search
+     or Apache Solr asynchronously.
+
+
+Reporting and Analytics
+    Data warehouse where you generally dump a lot of data and they provide very complex querying capabilities.
+
+    Apache Hadoop, Amazon Redshift, Elastic Search
+
+
+Hashing Algorithms => Consistent Hashing
+
+
+Count-Min Sketch
+
+    Count-Min Sketch is probabilistic data structure which takes a constant time and space to answer this kind of questions:-
+
+    1. Count views of a particular YouTube video?
+    2. Find the top trending posts on Instagram?
+
+
+Server Capacity / Estimations
+
+    Useful Calculations
+    x Million users * y KB = x*y GB, example: 1M users * a documents of 100KB per day = 100GB per day.
+
+    x Million users * y MB = x*y TB, example: 200M users * a short video of 2MB per day = 400TB per day.
+
+    x Billion users * y KB = x*y TB, example: 100B users * a documents of 1KB per day = 100TB per day.
+
+    Byte Number Sizes
+
+    The number of zeros after thousands increments by 3.
+
+    Thousands = KB (3 zeros)
+    Millions = MB(6 zeros)
+    Billions = GB (9 zeros)
+    Trillions = TB (12 zeros)
+    Quadrilions = PB (15 zeros)
+
+    Byte Conversions
+    1 B = 8 bits
+    1 KB = 1000 B
+    1 MB = 1000 KB
+    1 GB = 1000 MB
+    1 TB = 1000 GB
+    1 PB = 1000 TB
+
+
+APIs & Security
+
+    1. Internal vs external api call's
+    2. What are the possible security concerns you may have, and how could you mitigate those?
+    3. How can you use pagination to reduce the results returned from your queries?
+    4. If you’re supporting an external API, use a rate limiting system.
+
+
+Availability / Microservices
+
+    1. If your system needs to have high availability (think five 9s: 99.999% availability per year), how could you ensure this?
+    2. What types of redundancies could you set up so that you’ve always got an available server in case one crashes?
+    3. If you’ve got microservices depending on each other, how can your system be fault tolerant so as to limit cascading failures? Is a tool like Kubernetes a good solution or overkill for your use case?
+    4. How do you allow observability into your system?
+
+
+Proxies
+
+    1. If availability is important, you're probably going to have multiple instances of the same server, and you'll
+     therefore need one or more load balancer(s), which is a type of reverse proxy.
+
+
+Security
+
+    1. Authentication / Authorization
+    2. Data encryption
+    3. Sensitive data storage
+
+
+Messaging
+
+    1. Consider a messaging paradigms and tools, for your internal, server-to-server communication, or between end users and your servers.
+    2. Is consistency and reliability important to your system? If so, most of your OSI layer 7 communication will
+     probably be done over TCP then. If you’re doing anything like VOIP or video conferencing, you may instead opt for UDP.
+    3. Do you need queues to make sure a communication is never lost, arrives in order, or both?
+    4. Do you need to use some kind of messaging bus like Kafka or RabbitMQ?
+    5. Is a push-based or pull-based mechanism better for your use case?
+    6. Is idempotency important? If so, how could you ensure that the same message is never received more than once?
+
+
+Cost Estimations
+
+    1. Hardware costing
+    2. Licenseing costing
+    3. Any further costing
+
+
+Documentation
+
+    1. Clear techinical documentation
+    2. User manual
+    3. API documentation
+    4. DB schema documentation

@@ -75,6 +75,7 @@ public class NodesAtDistance {
                 while (!q.isEmpty()) {
                     System.out.print(q.poll().key + " ");
                 }
+                break;
             }
             
             int size = q.size();
