@@ -6,7 +6,11 @@ import java.util.List;
 
 public class CountTriplets {
 
-    public void countTriplets(){
+    public static void main(String[] args) {
+        countTriplets();
+    }
+
+    public static void countTriplets(){
         int[] A = {0, 1, -1, 2, -2, 3};
         int n = A.length;
         int count = 0 ;

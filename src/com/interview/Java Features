@@ -32,10 +32,11 @@ Java 9
         }
 
     4. Immutable Collection
+    5. Introduced a new HTTP client supporting HTTP/2 and WebSocket
 
 Java 10
     1. GC interface
-    2. Local-Variable Type Inference
+    2. Local-Variable Type Inference - var
         a. new keyword var is added
             for (var number : numbers) {
 
@@ -50,6 +51,8 @@ Java 11
     2. File API update
         a. Files.writeString() & Files.readString()
     3. IsEmpty() method on Optional Class
+    4. Standardized the HTTP/2 client API introduced in Java 9.
+    5. Allowed the use of var in lambda expressions.
 
 Java 12
     1. Collectors.teeing() in Stream API
@@ -58,6 +61,43 @@ Java 12
     4. Compact Number Formatting
     5. Support for Unicode 11
     6. Switch Expressions (Preview)
+
+Java 12 to Java 16
+
+Introduced switch expressions to simplify switch statements.
+Record Keyword - (14) - A record is a special kind of class designed to hold immutable data.
+
+Java 17 (September 2021)
+Java 17 is an LTS release with several enhancements and finalized features.
+
+Sealed Classes: Allows a class or interface to control which classes or interfaces can extend or implement it.
+Pattern Matching for switch  statements.
+
+Java 18 to Java 20
+
+Continued enhancements and new features, many in preview or incubator stages:
+
+Vector API (Incubator):
+
+Introduced a new API for vector computations to enhance performance.
+Foreign Function & Memory API (Incubator):
+
+Added a new API to interact with native code and memory outside of the Java heap.
+Pattern Matching for switch (continued refinement).
+
+Java 21 (September 2023)
+Java 21 is an LTS release with significant enhancements and finalized features.
+
+Virtual Threads : Introduced virtual threads to simplify concurrency by decoupling the number of threads in an application from the number of underlying OS threads.
+Structured Concurrency: Simplified thread lifecycle management, enhancing reliability and observability of concurrent code.
+Record Patterns: Enhanced pattern matching to deconstruct records in switch statements and other contexts.
+Pattern Matching for switch (finalized): Finalized the feature allowing for more expressive and concise switch expressions.
+Sequenced Collections: Added new interfaces to standardize collections with defined encounter order (e.g., lists, sets).
+String Templates: Introduced templating support for creating strings with embedded expressions in a more readable way.
+
+
+
+
 
 
 

@@ -34,7 +34,10 @@ public class MaxHistogramArea {
 
             area = Math.max(area, (right - left - 1) * a[i]);
         }
+        System.out.println(area);
     }
+
+    // O(N2)
 
     public static void main(String[] args) {
         maxArea_2();

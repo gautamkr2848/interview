@@ -26,15 +26,15 @@ public enum VehicleType {
     BIKE, CAR, LARGE
 }
 
+public enum Level{
+    ONE, TWO, THREE
+}
+
 public class Vehicle {
     private Long id;
     private String vehicleNumber;
     private VehicleType vehicleType;
     private int count;
-}
-
-public enum Level{
-    ONE, TWO, THREE
 }
 
 public class Slot {

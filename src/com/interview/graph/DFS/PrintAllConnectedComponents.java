@@ -23,8 +23,6 @@ public class PrintAllConnectedComponents {
         boolean[] visited = new boolean[V];
         for (int v = 0; v < V; ++v) {
             if (!visited[v]) {
-                // print all reachable vertices
-                // from v
                 DFSUtil(v, visited, adj);
                 System.out.println();
             }

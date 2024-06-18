@@ -9,10 +9,6 @@ package com.interview.tree;
 
 public class TransformSumTree {
 
-    public void sumTree(Node node) {
-        transformSumTree(node);
-    }
-
     private int transformSumTree(Node node){
         if (node == null)
             return 0;

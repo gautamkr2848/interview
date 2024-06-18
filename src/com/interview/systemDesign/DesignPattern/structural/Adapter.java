@@ -1,8 +1,8 @@
 package com.interview.systemDesign.DesignPattern.structural;
 
-//Adapter pattern works as a bridge between two incompatible interfaces.
+// Adapter pattern works as a bridge between two incompatible interfaces.
 
-//One of the great real life example of Adapter design pattern is mobile charger. Mobile battery needs 3 volts to charge
+// One of the great real life example of Adapter design pattern is mobile charger. Mobile battery needs 3 volts to charge
 // but the normal socket produces either 120V (US) or 240V (India). So the mobile charger works as an adapter between
 // mobile charging socket and the wall socket.
 

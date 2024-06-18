@@ -4,8 +4,10 @@ package com.interview.array.subArray.slidingWindow;
         k = window size
         Output: 3 3 4 5 5 5 6*/
 
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.List;
 
 public class d_MaxOfAllSubarray {
 
@@ -22,8 +24,8 @@ public class d_MaxOfAllSubarray {
         }
     }
 
-    public void maxOfAllSubarray_2(){
-        int[] arr = {1, 3, -3, 5, 3, 6, 7};
+    public static void maxOfAllSubarray_2(){
+        int[] arr = {1, 2, 3, 1, 4, 5, 2, 3, 6};
         int k = 3;
 
         Deque<Integer> q = new LinkedList<>();
@@ -45,5 +47,9 @@ public class d_MaxOfAllSubarray {
             q.addLast(i);
         }
         System.out.print(arr[q.peek()]);
+    }
+
+    public static void main(String[] args) {
+        maxOfAllSubarray_2();
     }
 }

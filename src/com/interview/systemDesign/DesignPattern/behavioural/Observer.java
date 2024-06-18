@@ -1,6 +1,6 @@
 package com.interview.systemDesign.DesignPattern.behavioural;
 
-//Observer pattern is used when there is one-to-many relationship between objects such as if one object is modified, its
+// Observer pattern is used when there is one-to-many relationship between objects such as if one object is modified, its
 // depenedent objects are to be modified automatically. Observer pattern falls under behavioral pattern category.
 
 //Observer pattern uses three actor classes. Subject, Observer and Client.

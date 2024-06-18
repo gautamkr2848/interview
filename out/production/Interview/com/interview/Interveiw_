@@ -160,7 +160,7 @@ Avatar - 1
 Housing.com - 3
 1. Union of list
 2. Lowest Common Ancestor
-3. Segregate odd and even elements
+3. Segregate odd and even elements from list
 5. Mysql Join
 6. Indexing
 7. Dependency Injection
@@ -193,8 +193,7 @@ MyGate - 2
 1. Postfix Evaluation
 
 BrightChamps - 3
-1. Low level Design
-2. Proxy Design Pattern
+1. Proxy Design Pattern
 
 Leap Finance - 4
 1. Singleton
@@ -251,7 +250,7 @@ Vymo - 2
 2. Target sum
 
 Games 24*7 - 2
-1. Projetc use cases
+1. Stock Profit
 
 Intuit - 1
 1. Co-ordinates distance
@@ -260,7 +259,6 @@ Quinbay - 3
 1. LinkedHashMap implementation
 
 Nike - 4
-1. Stock Profit
 2. Missing Number from array
 3. Mysql and Elastic search
 4. Behavioural Discussion

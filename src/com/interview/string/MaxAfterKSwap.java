@@ -21,13 +21,13 @@ Output: 542
 
 public class MaxAfterKSwap {
 
-    String max = "";
-    public void findMaximum(String s, int k) {
+    static String max = "";
+    public static void findMaximum(String s, int k) {
         findMaximumNum(s.toCharArray(), k);
         System.out.println(max);
     }
 
-    private void findMaximumNum(char[] arr, int k) {
+    private static void findMaximumNum(char[] arr, int k) {
         int n = arr.length;
         if (k == 0)
             return;
@@ -48,11 +48,15 @@ public class MaxAfterKSwap {
         }
     }
 
-    private char[] swap(char[] arr, int a, int b) {
+    private static char[] swap(char[] arr, int a, int b) {
         char temp = arr[a];
         arr[a] = arr[b];
         arr[b] = temp;
 
         return arr;
+    }
+
+    public static void main(String[] args) {
+        findMaximum("237", 2);
     }
 }

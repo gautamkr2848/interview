@@ -76,6 +76,9 @@ WHERE(departmentId, salary) IN (SELECT departmentId,MAX(salary) FROM Employee GR
 
 7. Find second highest salary employees in each department
 
+    SELECT department_id, MAX(salary) AS second_highest_salary FROM employees
+    WHERE (department_id, salary) NOT IN (SELECT department_id, MAX(salary) AS max_salary FROM employees GROUP BY department_id) GROUP BY department_id;
+
     SELECT t.deptno, max(t.salary) as 2nd_max_salary FROM emp t WHERE
     t.salary < (SELECT max(salary) FROM emp t2 WHERE t2.deptno = t.deptno) GROUP BY t.deptno;
 

@@ -58,10 +58,6 @@ interface ShoppingCartVisitor {
     int visit(Fruit fruit);
 }
 
-interface ItemElement {     //visitable
-    int accept(ShoppingCartVisitor visitor);
-}
-
 class ShoppingCartVisitorImpl implements ShoppingCartVisitor {
 
     @Override
@@ -83,6 +79,10 @@ class ShoppingCartVisitorImpl implements ShoppingCartVisitor {
         return cost;
     }
 
+}
+
+interface ItemElement {     //visitable
+    int accept(ShoppingCartVisitor visitor);
 }
 
 class Book implements ItemElement {

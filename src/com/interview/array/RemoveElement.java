@@ -5,7 +5,7 @@ package com.interview.array;
 
 public class RemoveElement {
 
-    public void removeElements() {
+    public static void removeElements() {
         int[] arr = {5, 5, 1, 4, 5, 3, 5, 8};
         int val = 5;
 
@@ -19,6 +19,10 @@ public class RemoveElement {
 
         for(int k=0; k<i; k++)
             System.out.print(arr[k] + " ");
+    }
+
+    public static void main(String[] args) {
+        removeElements();
     }
 
     public void removeElements_2() {

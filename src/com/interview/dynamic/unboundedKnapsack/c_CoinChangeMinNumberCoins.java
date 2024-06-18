@@ -13,47 +13,7 @@ import java.util.Arrays;
 
 public class  c_CoinChangeMinNumberCoins {
 
-    public int minCoins_1(int coins[], int n, int sum) {
-
-        if (sum == 0)
-            return 0;
-        int res = Integer.MAX_VALUE;
-
-        for (int i=0; i<n; i++) {
-            if (coins[i] <= sum) {
-                int tmp = minCoins_1(coins, n, sum-coins[i]);
-
-                if (tmp != Integer.MAX_VALUE && tmp + 1 < res)      // Check for INT_MAX to avoid overflow and see if result can minimized
-                    res = tmp + 1;
-            }
-        }
-        return res;
-    }
-    //Time complexity: exponential
-    //Auxiliary space: O(n)
-
-    public int minCoins_2(int coins[], int n, int sum) {
-
-        int table[] = new int[sum + 1];
-        Arrays.fill(table, Integer.MAX_VALUE);
-        table[0] = 0;
-
-        for (int i = 1; i <= sum; i++) {
-            for (int j = 0; j < n; j++) {
-                if (coins[j] <= i) {
-                    int tmp = table[i - coins[j]];
-                    if (tmp != Integer.MAX_VALUE && tmp + 1 < table[i])
-                        table[i] = tmp + 1;
-                }
-            }
-        }
-
-        return table[sum] == Integer.MAX_VALUE ? -1 : table[sum];
-    }
-    //Time complexity: O(m*V).
-    //Auxiliary space: O(V)
-
-    public void coinChangeMinNumberCoins(){
+    public static void coinChangeMinNumberCoins(){
         int[] coinArray = {9, 10, 20, 5};
         int sum = 45;
         int n = coinArray.length;
@@ -64,8 +24,8 @@ public class  c_CoinChangeMinNumberCoins {
         for (int i = 0; i <= sum; i++) {
             t[0][i] = Integer.MAX_VALUE - 1;
 
-            if(coinArray[0] % sum == 0)
-                t[1][i] = coinArray[0] / sum;
+            if( sum % coinArray[0] == 0)
+                t[1][i] = sum / coinArray[0];
             else
                 t[1][i] = Integer.MAX_VALUE - 1;
         }
@@ -79,5 +39,29 @@ public class  c_CoinChangeMinNumberCoins {
             }
         }
         System.out.println(t[n][sum]);
+    }
+
+    public static int minCoins(int[] arr, int k, int n) {
+        if(n == 0) {
+            if(k % arr[0] == 0)
+                return k / arr[0];
+            else
+                return Integer.MAX_VALUE-1;
+        }
+
+        int notTake = 0 + minCoins(arr, k, n-1);
+        int take = Integer.MAX_VALUE;
+        if(arr[n] <= k)
+            take = 1 + minCoins(arr, k - arr[n], n);
+
+        return Math.min(take, notTake);
+    }
+
+    public static void main(String[] args) {
+        int arr[] =  {9, 10, 20, 5};
+        int n = arr.length-1;
+        int k = 45;
+        //System.out.println(minCoins(arr, k, n));
+        coinChangeMinNumberCoins();
     }
 }
