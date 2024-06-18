@@ -17,7 +17,8 @@ package com.interview.systemDesign;
     String is immutable in Java because of the
         1. security
         2. synchronization - Being immutable automatically makes the String thread safe since they won't be changed when accessed from multiple threads.
-        3. caching - The String is the most widely used data structure. Caching the String literals and reusing them saves a lot of heap space because different String variables refer to the same object in the String pool.
+        3. caching - The String is the most widely used data structure. Caching the String literals and reusing them saves a lot of heap space because
+        different String variables refer to the same object in the String pool.
         4. performance - String pool exists because Strings are immutable. In turn, it enhances the performance by saving heap memory and faster access
 
     Note => use char[] array over a string for storing passwords in Java

@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class LongestValidSubString {
 
-    public void findMaxLen() {
+    public static void findMaxLen() {
         String str = "()()()";
         int result = 0;
 
@@ -25,5 +25,50 @@ public class LongestValidSubString {
         }
 
         System.out.println(result);
+    }
+
+    public static void main(String[] args) {
+        findMaxLen();
+    }
+
+    public static void findMaxLen_2(String[] args) {
+        String s = "()()()";
+
+        int left = 0, right = 0, max = -1;
+        for(int i=0; i<s.length(); i++) {
+            if(s.charAt(i) == '(')
+                left++;
+            else
+                right++;
+
+            if(left == right) {
+                max = Math.max(max, 2*left);
+            } else {
+                if(right > left) {
+                    left = 0;
+                    right = 0;
+                }
+            }
+        }
+
+        left = 0;
+        right= 0;
+        for(int i=s.length()-1; i>=0; i--) {
+            if(s.charAt(i) == '(')
+                left++;
+            else
+                right++;
+
+            if(left == right) {
+                max = Math.max(max, 2*left);
+            } else {
+                if(right < left) {
+                    left = 0;
+                    right = 0;
+                }
+            }
+        }
+
+        System.out.println(max);
     }
 }

@@ -26,7 +26,6 @@ public class ListToBinaryTree {
             if (head != null) {
                 tmp.right = new Node(head.data);
                 q.add(tmp.right);
-
                 head = head.next;
             }
         }

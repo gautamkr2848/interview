@@ -3,8 +3,8 @@ package com.interview.tree;
 import java.util.ArrayList;
 import java.util.List;
 
-//Print every path in the tree with sum of the nodes in the path as k.
-//A path can start from any node and end at any node and must be downward only
+// Print every path in the tree with sum of the nodes in the path as k.
+// A path can start from any node and end at any node and must be downward only
 
 /*
                     1
@@ -29,10 +29,10 @@ import java.util.List;
 
 public class TreePathSumK {
 
-    List<Integer> path = new ArrayList<>();
-    int count = 0;
+    static List<Integer> path = new ArrayList<>();
+    static int count = 0;
 
-    public void pathCount(Node root, int k) {
+    public static void pathCount(Node root, int k) {
         if (root == null)
             return;
 
@@ -56,5 +56,16 @@ public class TreePathSumK {
         path.remove(path.size() - 1);       // Remove the current element from the path
     }
 
+    public static void main(String[] args) {
+        Node node = new Node(6);
+        node.left = new Node(4);
+        node.left.left = new Node(3);
+        node.left.right = new Node(5);
 
+        node.right = new Node(8);
+        node.right.left = new Node(7);
+        node.right.right = new Node(9);
+
+        pathCount(node, 7);
+    }
 }

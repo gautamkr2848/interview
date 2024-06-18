@@ -7,6 +7,8 @@ import java.util.Map;
 
 public class URLSortner {
 
+    //The expression String.format("%02x", b) in Java is used to format a byte (or an integer) into a two-digit hexadecimal string representation.
+
     // Base62 characters
     private static final String BASE62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final int SHORT_URL_LENGTH = 7;

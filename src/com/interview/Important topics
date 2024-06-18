@@ -40,7 +40,7 @@
     Two microservices communicate with each other based on event bus.
     An e-commerce application that uses this approach would work as follows:
         a. The Order Service creates an Order in a pending state and publishes an OrderCreated event.
-        b. The Customer Service receives the event and attempts to reserve credit for that Order.
+        b. The Payment Service receives the event and attempts to reserve credit for that Order.
             It then publishes either a Credit Reserved event or a CreditLimitExceeded event.
         c. The Order Service receives the event from the Customer Service and changes the state of
             the order to either approved or cancelled

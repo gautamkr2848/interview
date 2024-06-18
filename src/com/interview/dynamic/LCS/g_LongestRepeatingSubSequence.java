@@ -24,7 +24,7 @@ public class g_LongestRepeatingSubSequence {
 
     //String a = "axxxy", String b = "axxxy"
 
-    public void g_LongestRepeatingSubSequence(String a, String b){
+    public static void g_LongestRepeatingSubSequence(String a, String b){
         int m = a.length(), n = b.length();
         int t[][] = new int[m+1][n+1];
 
@@ -37,5 +37,9 @@ public class g_LongestRepeatingSubSequence {
             }
         }
         System.out.println(t[m][n]);
+    }
+
+    public static void main(String[] args) {
+        g_LongestRepeatingSubSequence("aabebcdd", "aabebcdd");
     }
 }

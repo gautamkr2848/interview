@@ -8,9 +8,17 @@ import java.util.List;
 // Given a string S, partition S such that every substring of that partition is a plaindrome. Return all possible
 // palindrome partioning of S.
 
+
+// nitin
+// n
+
 public class PalindromePartioning {
 
-    public List<List<String>> partition() {
+    public static void main(String[] args) {
+        System.out.println(partition().toString());
+    }
+
+    public static List<List<String>> partition() {
         String s = "nitin";
         List<List<String>> res= new ArrayList<>();
         List<String> curr = new ArrayList<>();
@@ -18,7 +26,7 @@ public class PalindromePartioning {
         return res;
     }
 
-    private void partition_util(String s, List<String> curr, List<List<String>> res) {
+    private static void partition_util(String s, List<String> curr, List<List<String>> res) {
         if(s.length()==0){
             res.add(new ArrayList<>(curr));
             return;
@@ -34,7 +42,7 @@ public class PalindromePartioning {
         }
     }
 
-    private boolean isPalindrome(String s) {
+    private static boolean isPalindrome(String s) {
         int i=0, j=s.length()-1;
         while(i <= j) {
             if(s.charAt(i)!=s.charAt(j)) return false;

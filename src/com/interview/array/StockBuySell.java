@@ -134,7 +134,7 @@ where prevDiff is max(profit[i-1][j] – price[j]) for all j in range [0, i-2]
     }
 
     //For 2 txns
-    public int maxtwobuysell(int arr[]) {
+    public static int maxtwobuysell(int arr[]) {
         int n = arr.length;
         int first_buy = Integer.MIN_VALUE;
         int first_sell = 0;
@@ -150,5 +150,10 @@ where prevDiff is max(profit[i-1][j] – price[j]) for all j in range [0, i-2]
 
         }
         return second_sell;
+    }
+
+    public static void main(String[] args) {
+        int price[] = {90, 80, 70, 60, 50};
+        System.out.println(maxtwobuysell(price));
     }
 }

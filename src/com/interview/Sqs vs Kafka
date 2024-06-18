@@ -94,10 +94,7 @@ Kafka vs SQS - Key Differences
 
 Why is Kafka so fast?
 
-Apache Kafka is an open-source distributed event streaming platform which is widely used for high performance pipelines, streaming of events etc.
-Kafka comes with some core capabilities of providing a high throughput and a very low latency.
-There are multiple design decisions that have been taken while designing Kafka to make it such highly performant. Out
-of all, we will go through 2 very important factors that contribute to it:
+We will go through 2 very important factors that contribute to it:
     a. Sequential I/O
     b. Zero Copy Principle
 
@@ -135,3 +132,41 @@ as messages are produced and consumed.
 When a consumer reads a message from a Kafka topic, it can read the data directly from the log file, without the need
 to copy it into a separate buffer. This is achieved using a technique called direct memory access (DMA). DMA allows the
 consumer to read the data directly from the log file into the consumer’s memory buffer, without the need for an intermediate copy.
+
+
+Kafka Partitions
+Definition:
+Partitions are a fundamental unit of parallelism in Kafka. Each topic in Kafka is divided into one or more partitions.
+
+Key Characteristics:
+
+Scalability: By splitting a topic into multiple partitions, Kafka can distribute the load across multiple brokers, making it possible to handle larger volumes of data.
+Order Guarantee: Within a partition, records are strictly ordered.
+Parallelism: Different partitions can be consumed by different consumers in parallel, which allows for increased throughput.
+
+Kafka Consumer Groups
+Definition:
+A consumer group is a group of consumers that work together to consume records from a set of Kafka partitions.
+
+Key Characteristics:
+
+Load Balancing: Kafka automatically balances the load of message consumption among the consumers in the same group. Each partition in the topic is assigned to exactly one consumer in the group at any time, ensuring that no two consumers read from the same partition.
+Fault Tolerance: If a consumer instance in a group fails, Kafka will automatically rebalance the partitions assigned to the failed consumer across the remaining active consumers in the group. This ensures that the message consumption continues without interruption.
+Independent Offset Management: Each consumer group maintains its own offsets, which are the positions of the consumers within the partitions of a topic. This allows different consumer groups to consume the same topic independently and at different rates.
+
+
+How They Work Together
+Partition Assignment:
+
+When a consumer group subscribes to a topic, Kafka assigns partitions to consumers in that group.
+
+Parallel Processing:
+
+Each partition can be processed independently by a different consumer within the group, enabling parallel processing and increasing throughput.
+
+Rebalancing:
+
+If a consumer joins or leaves the group, or if a new partition is added to the topic, Kafka will trigger a rebalance. During rebalancing, Kafka redistributes the partitions among the available consumers to maintain an even load.
+Offset Management:
+
+Kafka stores the offsets of the messages each consumer group has processed in a special internal topic called __consumer_offsets. This allows each consumer group to resume processing from the last committed offset in case of a restart.

@@ -6,7 +6,7 @@ import java.util.Queue;
 
 public class CountNodesAtGivenLevel {
 
-    int BFS(int s, int level, int V, ArrayList<ArrayList<Integer>> adj) {
+    public int BFS(int s, int level, int V, ArrayList<ArrayList<Integer>> adj) {
         boolean[] visited = new boolean[V];
         int[] levelArr = new int[V];
 

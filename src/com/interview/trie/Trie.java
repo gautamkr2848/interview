@@ -31,6 +31,18 @@ public class Trie {
         curr.isWord = true;
     }
 
+    public static boolean wordStartsWith(String prefix) {
+        Node curr = root;
+        for(int i=0; i<prefix.length(); i++) {
+            int index = prefix.charAt(i) - 'a';
+            if(curr.children[index] == null)
+                return false;
+
+            curr = curr.children[index];
+        }
+        return true;
+    }
+
     public static boolean search(String word) {     // Time complexity - O(L) L is length of string
         Node curr = root;
         for(int i=0; i<word.length(); i++) {
@@ -46,17 +58,17 @@ public class Trie {
         return true;
     }
 
-    public static List<String> suggest(String prefix) {
+    public static List<String> suggest(String word) {
         List<String> list = new ArrayList<>();
         Node node = root;
         StringBuffer curr = new StringBuffer();
-        for (char c : prefix.toCharArray()) {
-            node = node.children[c - 'a'];
+        for(int i=0; i<word.length(); i++) {
+            int index = word.charAt(i) - 'a';
+            node = node.children[index];
             if (node == null)
                 return list;
-            curr.append(c);
         }
-        suggestHelper(node, list, curr);
+        suggestHelper(node, list, curr.append(word));
         return list;
     }
 
@@ -68,7 +80,7 @@ public class Trie {
             list.add(tmp.toString());
         }
 
-        for (int i=0; i<curr.children.length; i++) {
+        for (int i=0; i<26; i++) {
             suggestHelper(curr.children[i], list, tmp.append((char) ('a' + i)));
             tmp.setLength(tmp.length() - 1);
         }
@@ -89,18 +101,6 @@ public class Trie {
                 tmp.deleteCharAt(tmp.length() - 1);
             }
         }
-    }
-
-    public static boolean wordStartsWith(String prefix) {
-        Node curr = root;
-        for(int i=0; i<prefix.length(); i++) {
-            int index = prefix.charAt(i) - 'a';
-            if(curr.children[index] == null)
-                return false;
-
-            curr = curr.children[index];
-        }
-        return true;
     }
 
     public static int countUniqueSubstrings(String str) {
@@ -137,6 +137,30 @@ public class Trie {
             }
         }
         return count + 1;
+    }
+
+    public String commonPrefix(){
+        Node curr = root;
+        StringBuilder sb = new StringBuilder();
+        int index = -1;
+        while(curr != null) {
+            Node tmp = curr;
+            boolean charFound = false;
+            for(int i=0; i<26 ;i++) {
+                if(tmp.children[i] != null){
+                    index = i;
+                    if(charFound) {
+                        return sb.toString().substring(0, sb.length()-1);
+                    }
+                    charFound = true;
+                    sb.append((char) ('a' + i));
+                } else {
+                    continue;
+                }
+            }
+            curr = curr.children[index];
+        }
+        return null;
     }
 
     public static void main(String[] args) {

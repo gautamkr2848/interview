@@ -24,6 +24,7 @@ public class a_1_LongestCommonSubSequence {
     public int lcs_recurssion(String a, String b, int m, int n){
         if(m == 0 || n == 0)
             return 0;
+
         if(a.charAt(m-1) == b.charAt(n-1))
             return 1 + lcs_recurssion(a, b, m-1, n-1);
         else

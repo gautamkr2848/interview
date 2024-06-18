@@ -10,9 +10,9 @@ public class c_EggDrop {
 
         int min = Integer.MAX_VALUE;
         for(int i=1; i <= floors; i++)
-            min = Math.min(min, Math.max(eggDrop(eggs-1, i-1), eggDrop(eggs, floors-i) + 1));
+            min = Math.min(min, Math.max(eggDrop(eggs-1, i-1), eggDrop(eggs, floors-i)));
 
-        return min;
+        return min + 1;
     }
 
     public int eggDrop_2(int eggs, int floors){

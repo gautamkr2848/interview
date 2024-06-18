@@ -6,9 +6,6 @@ public class j_CountDistinctSubSequence {
         int a = s1.length();
         int b = s2.length();
 
-        if (a > b)
-            System.out.println(0);
-
         int[][] T = new int[a+1][b+1];
 
         for (int i = 0; i <= a; i++)

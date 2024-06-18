@@ -2,8 +2,8 @@ package com.interview.string.excel;
 
 public class ColumnNumberToName {
 
-    public void columnNumberToName(){
-        int n = 52;
+    public static void columnNumberToName(){
+        int n = 53;
         StringBuilder columnName = new StringBuilder();
 
         while (n > 0) {
@@ -18,5 +18,9 @@ public class ColumnNumberToName {
             }
         }
         System.out.println(columnName.reverse());
+    }
+
+    public static void main(String[] args){
+        columnNumberToName();
     }
 }

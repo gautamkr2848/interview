@@ -6,5 +6,11 @@ LCS - 2 (ea)
 insertion => (length of b) - LCS
                 &
 deletion => (length of a) - LCS*/
+
+/*
+    If both the operations are allowed
+    ans = (length of a) + (length of b) - 2 * LCS
+ */
+
 public class d_convertAtoB {
 }

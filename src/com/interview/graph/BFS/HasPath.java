@@ -5,6 +5,7 @@ import com.interview.graph.Graph;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Queue;
 
 class HasPath {
 
@@ -36,12 +37,10 @@ class HasPath {
     private Boolean isReachable(int s, int d, Graph graph) {
         boolean visited[] = new boolean[graph.V];
 
-        LinkedList<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
         visited[s]=true;
         queue.add(s);
 
-         //'i' will be used to get all adjacent vertices of a vertex
-        Iterator<Integer> i;
         while (queue.size()!=0) {
             s = queue.poll();
             for (Integer n : graph.adj.get(s)) {

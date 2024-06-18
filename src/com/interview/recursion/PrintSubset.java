@@ -1,5 +1,9 @@
 package com.interview.recursion;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class PrintSubset {
 
     public void printSubset(int arr[], int k) {
@@ -24,7 +28,7 @@ public class PrintSubset {
         combinationUtil(arr, k, tmp, curr + 1, left + 1);
         combinationUtil(arr, k, tmp, curr, left + 1);
     }
-}
+
 
 // arr = 5 2 6 8 4
 // k = 3, curr = 0, tmp = empty array of size 3, left =0
@@ -63,3 +67,40 @@ public class PrintSubset {
 
 
 
+
+    public static void calcSubset(List<Integer> A, List<List<Integer> > res, List<Integer> curr, int index) {
+
+        res.add(new ArrayList<>(curr));
+
+        for (int i = index; i < A.size(); i++) {
+            curr.add(A.get(i));
+            calcSubset(A, res, curr, i + 1);
+            curr.remove(curr.size() - 1);
+        }
+    }
+
+    public static List<List<Integer> > subsets(List<Integer> A) {
+        List<Integer> curr = new ArrayList<>();
+        List<List<Integer> > res = new ArrayList<>();
+
+        int index = 0;
+        calcSubset(A, res, curr, index);
+
+        return res;
+    }
+
+    // Driver code
+
+    public static void main(String[] args) {
+        List<Integer> array = Arrays.asList(new Integer[]{1, 2, 3});
+        List<List<Integer> > res = subsets(array);
+
+        // Print the generated subsets
+        for (List<Integer> subset : res) {
+            for (Integer num : subset) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+        }
+    }
+}

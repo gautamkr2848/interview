@@ -6,21 +6,16 @@ import java.util.stream.Collectors;
 public class Stream {
 
     public Map<String, Integer> sortByValue(Map<String, Integer> hm) {
-        List<Map.Entry<String, Integer>> list = new LinkedList<>(hm.entrySet());
+        List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(hm.entrySet());
+        Collections.sort(list, (o1, o2) -> o1.getValue().compareTo(o2.getValue()));
 
-        Collections.sort(list, (i1, i2) -> i1.getValue().compareTo(i2.getValue()));
-
-        HashMap<String, Integer> temp = new HashMap<>();
-        for (Map.Entry<String, Integer> aa : list)
-            temp.put(aa.getKey(), aa.getValue());
-
-        return temp;
+        return hm;
     }
 
     public Map<String, Integer> sortByValue_2(Map<String, Integer> hm){
         return hm.entrySet().stream()
                 .sorted((i1, i2) -> i1.getValue().compareTo(i2.getValue()))
-                .collect(Collectors.toMap(x -> x.getKey(), x -> x.getValue()));
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
     }
 
     private void method1() {
@@ -30,15 +25,22 @@ public class Stream {
         System.out.println(map.toString());
     }
 
-    public void whenStreamPartition_thenGetMap() {
+    public static void whenStreamPartition_thenGetMap() {
         List<Integer> intList = Arrays.asList(2, 4, 5, 6, 8);
         Map<Boolean, List<Integer>> isEven = intList.stream()
                 .collect(Collectors.partitioningBy(i -> i % 2 == 0));
+
+        System.out.println(isEven.toString());
     }
 
-    public void whenApplySummarizing_thenGetBasicStats() {
+    public static void main(String[] args) {
+        whenApplySummarizing_thenGetBasicStats();
+    }
+
+    public static void whenApplySummarizing_thenGetBasicStats() {
         List<Integer> intList = Arrays.asList(2, 4, 5, 6, 8);
         DoubleSummaryStatistics stats = intList.stream()
                 .collect(Collectors.summarizingDouble(x -> x));
+        System.out.println(stats.toString());
     }
 }

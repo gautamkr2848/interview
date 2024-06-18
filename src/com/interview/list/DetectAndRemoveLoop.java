@@ -39,6 +39,16 @@ DetectAndRemoveLoop {
         prev.next = null;
     }
 
+    static int countNodesInLoop(Node n) {
+        int res = 1;
+        Node temp = n;
+        while (temp.next != n) {
+            res++;
+            temp = temp.next;
+        }
+        return res;
+    }
+
     public boolean removeLoop_2(Node h) {
         Set<Node> s = new HashSet<Node>();
         Node prev = null;

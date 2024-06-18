@@ -12,7 +12,7 @@ import java.util.List;
 
 public class GenerateParenthesis {
 
-    public void generateParenthesis(){
+    public static void generateParenthesis(){
         int n = 3;
         int open = 0, close = 0;
         List<String> result = new ArrayList<>();
@@ -22,7 +22,7 @@ public class GenerateParenthesis {
             System.out.println(result.get(i));
     }
 
-    private void backtrack(List<String> result, String cur, int open, int close, int n){
+    private static void backtrack(List<String> result, String cur, int open, int close, int n){
         if (cur.length() == n * 2) {
             result.add(cur);
             return;
@@ -33,5 +33,9 @@ public class GenerateParenthesis {
 
         if (close < open)
             backtrack(result, cur + ")", open, close + 1, n);
+    }
+
+    public static void main(String[] args) {
+        generateParenthesis();
     }
 }
