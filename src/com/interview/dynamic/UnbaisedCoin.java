@@ -28,7 +28,7 @@ Hence, it can be broken into its subproblems as follows:
 */
 public class UnbaisedCoin {
 
-    public void Probability() {
+    public static void Probability() {
 
         double[] p =  {0.0, 0.3, 0.4, 0.7};
         int n =p.length-1;
@@ -52,5 +52,9 @@ public class UnbaisedCoin {
             ans += dp[n][j];
 
         System.out.println(ans);
+    }
+
+    public static void main(String[] args) {
+        Probability();
     }
 }

@@ -210,6 +210,7 @@
        dependencies, manages their entire life cycle.
     2. Spring IoC is achieved through Dependency Injection.
     3. Aspect-Oriented Programing is one way to implement Inversion of Control.
+    4. Bean Factory and Application Context
 
 31. Spring Dependency Injection
     0. Dependency Injection is a fundamental aspect of the Spring framework, through which the Spring container “injects”
@@ -333,3 +334,86 @@
     PostgreSQL supports all MySQL data types along with geometric, enumerated, network address, arrays, ranges, XML,
     hstore, and composite.
 
+ 47. HashMap
+
+    Initial array size size is 16 buckets, load factor is 0.75. Meaning when it gets (watch that word) 12, it resizes to 32 buckets
+
+    Using a HashMap with an initial capacity can be beneficial in certain scenarios where you have a good estimate of
+    the expected number of elements.
+
+     If entries in a single bucket reach a threshold (TREEIFY_THRESHOLD, default value 8) then Map converts the bucket’s
+     internal structure from the linked list to a RedBlackTree. All Entry instances are converted to TreeNode instances.
+     To improve retrieval performance, the HashMap converts the linked list into a balanced tree (Red-Black tree) during
+     rehashing, ensuring more efficient retrieval (O(log n)) instead of linear search (O(n)). Note that when nodes in a
+     bucket reduce less than UNTREEIFY_THRESHOLD the Tree again converts to LinkedList.
+
+48. In Java, a static class is actually an inner class that is marked with the static keyword. This means that it can
+ be accessed without instantiating the outer class.
+
+49. In Java, the serialVersionUID is a unique identifier for each class that implements the Serializable interface. It
+is used during the deserialization process to ensure that a loaded class corresponds exactly to a serialized object. If
+a class does not explicitly declare a serialVersionUID, the Java serialization runtime will calculate one based on various
+aspects of the class, which can lead to unexpected InvalidClassException if the class structure changes.
+
+    Key Points
+    Version Control: The serialVersionUID helps in version control of the serialized data. By assigning a unique ID to
+    each version of a class, you can maintain compatibility between different versions of a class.
+
+    Compatibility: It ensures that an object serialized with one version of the class can be deserialized with another
+    version, as long as the serialVersionUID remains unchanged. If it is different, it indicates that the class structure
+    has changed, and the runtime will throw an InvalidClassException.
+
+    Explicit Declaration: It is a good practice to explicitly declare a serialVersionUID to avoid the compiler generating
+    one automatically, which can be inconsistent across different compiler implementations or versions.
+
+50. How to Optimize 10,000 If-Else Statements in a Project?
+
+    1. Replace if-else chains with HashMap
+
+        public class Main {
+            public static void main(String[] args) {
+                Map<String, Runnable> actions = new HashMap<>();
+                actions.put("action1", () -> System.out.println("Action 1 executed"));
+                actions.put("action2", () -> System.out.println("Action 2 executed"));
+                actions.put("action3", () -> System.out.println("Action 3 executed"));
+
+                String actionKey = "action1";
+                actions.get(actionKey).run();
+            }
+        }
+
+    2. Enums with execute / Switch
+
+        public class Main {
+            enum Action {
+                ACTION1 {
+                    @Override
+                    void execute() {
+                        System.out.println("Action 1 executed");
+                    }
+                },
+                ACTION2 {
+                    @Override
+                    void execute() {
+                        System.out.println("Action 2 executed");
+                    }
+                }
+                abstract void execute();
+            }
+
+            public static void main(String[] args) {
+                Action action = Action.ACTION1;
+                action.execute();
+            }
+        }
+
+    3. Strategy Pattern - Create seperate class for each condition
+
+51. Spring Features
+    1. AutoConfiguration
+    2. Spring Profiles
+    3. Dependency Injection
+    4. Sping Boot Actuator
+    5. Spring cloud
+    6. Spring security
+    7. IOC Container

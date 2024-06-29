@@ -30,7 +30,20 @@ import java.lang.reflect.Constructor;
 //Eager Instantiation
 class Singleton {
     public static Singleton singleton = new Singleton();
-    private Singleton() { }
+    private Singleton() {
+        if (singleton != null) {        // throw error within constructor for preventing breaking of singleton
+            throw new RuntimeException("Use getInstance() method to get the single instance of this class.");
+        }
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException  {       // override clone for preventing breaking of singleton
+        throw new CloneNotSupportedException();
+    }
+
+    protected Object readResolve() {        // override clone for preventing breaking of singleton
+        return singleton;
+    }
 }
 
 //Lazy Instantiation
@@ -74,20 +87,17 @@ class Singleton_4 {
 
 class BreakSingleton{
     public void breakSingleton(){
-        Singleton instance1 = Singleton.singleton;
-        Singleton instance2 = null;
+        Singleton objOne = Singleton.singleton;
+        Singleton objTwo = null;
         try {
-            Constructor[] constructors = Singleton.class.getDeclaredConstructors();
-                for (Constructor constructor : constructors) {
-                    // Below code will destroy the singleton pattern
-                    constructor.setAccessible(true);
-                    instance2 = (Singleton) constructor.newInstance();
-                    break;
-                }
-        } catch (Exception e) {
-                e.printStackTrace();
+            Constructor constructor = Singleton.class.getDeclaredConstructor();
+            constructor.setAccessible(true);
+            objTwo = (Singleton) constructor.newInstance();
+        } catch (Exception ex) {
+            System.out.println(ex);
         }
-        System.out.println("instance1.hashCode():- " + instance1.hashCode());
-        System.out.println("instance2.hashCode():- " + instance2.hashCode());
+
+        System.out.println("Hashcode of Object 1 - "+objOne.hashCode());
+        System.out.println("Hashcode of Object 2 - "+objTwo.hashCode());
     }
 }

@@ -22,8 +22,8 @@ Output : an
 
 public class h_LongestRepeatingSubstring {
 
-    public void longestRepeatingSubstring(){
-        String str = "ABCABCA";
+    public static void longestRepeatingSubstring(){
+        String str = "aabaabaaba";
         int n = str.length();
         int T[][] = new int[n + 1][n + 1];
 
@@ -32,7 +32,7 @@ public class h_LongestRepeatingSubstring {
 
         int i, index = 0;
         for (i = 1; i <= n; i++) {
-            for (int j = i + 1; j <= n; j++) {
+            for (int j = i; j <= n; j++) {
                 if (str.charAt(i - 1) == str.charAt(j - 1) && T[i - 1][j - 1] < (j - i)) {
                     T[i][j] = 1 + T[i - 1][j - 1];
                     if(T[i][j] > length){
@@ -45,5 +45,9 @@ public class h_LongestRepeatingSubstring {
             }
         }
         System.out.println(str.substring(end-length, end));
+    }
+
+    public static void main(String[] args) {
+        longestRepeatingSubstring();
     }
 }

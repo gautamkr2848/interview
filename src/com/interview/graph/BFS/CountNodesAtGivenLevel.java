@@ -1,36 +1,34 @@
 package com.interview.graph.BFS;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class CountNodesAtGivenLevel {
 
-    public int BFS(int s, int level, int V, ArrayList<ArrayList<Integer>> adj) {
-        boolean[] visited = new boolean[V];
-        int[] levelArr = new int[V];
+    static int countNodes(int root, ArrayList<ArrayList<Integer>> graph, int level, int n) {
+        boolean [] visited = new boolean[n];
+        HashMap<Integer,Integer> um = new HashMap<>();
 
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<PairA> q = new LinkedList<>();
+        q.add(new PairA(root,1));
 
-        visited[s] = true;
-        queue.add(s);
-        int count = 0;
-        while (!queue.isEmpty()) {
-            s = queue.poll();
+        while(!q.isEmpty()) {
+            PairA tmp = q.poll();
+            visited[tmp.data] = true;
+            um.put(tmp.level, um.getOrDefault(tmp.level, 0)+1);
 
-            for (Integer neighbour : adj.get(s)) {
-                if (!visited[neighbour]) {
-                    visited[neighbour] = true;
-                    levelArr[neighbour] = levelArr[s] + 1;
-                    queue.add(neighbour);
-                }
+            for(Integer i : graph.get(tmp.data)) {
+                if(!visited[i])
+                    q.add(new PairA(i, tmp.level + 1));
             }
-
-            count = 0;
-            for (int i = 0; i < V; i++)
-                if (levelArr[i] == level)
-                    count++;
         }
-        return count;
+        return um.get(level);
+    }
+}
+
+class PairA {
+    int data, level;
+    PairA(int u, int v) {
+        data = u;
+        level = v;
     }
 }

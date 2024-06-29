@@ -68,7 +68,7 @@ public class ListCloneWithNextAndRandomPointer {
         printList(head);
 
         // Function call
-        Node sol = cloneLinkedList(head);
+        Node sol = listCloneWithNextAndRandomPointer(head);
 
         System.out.println("The cloned linked list:");
         printList(sol);
@@ -84,7 +84,7 @@ public class ListCloneWithNextAndRandomPointer {
         System.out.println();
     }
 
-    public Node listCloneWithNextAndRandomPointer(Node head){
+    public static Node listCloneWithNextAndRandomPointer(Node head){
 
         Node curr1 = head;
         Node curr2 = null;

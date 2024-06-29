@@ -53,4 +53,36 @@ public class RootToLeafPath {
         }
         return paths;
     }
+
+    public static void main(String[] args) {
+        Node node = new Node(5);
+        node.left = new Node(3);
+        node.left.left = new Node(2);
+        node.left.right = new Node(4);
+
+        node.right = new Node(7);
+        node.right.left = new Node(6);
+
+        List<List<Integer>> ans = new ArrayList<>();
+        findPaths(node, new ArrayList<>(), ans);
+
+        for(List<Integer> l : ans){
+            System.out.println(l.toString());
+        }
+    }
+
+    public static void findPaths(Node root, List<Integer> curr, List<List<Integer>> ans) {
+        if (root == null)
+            return;
+
+        curr.add(root.key);
+
+        if (root.left == null && root.right == null) {
+            ans.add(new ArrayList<Integer>(curr));
+            return;
+        }
+
+        findPaths(root.left, new ArrayList<Integer>(curr), ans);
+        findPaths(root.right, new ArrayList<Integer>(curr), ans);
+    }
 }

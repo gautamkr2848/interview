@@ -1,5 +1,17 @@
 package com.interview.miscellaneous;
 
+// l1
+// --------------------
+
+//                                    l2
+//                                    ------------------
+
+
+//                                    ------------------
+//                                                        r2
+// --------------------
+//                    r1
+
 class Point {
     int x, y;
 }
@@ -12,6 +24,7 @@ public class RectangleOverlap {
         l1.x=-21;l1.y=26; r1.x=89;r1.y=4;
         l2.x=-17;l2.y=4; r2.x=41;r2.y=-73;
 
+        // If one rectangle is on left side of other
         if (l1.x >= r2.x || l2.x >= r1.x) {
             return false;
         }

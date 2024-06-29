@@ -22,10 +22,10 @@ public class BFS {
             s = queue.poll();       // Dequeue a vertex from queue and print it
             System.out.print(s + " ");
 
-            for(Integer neighbour : adj.get(s)) {
-                if (!visited[neighbour]) {
-                    visited[neighbour] = true;
-                    queue.add(neighbour);
+            for(Integer i : adj.get(s)) {
+                if (!visited[i]) {
+                    visited[i] = true;
+                    queue.add(i);
                 }
             }
         }

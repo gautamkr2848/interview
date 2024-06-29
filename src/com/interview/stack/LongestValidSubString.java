@@ -1,5 +1,7 @@
 package com.interview.stack;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 public class LongestValidSubString {
@@ -31,44 +33,27 @@ public class LongestValidSubString {
         findMaxLen();
     }
 
-    public static void findMaxLen_2(String[] args) {
-        String s = "()()()";
+    public static void findMaxValid() {
+        String s = "()()(()";
+        int count = 0;
+        int maxlength = 0;
 
-        int left = 0, right = 0, max = -1;
+        Map<Integer, Integer> map = new HashMap<>();
         for(int i=0; i<s.length(); i++) {
             if(s.charAt(i) == '(')
-                left++;
-            else
-                right++;
+                count++;
+            else if(s.charAt(i) == ')')
+                count--;
 
-            if(left == right) {
-                max = Math.max(max, 2*left);
-            } else {
-                if(right > left) {
-                    left = 0;
-                    right = 0;
-                }
+            if(count == 0)
+                maxlength = i+1;
+
+            if(map.containsKey(count)) {
+                maxlength = Math.max(maxlength, i- map.get(count) + 1);
             }
+            map.put(count, i);
         }
 
-        left = 0;
-        right= 0;
-        for(int i=s.length()-1; i>=0; i--) {
-            if(s.charAt(i) == '(')
-                left++;
-            else
-                right++;
-
-            if(left == right) {
-                max = Math.max(max, 2*left);
-            } else {
-                if(right < left) {
-                    left = 0;
-                    right = 0;
-                }
-            }
-        }
-
-        System.out.println(max);
+        System.out.println(maxlength);
     }
 }

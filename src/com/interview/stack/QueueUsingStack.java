@@ -30,10 +30,7 @@ public class QueueUsingStack {
             return -1;
         }
 
-        // Return top of s1
-        int x = s1.peek();
-        s1.pop();
-        return x;
+        return s1.pop();
     }
 }
 

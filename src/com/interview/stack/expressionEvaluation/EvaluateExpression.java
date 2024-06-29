@@ -4,8 +4,8 @@ import java.util.Stack;
 
 public class EvaluateExpression {
 
-    public void evaluateExpression(){
-        String s = "[5+{2*(9/3)}]";
+    public static void evaluateExpression(){
+        String s = "[5*{6/(2+1)}]";
         Stack<Integer> operand = new Stack<>();
         Stack<Character> operator = new Stack<>();
 
@@ -38,7 +38,7 @@ public class EvaluateExpression {
             return false;
     }
 
-    public int evaluate(Character c, int b, int a) {
+    public static int evaluate(Character c, int b, int a) {
         switch (c) {
             case '+': return a + b;
             case '-' :return a - b;
@@ -46,5 +46,9 @@ public class EvaluateExpression {
             case '/': return a / b;
         }
         return 0;
+    }
+
+    public static void main(String[] args) {
+        evaluateExpression();
     }
 }

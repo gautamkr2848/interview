@@ -6,6 +6,15 @@ import java.util.*;
 
 // https://docs.google.com/document/d/1ZhnyO0i24_MG4jrLGj5cIKVFIwwM4Q_7hWgX1T9L8kQ/edit
 
+class Node {
+    Node[] children;
+    boolean isWord;
+
+    public Node() {
+        children = new Node[26];
+    }
+}
+
 public class Trie {
 
     private static Node root;
@@ -73,19 +82,23 @@ public class Trie {
     }
 
     private static void suggestHelper(Node curr, List<String> list, StringBuffer tmp) {
-        if (curr == null || curr.children == null)
+        if (curr == null)
             return;
 
-        if (curr.isWord) {
+        if (curr.isWord)
             list.add(tmp.toString());
-        }
+
+        if(curr.children == null)
+            return;
 
         for (int i=0; i<26; i++) {
-            suggestHelper(curr.children[i], list, tmp.append((char) ('a' + i)));
-            tmp.setLength(tmp.length() - 1);
+            tmp.append((char) ('a' + i));
+            suggestHelper(curr.children[i], list, tmp);
+            tmp.deleteCharAt(tmp.length() - 1);
         }
     }
 
+    // In starting, tmp will be an empty String
     public static void longestWordWithAllPrefix(Node root, StringBuilder tmp){
         if(root == null) {
             return;
@@ -174,14 +187,4 @@ public class Trie {
 //        System.out.println(ans);
     }
 
-}
-
-class Node {
-    Node[] children;
-    boolean isWord;
-
-    public Node() {
-        children = new Node[26];
-        isWord = false;
-    }
 }

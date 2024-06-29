@@ -46,9 +46,7 @@ public class f_StringWindow {
 
                     if(map.containsKey(s.charAt(j))) {
                         map.put(s.charAt(j), map.get(s.charAt(j))+1);
-                        if(map.get(s.charAt(j)) > 0) {
-                            count --;
-                        }
+                        count--;
                     }
                     j++ ;
                 }

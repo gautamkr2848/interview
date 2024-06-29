@@ -6,25 +6,26 @@ import java.util.List;
 
 public class WildcardPatternMatching {
 
-    public static boolean wildPattren(String s, String p, int m, int n) {
+    public static boolean wildPattren(String s, String p, int i, int j) {
 
-        if(m<0 && n<0)
+        if(i == s.length() && j == p.length())
             return true;
 
-        if(m>=0 && n<0)
-            return false;
-
-        if(m<0 && n>=0) {
-            for(int i=0; i<n; i++) {
-                if(p.charAt(i) != '*') return false;
+        if(i == s.length()) {
+            for(int k=j; k<p.length(); k++){
+                if(p.charAt(k) != '*')
+                    return false;
             }
             return true;
         }
 
-        if(s.charAt(m) == p.charAt(n) || p.charAt(n) == '?')
-            return wildPattren(s, p, m-1, n-1);
-        else if(p.charAt(n) == '*')
-            return wildPattren(s, p, m, n-1) || wildPattren(s, p, m-1, n-1);
+        if(j == p.length())
+            return false;
+
+        if(s.charAt(i) == p.charAt(j) || p.charAt(j) == '?')
+            return wildPattren(s, p, i+1, j+1);
+        else if(p.charAt(j) == '*')
+            return wildPattren(s, p, i+1, j) ||  wildPattren(s, p, i, j+1) || wildPattren(s, p, i+1, j+1);
         else
             return false;
     }
@@ -35,9 +36,6 @@ public class WildcardPatternMatching {
             return true;
 
         boolean[][] dp = new boolean[m + 1][n + 1];
-
-        for (int i = 0; i <= m; i++)
-            Arrays.fill(dp[i], false);
 
         dp[0][0] = true;
 
@@ -67,7 +65,7 @@ public class WildcardPatternMatching {
         int n = pattern.length();
 
         System.out.println(wildcardPatternMatching(str, pattern, m, n));
-        System.out.println(wildPattren(str, pattern, m-1, n-1));
+        System.out.println(wildPattren(str, pattern, 0, 0));
 
     }
 }

@@ -81,51 +81,6 @@ public class Stocks {
     // Time Complexity: O(N*2)
     // Space Complexity: O(N*2)
 
-    // Only 2 Txn
-    public static int maxProfit(int[] prices) {
-        int n = prices.length;
-        int[][][] dp = new int[n + 1][2][3];    // Creating a 3D dp array of size [n+1][2][3] initialized to 0
-
-        // Loop through the dp array, starting from the second last stock (ind=n-1)
-        for (int i = n - 1; i >= 0; i--) {
-            for (int buy = 0; buy <= 1; buy++) {
-                for (int k = 1; k <= 2; k++) {
-
-                    if (buy == 0) // We can buy the stock
-                        dp[i][buy][k] = Math.max(0 + dp[i + 1][0][k], -prices[i] + dp[i + 1][1][k]);
-
-                    if (buy == 1) // We can sell the stock
-                        dp[i][buy][k] = Math.max(0 + dp[i + 1][1][k], prices[i] + dp[i + 1][0][k - 1]);
-                }
-            }
-        }
-        return dp[0][0][2];     // The maximum profit with 2 transactions is stored in dp[0][0][2]
-    }
-
-    // Time Complexity: O(N*2*3)
-    // Space Complexity: O(N*2*3)
-
-    public static int maximumProfit(int[] prices, int n, int count) {
-        int[][][] dp = new int[n + 1][2][count + 1];                // Creating a 3D array dp of size [n+1][2][k+1] initialized to 0
-
-        // Iterate through the array and fill in the dp array
-        for (int i = n - 1; i >= 0; i--) {
-            for (int buy = 0; buy <= 1; buy++) {
-                for (int k = 1; k <= count; k++) {
-                    if (buy == 0)  // We can buy the stock
-                        dp[i][buy][k] = Math.max(0 + dp[i + 1][0][k], -prices[i] + dp[i + 1][1][k]);
-                    else  // We can sell the stock
-                        dp[i][buy][k] = Math.max(0 + dp[i + 1][1][k], prices[i] + dp[i + 1][0][k - 1]);
-                }
-            }
-        }
-
-        return dp[0][0][count];
-    }
-
-    // Time Complexity: O(N*2*k)
-    // Space Complexity: O(N*2*k)
-
     // We can’t buy a stock on the very next day of selling it. This is the cooldown clause.
     public static int stockProfit(int[] arr) {
         int n = arr.length;

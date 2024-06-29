@@ -6,12 +6,7 @@ Fisdom - 2
 2. Design infinite login page
 3. Asymptotic notation
 
-TCS - 1
-
-1. Stream API
-
 Oracle - 4
-
 1. Sorted Array Square
 2. Print odd Even using two threads
 3. Parenthesis Check
@@ -21,7 +16,57 @@ Oracle - 4
 7. Design Google Doc
 
 Saviynt - 1
-
 1. Oops
 2. Sort map based on value
 3. Longest common prefix
+
+Mimecast - 2
+1. Kafka Assignment
+2. Project Discussion
+
+Bristlecone - 1 (Posotion on Hold)
+1. Overriding => parent ref used to call child method
+    A a = new B();      a.m1();
+    B b = (B) a;        b.m1();
+2. Collections API
+3. Stream API
+
+Wipro - 1
+1. Cassandra Architecture
+2. Cassandra Contact points
+
+Papaya Global - 2
+1. Binary search
+2. Factory Pattern
+3. Project Discussion
+4. Spring @Transaction Internal Working
+5. Use of Runnable
+
+Rakuten - 1
+1. Design Controller class
+2. Design Stock broker
+3. Stream API java 8
+4. Remove duplicates from string
+
+Acesoftlabs - 1
+1. Search in rotated array
+2. Level order tree traversal
+3. Number of occurrence in a sorted array
+4. Three sum k count
+5. Kafka exception handling
+
+synechron - 1
+1. Java 8
+2. @Component - It's an annotation used to tell spring that it's a Spring-managed component, component annotation is used for automatic bean discovery and configuration
+3. @Contitional - @ConditionalOnClass, @ConditionalOnMissingBean, @ConditionalOnProperty, @ConditionalOnBean,
+4. SOLID
+5. Cyclic dependency - Constructor / Setter Injection, Lazy Injection
+6. Spring Features
+
+super money - 1
+1. kth smallest differences
+
+PowerPod - 1
+1. Design Payment System
+
+

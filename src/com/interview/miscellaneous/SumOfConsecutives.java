@@ -7,7 +7,7 @@ package com.interview.miscellaneous;
   4+5+6
   7+8*/
 
-public class SumOfConsecutives {
+public class  SumOfConsecutives {
 
     public void sumOfConsecutives(){
         int n = 15;

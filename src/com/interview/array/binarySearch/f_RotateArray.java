@@ -12,4 +12,14 @@ public class f_RotateArray {
         for(int i=k; i<(arr.length+k); i++)
             System.out.print(tmp[i]+" ");
     }
+
+    // Another Option
+
+    // arr = {1, 2, 3, 4, 5, 6, 7}
+
+    // reverse = (7, 6, 5, 4, 3, 2, 1}
+
+    // reverse first (length - k) numbers = {4, 5, 6, 7, 3, 2, 1}
+
+    // reverse last k numbers = {4, 5, 6, 7, 1, 2, 3}
 }

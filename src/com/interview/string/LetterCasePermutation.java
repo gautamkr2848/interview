@@ -8,21 +8,28 @@ import java.util.List;
 
 public class LetterCasePermutation {
 
-    public List<String> letterCasePermutation(String S) {
-        List ans = new ArrayList();
+    public static List<String> letterCasePermutation(String S) {
+        List<String> ans = new ArrayList();
         dfs(S.toLowerCase().toCharArray(), ans, 0, S.length());
         return ans;
     }
 
-    private void dfs(char[] arr, List ans, int i, int len) {
-        if (i < len) {
+    private static void dfs(char[] arr, List ans, int i, int len) {
+
+        if(i >= len)
+            ans.add(new String(arr));
+        else  {
             dfs(arr, ans, i+1, len);
             if (Character.isLetter(arr[i])) {
                 arr[i] = Character.toUpperCase(arr[i]);
                 dfs(arr, ans, i+1, len);
                 arr[i] = Character.toLowerCase(arr[i]);
             }
-        } else
-            ans.add(new String(arr));
+        }
+
+    }
+
+    public static void main(String[] args) {
+        System.out.println(letterCasePermutation("ab").toString());
     }
 }

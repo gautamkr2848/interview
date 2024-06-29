@@ -32,4 +32,29 @@ public class b_LongestSubArray_0_Sum {
     public static void main(String[] args) {
         longestSubArray_0_Sum_2();
     }
+
+    public static int subArrayCount(int A[], int N, int K) {
+
+        int i = 0, j = 0, sum = 0, count = 0;
+        int maxLength = Integer.MIN_VALUE;
+
+        while (j < N) {
+
+            sum += A[j];
+
+            if (sum == K) {
+                maxLength = j + 1;
+            } else if(sum > K){
+                while (sum > K) {
+                    sum -= A[i];
+                    i++;
+                }
+                if(sum == K){
+                    maxLength = Math.max(maxLength, j-i+1);
+                }
+            }
+            j++;
+        }
+        return maxLength;
+    }
 }

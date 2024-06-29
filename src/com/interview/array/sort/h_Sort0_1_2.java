@@ -16,7 +16,7 @@ public class h_Sort0_1_2 {
     //If the i-th element is 2, swap it with arr[r] and decrement r (not i). The loop will automatically check for the next updated value of arr[i].
     //If the i-th element is 1, simply increment i and continue.
 
-    public void sort012(int[] arr, int n) {
+    public static void sort012(int[] arr, int n) {
         int low = 0;
         int high = n - 1;
 
@@ -49,9 +49,14 @@ public class h_Sort0_1_2 {
             System.out.print(arr[i] + " ");
     }
 
-    private void swap(int[] arr, int i, int j) {
+    private static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 0, 0, 2, 1, 0, 2};
+        sort012(arr, arr.length);
     }
 }

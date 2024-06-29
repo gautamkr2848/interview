@@ -5,18 +5,13 @@ import java.util.Map;
 
 public class NonRepeatingCharacter {
 
-    public void nonRepeatingCharacter(){
+    public static void nonRepeatingCharacter(){
         String s = "geeksforgeeks";
-        Map<Character, Integer> map = new LinkedHashMap<>();
 
-        for(int i=0; i<s.length(); i++)
-            map.put(s.charAt(i), map.getOrDefault(s.charAt(i),0) + 1);
+        s.chars().distinct().forEach(x -> System.out.print((char) x));
+    }
 
-        for(Map.Entry<Character, Integer> i : map.entrySet()){
-            if(i.getValue() == 1) {
-                System.out.println(i.getKey());
-                return;
-            }
-        }
+    public static void main(String[] args) {
+        nonRepeatingCharacter();
     }
 }

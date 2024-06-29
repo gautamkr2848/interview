@@ -42,7 +42,7 @@ public class b_CoinChangeMaxWays {
     // Time complexity of this function: O(n*sum)
     // Space Complexity of this function: O(sum)
 
-    public int count(int coins[], int n, int sum) {
+    public static int count(int coins[], int n, int sum) {
 
         if (sum == 0)
             return 1;
@@ -55,4 +55,11 @@ public class b_CoinChangeMaxWays {
 
     //Time Complexity: O(2 ^ sum)
     //Auxiliary Space: O(target)
+
+    public static void main(String[] args) {
+        int[] price = { 1, 2, 3 };
+        int profit = 4;
+
+        System.out.println(count(price, price.length-1, 4));
+    }
 }
