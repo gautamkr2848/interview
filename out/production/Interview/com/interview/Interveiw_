@@ -122,9 +122,8 @@ Zeta - 1
 2. Unbaised coin head probablity
 
 ServiceNow - 2
-1. 5 min time window
-2. One time buy and sell max profit
-3. String Subset
+1. One time buy and sell max profit
+2. String Subset
 
 BlackBuck - 1
 1. CarPooling [People, Start, End]
@@ -265,7 +264,6 @@ Nike - 4
 
 Dailyhunt - 3
 1. print even odd
-
 2. Builder Pattern
 
     Builder is a design pattern that allows you to avoid having constructors with a long list of parameters, not all of

@@ -1,12 +1,21 @@
 package com.interview.systemDesign.DesignPattern.creational;
 
-//The Prototype Design Pattern is a creational pattern that enables the creation of new objects by copying an existing object. Prototype allows us to hide the complexity of making new instances from the client. The concept is to copy an existing object rather than create a new instance from scratch, something that may include costly operations. The existing object acts as a prototype and contains the state of the object.
+//The Prototype Design Pattern is a creational pattern that enables the creation of new objects by copying an existing
+// object. Prototype allows us to hide the complexity of making new instances from the client. The concept is to copy
+// an existing object rather than create a new instance from scratch, something that may include costly operations. The
+// existing object acts as a prototype and contains the state of the object.
 //
 //prototype-pattern-copy
 //
-//The newly copied object may change the same properties only if required. This approach saves costly resources and time, especially when object creation is a heavy process.
-//The prototype pattern is a creational design pattern. Prototype patterns are required when object creation is a time-consuming, and costly operation, so we create objects with the existing object itself.
-//One of the best available ways to create an object from existing objects is the clone() method. Clone is the simplest approach to implementing a prototype pattern. However, it is your call to decide how to copy existing objects based on your business model.
+//The newly copied object may change the same properties only if required. This approach saves costly resources and time,
+// especially when object creation is a heavy process.
+
+//The prototype pattern is a creational design pattern. Prototype patterns are required when object creation is a
+// time-consuming, and costly operation, so we create objects with the existing object itself.
+
+//One of the best available ways to create an object from existing objects is the clone() method. Clone is the simplest
+// approach to implementing a prototype pattern. However, it is your call to decide how to copy existing objects based
+// on your business model.
 
 // Prototype interface
 interface Shape {

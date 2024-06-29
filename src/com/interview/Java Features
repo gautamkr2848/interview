@@ -1,14 +1,3 @@
-Java 7
-    1. switch with String
-    2. Multiple Cache Blocks
-    3. try with resources
-        try(A a = new A()){
-
-        }
-    4. underscore with variable
-        int a = 6_453;
-    5. Generic Type
-
 Java 8
     1. Functional Interface and lambda expression
             Functional interfaces are interfaces which represent some functionality.
@@ -18,87 +7,167 @@ Java 8
     4. forEach() method in Iterable interface
 
 Java 9
-    1. Private and static methods in interface
+    1. Private method in interface
     2. List.of(1, 2, 3);
        Set.of();
        map.of();
-    3. Improved try with resource Blocks
-
-        Public static void main(String[] args) {
-            MyThread th = new MyThread();
-            try (th) {
-                Th.executeSomething();
-            } catch (Exception ex) {}
-        }
-
-    4. Immutable Collection
-    5. Introduced a new HTTP client supporting HTTP/2 and WebSocket
 
 Java 10
     1. GC interface
-    2. Local-Variable Type Inference - var
+    2. Local-Variable Type Inference
         a. new keyword var is added
             for (var number : numbers) {
 
             }
 
-Java 11
-    1. String API Updates
-        a. isBlank()
-        b. lines()
-        c. strip()
-        d. repeat()
-    2. File API update
-        a. Files.writeString() & Files.readString()
-    3. IsEmpty() method on Optional Class
-    4. Standardized the HTTP/2 client API introduced in Java 9.
-    5. Allowed the use of var in lambda expressions.
+Key Differences between Java 8 and Java 21:
 
-Java 12
-    1. Collectors.teeing() in Stream API
-    2. String API Changes
-    3. Files.mismatch(Path, Path)
-    4. Compact Number Formatting
-    5. Support for Unicode 11
-    6. Switch Expressions (Preview)
+String Templates - Java allows embedding of literal text with expression in Java and this has been introduced as a Preview Feature.
 
-Java 12 to Java 16
+The motivation of String templates are:
 
-Introduced switch expressions to simplify switch statements.
-Record Keyword - (14) - A record is a special kind of class designed to hold immutable data.
+    Allows embedding expressions directly with in a string.
+    Improves readability.
+    A better much safer approach to string concatenation.
+    Reduce the usage of String Builder.
 
-Java 17 (September 2021)
-Java 17 is an LTS release with several enhancements and finalized features.
+Consider Below Example without String Template:
+    String name = "Duke";
+    String message = "My name is"+ name;
 
-Sealed Classes: Allows a class or interface to control which classes or interfaces can extend or implement it.
-Pattern Matching for switch  statements.
-
-Java 18 to Java 20
-
-Continued enhancements and new features, many in preview or incubator stages:
-
-Vector API (Incubator):
-
-Introduced a new API for vector computations to enhance performance.
-Foreign Function & Memory API (Incubator):
-
-Added a new API to interact with native code and memory outside of the Java heap.
-Pattern Matching for switch (continued refinement).
-
-Java 21 (September 2023)
-Java 21 is an LTS release with significant enhancements and finalized features.
-
-Virtual Threads : Introduced virtual threads to simplify concurrency by decoupling the number of threads in an application from the number of underlying OS threads.
-Structured Concurrency: Simplified thread lifecycle management, enhancing reliability and observability of concurrent code.
-Record Patterns: Enhanced pattern matching to deconstruct records in switch statements and other contexts.
-Pattern Matching for switch (finalized): Finalized the feature allowing for more expressive and concise switch expressions.
-Sequenced Collections: Added new interfaces to standardize collections with defined encounter order (e.g., lists, sets).
-String Templates: Introduced templating support for creating strings with embedded expressions in a more readable way.
+Using String Template:
+    String name = "Duke";
+    String info = STR."My name is \{name}";
+    System.out.println(info);       //My name is Duke
 
 
+    String user = "Duke";
+    char option = 'b';
+    String choice  = STR."\{user} has chosen option \{option}";
+    System.out.println(choice);         //Duke has chosen option b
 
+Virtual Threads - Virtual threads are light weight efficient alternative to the threads in Java. Virtual threads helps in creating highly concurrent application.
 
+    Virtual threads are light weight as compared to os threads. They are cheap to create and destroy and millions of threads can be created to execute tasks concurrently.
+    Virtual thread simplifies the concurrent programming model.
+    Virtual threads are managed by Java virtual machine and not the underlying operation thread.
+    There is no one to one mapping between virtual thread and OS thread.
+    JVM can handle large number of virtual threads with limited number of OS threads.
+    Virtual threads perform better even at high I/O operations.
 
+How Virtual Threads Work
+In a server application, a thread is created per request basis which is not scalable and that leads to overhead of context switching and thread creation. With light weight nature of the Virtual threads, this is significantly reduced.
+JVM can use very small number of OS thread in order to create multiple Virtual threads which increased efficiency and helps in parallelizing multiple requests.
+When a virtual thread blocks it is suspended by the JVM and the carrier thread is able to run other virtual threads.
+Creating virtual threads.
 
+import java.lang.Thread;
 
+public class VirtualThreadExample {
+    public static void main(String[] args) {
+        Thread thread = Thread.startVirtualThread(() -> {
+            System.out.println("This is a virtual thread!");
+            // Your task here
+        });
+        thread.join(); // Optional: Wait for the virtual thread to finish
+    }
+}
+Using Builder Factory Method:
 
+import java.lang.Thread;
+
+public class VirtualThreadExampleFactory {
+    public static void main(String[] args) throws InterruptedException {
+        Thread thread = Thread.ofVirtual().unstarted(() -> {
+            System.out.println("This is a virtual thread created using Thread.Builder!");
+            // Your task here
+        });
+        thread.start();
+        thread.join(); // Wait for the virtual thread to finish
+    }
+}
+
+Record Templates:
+Record patterns in Java, are a feature aimed at enhancing the language’s pattern matching capabilities, particularly for record types.
+
+Record patterns extend the Record functionality by providing pattern matching and deconstruction of record values.
+
+For example let’s Consider a Record.
+
+public record Employee(String name x, double  salary) {}
+
+Lets Deconstruct and pattern match an Employee Record
+
+Employee employee = new Point("Vikas", 3456.89);
+
+if (employee instanceof Employee(String name, double salary)) {
+    System.out.println("Name : " + name+ ", Salary: " + salary);
+}
+
+Usage in Switch Expression:
+
+String details = switch(employee) {
+    case Employee(String name, double  salary) when salary> 2000.89-> "Employee is Manager";
+    case Employee(String name, double  salary) -> "Employee is (" + name+ ", " salary+ + ")";
+    default -> "Unknown Employee";
+};
+Pattern Matching for Switch Statements:
+Key Aspects of Pattern Matching for Switch
+Switch case can match the pattern now instead of just matching the constant value.
+Reduce boilerplate code like if-else-if statements.
+More expressive and readable code.
+Eliminate type casting using instanceOf.
+Lets look at the below example:
+
+if (object instanceof String) {
+    String s = (String) obj;
+    // Handle string case
+} else if (obj instanceof Integer) {
+    Integer i = (Integer) obj;
+    // Handle integer case
+} // and so on...
+Now lets use the Pattern Matching for the Switch Statement.
+
+switch (object) {
+    case String s -> // Handle string case
+    case Integer i -> // Handle integer case
+    // and so on...
+    default -> // Handle the default case
+}
+Lets Look at the record.
+public record Point(int x, int y) {}
+public class SwitchPatternMatchingExample {
+    public static void main(String[] args) {
+        Object obj = // ... some object
+
+        String result = switch (obj) {
+            case String s -> "String of length " + s.length();
+            case Integer i -> "Integer with value " + i;
+            case Point p && p.x == p.y -> "Same X,Y Cooridinates "
+            case Point p-> "Point with X Axis " + r.x + " and Y Axis " + p.y;
+            default -> "Unknown object";
+        };
+
+        System.out.println(result);
+    }
+}
+Lets look at an ENUM example:
+
+public enum TrafficLightsColors {
+    RED, YELLOW, GREEN;
+}
+Lets Look at the Switch Statement:
+
+public class TrafficLightColorExample {
+    public static void main(String[] args) {
+        TrafficLightsColors light = // some value from TrafficLight enum
+
+        String action = switch (light) {
+            case RED -> "Stop";
+            case YELLOW -> "Prepare to stop";
+            case GREEN -> "Go";
+        };
+
+        System.out.println("The light is " + light + ": " + action);
+    }
+}

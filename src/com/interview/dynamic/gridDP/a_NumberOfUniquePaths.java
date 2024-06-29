@@ -2,6 +2,7 @@ package com.interview.dynamic.gridDP;
 
 //Count all possible paths from top left to bottom right of a mXn matrix
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class a_NumberOfUniquePaths {
@@ -73,15 +74,15 @@ public class a_NumberOfUniquePaths {
     }
 
     public static void main(String[] args) {
-//        int[][] arr = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
-//        List<Integer> path = new ArrayList<>();
-//        int i = 0, j = 0;
-//
-//        int M = arr.length;
-//        int N = arr[0].length;
-//        findPaths(arr, path, i, j, M, N);
+        int[][] arr = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+        List<Integer> path = new ArrayList<>();
+        int i = 0, j = 0;
 
-        System.out.println(maze_with_obstcale(3,3));
+        int M = arr.length;
+        int N = arr[0].length;
+        findPaths(arr, path, i, j, M, N);
+
+        System.out.println(path.toString());
 
     }
 
@@ -103,11 +104,8 @@ public class a_NumberOfUniquePaths {
 
         path.add(arr[i][j]);
 
-        if (j + 1 < N)
-            findPaths(arr, path, i, j + 1, M, N);
-
-        if (i + 1 < M)
-            findPaths(arr, path, i + 1, j, M, N);
+        findPaths(arr, path, i, j + 1, M, N);
+        findPaths(arr, path, i + 1, j, M, N);
 
         path.remove(path.size() - 1);
     }

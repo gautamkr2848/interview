@@ -49,12 +49,12 @@ public class  c_CoinChangeMinNumberCoins {
                 return Integer.MAX_VALUE-1;
         }
 
-        int notTake = 0 + minCoins(arr, k, n-1);
-        int take = Integer.MAX_VALUE;
+        int left = 0 + minCoins(arr, k, n-1);
+        int right = Integer.MAX_VALUE;
         if(arr[n] <= k)
-            take = 1 + minCoins(arr, k - arr[n], n);
+            right = 1 + minCoins(arr, k - arr[n], n);
 
-        return Math.min(take, notTake);
+        return Math.min(left, right);
     }
 
     public static void main(String[] args) {

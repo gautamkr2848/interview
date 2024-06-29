@@ -7,13 +7,12 @@ import java.util.Set;
 
 public class e_SmallestStringContainingAllCharacters {
 
-    public void findSubString() {
+    public static void findSubString() {
         String s = "AABBBCBBAC";
-        String str = "AB";
 
         Set<Character> set = new HashSet<>();
-        for(int i=0; i<str.length(); i++)
-            set.add(str.charAt(i));
+        for(int i=0; i<s.length(); i++)
+            set.add(s.charAt(i));
 
         int i=0, j=0, n = set.size();
         int ans = s.length();
@@ -30,5 +29,9 @@ public class e_SmallestStringContainingAllCharacters {
             i++;
         }
         System.out.println(ans);
+    }
+
+    public static void main(String[] args) {
+        findSubString();
     }
 }

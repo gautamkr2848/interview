@@ -8,8 +8,8 @@ import java.util.Queue;
 public class PhoneNumberCombination {
 
     public static void main(String[] args) {
-        int[] number = {5,2,4,3};
-        int n = 4;
+        int[] number = {5,2};
+        int n = 2;
         String[] table = { "0",   "1",   "abc",  "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
 
         System.out.println(letterCombinationsUtil(number, n, table).toString());

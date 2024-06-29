@@ -24,8 +24,10 @@ public class LongestWordInDictionary {
     public void longestWord(List<String> d, String S) {
         Collections.sort(d);
         String res = "";
-        for(String c : d)
-            res = check(c, S).length() > res.length() ? check(c,S) : res;
+        for(String c : d) {
+            String tmp = check(c, S);
+            res = tmp.length() > res.length() ? tmp : res;
+        }
 
         System.out.println(res);
     }

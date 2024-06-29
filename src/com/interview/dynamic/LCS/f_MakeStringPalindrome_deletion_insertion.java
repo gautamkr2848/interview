@@ -1,6 +1,8 @@
 package com.interview.dynamic.LCS;
 
-//Minimum number of deletion to make a string palindrome
+// Minimum number of deletion to make a string palindrome
+// Minimum number of insertion to make a string palindrome
+
 public class f_MakeStringPalindrome_deletion_insertion {
     /*
     Find longest palindromic subsequence

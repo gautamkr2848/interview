@@ -19,28 +19,41 @@ Output: ""
 Explanation: An empty string is also valid.
  */
 
+import java.util.Stack;
+
 public class MinimumRemoveToMakeValidParentheses {
 
-    public String minRemoveToMakeValid(String S) {
-        char[] tmp = S.toCharArray();
-        int len = S.length(), index = 0, i = 0, j = 0;
-        int[] stack = new int[len+1];
+    public static String minRemoveToMakeValid(String s) {
 
-        for (; i < len; i++)
-            if (tmp[i] == ')')
-                if (index > 0)
-                    index--;
-                else
-                    tmp[i] = '_';
-            else if (tmp[i] == '(')
-                stack[index++] = i;
+        char[] arr = s.toCharArray();
+        Stack<Integer> stack = new Stack();
 
-        for (i = 0, stack[index] = -1, index = 0; j < len; j++)
-            if (j == stack[index])
-                index++;
-            else if (tmp[j] != '_')
-                tmp[i++] = tmp[j];
+        for(int i=0; i<arr.length; i++) {
+            if(arr[i] == '(')
+                stack.push(i);
+            else if(arr[i] == ')' && !stack.isEmpty())
+                stack.pop();
+            else if(arr[i] == ')')
+                arr[i] = ' ';
+        }
 
-        return new String(tmp, 0, i);
+        // Remove excess '(' where we found them (stored in the stack)
+        while(!stack.isEmpty()) {
+            int index = stack.pop();
+            arr[index] = ' ';
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (char ch : arr) {
+            if (ch != ' ') {
+                sb.append(ch);
+            }
+        }
+
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(minRemoveToMakeValid("()(()()"));
     }
 }

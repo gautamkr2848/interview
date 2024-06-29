@@ -28,8 +28,8 @@ Return count as the final answer.
 
 public class e_CountIsLand {
 
-    int ROW = 4, COL = 2;
-    public void countIslands() {
+    static int ROW = 4, COL = 2;
+    public static void countIslands() {
         int M[][] = {{0, 1},
                 {1, 0},
                 {0, 0},
@@ -37,7 +37,7 @@ public class e_CountIsLand {
         System.out.println("Number of islands is: " + countIslands(M));
     }
 
-    private int countIslands(int M[][]) {
+    private static int countIslands(int M[][]) {
         boolean visited[][] = new boolean[ROW][COL];
         int count = 0;
 
@@ -50,7 +50,7 @@ public class e_CountIsLand {
         return count;
     }
 
-    private void DFS(int M[][], int row, int col, boolean visited[][]) {
+    private static void DFS(int M[][], int row, int col, boolean visited[][]) {
         int rowNbr[] = { -1, -1, -1, 0, 0, 1, 1, 1 };
         int colNbr[] = { -1, 0, 1, -1, 1, -1, 0, 1 };
 
@@ -61,5 +61,9 @@ public class e_CountIsLand {
             if (isSafe)
                 DFS(M, row + rowNbr[k], col + colNbr[k], visited);
         }
+    }
+
+    public static void main(String[] args) {
+        countIslands();
     }
 }

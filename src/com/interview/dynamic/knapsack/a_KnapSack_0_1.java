@@ -50,7 +50,7 @@ public class a_KnapSack_0_1 {
     Auxiliary Space: O(N * W) + O(N)
 */
 
-    public int knapSack_3(int[] wt, int[] val, int w, int n){
+    public static int knapSack_3(int[] wt, int[] val, int w, int n){
         int[][] t = new int[n+1][w+1];
 
         for (int i = 1; i <= n; i++) {
@@ -68,5 +68,13 @@ public class a_KnapSack_0_1 {
 /*
     Time Complexity: O(N * W)
 */
+
+    public static void main(String[] args) {
+        int profit[] = new int[] { 60, 100, 120 };
+        int weight[] = new int[] { 10, 20, 30 };
+        int W = 50;
+
+        System.out.println(knapSack_3(weight, profit, 50, 3));
+    }
 
 }

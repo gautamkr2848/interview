@@ -2,8 +2,8 @@ package com.interview.array.binarySearch;
 
 public class b_FindMin {
 
-    public int findMin() {
-        int[] arr = {11, 13, 15, 17, 9};
+    public static int findMin() {
+        int[] arr = {18, 11, 13, 15, 17};
         int n = arr.length;
         int low = 0;
         int high = n-1;
@@ -22,5 +22,9 @@ public class b_FindMin {
                 high = mid - 1;
         }
         return -1;
+    }
+
+    public static void main(String[] args){
+        System.out.println(findMin());
     }
 }

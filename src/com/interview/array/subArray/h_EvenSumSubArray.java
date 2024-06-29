@@ -21,8 +21,7 @@ public class h_EvenSumSubArray {
 
         int s = 0;
         for (int i = n - 1; i >= 0; i--){
-            if (arr[i] % 2 == 1)
-            {
+            if (arr[i] % 2 == 1) {
                 // s is the count of subarrays starting from
                 // index i+1 whose sum was even
                 /*if a[i] is odd then all subarrays starting

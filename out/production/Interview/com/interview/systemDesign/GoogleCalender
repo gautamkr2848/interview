@@ -28,7 +28,7 @@ Estimations
         On an avg. an active user will schedule 2 meetings in a day. → 20M
         On an avg. a user will receive 4 meetings invites.  → 40M
 
-        Total = 100 M * 1000 B = 100 * 10 ^ 9 = 100GB
+        Total = 100 M * 1 KB =  100GB
         Calendar Invites
                 Invites = 2 * 20M * 365
         Total = 40M * 400 * 200 Bytes = 32 * 10 ^11 = 3200 GB

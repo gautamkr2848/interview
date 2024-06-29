@@ -1,0 +1,20 @@
+Garbage collection is a key feature for developers who build and compile Java programs on a JVM. Java objects are
+created on the heap, which is a section of memory dedicated to a program. When objects are no longer needed, the garbage
+collector finds and tracks these unused objects and deletes them to free up space. Without garbage collection, the heap
+would eventually run out of memory, leading to a runtime OutOfMemoryError.
+
+Automatic garbage collection means you don’t have control over whether and when objects are deleted.
+
+During the garbage collection process, the collector scans different parts of the heap, looking for objects that are no
+longer in use. If an object no longer has any references to it from elsewhere in the application, the collector removes
+the object, freeing up memory in the heap. This process continues until all unused objects are successfully reclaimed.
+
+Unfortunately, you can’t force garbage collection, even if your JVM is utilizing close to 100% of the heap.
+
+
+Mark-and-sweep Algorithm
+
+There are two phases in this algorithm: mark followed by sweep.
+When a Java object is created in the heap, it has a mark bit that is set to 0 (false).
+During the mark phase, the garbage collector traverses object trees, When an object is reachable from the root, the mark bit is set to 1 (true).
+During the sweep phase, the garbage collector traverses the heap, reclaiming memory from all items with a mark bit of 0 (false).

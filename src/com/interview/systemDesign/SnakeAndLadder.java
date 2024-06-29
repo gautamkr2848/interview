@@ -20,8 +20,8 @@ public class SnakeAndLadder {
         ladders.put(40, 89);
 
         Map<String,Integer> playersCurrentPosition = new HashMap<>();
-        playersCurrentPosition.put("Alberts",0);
-        playersCurrentPosition.put("Pintoss",0);
+        playersCurrentPosition.put("Gautam",0);
+        playersCurrentPosition.put("Puja",0);
 
         GameBoard gb=new GameBoard(dice, players, snakes, ladders, playersCurrentPosition, 100);
         gb.startGame();
@@ -77,7 +77,7 @@ class GameBoard {
             int nextCell = currentPosition + diceValue;
 
             if (nextCell > boardSize)
-                playerQueue.offer(player);
+                playerQueue.add(player);
             else if (nextCell == boardSize)
                 System.out.println(player.playerName + " won the game");
             else {
@@ -96,7 +96,7 @@ class GameBoard {
                 else {
                     playersCurrentPosition.put(player.playerName, nextCell);
                     System.out.println(player.playerName + " is at position "+ nextCell);
-                    playerQueue.offer(player);
+                    playerQueue.add(player);
                 }
             }
         }

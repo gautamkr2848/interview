@@ -9,14 +9,10 @@ package com.interview.dynamic.gridDP;
 
 public class d_triangle {
 
-    public static int maxSum(int[][] grid, int m, int n) {
-
-        if (m == grid.length-1) return grid[m][n];
-        return grid[m][n] + Math.max(maxSum(grid, m+1, n+1), maxSum(grid, m+1, n));
-    }
-
     public static int minSum(int[][] grid, int m, int n) {
-        if (m == grid.length-1) return grid[m][n];
+        if (m == grid.length-1)
+            return grid[m][n];
+
         return grid[m][n] + Math.min(minSum(grid, m+1, n+1), minSum(grid, m+1, n));
     }
 
