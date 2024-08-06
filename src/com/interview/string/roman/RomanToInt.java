@@ -2,7 +2,7 @@ package com.interview.string.roman;
 
 import java.util.HashMap;
 
-public class    RomanToInt {
+public class RomanToInt {
 
     public void romanToInt(){
 

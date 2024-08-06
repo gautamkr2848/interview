@@ -63,4 +63,6 @@ public class b_printSubsets {
             curr.remove(curr.size()-1);
         }
     }
+
+    // Time Complexity: O(N*2^N)
 }

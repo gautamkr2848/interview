@@ -5,6 +5,14 @@ Java 8
     2. Stream API
     3. Default and static methods in Interface
     4. forEach() method in Iterable interface
+    5. Key Features of the G1 Garbage Collector
+        a. G1 GC divides the heap into a set of equal-sized regions
+        b. Concurrent Marking Phase
+        c. Parallelism
+        d. Improved Performance
+        e. String Deduplication
+    6. Replace method area to meta space
+        MetaspaceSize and MaxMetaspaceSize, MinMetaspaceFreeRatio  & MaxMetaspaceFreeRatio
 
 Java 9
     1. Private method in interface

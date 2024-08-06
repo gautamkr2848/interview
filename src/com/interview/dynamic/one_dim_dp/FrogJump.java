@@ -91,7 +91,7 @@ public class FrogJump {
 
     // o/p - 3
 
-    int jump(int[] nums) {
+    public static int jump(int[] nums) {
 
         int count = 0, n = nums.length - 1, distCovered = 0, lastJumpIdx = 0;
 
@@ -114,6 +114,11 @@ public class FrogJump {
         return count;
     }
 
+    public static void main(String[] args) {
+        int arr[] = { 1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9 };
+
+        System.out.println(jump(arr));
+    }
 
     // Jump Game can reach 0 in either direction
 

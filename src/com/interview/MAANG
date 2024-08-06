@@ -613,13 +613,9 @@ Why binary heap preferred over BST for priority queue
 
 A typical Priority Queue requires following operations to be efficient.
 
-Get Top Priority Element (Get minimum or maximum)
-Insert an element
-Remove top priority element
-Decrease Key
+Get Top Priority Element (Get minimum or maximum) - O(1)
+Insert an element - O(Logn)
+Remove top priority element - O(Logn)
+Decrease Key - O(Logn)
 A Binary Heap supports above operations with following time complexities:
 
-O(1)
-O(Logn)
-O(Logn)
-O(Logn)

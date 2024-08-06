@@ -4,51 +4,38 @@ import com.interview.tree.Node;
 
 public class b_LeafToLeafPathSum {
 
-    Res res = new Res();
+    static int result = Integer.MIN_VALUE;
 
-    public void maxPathSum() {
-        Node tree = new Node(-9);
-        tree.left = new Node(6);
-        tree.right = new Node(-10);
+    public static void main(String[] args) {
+        Node tree = new Node(-15);
+        tree.left = new Node(5);
+        tree.right = new Node(6);
+        tree.left.left = new Node(-8);
+        tree.left.right = new Node(1);
+        tree.left.left.left = new Node(2);
+        tree.left.left.right = new Node(6);
+        tree.right.left = new Node(3);
+        tree.right.right = new Node(9);
+        tree.right.right.right = new Node(0);
+        tree.right.right.right.left = new Node(4);
+        tree.right.right.right.right = new Node(-1);
+        tree.right.right.right.right.left = new Node(10);
 
-        res.val = Integer.MIN_VALUE;
-        maxPathSumUtil(tree, res);
-        System.out.println(res.val);
+        maxPathSumUtil(tree);
+        System.out.println(result);
     }
 
-    private int maxPathSumUtil(Node node, Res result) {
+    private static int maxPathSumUtil(Node node) {
         if (node == null)
             return 0;
 
-        int left = maxPathSumUtil(node.left, result);
-        int right = maxPathSumUtil(node.right, result);
+        int left = maxPathSumUtil(node.left);
+        int right = maxPathSumUtil(node.right);
 
         int temp = Math.max(left, right) + node.key;
         int ans = Math.max(temp, left + right + node.key);
-        result.val = Math.max(result.val, ans);
+        result = Math.max(result, ans);
 
         return temp;
     }
-
-    int maxPathSumUtil_2(Node node) {
-        if (node == null) return 0;
-
-        int left = maxPathSumUtil_2(node.left);
-        int right = maxPathSumUtil_2(node.right);
-
-        if (node.left == null)
-            return right + node.key;
-
-        if (node.right == null)
-            return left + node.key;
-
-        int temp = Math.max(left, right) + node.key;
-        res.val = Math.max(res.val, left + right + node.key);
-
-        return temp;
-    }
-}
-
-class Res{
-    int val;
 }

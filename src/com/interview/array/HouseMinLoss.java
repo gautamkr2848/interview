@@ -2,6 +2,10 @@ package com.interview.array;
 
 import java.util.*;
 
+// Loss means substracting 2 values
+// Substraction will be min when the values are closer to each other
+// In this case, first value should be greater than second value
+
 public class HouseMinLoss {
 
     public static void minLoss() {

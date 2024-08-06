@@ -9,13 +9,13 @@ public class TreeMapTest {
 
     public static void main(String[] args) {
 
-        HashMap<String, Integer> map2 = new HashMap<>();
+        Map<String, Integer> map2 = new TreeMap<>();
         map2.put("A", 1);
         map2.put("A", 2);
 
         System.out.println(map2.toString());
 
-        HashMap<Test1, Integer> map = new HashMap<>();
+        Map<Test1, Integer> map = new HashMap<>();
         map.put(new Test1(1, "Gautam"), 1);
         map.put(new Test1(1, "Gautam"), 2);
 
@@ -44,16 +44,16 @@ class Test1 {
         return id == test.id && Objects.equals(name, test.name);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, name);
+//    }
 
 //    @Override
-//    public int compareTo(Test1 other) {
-//        return Integer.compare(this.id, other.id);
+//    public int compareTo(Test1 o) {
+//        return Integer.compare(this.id, o.id);
 //    }
-    
+
 //    @Override
 //    public int compareTo(Value o) {
 //        int x1 = x * x;

@@ -26,4 +26,23 @@ public class MinDiff {
 
         System.out.println(diff);
     }
+
+    public static void main(String[] args) {
+        int[] a = {23, 5, 2, 19, 15, 25};
+        int n = a.length;
+
+        int min = a[0] > a[1] ? a[1] : a[0];
+        int secondMin = a[0] > a[1] ? a[0] : a[1];
+
+        for(int i=2; i<n; i++) {
+            if(a[i] < min) {
+                secondMin = min;
+                min = a[i];
+            } else if(a[i] > min && a[i] < secondMin) {
+                secondMin = a[i];
+            }
+        }
+
+        System.out.println(secondMin - min);
+    }
 }

@@ -17,8 +17,8 @@ import java.util.Set;
 public class f_StringWindow {
 
     public static void Minimum_Window() {
-        String s = "geeksforgeeks";
-        String t = "ork";
+        String s = "this is a test string";
+        String t = "tist";
 
         if(s == null || s.length() == 0 || t == null || t.length() == 0)
             System.out.println("");
@@ -46,7 +46,8 @@ public class f_StringWindow {
 
                     if(map.containsKey(s.charAt(j))) {
                         map.put(s.charAt(j), map.get(s.charAt(j))+1);
-                        count--;
+                        if(map.get(s.charAt(j)) > 0)
+                            count--;
                     }
                     j++ ;
                 }

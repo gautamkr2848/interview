@@ -11,18 +11,16 @@ public class LongestPrefixSuffix {
 
     public static void main(String[] args) {
         String s = "aabcdaabc";
-        int length = 0, i=1, n = s.length();
+        int i=1, n = s.length();
         String res = "";
 
         while (i <= n/2) {
             if(s.substring(0,i).equalsIgnoreCase(s.substring(n-i, n))){
-                length++;
                 res = s.substring(0,i);
-                i++;
             } else {
-                i++;
                 continue;
             }
+            i++;
         }
         System.out.println(res);
     }

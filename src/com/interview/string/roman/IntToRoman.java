@@ -2,18 +2,37 @@ package com.interview.string.roman;
 
 public class IntToRoman {
 
-    public void intToRoman(){
+    public static void main(String[] args){
 
-        int num = 1457;
-        System.out.println("Integer: " + num);
-        String[] units = {"","I","II","III","IV","V","VI","VII","VIII","IX"};
-        String[] tens = {"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};
-        String[] hundreds = {"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
-        String[] thousands = {"","M","MM","MMM"};
+        String[] units = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+        String[] tens = {"X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
+        String[] hundreds = {"C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
+        String[] thousands = {"M", "MM", "MMM"};
 
-        System.out.println(thousands[(num % 10000) / 1000] +
-                hundreds[(num % 1000) / 100] +
-                tens[(num % 100) / 10] +
-                units[(num % 10) / 1]);
+        int n = 4;
+        int power = String.valueOf(n).length()-1;
+        StringBuilder sb = new StringBuilder();
+        while (n > 0) {
+            int div = (int) (n / (Math.pow(10, power)));
+            int rem = (int) (n % ((Math.pow(10, power))));
+
+            switch (power) {
+                case 3 :
+                    sb.append(thousands[div-1]);
+                    break;
+                case 2 :
+                    sb.append(hundreds[div-1]);
+                    break;
+                case 1 :
+                    sb.append(tens[div-1]);
+                    break;
+                default : sb.append(units[div-1]);
+            }
+
+            n = rem;
+            power--;
+        }
+
+        System.out.println(sb.toString());
     }
 }

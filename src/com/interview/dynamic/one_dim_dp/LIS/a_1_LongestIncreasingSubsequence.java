@@ -47,23 +47,45 @@ public class a_1_LongestIncreasingSubsequence {
 
         for(int i=0; i<n; i++){
             for(int j = 0; j < i; j++){
-                if(arr[j]<arr[i]){
+                if(arr[j] < arr[i]){
                     dp[i] = Math.max(dp[i], 1 + dp[j]);
                 }
             }
         }
 
-        int ans = -1;
-        for(int i=0; i<n; i++){
-            ans = Math.max(ans, dp[i]);
-        }
-
-        return ans;
+        return Arrays.stream(dp).max().getAsInt();
     }
 
     public static void main(String[] args) {
-        int[] arr = {50,3,10,7,40,80};
+        int[] arr = {50,3,10,7,40,80, 60, 55, 65, 45};
         int n = arr.length;
-        longestIncreasingSubsequence(arr, n);
+        System.out.println(lengthOfLIS(arr));
+    }
+
+    // Binary search approach
+    static int lengthOfLIS(int[] nums) {
+        int n = nums.length;
+        List<Integer> ans = new ArrayList<>();
+        ans.add(nums[0]);
+
+        for (int i = 1; i < n; i++) {
+            if (nums[i] > ans.get(ans.size() - 1)) {
+                    // If the current number is greater than the last element of the answer list, it means we have found a
+                    // longer increasing subsequence. Hence, we append the current number to the answer list.
+                ans.add(nums[i]);
+            } else {
+                    // If the current number is not greater than the last element of the answer list, we perform a binary search to find the smallest
+                    // element in the answer list that is greater than or equal to the current number.
+                    // The binarySearch method returns the index of the first element that is not less than the current number.
+                int low = Collections.binarySearch(ans, nums[i]);
+                    // We update the element at the found position with the current number.
+                    // By doing this, we are maintaining a sorted order in the answer list.
+                if (low < 0) {
+                    low = -(low + 1);
+                }
+                ans.set(low, nums[i]);
+            }
+        }
+        return ans.size();
     }
 }

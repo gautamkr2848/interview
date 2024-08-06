@@ -7,7 +7,17 @@ Functional Interface
 
     c. @FunctionalInterface Annotation
         a. Runnable - run()     // abstract method
+            (() -> System.out.println("Laddu"));
         b. Callable - call()    // abstract method
+
+            Callable<String> callableTask = () -> {
+                        Thread.sleep(1000);
+                        return "Task's execution result";
+                    };
+            ExecutorService executorService = Executors.newSingleThreadExecutor();
+            Future<String> future = executorService.submit(callableTask);
+            String result = future.get();
+
         c. Comparator
             * Looks like Comparator has two abstract methods but
             * compare()

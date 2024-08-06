@@ -1,8 +1,8 @@
 package com.interview.array;
 
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class DuplicateElements {
 
@@ -40,5 +40,17 @@ public class DuplicateElements {
             ++fast;
         }
         return ++slow;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> a = Arrays.asList(5, 6, 2, 4, 1, 5, 3, 1, 6);
+
+        //System.out.println(a.stream().collect(Collectors.groupingBy(x->x, Collectors.counting())).toString());
+
+        //a.stream().collect(Collectors.groupingBy(x->x, Collectors.counting())).entrySet().stream().map(x-> x.getKey()).forEach(System.out::print);
+
+        Set<Integer> s = new HashSet<>();
+        a.stream().filter(x -> s.add(x)).collect(Collectors.toList()).forEach(System.out::print);
+        System.out.println(s.toString());
     }
 }

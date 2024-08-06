@@ -14,6 +14,7 @@ public class NMeetings {
             meet.add(new Meeting(start[i], end[i], i+1));
 
         Collections.sort(meet, (o1, o2) -> o1.end.compareTo(o2.end));
+
         ArrayList<Integer> answer = new ArrayList<>();
         answer.add(meet.get(0).pos);
         int limit = meet.get(0).end;

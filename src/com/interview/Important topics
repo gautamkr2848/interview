@@ -24,8 +24,6 @@
     We use cdn's for reduce latency for static files, but not most api requests. We should not use cdn's if our users
     are from a specific target location. CDN will also not be a good idea if our most of assets are dynamic and sensitive.
 
-2. Distributed Cache    =>  Redis
-
 2. Time Series Database     =>      InFluxDB, TimeScaleDB
 
 3. Pub/Sub Model
@@ -91,8 +89,6 @@
     Vertical => Buying a bigger system
     Horizontal => Increasing number of instances
 
-12. Apache Kafka
-
 13. Zuul    =>  API Gateway
 
     An API gateway is a component that sits between clients and services and provides centralized handling of API
@@ -103,12 +99,18 @@
     appropriate services, and combines the responses for a simplified user experience.
 
     Separate Out
-        Authentication
-        Authorization
+        Simplifies Client Interaction:
+            Single Entry Point: Instead of interacting with multiple microservices, clients communicate with a single API Gateway, which simplifies the architecture and reduces complexity.
+            Aggregation: The gateway can aggregate responses from multiple microservices into a single response, reducing the number of client-server interactions.
+
+        Security:
+            Authentication and Authorization: The API Gateway can handle user authentication and authorization, ensuring that only authenticated and authorized requests reach the backend services.
+            Rate Limiting and Throttling: It can protect backend services from being overwhelmed by limiting the number of requests a client can make in a given period.
+            Logging and Monitoring: Centralized logging and monitoring of requests passing through the gateway help in detecting and responding to security incidents.
+
+        Load Balancing and Fault Tolerance:
         SSL Certification
-        Cache
-        Static Content
-        Also decides where to route a request based on url(ms1 or ms2)
+        Cache & storing Static Content
 
 14. Executor Service
      Java provides its own multi-threading framework called the Java Executor Framework.
@@ -137,7 +139,7 @@
     O   =>  Open Close Principle    =>  Open for extension & close for modification
     L   =>  Liskov Substitution     =>  A = parent & B = child, then we should be able to replace objects of A with objects of B
     I   =>  Interface Segregation   =>  Single Responsibility Interface
-    D   =>  Dependency Inversion    =>  High-level modules should not depend upon low-level modules. They should depend on abstractions
+    D   =>  Dependency Inversion    =>  High-level modules should not depend upon low-level modules. They should depend on abstractions rather than concrete implementations
 
 20. CAP Theorem
 
@@ -146,6 +148,12 @@
     breakdowns between nodes in the system.
 
 21. Indexing - https://chartio.com/learn/databases/how-does-indexing-work/
+    In reality the database table does not reorder itself every time the query conditions change in order to optimize
+    the query performance: that would be unrealistic. In actuality, what happens is the index causes the database to
+    create a data structure of type is very likely a B-Tree. The main advantage for our purposes is that it is sortable.
+
+    When the index creates a data structure on a specific column it is important to note that no other column is stored
+    in the data structure.
 
 22. Pagination is the task of dividing the potential result into pages and retrieving the
     required pages, one by one on demand. Using OFFSET and LIMIT is the easy way to write
@@ -169,6 +177,9 @@
     they will not function properly.
 
     https://www.techiedelight.com/why-override-equals-and-hashcode-methods-java/
+
+    If o1.equals(o2), then o1.hashCode() == o2.hashCode() should always be true.
+    If o1.hashCode() == o2.hashCode is true, it doesn’t mean that o1.equals(o2) will be true
 
 
 25. Marker Interface
@@ -221,21 +232,27 @@
     4. In case of any changes in business requirements, no code change is required.
 
 32. Spring Bean Life Cycle
-    Bean life cycle is managed by the spring container. When we run the program then, first of all, the spring container
-    gets started. After that, the container creates the instance of a bean as per the request, and then dependencies are
-    injected. And finally, the bean is destroyed when the spring container is closed. Therefore, if we want to execute
-    some code on the bean instantiation and just after closing the spring container, then we can write that code inside
-    the custom init() method and the destroy() method.
+    a. Application started
+    b. Spring Container started
+    c. Bean Constructed
+    d. Dependency Injected
+    e. init() method
+    f. other methods called
+    g. Destroy() method
+
+33. Design Pattern used by SpringBoot
+    a. Singleton pattern - logging - an application can have more than one Spring container. Therefore, multiple objects of the same class can exist in a single application if we have multiple containers.
+    b. Factory pattern - Spring treats a bean container as a factory that produces beans
+    c. Proxy pattern
+    d. Template pattern - Connecting to DB
 
 35. Forward Proxy
     A forward proxy is an application that sits in front of client's device and placed b/w device & internet. Blocking
      unwanted urls while using office laptops
 
-
 36. Reverse proxy / API Gateway
     In computer networks, a reverse proxy is an application that sits in front of back-end applications and forwards
     client requests to those applications. Reverse proxies help increase scalability, performance, resilience and security.
-
 
 37. Performance vs scalability
     If you have a performance problem, your system is slow for a single user.
@@ -252,12 +269,11 @@
     1.	HyperText Transfer Protocol.    <<<<====>>>>    File Transfer Protocol
     2.	It is the set of rules that how web pages are transferred on different computers over the internet.    <<<<====>>>>    It is the set of rules that permit the downloading and uploading the files on the computer over the internet.
     3.	It only supports the data connection.    <<<<====>>>>    It supports both data connection and control connection
-    4.	It uses Transmission Control Protocol and runs on TCP port 80.	It uses Transmission Control Protocol and runs on TCP port 20 and TCP port 21.
+    4.	It uses Transmission Control Protocol and runs on TCP port 80.	<<<<====>>>>    It uses Transmission Control Protocol and runs on TCP port 20 and TCP port 21.
     5.	It does not require authentication.    <<<<====>>>>    It requires authentication.
     6.	It is efficient in transferring small files.    <<<<====>>>>    It is efficient in transferring large files.
     7. 	The files transferred to the computer over the internet are not saved to the memory.    <<<<====>>>>    The files transferred to the computer over the internet are saved to the memory.
-    8.	It is a stateless protocol.    <<<<====>>>>    It is not a stateless protocol and it maintains states.
-    9.	HTTP is faster.    <<<<====>>>>    FTP is slower as compared to HTTP.
+    8.	HTTP is faster.    <<<<====>>>>    FTP is slower as compared to HTTP.
 
 
 40. TCP    <<<<====>>>>    UDP
@@ -334,9 +350,13 @@
     PostgreSQL supports all MySQL data types along with geometric, enumerated, network address, arrays, ranges, XML,
     hstore, and composite.
 
+    Open Source
+    Reliable
+    OLTP & OLAP
+
  47. HashMap
 
-    Initial array size size is 16 buckets, load factor is 0.75. Meaning when it gets (watch that word) 12, it resizes to 32 buckets
+    Initial array size is 16 buckets, load factor is 0.75. Meaning when it gets 12, it resizes to 32 buckets
 
     Using a HashMap with an initial capacity can be beneficial in certain scenarios where you have a good estimate of
     the expected number of elements.
@@ -409,7 +429,7 @@ aspects of the class, which can lead to unexpected InvalidClassException if the 
 
     3. Strategy Pattern - Create seperate class for each condition
 
-51. Spring Features
+51. Springboot Features
     1. AutoConfiguration
     2. Spring Profiles
     3. Dependency Injection
@@ -417,3 +437,231 @@ aspects of the class, which can lead to unexpected InvalidClassException if the 
     5. Spring cloud
     6. Spring security
     7. IOC Container
+
+52. How Many Requests Can Spring Boot Handle Simultaneously?
+
+The number of requests Spring Boot can handle simultaneously does not depend on the Spring Boot framework itself but on its embedded web container
+
+Currently, there are two main web containers in the market: Tomcat, Jetty.
+
+Among these, Tomcat is the default web container for the Spring Boot framework.
+
+    Tomcat is suitable for large applications due to its maturity and enterprise-level features;
+
+    Jetty is characterized by its lightweight, flexibility, and ease of embedding, suitable for rapid development and lightweight deployment.
+
+Maximum Number of Connections and Maximum Waiting Number
+
+    the number of requests it can handle simultaneously is configured in the "spring-configuration-metadata.json" file in the Spring Boot framework
+    server.tomcat.max-connections - 8192
+    server.tomcat.accept-count - 100
+    By default, the number of requests that Spring Boot can handle simultaneously = maximum connections (8192) + maximum waiting number (100), resulting in 8292
+
+By modifying pom.xml, we can change web container from tomcat to jetty
+
+53. Singleton Lazy VS Eager
+    Resource Efficiency: Lazy instantiation is more resource-efficient as it creates the instance only when needed, while eager instantiation creates the instance at class loading time regardless of need
+    Thread Safety: Eager instantiation is inherently thread-safe by adding final keyword, whereas lazy instantiation requires explicit synchronization to ensure thread safety.
+    Complexity: Eager instantiation is simpler to implement compared to lazy instantiation
+
+54. Multithreading Principles and Patterns
+    1. Immutable Objects
+    2. CQRS pattern
+    3. Producer-Consumer Pattern
+    4. Double Checked Locking
+    5. Leaders/Followers Pattern
+
+55. Why does youtube uses http for video uploads ?
+    1. Firewall and Network Compatibility
+    2. Reliability and Error Handling
+    3. Chunked Transfers
+    4. Integration with Web Technologies - Web APIs and Services & CQRS
+    5. Security
+    6. Scalability
+
+56. LinkedList vs ArrayList
+    Insertions at the end (O(1))
+    Insertions at the middle (O(n))
+    Insertions at the begnining (O(1)) for linkedlist and (O(n)) for Arraylist
+
+58. Redis Master vs Sentinals
+    Operation: The Redis Master is the primary node handling data operations, while Redis Sentinel is a monitoring and management system ensuring high availability.
+    Role in Failover: Sentinel is responsible for detecting Master failures and promoting a Replica to Master, whereas the Master simply serves data and replicates it to Replicas.
+    Data Handling: The Master deals directly with data reads and writes; Sentinel does not handle data but manages the state of the Redis nodes.
+
+59. Java Time vs Joda Time
+
+    1. Both the times are immutable in nature.
+    2. LocalDateTime is part of java.time package. DateTime is part of the Joda-Time library.
+    3. LocalDateTime does not store time zone information.DateTime stores time zone information and provides methods to manipulate it.
+    4. LocalDateTime supports nanosecond precision. DateTime supports millisecond precision.
+
+60. Handle Large data set from API
+    1. Pagination - Client Side pagination & server side pagination
+    2. Streaming -  Use streaming to process and send data as it is fetched from the database, reducing memory usage
+    3. Using Database Cursors: Utilize database cursors for efficient data retrieval in chunks. This approach can be more efficient for large datasets.
+    4. HTTP Chunked Transfer Encoding
+
+61. Hash Table vs Synchronized Hash Map
+    1. Hashtable doesn’t allow even a single null key and null values. Synchronized HashMap allows one null key and any number of null values.
+    2. Hashtable are fail-safe in nature. Synchronized HashMap are fail-fast in nature.
+    3. HashTable was there since JDK 1.1. HashMap is introduced in JDK 1.2.
+    4. HashTable is the legacy class.
+
+62. Why should we prefer + operator for String Concatnation
+    1. Simplicity and Readability
+    2. Compiler Optimization: - the Java compiler optimizes the use of the + operator by converting it to use a StringBuilder under the hood.
+    3. using + is more convenient and results in cleaner code compared to explicitly using a StringBuilder or StringBuffer.
+
+63. Null Handling
+    1. Instead of returning null, consider using Optional<T>
+    2. Prefer returning empty collections instead of null
+    3. Implement the Null Object Pattern
+    4. Better to throw an exception rather than returning null
+    5. Designate specific return values to indicate errors or the absence of a value
+    6. If a method or function may return null in certain situations, clearly document this behavior in the method’s documentation
+    7. If null is unavoidable in certain cases, encourage safe null handling practices, such as using Objects.requireNonNull or conditional checks, to minimize the risk of null pointer exceptions.
+
+64. Loop vs for each
+    1. Readability
+    2. Modifying the Source Collection => easy using for loop
+    3. Exception handling more better way in loop
+    4. Loop is good for array where as for each is good for collections
+
+65. a. Method Area changed to Metaspace
+    a. The main types of GC algorithms are Serial, Parallel, CMS (Concurrent Mark-Sweep) and G1 (Garbage-First).
+    b. “Stop-the-world” refers to the pause in application execution when the garbage collector runs. During this time, all application threads are stopped to allow the GC to perform its work.
+    c. Memory leak in Java occurs when objects that are no longer needed are not properly garbage collected because references to them still exist. Ensure references to unused objects are removed. Be cautious with static fields, collections, and event listeners.
+
+66. finalize() vs Cleaner/PhantomReference
+    finalize() - Called by the garbage collector before an object is collected. Deprecated due to unpredictable behavior and performance issues.
+    Cleaner/PhantomReference - Introduced to provide a more reliable way to clean up resources. Cleaner can be used to register cleanup actions. PhantomReference allows actions to be scheduled after the object is collected.
+
+67. Why is 1 == 1 is true but 1000 == 1000 is false When dealing with Wrapper Classes in Java?
+    Integer a = 10;
+    Integer b = Integer.valueOf(10);
+
+    System.out.println(a == b);     // true
+
+    but if we change value of a to 128      System.out.println(a == b);     // false
+
+    For values between -128 and 127, Java caches Integer objects to save memory. Both a and b will reference the same cached Integer object for the value 10.
+
+68. Filter vs Interceptor
+    1. Both interceptors and filters are used to process requests and responses but both works at different levels
+    2. Filters are part of the Servlet API and operate at web container (like Tomcat) level and can be used in any Java web application
+    3. Filters are used to perform filtering tasks on the request and response, such as logging, authentication, input validation, and transformation.
+
+    1. Interceptors are part of the Spring framework and are Spring-specific.
+    2. They operate at a higher level, specifically within the Spring MVC framework.
+    3. Interceptors are used to perform tasks before and after the execution of controller methods, such as logging, authentication, or adding attributes to the model.
+
+69. System Design Problems
+    1. Read-Heavy System? Use Cache for Faster Reads
+    2. Write-Heavy System? Use Message Queues for Asynchronous Writing
+    3. Transactional Data? Choose RDBMS/SQL Database
+    4. Unstructured or Semi-structured Data? Use NoSQL Database
+    5. Complex Data (Videos, Images, Files)? Use Blob/Object Storage
+    6. High Availability? Use Load Balancer
+    7. High-Volume Data Search? Use Search Index or Engine
+
+70. Stored procedures and functions in SQL?
+    Procedures in SQL are used to execute a series of SQL statements, often for performing operations that don’t return a value.
+    In contrast, functions are used to perform calculations and return a single value. Use procedures for complex business logic
+    and functions for reusable computations or transformations within SQL queries.
+
+71. @Transactional Annotation
+    In Spring Boot, @Transactional annotation is used to define a scope of transaction. This annotation can be applied
+    to the class level or method level. It provides data reliability and consistency. When a method is indicated with
+    @Transactional annotation, it indicates that the particular method should be executed within the context of that
+    transaction. If the transaction becomes successful then the changes made to the database are committed, if any
+    transaction fails, all the changes made to that particular transaction can be rollback and it will ensure that the
+    database remains in a consistent state.
+
+72. static Keyword in Java
+    The static keyword in Java is mainly used for memory management. The static keyword in Java is used to share the same
+    variable or method of a given class.
+
+    The static keyword is a non-access modifier in Java that is applicable for the following:
+        Blocks - A set of instructions that is run only once when a class is loaded into memory.
+        Variables - The variable belongs to the class itself rather than to any specific instance of the class.
+        Methods - A static method means it can be called without creating an instance of the class.
+        Classes - A class that can only contain static methods, variables, and nested classes. We cannot create objects of a static class and can only access its members using the class name.
+
+73. Autoboxing refers to the conversion of a primitive value into an object of the corresponding wrapper class is called
+    autoboxing. For example, converting int to Integer class. The Java compiler applies autoboxing when a primitive value
+    is passed as a parameter to a method that expects an object of the corresponding wrapper class. Assigned to a variable
+    of the corresponding wrapper class.
+
+74. Unboxing on the other hand refers to converting an object of a wrapper type to its corresponding primitive value. For
+    example conversion of Integer to int. The Java compiler applies to unbox when an object of a wrapper class is passed
+    as a parameter to a method that expects a value of the corresponding primitive type. Assigned to a variable of the
+    corresponding primitive type.
+
+75. Aspect Oriented Programming
+    a. @Aspect - The class which implements the cross-cutting concerns(transaction, logger etc) is known as the aspect. It can be normal class configured through XML configuration or through regular classes annotated with @Aspect.
+    b. Weaving - The process of linking Aspects with an Advised Object. It can be done at load time, compile time or at runtime time. Spring AOP does weaving at runtime.
+    c. Advice - The job which is meant to be done by an Aspect
+        1. @Before - Runs before the advised method is invoked.
+        2. @After - Runs after the advised method completes regardless of the outcome, whether successful or not.
+        3. @AfterReturning - Runs after the advised method successfully completes ie without any runtime exceptions
+        4. @Around - This is the strongest advice among all the advice since it wraps around and runs before and after the advised method. This type of advice is used where we need frequent access to a method or database like- caching.
+        5. @AfterThrowing - Runs after the advised method throws a Runtime Exception.
+
+76. a. CDS (Class Data Sharing) - Used to decrease the startup time.
+    b. Virtual Threads (Project Loom): Unleash the Power of Lightweight Concurrency
+
+77. concurrency in java
+    a. Synchronized Methods and Blocks
+    b. Volatile Keyword
+    c. ReentrantLock
+    d. Atomic Variables
+    e. Concurrent Collections
+    f. ReadWriteLock
+    g. ThreadLocal Variables
+    h. Immutable Objects
+
+78. Flux vs Mono
+    a. Flux and Mono are types in the Project Reactor library
+    b. Flux: Represents 0 to N elements, Mono: Represents 0 to 1 element.
+    c. Flux deals with streams of data, such as multiple values, lists, or collections, Mono deals with a single result or optional result.
+    d. Flux provides methods for handling multiple elements, such as map, filter, flatMap, concat, merge, etc. Mono provides methods focused on single-element operations, such as map, flatMap, then, block, etc.
+    e. Both Flux and Mono provide error-handling mechanisms like onErrorReturn, onErrorResume, and onErrorMap.
+
+79. Idempotency API means that the data/ system state will be the same no matter how many times the API is successfully called with the same request body/parameter.
+
+80. Sealed Class
+    a. Sealed classes allow developers to restrict the inheritance hierarchy of a class or interface.
+    b. Take a Shape class, which can be extended by Circle, Square, or Triangle classes. With Sealed Classes, we can specify that only these three classes can inherit from Shape, and no other class can extend it.
+        1. Defining a sealed class
+        2. Defining a sealed interface
+        3. If non permitted class try to extend or implement, it will get compile time error.
+    c. public sealed interface Vehicle permits Car, Truck {}
+
+81. Virtual Thread
+    a. Lightweight Nature
+    b. Reduced Context Switching
+    c. Better Resource Utilization
+    d. Blocking Operations are Cheaper - I/O operations
+    e. Simpler Concurrency Model
+
+82. Tracing on microservices
+    a. Distributed Tracing - OpenTelemetry
+    b. Centralized Logging
+    c. Metrics and Monitoring
+    d. Service mesh (Linkerd & Istio)
+
+83. Stop a Thread
+    a. Using a volatile flag
+    b. Using interrrupt() method
+    c. Shut down Executor Service
+    d. Thread.stop()
+    e. Future.cancel();
+
+84. @SpringBootApplication: This annotation marks the main class of the Spring Boot application. It encapsulates @Configuration,
+    @EnableAutoConfiguration, and @ComponentScan annotations with their default attributes.
+
+    SpringApplication.run(): SpringBootApplication.run() is a method used to launch a Spring Boot application. The method
+    is typically called within the main method of a Spring Boot application class, which is annotated with @SpringBootApplication
+
+

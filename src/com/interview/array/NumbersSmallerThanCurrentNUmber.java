@@ -13,7 +13,7 @@ import java.util.Arrays;
 
 public class NumbersSmallerThanCurrentNUmber {
 
-    private static void numbersSmallerThanCurrentNUmber(){
+    public static void main(String[] args){
         int[] a = {8,1,2,2,3};
         int n = a.length;
 
@@ -34,6 +34,6 @@ public class NumbersSmallerThanCurrentNUmber {
                 res[i] = tmp[a[i]-1];
         }
 
-        System.out.println(Arrays.stream(res).toArray());
+        Arrays.stream(res).forEach(System.out::print);
     }
 }

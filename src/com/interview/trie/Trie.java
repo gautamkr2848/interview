@@ -145,9 +145,7 @@ public class Trie {
             return count;
 
         for(int i=0; i<26; i++){
-            if(root.children[i] != null) {
-                count += countNodes(root.children[i]);
-            }
+            count += countNodes(root.children[i]);
         }
         return count + 1;
     }
