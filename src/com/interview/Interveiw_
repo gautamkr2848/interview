@@ -2,11 +2,11 @@ Paytm - 2
 1. Tree Reverse Order Traversal
 2. Mutex vs Semaphore
 
+    Mutex and semaphore both are kernel resources. A mutex is a locking mechanism used to synchronize access to a resource. Only one task can acquire
+    the mutex. It means there is ownership associated with a mutex, and only the owner can release the lock (mutex).
+
     A mutex is a binary semaphore. But it's not! The purpose of mutex and semaphore are different. Maybe, due to similarity
     in their implementation a mutex would be referred to as a binary semaphore.
-
-    Strictly speaking, a mutex is a locking mechanism used to synchronize access to a resource. Only one task can acquire
-    the mutex. It means there is ownership associated with a mutex, and only the owner can release the lock (mutex).
 
     Semaphore is signaling mechanism (“I am done, you can carry on” kind of signal).
 
@@ -42,6 +42,8 @@ TCS - 1
 6. @ControllerAdvice - It's a specialization of the @Component annotation which allows to handle exceptions across the
     whole application in one global handling component.
 
+    @ExceptionHandler
+
 7. Functional Interface and Lambda Expression
 9. Mysql vs Nosql
 
@@ -49,7 +51,6 @@ TCS - 1
     Cassandra is most suitable for use cases that require high scalability and performance, such as social media applications.
 
 10. OOPS
-11. Overloading vs overriding vs methodhiding
 12. Monolith vs microservices
 13. Singleton vs static method
 
@@ -80,16 +81,11 @@ TCS - 1
 18. Map internal implementation - https://www.geeksforgeeks.org/internal-working-of-hashmap-java/
 
 19. String immutability
-
-        a. Security: parameters are typically represented as String in network connections, database connection urls,
-           usernames/passwords etc. If it were mutable, these parameters could be easily changed.
-        b. Synchronization and concurrency: making String immutable automatically makes them thread safe thereby solving the
-           synchronization issues.
-        c. Performance: We used to store string in a String pool. String pool improves efficiency by reducing heap memory.
-            The JVM verifies if the value already exists inside the String pool when we want to declare a new String object.
-            If it already exists, the new object is given the same value. If two objects have same value (a="test", and
-            b="test") and thus you need only one string object (for both a and b, these two will point to the same object).
-        d. Immutability gives the security of loading the correct class by Classloader.
+        1. Security: Immutable objects are inherently thread-safe, as their state cannot be changed after creation. If it were mutable, these parameters could be easily changed.
+        2. Caching and Reuse: Because strings are immutable, they can be cached for reuse. The Java String Pool takes advantage of this by storing literals and reusing them, reducing memory usage and improving performance.
+        3. Hash Code Caching: Since the hash code of an immutable object doesn't change, it can be cached the first time it is computed. This is particularly useful for strings, which are often used as keys in hash-based collections like HashMap
+        4. Consistent Behavior: Immutable objects always represent the same value once created, ensuring consistent behavior throughout their lifecycle.
+        5. String Pooling: The Java String Pool works because strings are immutable. This pool allows for efficient memory usage and faster string creation by reusing instances of strings that have already been created.
 
 Bandhoo - 2
 1. String reverse using recurssion
@@ -104,7 +100,7 @@ UpGrad - 2
 UpLoan - 3
 1. Mifos & Finrect
 2. Count vowels in string
-3. Abstraction & Encapulation
+3. Abstraction & Encapsulation
 4. Polymorphism
 7. Normalization
 9. Abstract Class vs Interface
@@ -230,7 +226,7 @@ Informatica - 4
 6. Aspect Oriented Programming
 9. Comparable
 11. Multithreading
-14. Rejected / Not Accepted
+14. Not Accepted
 
 Jupiter Money - 1
 1. Min Cost Path
@@ -258,18 +254,16 @@ Quinbay - 3
 1. LinkedHashMap implementation
 
 Nike - 4
-2. Missing Number from array
-3. Mysql and Elastic search
-4. Behavioural Discussion
+1. Missing Number from array
+2. Mysql and Elastic search
+3. Behavioural Discussion
 
 Dailyhunt - 3
 1. print even odd
 2. Builder Pattern
-
     Builder is a design pattern that allows you to avoid having constructors with a long list of parameters, not all of
     which are required. It allows you to build instances of a certain object in a more flexible way, since it lets you
     configure only those attributes that are strictly necessary.
-
 3. Got the offer
 4. Joined on 10th Jan 2022
 

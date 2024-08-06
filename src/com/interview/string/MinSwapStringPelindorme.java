@@ -76,38 +76,4 @@ public class MinSwapStringPelindorme {
             return false;
         return true;
     }
-
-
-    public int minSwap_2(String s) {
-
-        int left = 0;
-        int right = s.length() - 1;
-        int result = 0;
-
-        if(!isValid(s))
-            return -1;
-
-        while (left < right) {
-            int l = left, r = right;
-            while (s.charAt(l) != s.charAt(r))
-                r--;
-
-            if (l == r) {   // when we found odd element
-                char ch1 = s.charAt(r), ch2 = s.charAt(r+1);
-                s = s.substring(0, r) + ch2 + ch1 + s.substring(r + 2);
-                result++;
-                continue;
-            } else {    // Normal element
-                while (r < right) {
-                    char ch1 = s.charAt(r), ch2 = s.charAt(r+1);
-                    s = s.substring(0, r) + ch2 + ch1 + s.substring(r + 2);
-                    result++;
-                    r++;
-                }
-            }
-            left++;
-            right--;
-        }
-        return result;
-    }
 }

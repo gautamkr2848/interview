@@ -18,8 +18,7 @@ public class a_GenerateParenthesis {
         List<String> result = new ArrayList<>();
         backtrack(result, "", open, close, n);
 
-        for(int i=0; i<result.size(); i++)
-            System.out.println(result.get(i));
+        result.stream().forEach(System.out::println);
     }
 
     private static void backtrack(List<String> result, String cur, int open, int close, int n){

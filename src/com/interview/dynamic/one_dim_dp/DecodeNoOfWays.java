@@ -32,6 +32,6 @@ public class DecodeNoOfWays {
     }
 
     public static void main(String[] args) {
-        System.out.println(numDecodings("0123"));
+        System.out.println(numDecodings("11"));
     }
 }

@@ -9,13 +9,29 @@ package com.interview.miscellaneous;
 
 public class  SumOfConsecutives {
 
-    public void sumOfConsecutives(){
+    public static void main(String[] args) {
         int n = 15;
-        int count = 0;
-        for (int i = 1; (i * (i + 1))/2 <  n; i++){
-            float a = (float) ((1.0 * n-(i * (i + 1)) / 2) / (i + 1));
-            if (a-(int)a == 0.0)
+
+        int[] a = new int[n];
+        for(int i=1; i<=n; i++)
+            a[i-1] = i;
+
+        int currSum = 0, count = 0, j=0;
+        for(int i=0; i<n; i++) {
+            currSum = currSum + a[i];
+            if(currSum == n)
                 count++;
+
+            if(a[i] == n)
+                count--;
+
+            while (currSum > n) {
+                currSum = currSum - a[j];
+                j++;
+
+                if(currSum == n)
+                    count++;
+            }
         }
         System.out.println(count);
     }

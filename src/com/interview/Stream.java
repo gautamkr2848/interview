@@ -5,7 +5,7 @@ Convert Object into Stream
 
     list.stream()
 
-    s.chars().stream()
+    s.chars().stream().mapToObj(x -> x)
 
     Arrays.stream(arr)
 
@@ -17,15 +17,11 @@ Java Stream Operations
 
         Collect
 
-        Filter
-
-        sorted
-
         findFirst
 
         subList()
 
-        Count
+        Count()
 
         min()
 
@@ -46,6 +42,10 @@ Java Stream Operations
         distinct
 
         flatMap
+
+        Filter
+
+        sorted
 
         skip(3)
 
@@ -92,11 +92,11 @@ public class Stream {
                 .sorted((i1, i2) -> i1.getValue().compareTo(i2.getValue()))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
-        // Will return departmrnt with max entry
-        //list.stream().collect(Collectors.groupingBy(x->x.dept, Collectors.counting())).entrySet().stream().max(Map.Entry.comparingByValue()).get();
+        // Will return department with max entry
+        // list.stream().collect(Collectors.groupingBy(x->x.dept, Collectors.counting())).entrySet().stream().max(Map.Entry.comparingByValue()).get();
 
         // Gender wise age average
-        //Map<String, Double> mapAvgAge = list.stream()
+        // Map<String, Double> mapAvgAge = list.stream()
         //    .collect(Collectors.groupingBy(Student::getGender, Collectors.averagingInt(Student::getAge)));
 
         // Dept wise rank average
@@ -112,17 +112,30 @@ public class Stream {
 
         // First Unique Character in a String
         // int a = s.chars().mapToObj(x -> x)
-        // .collect(Collectors.groupingBy(x->x, Collectors.counting())).entrySet()
+        // .collect(Collectors.groupingBy(x->x, LinkedHashMap::new, Collectors.counting())).entrySet()
         // .stream().filter(x -> x.getValue() == 1).findFirst().get().getKey();
 
+        // Array product except self
+        // int[] a = {2, 6, 1, 9};
+        // Arrays.stream(a).map(x -> Arrays.stream(a).filter(y -> x != y).reduce(1, (y, z) -> y * z)).forEach(System.out::println);
+
+
+        // Intersection of two lists
+
+//        List<Integer> intList1 = Arrays.asList(2, 4, 5, 6, 8);
+//        List<Integer> intList2 = Arrays.asList(2, 4, 5, 6, 8);
+//
+//        List<Integer> res = intList1.stream()
+//                .filter(intList2::contains)
+//                .collect(Collectors.toList());
+
+        // Second smallest elements
+        // Optional<Integer> res = list.stream().distinct().sorted().skip(1).findFirst();
 
     }
 
     public List<String> flatMap(List<List<String>> ll) {
-
-        return ll.stream()
-                .flatMap(Collection::stream).collect(Collectors.toList());
-
+        return ll.stream().flatMap(Collection::stream).collect(Collectors.toList());
     }
 
     private void method1() {
@@ -171,4 +184,5 @@ public class Stream {
                 .collect(Collectors.summarizingDouble(x -> x));
         System.out.println(stats.toString());
     }
+
 }

@@ -22,7 +22,6 @@ public class Calculator {
 
                 if(!operator.isEmpty()) {
 
-
                     char c = operator.peek();
                     if (c == '*' || c == '/') {
                         operator.pop();

@@ -5,7 +5,7 @@ The 5 strings are 000, 001, 010, 100, 101*/
 
 public class ConsecutiveOneNotAllowed {
 
-    private void countStrings(int n) {
+    private static void countStrings(int n) {
         int a = 1;
         int b = 1;
         for (int i = 1; i < n; i++) {
@@ -17,7 +17,7 @@ public class ConsecutiveOneNotAllowed {
     }
 
     public static void main(String[] args) {
-
+        countStrings(5);
     }
 
     public void consecutiveOneNotAllowed(){

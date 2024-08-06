@@ -14,12 +14,12 @@ public class NonOverlappingInterval {
 
         Collections.sort(pairs, (o1, o2) -> o1.y.compareTo(o2.y));
 
-        int count = 1, max = pairs.get(0).y;
+        int count = 1, limit = pairs.get(0).y;
 
         for(int i=1; i<pairs.size(); i++) {
-            if(pairs.get(i).x >= max) {
+            if(pairs.get(i).x >= limit) {
                 count++;
-                max = pairs.get(i).y;
+                limit = pairs.get(i).y;
             }
         }
 

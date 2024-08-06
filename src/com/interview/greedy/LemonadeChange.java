@@ -21,7 +21,6 @@ public class LemonadeChange {
                 if((ten >= 1 && five >= 1)) {
                     ten--;
                     five--;
-                    continue;
                 } else if((ten ==0 && five >= 3)){
                     five = five - 3;
                 }else

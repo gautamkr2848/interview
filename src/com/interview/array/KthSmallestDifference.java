@@ -23,12 +23,15 @@ public class KthSmallestDifference {
             }
         }
         System.out.println(pq.poll());
+
+        // Another method
+        System.out.println(kthDiff(a, a.length, k));
     }
 
     // Sort the array
     // Find min diff and max diff
     // Iterate over min -> max, using left and right pointer
-    // For mid, find the total diff count equal to mid
+    // For mid, find the total diff count equal to less than mid
     // If count < k, low = mid + 1
     // Else high = mid
 
@@ -62,17 +65,11 @@ public class KthSmallestDifference {
 
     public static int countPairs(int[] a, int n, int mid) {
         int res = 0, value;
-        for(int i = 0; i < n; i++)
-        {
-            // Upper bound returns pointer to position
-            // of next higher number than a[i]+mid in
-            // a[i..n-1]. We subtract (ub + i + 1) from
-            // this position to count
-            if(a[i]+mid>a[n-1])
-                res = res + (n-(i+1));
-            else
-            {
-                int ub = upperbound(a, n, a[i]+mid);
+        for(int i = 0; i < n; i++) {
+            if(a[i] + mid > a[n-1])
+                res = res + n - (i+1);
+            else {
+                int ub = upperbound(a, n, a[i] + mid);
                 res = res + (ub- (i+1));
             }
         }

@@ -2,7 +2,7 @@ package com.interview.miscellaneous;
 
 public class CountPossibleDecodings {
 
-    public void countPossibleDecodings(){
+    public static void main(String[] args){
         int digits[] = {'1','2','3','4'};
         int count[] = new int[digits.length + 1];
         count[0] = 1;

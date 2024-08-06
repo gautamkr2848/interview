@@ -3,6 +3,8 @@ package com.interview.array;
 // Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the
 // elements may be changed. Then return the number of elements in nums which are not equal to val.
 
+import java.util.Arrays;
+
 public class RemoveElement {
 
     public static void removeElements() {
@@ -19,10 +21,6 @@ public class RemoveElement {
 
         for(int k=0; k<i; k++)
             System.out.print(arr[k] + " ");
-    }
-
-    public static void main(String[] args) {
-        removeElements();
     }
 
     public void removeElements_2() {
@@ -48,5 +46,14 @@ public class RemoveElement {
 
         for(int i=0; i<left; i++)
             System.out.print(arr[i] + " ");
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {5, 5, 1, 4, 5, 3, 5, 8};
+        int val = 5;
+
+        Arrays.stream(arr).filter(x -> x != val).forEach(System.out::print);
+        System.out.println();
+        Arrays.stream(arr).distinct().forEach(System.out::print);
     }
 }

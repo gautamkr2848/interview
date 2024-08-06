@@ -153,12 +153,13 @@ where prevDiff is max(profit[i-1][j] – price[j]) for all j in range [0, i-2]
     }
 
     public static void main(String[] args) {
-        int price[] = {90, 80, 70, 60, 50};
-        System.out.println(maxtwobuysell(price));
+        int price[] = {3, 1, 6, 1, 2, 4};
+        System.out.println(maxProfit(price));
     }
 
-    public int maxProfit(int[] prices) {
-        int sell = 0, prev_sell = 0, buy = Integer.MIN_VALUE, prev_buy;
+    // With cooldown period
+    public static int maxProfit(int[] prices) {
+        int sell = 0, prev_sell = 0, buy = Integer.MIN_VALUE, prev_buy = Integer.MIN_VALUE;
         for (int price : prices) {
             prev_buy = buy;
             buy = Math.max(prev_sell - price, prev_buy);

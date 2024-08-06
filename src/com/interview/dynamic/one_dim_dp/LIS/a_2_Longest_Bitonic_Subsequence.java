@@ -44,4 +44,10 @@ public class a_2_Longest_Bitonic_Subsequence {
 
         return maxi;
     }
+
+    public static void main(String[] args) {
+        int[] arr = {50,3,10,7,40,80, 60, 55, 65, 45};
+        int n = arr.length;
+        System.out.println(longestBitonicSequence(arr, n));
+    }
 }

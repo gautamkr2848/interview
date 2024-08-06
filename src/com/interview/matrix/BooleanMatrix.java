@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class BooleanMatrix {
 
-    public void booleanMatrix(){
+    public static void booleanMatrix(){
         int mat[][] = { {1, 0, 0, 1},
                         {0, 0, 1, 0},
                         {0, 0, 0, 0}};
@@ -39,8 +39,13 @@ public class BooleanMatrix {
 
         for(int i=0; i<m; i++){
             for(int j=0; j<n; j++){
-                System.out.println(mat[i][j]);
+                System.out.print(mat[i][j] + " ");
             }
+            System.out.println();
         }
+    }
+
+    public static void main(String[] args) {
+        booleanMatrix();
     }
 }

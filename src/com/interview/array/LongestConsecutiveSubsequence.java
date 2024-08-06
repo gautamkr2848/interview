@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class LongestConsecutiveSubsequence {
 
-    public void longestConsecutiveSubsequence(){
+    public static void main(String[] args){
         int[] a = {3, 2, 5, 11, 6, 0};
         int n = a.length;
         Arrays.sort(a);

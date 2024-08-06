@@ -3,6 +3,14 @@ package com.interview.array.subArray;
 import java.util.HashMap;
 import java.util.Map;
 
+// Input: N = 3, K = 2, arr[] = { 2, 1, 2 }
+//Output: 3
+//Explanation: We can pick all of them
+//
+//Input: N = 6, K = 1, arr[]  = { 0, 1, 2, 2, 2, 2 }
+//Output: 4
+//Explanation: It’s optimal to pick from index 2(0-indexed) [2, 3, 4, 5].
+
 public class FruitBasket {
 
     int totalFruit(int[] fruits) {

@@ -8,15 +8,16 @@ public class d_RootToLeaf {
     Node maxLeaf=null;
 
     public void maxPathSumRootToLeafUtil(Node root, int sum) {
-        if (root != null) {
-            sum = sum + root.key;
-            if (sum > maxSum && root.left == null && root.right == null) {
-                maxLeaf = root;
-                maxSum = sum;
-            }
-            maxPathSumRootToLeafUtil(root.left, sum);
-            maxPathSumRootToLeafUtil(root.right, sum);
+        if (root == null)
+            return;
+
+        sum = sum + root.key;
+        if (sum > maxSum && root.left == null && root.right == null) {
+            maxLeaf = root;
+            maxSum = sum;
         }
+        maxPathSumRootToLeafUtil(root.left, sum);
+        maxPathSumRootToLeafUtil(root.right, sum);
     }
 
     public Boolean path(Node root, Node leaf){      //leaf = maxLeaf

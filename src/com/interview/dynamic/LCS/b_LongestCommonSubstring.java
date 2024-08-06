@@ -25,7 +25,7 @@ The longest common substring is “abcd” and is of length 4.
 
 public class b_LongestCommonSubstring {
 
-    public void lcs(String a, String b){
+    public static void lcs(String a, String b){
         int m = a.length(), n = b.length();
         int t[][] = new int[m+1][n+1];
         int length = 0, end = m;
@@ -43,5 +43,9 @@ public class b_LongestCommonSubstring {
             }
         }
         System.out.println(a.substring(end - length, end));
+    }
+
+    public static void main(String[] args) {
+        lcs("geeks", "skeeg");
     }
 }

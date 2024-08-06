@@ -14,8 +14,8 @@ import java.util.Arrays;
 public class  c_CoinChangeMinNumberCoins {
 
     public static void coinChangeMinNumberCoins(){
-        int[] coinArray = {9, 10, 20, 5};
-        int sum = 45;
+        int[] coinArray = {25, 10, 5};
+        int sum = 30;
         int n = coinArray.length;
         int[][] t = new int[n+1][sum+1];
 
@@ -58,10 +58,33 @@ public class  c_CoinChangeMinNumberCoins {
     }
 
     public static void main(String[] args) {
-        int arr[] =  {9, 10, 20, 5};
+        int arr[] =  {25, 5, 10};
         int n = arr.length-1;
-        int k = 45;
+        int k = 30;
         //System.out.println(minCoins(arr, k, n));
+        //coinChangeMinNumberCoins();
         coinChangeMinNumberCoins();
+    }
+
+    public static int minCoinsUtil(int[] coins, int m, int V, int[] dp) {
+
+        if (V == 0)
+            return 0;
+
+        if (dp[V] != -1)
+            return dp[V];
+
+        int res = Integer.MAX_VALUE;
+
+        for (int i = 0; i < m; i++) {
+            if (coins[i] <= V) {
+                int sub_res = minCoinsUtil( coins, m, V - coins[i], dp);
+
+                if (sub_res != Integer.MAX_VALUE && sub_res + 1 < res)
+                    res = sub_res + 1;
+            }
+        }
+        dp[V] = res;
+        return res;
     }
 }

@@ -18,15 +18,24 @@ public class h_MideanOfRunningInt {
     // maxHeap size can't be less than minHeap size
     // maHeap size either equal or only 1 greater than minHeap size
 
-    PriorityQueue<Integer> maxHeap;
-    PriorityQueue<Integer> minHeap;
+    static PriorityQueue<Integer> maxHeap;
+    static PriorityQueue<Integer> minHeap;
+
+    public static void main(String[] args) {
+        h_MideanOfRunningInt h = new h_MideanOfRunningInt();
+        int[] a = {5, 15, 1, 3};
+        for(int i=0; i<a.length; i++) {
+            insert(a[i]);
+            System.out.println(median());
+        }
+    }
 
     public h_MideanOfRunningInt(){
         maxHeap = new PriorityQueue<>(Collections.reverseOrder());      //left side
         minHeap = new PriorityQueue<>();        //right side
     }
 
-    public void insert(Integer n) {
+    public static void insert(Integer n) {
         if(maxHeap.isEmpty() || maxHeap.peek() >= n)
             maxHeap.add(n);
         else
@@ -38,7 +47,7 @@ public class h_MideanOfRunningInt {
             maxHeap.add(minHeap.poll());
     }
 
-    public double median(){
+    public static double median(){
         if(maxHeap.size() == minHeap.size())
             return (maxHeap.peek() + minHeap.peek()) / 2.0;
         else

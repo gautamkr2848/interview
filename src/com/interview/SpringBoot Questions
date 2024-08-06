@@ -1,0 +1,48 @@
+1. Logging tool - Slf4J, Log4j2, Logback
+2. Spring boot dependency management
+3. What happens if two dependency having conflicting versions
+4. Request Mapping vs Get Mapping
+    @GetMapping - Newer, Only on method level
+    @RequestMapping(method = RequestMethod.GET) - Applicable on both class and method level
+
+5. Embedded Containers - tomcat and Jetty
+6. Code coverage - Jococo, SonarQube, Jenkins
+7. @SpringBootTest -
+8. Get Active profile
+9. logging.level.rule - debug
+10 status codes
+    200	OK	The request was successfully completed.
+    201	Created	A new resource was successfully created.
+    202 Accepted
+
+    400	Bad Request	The request was invalid.
+    401	Unauthorized	The request did not include an authentication token or the authentication token was expired.
+    403	Forbidden	The client did not have permission to access the requested resource.
+    404	Not Found	The requested resource was not found.
+    405	Method Not Allowed	The HTTP method in the request was not supported by the resource. For example, the DELETE method cannot be used with the Agent API.
+
+    500	Internal Server Error	The request was not completed due to an internal error on the server side.
+    503	Service Unavailable	The server was unavailable.
+
+11. Constructor injection is preferred over setter injection because:
+
+    It ensures compile-time safety by requiring all dependencies to be provided at object creation before objects are getting used.
+    Objects remain immutable after creation, improving thread safety and simplifying state management.
+
+    If we use both, setter injection will be used
+
+12. Reflection is an API that is used to examine or modify the behavior of methods, classes, and interfaces at runtime.
+13. Spring Boot uses Logback as the default logging framework.
+
+1. What is java memory model? Explain differences between pre java 8 and post java 8 memory model.
+2. What is a garbage collector? Explain all GCs upto java latest stable release. What is mark and sweep algorithm in GC?
+3. Write a Fibonnaci calculator using a ForkJoinPool.
+4. Write a ConcurrentQueue using wait and notify.
+5. Give a stream of employees having id and name, using Java streams, give me a map where keys will be first letter of the name and value will be a set of employee names starting with that letter.
+
+
+1. What is application context? What is web application context and dispatcher servlet? How are they related?
+2. How do I create my own spring boot "starter".
+3. Explain step by step how will you write a unit test for a TODO app created with spring boot.
+4. I want to log the name of the method which gets executed when a route path of a particular controller gets called. How do I design such a solution without code repetition (Use AOP)
+5. What is Isolation and propagation in a database transaction? What is locking? Why is it needed? Explain a few locking mechanisms!

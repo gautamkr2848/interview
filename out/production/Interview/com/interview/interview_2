@@ -6,7 +6,7 @@ Fisdom - 2
 2. Design infinite login page
 3. Asymptotic notation
 
-Oracle - 4
+Oracle - 5
 1. Sorted Array Square
 2. Print odd Even using two threads
 3. Parenthesis Check
@@ -14,15 +14,23 @@ Oracle - 4
 5. Uber design pattern
 6. Stock broker system design
 7. Design Google Doc
+8. Behavioral
 
 Saviynt - 1
 1. Oops
 2. Sort map based on value
 3. Longest common prefix
 
-Mimecast - 2
+Mimecast - 3
 1. Kafka Assignment
 2. Project Discussion
+3. Equals() and HashCode()
+4. ArrayList() vs LinkedList()
+5. Kafka Consumer Group offset updation, SQS Visibility timeout
+6. SQS - FIFO
+7. Overloading vs overriding vs method hiding
+8. Static class
+9. Got the offer
 
 Bristlecone - 1 (Posotion on Hold)
 1. Overriding => parent ref used to call child method
@@ -42,31 +50,126 @@ Papaya Global - 2
 4. Spring @Transaction Internal Working
 5. Use of Runnable
 
-Rakuten - 1
+Rakuten - 4
 1. Design Controller class
 2. Design Stock broker
 3. Stream API java 8
 4. Remove duplicates from string
+5. Array sorting
+6. Java oops
+7. Synchronized vs concurrent hashmap
+8. Transaction tracing system
 
-Acesoftlabs - 1
+Acesoftlabs - 2
 1. Search in rotated array
 2. Level order tree traversal
 3. Number of occurrence in a sorted array
 4. Three sum k count
 5. Kafka exception handling
+6. Delete leaf nodes from bottom to top in tree
 
-synechron - 1
+Synechron - 5
 1. Java 8
 2. @Component - It's an annotation used to tell spring that it's a Spring-managed component, component annotation is used for automatic bean discovery and configuration
 3. @Contitional - @ConditionalOnClass, @ConditionalOnMissingBean, @ConditionalOnProperty, @ConditionalOnBean,
 4. SOLID
 5. Cyclic dependency - Constructor / Setter Injection, Lazy Injection
 6. Spring Features
+7. Fail safe vs Fail fast
+8. Spring Actuator
+9. Primary key vs unique key
+10. save vs saveAll
+11. Docker file
+12. kafka message order
+13. LocalDateTime vs DateTime
+14. Executor Framework
+15. RestTemplate vs WebClient vs HttpClient
+16. Microservices Communication
+17. Subset max and min sum of length k
+18. Project Discussion
 
-super money - 1
+Super.money - 3
 1. kth smallest differences
+2. Design Flipkar
+3. Design Google Calender
 
-PowerPod - 1
+PowerPod - 2
 1. Design Payment System
+2. Why do you want to join early based startup?
 
+Redblock - 3
+1. IPV4 vs IPV6
+2. Symmetric encryption vs asymmetric encryption
+3. Deadlock with avoidance
+4. Abstract class vs Interface
+5. Exception vs Error
+6. Checked vs Unchecked
+8. Indexing vs Partioning vs Sharding
+7. Three sum k
+8. Integer to Roman
+9. Microservices communication
+10. Design Uber
 
+Cyble - 1
+1. Mysql vs NoSql
+
+TCS - 1
+1. Find missing number
+2. Stream API - Filter by name & then increase one value by 10%
+3. Left join - customers who didn't order
+4. Atomic Integer - This is useful in concurrent programming when you need to update a counter or a similar numeric
+value safely across multiple threads without using synchronization. Since it uses low-level CPU instructions for
+atomicity, it avoids the performance overhead associated with locking.
+5. Immutable Class
+6. Selected but not able to meet expectations
+
+IBS Software - 4
+1. String reverse using recursion
+2. Dependency Injection
+3. Inner join
+4. Stream API
+5. Atomic Variable
+6. How to make http request to https in Springboot
+7. Jenkins Job vs pipeline - Jenkins Job and Jenkins Pipeline are basically the same. In a pipeline you define the steps of your job.
+8. Second max from array
+9. @Qualifier
+10. Singleton
+11. Immutable
+12. String Immutability
+13. Stream API
+14. @Component & @Bean
+15. UnmodifiableList internal working
+16. Method reference
+17. char array over string
+18. Count of employee dept wise having salary > 100
+19. Project Design and use cases
+
+Syndigo - 5
+1. Oops Concept
+2. Comparable vs Comparator
+3. Multithreading
+4. Executor Framework
+5. String Anagram
+6. Singleton
+7. Immutable
+8. Reentrant Lock
+9. Project Discussions
+10. Offer Discussion - Got the offer
+
+Park Plus - 1
+1. Longest Increasing Subsequence
+2. Indexing & Clustering Indexing
+3. Not proceeding due to Gurugram location
+
+Oracle - 4
+1. WildCardPattern matching
+2. Project Deep dive
+3. Binary Search
+4. Second max from array
+5. Behavioural Discussion
+6. Max sum sub matrix
+
+Razorpay - 2
+1. Design Cab Booking System
+2. Design Notification System
+3. Database sharding

@@ -50,8 +50,9 @@ public class OddEven {
 
 class Test{
     static int start = 0;
-    static int N = 8;
-    public void printNumber(int threadId, int numberOfThreads) {
+    static int N = 9;
+    static int numberOfThreads = 3;
+    public void printNumber(int threadId) {
         synchronized (this) {
             while(start < N) {
                 while (start % numberOfThreads != threadId) {
@@ -69,9 +70,9 @@ class Test{
 
     public static void main(String[] args) {
         Test t = new Test();
-        Thread t1 = new Thread(() -> t.printNumber(0, 3));
-        Thread t2 = new Thread(() -> t.printNumber(1, 3));
-        Thread t3 = new Thread(() -> t.printNumber(2, 3));
+        Thread t1 = new Thread(() -> t.printNumber(0));
+        Thread t2 = new Thread(() -> t.printNumber(1));
+        Thread t3 = new Thread(() -> t.printNumber(2));
 
         t1.start();
         t2.start();

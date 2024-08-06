@@ -6,90 +6,74 @@ package com.interview.systemDesign.DesignPattern.structural;
 import java.util.ArrayList;
 import java.util.List;
 
+// Step-by-Step Implementation
+// Component Interface: Define the interface for all objects in the composition.
+// Leaf Class: Represents the leaf objects in the composition (e.g., File).
+// Composite Class: Represents a composite object (e.g., Directory) that can have children.
+
 public class Comosite {
 
     public static void main (String[] args) {
-        Developer dev1 = new Developer(100, "Lokesh Sharma", "Pro Developer");
-        Developer dev2 = new Developer(101, "Vinay Sharma", "Developer");
-        CompanyDirectory engDirectory = new CompanyDirectory();
-        engDirectory.addEmployee(dev1);
-        engDirectory.addEmployee(dev2);
+        // Creating leaf objects (files)
+        File file1 = new File("file1.txt");
+        File file2 = new File("file2.txt");
+        File file3 = new File("file3.txt");
 
-        Manager man1 = new Manager(200, "Kushagra Garg", "SEO Manager");
-        Manager man2 = new Manager(201, "Vikram Sharma ", "Kushagra's Manager");
+        // Creating composite objects (directories)
+        Directory dir1 = new Directory("dir1");
+        Directory dir2 = new Directory("dir2");
 
-        CompanyDirectory accDirectory = new CompanyDirectory();
-        accDirectory.addEmployee(man1);
-        accDirectory.addEmployee(man2);
+        // Adding files to directory
+        dir1.addComponent(file1);
+        dir1.addComponent(file2);
 
-        CompanyDirectory directory = new CompanyDirectory();
-        directory.addEmployee(engDirectory);
-        directory.addEmployee(accDirectory);
-        directory.showEmployeeDetails();
+        // Adding directory to another directory
+        dir2.addComponent(dir1);
+        dir2.addComponent(file3);
+
+        // Showing details
+        dir2.showDetails();
     }
 }
 
-/* - o/p
-100 Lokesh Sharma Pro Developer
-101 Vinay Sharma Developer
-200 Kushagra Garg SEO Manager
-201 Vikram Sharma  Kushagra's Manager
-*/
-
-interface Employee {
-    void showEmployeeDetails();
+interface FileSystemComponent {
+    void showDetails();
 }
 
-class CompanyDirectory implements Employee {
-    private List<Employee> employeeList = new ArrayList<Employee>();
+class File implements FileSystemComponent {
+    private String name;
+
+    public File(String name) {
+        this.name = name;
+    }
 
     @Override
-    public void showEmployeeDetails() {
-        for(Employee emp:employeeList)
-        {
-            emp.showEmployeeDetails();
+    public void showDetails() {
+        System.out.println("File: " + name);
+    }
+}
+
+class Directory implements FileSystemComponent {
+    private String name;
+    private List<FileSystemComponent> components = new ArrayList<>();
+
+    public Directory(String name) {
+        this.name = name;
+    }
+
+    public void addComponent(FileSystemComponent component) {
+        components.add(component);
+    }
+
+    public void removeComponent(FileSystemComponent component) {
+        components.remove(component);
+    }
+
+    @Override
+    public void showDetails() {
+        System.out.println("Directory: " + name);
+        for (FileSystemComponent component : components) {
+            component.showDetails();
         }
-    }
-
-    public void addEmployee(Employee emp) {
-        employeeList.add(emp);
-    }
-
-    public void removeEmployee(Employee emp) {
-        employeeList.remove(emp);
-    }
-}
-
-class Developer implements Employee {
-    private String name;
-    private long empId;
-    private String position;
-
-    public Developer(long empId, String name, String position) {
-        this.empId = empId;
-        this.name = name;
-        this.position = position;
-    }
-
-    @Override
-    public void showEmployeeDetails() {
-        System.out.println(empId+" " +name+ " " + position );
-    }
-}
-
-class Manager implements Employee {
-    private String name;
-    private long empId;
-    private String position;
-
-    public Manager(long empId, String name, String position) {
-        this.empId = empId;
-        this.name = name;
-        this.position = position;
-    }
-
-    @Override
-    public void showEmployeeDetails() {
-        System.out.println(empId+" " +name+ " " + position );
     }
 }
