@@ -112,8 +112,8 @@ public class Stream {
 
         // First Unique Character in a String
         // int a = s.chars().mapToObj(x -> x)
-        // .collect(Collectors.groupingBy(x->x, LinkedHashMap::new, Collectors.counting())).entrySet()
-        // .stream().filter(x -> x.getValue() == 1).findFirst().get().getKey();
+        //      .collect(Collectors.groupingBy(x->x, LinkedHashMap::new, Collectors.counting())).entrySet()
+        //      .stream().filter(x -> x.getValue() == 1).findFirst().get().getKey();
 
         // Array product except self
         // int[] a = {2, 6, 1, 9};
